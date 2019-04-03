@@ -1,0 +1,89 @@
+{
+	"_version": "2.8",
+	"identification": {
+		"id": "30b5207a-b530-4976-a8ee-356580cea54d-1554310942372",
+		"entityType": "bundle"
+	},
+	"payload": {
+		"catalogs": [{
+			"_version": "2.8",
+			"identification": {
+				"id": "defaultCatalogId",
+				"title": "{{title}}",
+				"entityType": "catalog",
+				"i18n": "i18n/defaultCatalogId.properties"
+			},
+			"payload": {
+				"appDescriptors": []
+			}
+		}],
+		"groups": [{
+			"_version": "2.8",
+			"identification": {
+				"id": "defaultGroupId",
+				"title": "{{title}}",
+				"entityType": "group",
+				"i18n": "i18n/defaultGroupId.properties"
+			},
+			"payload": {
+				"tiles": [{
+					"id": "admin_feedtypes-0-1554312774182",
+					"appId": "admin_feedtypes",
+					"intentHintId": "feedTypes-Manage"
+				}]
+			}
+		}, {
+			"_version": "2.0",
+			"identification": {
+				"id": "contentprovider",
+				"title": "{{title}}",
+				"entityType": "group",
+				"i18n": "i18n/contentprovider.properties"
+			},
+			"payload": {
+				"tiles": [{
+					"id": "admin_errormessages-0-1554312774183",
+					"appId": "admin_errormessages",
+					"intentHintId": "errorMessages-Manage"
+				}, {
+					"id": "admin.sapui5-1-1554317025649",
+					"appId": "admin.sapui5",
+					"intentHintId": "SAPUI5-Manage"
+				}]
+			}
+		}],
+		"sites": [{
+			"_version": "2.8",
+			"identification": {
+				"id": "81e298ce-7e38-40be-9371-4df06ea65b48-1554310942372",
+				"entityType": "site",
+				"title": "SAP Fiori launchpad site on Cloud Foundry",
+				"description": "SAP Fiori launchpad site on Cloud Foundry, deployed from SAP Web IDE"
+			},
+			"payload": {
+				"config": {
+					"ushellConfig": {
+						"renderers": {
+							"fiori2": {
+								"componentData": {
+									"config": {
+										"applications": {
+											"Shell-home": {}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"groupsOrder": ["defaultGroupId", "contentprovider"],
+				"sap.cloud.portal": {
+					"config": {
+						"theme.id": "sap_belize",
+						"theme.active": ["sap_belize", "sap_belize_plus", "sap_belize_hcb", "sap_belize_hcw"]
+					}
+				}
+			}
+		}]
+	}
+}

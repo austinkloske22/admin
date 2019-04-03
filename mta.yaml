@@ -12,12 +12,6 @@ modules:
       memory: 256M
     requires:
       - name: admin_html5_repo_runtime
-      - name: srv_api
-        group: destinations
-        properties:
-          forwardAuthToken: true
-          name: srv_api
-          url: '~{url}'
       - name: admin-uaa
       - name: admin_html5_repo_runtime
       - name: node_api
@@ -26,6 +20,14 @@ modules:
           forwardAuthToken: true
           name: node_api
           url: '~{url}'
+      - name: portal_resources_admin
+      - name: srv_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          name: srv_api
+          url: '~{url}'
+      - name: admin-uaa
   - name: admin_ui_deployer
     type: com.sap.html5.application-content
     path: admin_ui_deployer
@@ -41,6 +43,14 @@ modules:
           artifacts:
             - './*'
           target-path: resources/web
+        - name: admin_feedtypes
+          artifacts:
+            - './*'
+          target-path: resources/admin_feedtypes
+        - name: sapui5
+          artifacts:
+            - './*'
+          target-path: resources/sapui5
   - name: admin-db
     type: hdb
     path: db
@@ -93,7 +103,37 @@ modules:
       UAA_SERVICE_NAME: admin-uaa
   - name: web
     type: html5
-    path: admin-web/web
+    path: admin-ui/web
+    build-parameters:
+      builder: grunt
+  - name: admin-flp
+    type: com.sap.portal.content
+    path: admin-flp
+    parameters:
+      stack: cflinuxfs3
+      memory: 128M
+      buildpack: 'https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.6.39/nodejs-buildpack-cflinuxfs3-v1.6.39.zip'
+    requires:
+      - name: portal_resources_admin
+      - name: admin-uaa
+      - name: admin_html5_repo_host
+      - name: admin_ui_deployer
+  - name: admin_feedtypes
+    type: html5
+    path: admin_feedtypes
+    build-parameters:
+      builder: grunt
+    requires:
+      - name: srv_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: '~{url}'
+  - name: sapui5
+    type: html5
+    path: sapui5
     build-parameters:
       builder: grunt
 resources:
@@ -101,11 +141,13 @@ resources:
     parameters:
       service-plan: app-runtime
       service: html5-apps-repo
+      name: admin_html5_repo_runtime
     type: org.cloudfoundry.managed-service
   - name: admin_html5_repo_host
     parameters:
       service-plan: app-host
       service: html5-apps-repo
+      name: admin_html5_repo_host
     type: org.cloudfoundry.managed-service
   - name: admin-hdi-container
     type: com.sap.xs.hdi-container
@@ -122,4 +164,9 @@ resources:
       service-plan: application
       path: ./xs-security.json
       service: xsuaa
+    type: org.cloudfoundry.managed-service
+  - name: portal_resources_admin
+    parameters:
+      service-plan: standard
+      service: portal
     type: org.cloudfoundry.managed-service
