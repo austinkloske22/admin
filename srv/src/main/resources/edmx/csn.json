@@ -1,0 +1,557 @@
+{
+  "namespace": "admin.commonModel",
+  "definitions": {
+    "admin.commonModel.adminKey": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 60,
+      "@cds.persistence.name": "ADMIN_COMMONMODEL_ADMINKEY"
+    },
+    "admin.commonModel.languageCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 2,
+      "@cds.persistence.name": "ADMIN_COMMONMODEL_LANGUAGECODE"
+    },
+    "admin.commonModel.description": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 255,
+      "@cds.persistence.name": "ADMIN_COMMONMODEL_DESCRIPTION"
+    },
+    "admin.commonModel.textDetail": {
+      "kind": "entity",
+      "elements": {
+        "UUID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "UUID"
+        },
+        "locale": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "feedType": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "admin.feedType",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "feedType.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "FEEDTYPE"
+        },
+        "errorMessage": {
+          "indexNo": 5,
+          "type": "cds.Association",
+          "target": "admin.errorMessage",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "errorMessage.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "ERRORMESSAGE"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_COMMONMODEL_TEXTDETAIL"
+    },
+    "admin.feedType": {
+      "kind": "entity",
+      "elements": {
+        "UUID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "UUID"
+        },
+        "ID": {
+          "indexNo": 2,
+          "type": "cds.String",
+          "notNull": true,
+          "length": 60,
+          "@cds.persistence.name": "ID"
+        },
+        "textDetails": {
+          "indexNo": 3,
+          "type": "cds.Association",
+          "target": "admin.commonModel.textDetail",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "textDetails.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_FEEDTYPE"
+    },
+    "admin.errorMessage": {
+      "kind": "entity",
+      "elements": {
+        "UUID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "UUID"
+        },
+        "ID": {
+          "indexNo": 2,
+          "type": "cds.String",
+          "notNull": true,
+          "length": 60,
+          "@cds.persistence.name": "ID"
+        },
+        "textDetails": {
+          "indexNo": 3,
+          "type": "cds.Association",
+          "target": "admin.commonModel.textDetail",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "textDetails.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_ERRORMESSAGE"
+    },
+    "CatalogService": {
+      "kind": "service",
+      "@source": "srv/cat-service.cds"
+    },
+    "CatalogService.feedTypes": {
+      "kind": "entity",
+      "source": "admin.feedType",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "@UI.SelectionFields": [
+        {
+          "=": "ID"
+        }
+      ],
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "ID"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>feedType}"
+        }
+      ],
+      "@UI.PresentationVariant.SortOrder": [
+        {
+          "$Type": "Common.SortOrderType",
+          "Property": {
+            "=": "ID"
+          },
+          "Descending": false
+        }
+      ],
+      "@UI.HeaderInfo.TypeName": "{i18n>feedType}",
+      "@UI.HeaderInfo.TypeNamePlural": "{i18n>feedType_Plural}",
+      "@UI.HeaderInfo.Title.Value": {
+        "=": "ID"
+      },
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.FieldGroup#GeneralInformation",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "textDetails/@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        }
+      ],
+      "@UI.FieldGroup#GeneralInformation.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "ID"
+          },
+          "Label": "{i18n>feedType}"
+        }
+      ],
+      "elements": {
+        "UUID": {
+          "origin": "admin.feedType..UUID",
+          "indexNo": 1,
+          "value": {
+            "=": "feedType.UUID"
+          },
+          "key": true,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "UUID"
+        },
+        "ID": {
+          "origin": "admin.feedType..ID",
+          "indexNo": 2,
+          "value": {
+            "=": "feedType.ID"
+          },
+          "type": "cds.String",
+          "notNull": true,
+          "length": 60,
+          "@cds.persistence.name": "ID"
+        },
+        "textDetails": {
+          "origin": "admin.feedType..textDetails",
+          "indexNo": 3,
+          "value": {
+            "=": "feedType.textDetails"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.textDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "textDetails.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_FEEDTYPES"
+    },
+    "CatalogService.errorMessages": {
+      "kind": "entity",
+      "source": "admin.errorMessage",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "@UI.SelectionFields": [
+        {
+          "=": "ID"
+        }
+      ],
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "ID"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>errorMessage}"
+        }
+      ],
+      "@UI.PresentationVariant.SortOrder": [
+        {
+          "$Type": "Common.SortOrderType",
+          "Property": {
+            "=": "ID"
+          },
+          "Descending": false
+        }
+      ],
+      "@UI.HeaderInfo.TypeName": "{i18n>errorMessage}",
+      "@UI.HeaderInfo.TypeNamePlural": "{i18n>errorMessage_Plural}",
+      "@UI.HeaderInfo.Title.Value": {
+        "=": "ID"
+      },
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.FieldGroup",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "textDetails/@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        }
+      ],
+      "@UI.FieldGroup.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "ID"
+          },
+          "Label": "{i18n>errorMessage}"
+        }
+      ],
+      "elements": {
+        "UUID": {
+          "origin": "admin.errorMessage..UUID",
+          "indexNo": 1,
+          "value": {
+            "=": "errorMessage.UUID"
+          },
+          "key": true,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "UUID"
+        },
+        "ID": {
+          "origin": "admin.errorMessage..ID",
+          "indexNo": 2,
+          "value": {
+            "=": "errorMessage.ID"
+          },
+          "type": "cds.String",
+          "notNull": true,
+          "length": 60,
+          "@cds.persistence.name": "ID"
+        },
+        "textDetails": {
+          "origin": "admin.errorMessage..textDetails",
+          "indexNo": 3,
+          "value": {
+            "=": "errorMessage.textDetails"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.textDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "textDetails.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_ERRORMESSAGES"
+    },
+    "CatalogService.textDetails": {
+      "kind": "entity",
+      "source": "admin.commonModel.textDetail",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "locale"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>locale}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "description"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>description}"
+        }
+      ],
+      "@UI.PresentationVariant.SortOrder": [
+        {
+          "$Type": "Common.SortOrderType",
+          "Property": {
+            "=": "locale"
+          },
+          "Descending": false
+        }
+      ],
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.FieldGroup#GeneralInformation",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        }
+      ],
+      "@UI.FieldGroup#GeneralInformation.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "locale"
+          },
+          "Label": "{i18n>locale}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "description"
+          },
+          "Label": "{i18n>description}"
+        }
+      ],
+      "elements": {
+        "UUID": {
+          "origin": "admin.commonModel.textDetail..UUID",
+          "indexNo": 1,
+          "value": {
+            "=": "textDetail.UUID"
+          },
+          "key": true,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "UUID"
+        },
+        "locale": {
+          "origin": "admin.commonModel.textDetail..locale",
+          "indexNo": 2,
+          "value": {
+            "=": "textDetail.locale"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "origin": "admin.commonModel.textDetail..description",
+          "indexNo": 3,
+          "value": {
+            "=": "textDetail.description"
+          },
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "feedType": {
+          "origin": "admin.commonModel.textDetail..feedType",
+          "indexNo": 4,
+          "value": {
+            "=": "textDetail.feedType"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.feedTypes",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "feedType.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "FEEDTYPE"
+        },
+        "errorMessage": {
+          "origin": "admin.commonModel.textDetail..errorMessage",
+          "indexNo": 5,
+          "value": {
+            "=": "textDetail.errorMessage"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.errorMessages",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "errorMessage.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "ERRORMESSAGE"
+        }
+      },
+      "@Common.Label": "{i18n>textDetailService}",
+      "@cds.persistence.name": "CATALOGSERVICE_TEXTDETAILS"
+    }
+  },
+  "version": {
+    "csn": "0.1.0"
+  },
+  "@sql_mapping": "plain"
+}

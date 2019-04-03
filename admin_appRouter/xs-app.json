@@ -1,0 +1,33 @@
+{
+	"welcomeFile": "index.html",
+	"authenticationMethod": "route",
+	"logout": {
+		"logoutPage": "/logout.html",
+		"logoutEndpoint": "/my/logout"
+	},
+	"routes": [{
+		"source": "index.html",
+		"destination": "srv_api",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "/odata/v2/(.*)",
+		"destination": "srv_api",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "../sap/bc/lrep(.*)",
+		"destination": "srv_api",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "/node(.*)",
+		"destination": "node_api",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "^/logout.html$",
+		"localDir": "resources",
+		"authenticationType": "none"
+	}]
+}

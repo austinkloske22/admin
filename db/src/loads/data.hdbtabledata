@@ -1,0 +1,71 @@
+{ 
+	"format_version": 1,
+	"imports": [{
+		"target_table": "ADMIN_FEEDTYPE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "feedtype.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"ID"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"ID": 2
+		}
+	},
+	{
+		"target_table": "ADMIN_ERRORMESSAGE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "errormessage.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"ID"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"ID": 2
+		}
+	},
+	{
+		"target_table": "ADMIN_COMMONMODEL_TEXTDETAIL",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "textdetails.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"LOCALE",
+				"DESCRIPTION"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"LOCALE": 2,
+			"DESCRIPTION": 3
+		}
+	}]
+}

@@ -1,0 +1,125 @@
+ID: admin
+_schema-version: '2.1'
+parameters:
+  deploy_mode: html5-repo
+version: 0.0.1
+modules:
+  - name: admin_appRouter
+    type: approuter.nodejs
+    path: admin_appRouter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: admin_html5_repo_runtime
+      - name: srv_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          name: srv_api
+          url: '~{url}'
+      - name: admin-uaa
+      - name: admin_html5_repo_runtime
+      - name: node_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          name: node_api
+          url: '~{url}'
+  - name: admin_ui_deployer
+    type: com.sap.html5.application-content
+    path: admin_ui_deployer
+    requires:
+      - name: admin_html5_repo_host
+    build-parameters:
+      requires:
+        - name: admin_errormessages
+          artifacts:
+            - './*'
+          target-path: resources/admin_errormessages
+        - name: web
+          artifacts:
+            - './*'
+          target-path: resources/web
+  - name: admin-db
+    type: hdb
+    path: db
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: admin-hdi-container
+  - name: admin-srv
+    type: java
+    path: srv
+    parameters:
+      memory: 1024M
+      disk-quota: 256M
+    provides:
+      - name: srv_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: admin-hdi-container
+        properties:
+          JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml: {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
+      - name: admin-uaa
+    properties:
+      UAA_SERVICE_NAME: admin-uaa
+  - name: admin_errormessages
+    type: html5
+    path: admin_errormessages
+    build-parameters:
+      builder: grunt
+    requires:
+      - name: srv_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: '~{url}'
+  - name: admin-nodejs
+    type: nodejs
+    path: admin-nodejs
+    provides:
+      - name: node_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: admin-hdi-container
+      - name: admin-uaa
+    properties:
+      UAA_SERVICE_NAME: admin-uaa
+  - name: web
+    type: html5
+    path: admin-web/web
+    build-parameters:
+      builder: grunt
+resources:
+  - name: admin_html5_repo_runtime
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: admin_html5_repo_host
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: admin-hdi-container
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: '${service-name}'
+  - name: admin-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: application
+      service: xsuaa
+      path: ./xs-security.json
+  - name: dest_admin
+    parameters:
+      service-plan: application
+      path: ./xs-security.json
+      service: xsuaa
+    type: org.cloudfoundry.managed-service
