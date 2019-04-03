@@ -1,0 +1,2 @@
+# admin
+Skipum Administration Module
