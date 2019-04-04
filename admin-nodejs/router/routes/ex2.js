@@ -32,23 +32,50 @@ module.exports = () => {
 			});
 	});
 	
-	//Simple Database Call Stored Procedure
-	app.get("/procedures", (req, res) => {
+	//Simple Database Select Via Client Wrapper/Middelware - Await
+	app.get("/await", async(req, res) => {
+		try {
+			const dbClass = require(global.__base + "utils/dbPromises");
+			let db = new dbClass(req.db);
+			const statement = await db.preparePromisified(`SELECT SESSION_USER, CURRENT_SCHEMA 
+				            								 FROM "DUMMY"`);
+			const results = await db.statementExecPromisified(statement, []);
+			let result = JSON.stringify({
+				Objects: results
+			});
+			return res.type("application/json").status(200).send(result);
+		} catch (e) {
+			return res.type("text/plain").status(500).send(`ERROR: ${e.toString()}`);
+		}
+	});
+	
+	//Database Call Stored Procedure With Inputs
+	app.get("/get_feedtypetexts_by_id/:ID?", (req, res) => {
 		var client = req.db;
 		var hdbext = require("@sap/hdbext");
-		//(client, Schema, Procedure, callback)
-		hdbext.loadProcedure(client, null, "get_errorMessages_data", (err, sp) => {
+		var FEEDTYPE_ID = req.params.ID;
+		var inputParams = "";
+		if (typeof FEEDTYPE_ID === "undefined" || FEEDTYPE_ID === null) {
+			inputParams = {};
+		} else {
+			inputParams = { 
+				IM_ID: FEEDTYPE_ID 
+			};
+		}
+		
+		//(cleint, Schema, Procedure, callback)
+		hdbext.loadProcedure(client, null, "get_feedtypetexts_by_id", (err, sp) => {
 			if (err) {
 				res.type("text/plain").status(500).send(`ERROR: ${err.toString()}`);
 				return;
 			}
 			//(Input Parameters, callback(errors, Output Scalar Parameters, [Output Table Parameters])
-			sp({}, (err, parameters, results) => {
+			sp(inputParams, (err, parameters, results) => {
 				if (err) {
 					res.type("text/plain").status(500).send(`ERROR: ${err.toString()}`);
 				}
 				var result = JSON.stringify({
-					EX_ERRORMESSAGES: results
+					EX_FEEDTYPETEXTS: results
 				});
 				res.type("application/json").status(200).send(result);
 			});
