@@ -1,5 +1,5 @@
 PROCEDURE "delete_textdetails" ( 
-	in im_uuid nvarchar(255)) 
+	in IM_UUID nvarchar(255)) 
 	LANGUAGE SQLSCRIPT
 	SQL SECURITY INVOKER AS
  BEGIN
@@ -8,19 +8,19 @@ PROCEDURE "delete_textdetails" (
 
  DECLARE EXIT HANDLER FOR lcon_10001    -- RESIGNAL
  BEGIN
-  ex_messages = select 500 as http_status_code, 
+  EX_MESSAGES = select 500 as http_status_code, 
    ::SQL_ERROR_CODE as message, 
    ::SQL_ERROR_MESSAGE as detail from dummy;
  END;
 
  DECLARE EXIT HANDLER FOR SQLEXCEPTION 
  BEGIN
-  ex_messages = select 500 as http_status_code, 
+  EX_MESSAGES = select 500 as http_status_code, 
 	'SQL Exception occurred' as message, 
     'Check Logs for details' as detail from dummy;
  END;
 
- if :im_uuid = ' ' then
+ if :IM_UUID IS NULL then
 	SIGNAL lcon_10001 SET MESSAGE_TEXT = 'Input parameter(s) can not be empty';  
  end if;
  

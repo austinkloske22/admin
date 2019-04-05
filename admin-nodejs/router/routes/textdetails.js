@@ -9,7 +9,7 @@ module.exports = () => {
 		res.send("Hello World Node.js");
 	});
 
-	//Database Call Stored Procedure With Inputs
+	//Get textDetails Database Call With Inputs
 	app.get("/get/:UUID?", (req, res) => {
 		var client = req.db;
 		var hdbext = require("@sap/hdbext");
@@ -44,6 +44,41 @@ module.exports = () => {
 			});
 		});
 	});
+	
+	//Get textDetails Database Call With Inputs
+	app.get("/delete/:UUID?", (req, res) => {
+		var client = req.db;
+		var hdbext = require("@sap/hdbext");
+		var UUID = req.params.UUID;
+		var inputParams = "";
+		var procedure = "";
+		if (typeof UUID === "undefined" || UUID === null) {
+			res.type("text/plain").status(500).send(`ERROR: ${'UUID Required'.toString()}`);
+			return;
+		} else {
+			procedure = "delete_textdetails";
+			inputParams = {
+				IM_UUID: UUID
+			};
+		}
 
+		//(cleint, Schema, Procedure, callback)
+		hdbext.loadProcedure(client, null, procedure, (err, sp) => {
+			if (err) {
+				res.type("text/plain").status(500).send(`ERROR: ${err.toString()}`);
+				return;
+			}
+			//(Input Parameters, callback(errors, Output Scalar Parameters, [Output Table Parameters])
+			sp(inputParams, (err, parameters, results) => {
+				if (err) {
+					res.type("text/plain").status(500).send(`ERROR: ${err.toString()}`);
+				}
+				var result = JSON.stringify({
+					EX_TEXTDETAILS: results
+				});
+				res.type("application/json").status(200).send(result);
+			});
+		});
+	});
 	return app;
 };

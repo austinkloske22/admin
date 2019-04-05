@@ -28,4 +28,28 @@ service CatalogService {
 			DeleteRestrictions: {Deletable: true}
 		}
 	) as projection on commonModel.textDetail;
+	
+	entity  contentActions @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on admin.contentAction;
+	
+	entity  contentSources @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on admin.contentSource;
+	
+	entity  contentSourceActions @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: false},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on admin.contentSourceAction;
 }
