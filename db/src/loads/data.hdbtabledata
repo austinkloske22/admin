@@ -23,10 +23,57 @@
 		}
 	},
 	{
+		"target_table": "ADMIN_ASSIGNMENTMODEL_CONTENTACTIONASSIGNMENT",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentactionassignment.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"ASSIGNMENTUUID",
+				"ID"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"ASSIGNMENTUUID": 2,
+			"ID": 3
+		}
+	},
+	{
 		"target_table": "ADMIN_CONTENTACTION",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "contentaction.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"ID"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"ID": 2
+		}
+	},
+
+	{
+		"target_table": "ADMIN_CONTENTSOURCE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsource.csv",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {

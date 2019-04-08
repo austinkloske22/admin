@@ -1,11 +1,11 @@
 namespace admin.commonModel;
 
 using admin as admin from './data-model';
+using admin.assignmentModel as assignmentModel from './assignment-model';
 
 type adminKey		: String(60);
 type languageCode	: String(2);
 type description	: String(255);
-
 
 entity textDetail {
 	key UUID		: UUID;
@@ -15,4 +15,5 @@ entity textDetail {
     errorMessage	: Association to one admin.errorMessage on errorMessage.UUID = $self.UUID;
     contentSource	: Association to one admin.contentSource on contentSource.UUID = $self.UUID;
     contentAction	: Association to one admin.contentAction on contentAction.UUID = $self.UUID;
+    contentActionAssignment	: Association to one assignmentModel.contentActionAssignment on contentActionAssignment.assignmentUUID = $self.UUID;
 }

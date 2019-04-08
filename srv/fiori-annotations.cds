@@ -21,76 +21,13 @@ annotate CatalogService.feedTypes with @(
 		
 	//Page Facets
 	UI.Facets: [
-		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup#GeneralInformation', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
-	],
-		
-	UI.FieldGroup#GeneralInformation: {
-		Data: [
-			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>feedType}',  }
-		]
-	}
-);
-
-annotate CatalogService.errorMessages with @(
-
-	UI.SelectionFields: [ ID ],
-	
-	// errorMessage List
-	UI.LineItem: [
-		{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>errorMessage}'}
-	],
-		
-	UI.PresentationVariant: {
-		SortOrder: [ {$Type: 'Common.SortOrderType', Property: ID, Descending: false} ]
-	},
-	
-// ---------------------------------------------------------------------------
-// Object Page
-// ---------------------------------------------------------------------------
-	UI.HeaderInfo: {
-		TypeName: '{i18n>errorMessage}',
-		TypeNamePlural: '{i18n>errorMessage_Plural}',
-		Title: {Value: ID}
-	},
-		
-	//Page Facets
-	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
 		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
 	],
 		
 	UI.FieldGroup: {
 		Data: [
-			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>errorMessage}',  }
-		]
-	}
-	
-);
-
-annotate CatalogService.textDetails with @(
-
-	UI.LineItem: [
-		{$Type: 'UI.DataField', Value: locale, "@UI.Importance": #High, Label: '{i18n>locale}'},
-		{$Type: 'UI.DataField', Value: description, "@UI.Importance": #High, Label: '{i18n>description}'}
-	],
-		
-	UI.PresentationVariant: {
-		SortOrder: [ {$Type: 'Common.SortOrderType', Property: locale, Descending: false} ]
-	},
-	
-// ---------------------------------------------------------------------------
-// Object Page
-// ---------------------------------------------------------------------------
-	//Page Facets
-	UI.Facets: [
-		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup#GeneralInformation', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: '@UI.LineItem', "@UI.Importance": #High}
-	],
-	UI.FieldGroup#GeneralInformation: {
-		Data: [
-			{$Type: 'UI.DataField', Value: locale, Label: '{i18n>locale}'},
-			{$Type: 'UI.DataField', Value: description, Label: '{i18n>description}'},
+			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>feedType}',  }
 		]
 	}
 );
@@ -99,15 +36,12 @@ annotate CatalogService.contentSources with @(
 
 	UI.SelectionFields: [ ID ],
 	
-	// errorMessage List
-	UI.LineItem: [
-		{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>contentSource}'}
-	],
-		
-	UI.PresentationVariant: {
-		SortOrder: [ {$Type: 'Common.SortOrderType', Property: ID, Descending: false} ]
-	},
+	UI.LineItem: 
+		[{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>contentSource}'}],
 	
+	UI.PresentationVariant: {
+		SortOrder: [ {$Type: 'Common.SortOrderType', Property: ID, Descending: false}]
+	},
 // ---------------------------------------------------------------------------
 // Object Page
 // ---------------------------------------------------------------------------
@@ -120,12 +54,78 @@ annotate CatalogService.contentSources with @(
 	//Page Facets
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'contentActionAssignments/@UI.LineItem', "@UI.Importance": #High},
 		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
 	],
 		
 	UI.FieldGroup: {
 		Data: [
 			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>contentSource}',  }
+		]
+	}
+);
+
+
+annotate CatalogService.textDetails with @(
+	
+	UI.HeaderInfo: {
+		TypeName: '{i18n>textDetails}',
+		TypeNamePlural: '{i18n>textDetails_Plural}',
+		Title: {Value: locale}
+	},
+	
+	UI.LineItem: [
+		{$Type: 'UI.DataField', Value: locale, "@UI.Importance": #High, Label: '{i18n>locale}'},
+		{$Type: 'UI.DataField', Value: description, "@UI.Importance": #High, Label: '{i18n>description}'}
+	],
+
+	UI.PresentationVariant: {
+		SortOrder: [ {$Type: 'Common.SortOrderType', Property: locale, Descending: false} ]
+	},
+	
+// ---------------------------------------------------------------------------
+// Object Page
+// ---------------------------------------------------------------------------
+	//Page Facets
+	UI.Facets: [
+		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: '@UI.LineItem', "@UI.Importance": #High}
+	],
+	UI.FieldGroup: {
+		Data: [
+			{$Type: 'UI.DataField', Value: locale, Label: '{i18n>locale}'},
+			{$Type: 'UI.DataField', Value: description, Label: '{i18n>description}'},
+		]
+	}
+);
+
+annotate CatalogService.contentActionAssignments with @(
+	
+	UI.HeaderInfo: {
+		TypeName: '{i18n>contentActionAssignment}',
+		TypeNamePlural: '{i18n>contentActionAssignment_Plural}',
+		Title: {Value: ID}
+	},
+	
+	UI.LineItem: [
+		{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>contentActionAssignment}'},
+	],
+		
+	UI.PresentationVariant: {
+		SortOrder: [ {$Type: 'Common.SortOrderType', Property: ID, Descending: false} ]
+	},
+	
+// ---------------------------------------------------------------------------
+// Object Page
+// ---------------------------------------------------------------------------
+	//Page Facets
+	UI.Facets: [
+		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
+	],
+	UI.FieldGroup: {
+		Data: [
+			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>contentActionAssignment}'}
 		]
 	}
 );
@@ -161,6 +161,41 @@ annotate CatalogService.contentActions with @(
 	UI.FieldGroup: {
 		Data: [
 			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>contentAction}',  }
+		]
+	}
+);
+
+annotate CatalogService.errorMessages with @(
+
+	UI.SelectionFields: [ ID ],
+	
+	// errorMessage List
+	UI.LineItem: [
+		{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>errorMessage}'}
+	],
+		
+	UI.PresentationVariant: {
+		SortOrder: [ {$Type: 'Common.SortOrderType', Property: ID, Descending: false} ]
+	},
+	
+// ---------------------------------------------------------------------------
+// Object Page
+// ---------------------------------------------------------------------------
+	UI.HeaderInfo: {
+		TypeName: '{i18n>errorMessage}',
+		TypeNamePlural: '{i18n>errorMessage_Plural}',
+		Title: {Value: ID}
+	},
+		
+	//Page Facets
+	UI.Facets: [
+		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
+	],
+		
+	UI.FieldGroup: {
+		Data: [
+			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>errorMessage}',  }
 		]
 	}
 );

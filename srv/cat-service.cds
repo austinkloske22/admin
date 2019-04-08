@@ -1,6 +1,6 @@
 using admin.commonModel as commonModel from '../db/common-model';
+using admin.assignmentModel as assignmentModel from '../db/assignment-model';
 using admin as admin from '../db/data-model';
-
 
 service CatalogService {
 
@@ -45,11 +45,11 @@ service CatalogService {
 		}
 	) as projection on admin.contentSource;
 	
-	entity  contentSourceActions @(
+	entity  contentActionAssignments @(
 		Capabilities: {
 			InsertRestrictions: {Insertable: true},
-			UpdateRestrictions: {Updatable: false},
+			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on admin.contentSourceAction;
+	) as projection on assignmentModel.contentActionAssignment;
 }

@@ -22,6 +22,9 @@ modules:
           url: '~{url}'
       - name: portal_resources_admin
       - name: admin-uaa
+      - name: admin-uaa
+      - name: admin-uaa
+      - name: admin-uaa
       - name: srv_api
         group: destinations
         properties:
@@ -56,6 +59,10 @@ modules:
           artifacts:
             - './*'
           target-path: resources/admin_contentActions
+        - name: admin_contentsources
+          artifacts:
+            - './*'
+          target-path: resources/admin_contentsources
   - name: admin-db
     type: hdb
     path: db
@@ -144,6 +151,19 @@ modules:
   - name: admin_contentActions
     type: html5
     path: admin_contentActions
+    build-parameters:
+      builder: grunt
+    requires:
+      - name: srv_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: '~{url}'
+  - name: admin_contentsources
+    type: html5
+    path: admin_contentsources
     build-parameters:
       builder: grunt
     requires:
