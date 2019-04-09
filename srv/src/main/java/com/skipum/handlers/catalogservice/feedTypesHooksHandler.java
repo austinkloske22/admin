@@ -99,6 +99,10 @@ public class feedTypesHooksHandler {
 	public DeleteResponse afterDeletefeedTypes(DeleteRequest req, DeleteResponseAccessor res, ExtensionHelper helper) {
 		//TODO: add your custom logic / validations here...
 		
+		//HttpClient createHttpClient = destination.createHttpClient();
+		//HttpGet get = new HttpGet("node_api");
+		//HttpResponse resp = createHttpClient.execute(get);
+
 		//deleteRequest.getKeys().get(UUID)
 		
 		return res.getOriginalResponse(); //use this API if operation succeeded and payload has not been modified.
