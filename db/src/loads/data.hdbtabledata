@@ -47,6 +47,36 @@
 		}
 	},
 	{
+		"target_table": "ADMIN_CONTENTSOURCESTATUS",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourcestatus.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"ITEM_UUID",
+				"PRIMARYSTATUSCODE",
+				"SECONDARYSTATUSCODE",
+				"NORMALIZEDSTATUSCODE",
+				"INITIALDELIVERYATTEMPT"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"ITEM_UUID": 2,
+			"PRIMARYSTATUSCODE": 3,
+			"SECONDARYSTATUSCODE": 4,
+			"NORMALIZEDSTATUSCODE": 5,
+			"INITIALDELIVERYATTEMPT": 6
+		}
+	},
+	{
 		"target_table": "ADMIN_CONTENTACTION",
 		"source_data": {
 			"data_type": "CSV",
@@ -128,13 +158,15 @@
         	"include_filter" : [ ],			
 			"import_columns": [
 				"UUID",
+				"ITEM_UUID",
 				"LOCALE",
 				"DESCRIPTION"]
 		},
 		"column_mappings": {
 			"UUID": 1,
-			"LOCALE": 2,
-			"DESCRIPTION": 3
+			"ITEM_UUID": 2,
+			"LOCALE": 3,
+			"DESCRIPTION": 4
 		}
 	}]
 }

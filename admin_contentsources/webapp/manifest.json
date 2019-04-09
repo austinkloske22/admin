@@ -127,6 +127,31 @@
 								"entitySet": "contentActionAssignments",
 								"component": {
 									"name": "sap.suite.ui.generic.template.ObjectPage"
+								},
+								"pages": {
+									"ObjectPage|textDetails": {
+									"navigationProperty": "textDetails",
+									"entitySet": "textDetails",
+									"component": {
+										"name": "sap.suite.ui.generic.template.ObjectPage"
+										}
+									}
+								}
+							},
+							"ObjectPage|contentSourceStatuss": {
+								"navigationProperty": "contentSourceStatuss",
+								"entitySet": "contentSourceStatuss",
+								"component": {
+									"name": "sap.suite.ui.generic.template.ObjectPage"
+								},
+								"pages": {
+									"ObjectPage|textDetails": {
+									"navigationProperty": "textDetails",
+									"entitySet": "textDetails",
+									"component": {
+										"name": "sap.suite.ui.generic.template.ObjectPage"
+										}
+									}
 								}
 							},
 							"ObjectPage|textDetails": {

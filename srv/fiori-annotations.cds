@@ -54,6 +54,7 @@ annotate CatalogService.contentSources with @(
 	//Page Facets
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'contentSourceStatuss/@UI.LineItem', "@UI.Importance": #High},
 		{$Type: 'UI.ReferenceFacet', Target: 'contentActionAssignments/@UI.LineItem', "@UI.Importance": #High},
 		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
 	],
@@ -173,7 +174,7 @@ annotate CatalogService.errorMessages with @(
 	UI.LineItem: [
 		{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>errorMessage}'}
 	],
-		
+	
 	UI.PresentationVariant: {
 		SortOrder: [ {$Type: 'Common.SortOrderType', Property: ID, Descending: false} ]
 	},
@@ -196,6 +197,43 @@ annotate CatalogService.errorMessages with @(
 	UI.FieldGroup: {
 		Data: [
 			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>errorMessage}',  }
+		]
+	}
+);
+
+annotate CatalogService.contentSourceStatuss with @(
+
+	UI.LineItem: [
+		{$Type: 'UI.DataField', Value: primaryStatusCode, "@UI.Importance": #High, Label: '{i18n>primaryStatusCode}'},
+		{$Type: 'UI.DataField', Value: secondaryStatusCode, "@UI.Importance": #High, Label: '{i18n>secondaryStatusCode}'},
+		{$Type: 'UI.DataField', Value: normalizedStatusCode, "@UI.Importance": #High, Label: '{i18n>normalizedStatusCode}'},
+		{$Type: 'UI.DataField', Value: initialDeliveryAttempt, "@UI.Importance": #High, Label: '{i18n>initialDeliveryAttempt}'}
+		],
+	
+	UI.PresentationVariant: {
+		SortOrder: [ {$Type: 'Common.SortOrderType', Property: primaryStatusCode, Descending: false}]
+	},
+// ---------------------------------------------------------------------------
+// Object Page
+// ---------------------------------------------------------------------------
+	UI.HeaderInfo: {
+		TypeName: '{i18n>contentSourceStatus}',
+		TypeNamePlural: '{i18n>contentSourceStatus_Plural}',
+		Title: {Value: primaryStatusCode}
+	},
+		
+	//Page Facets
+	UI.Facets: [
+		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
+	],
+
+	UI.FieldGroup: {
+		Data: [
+			{$Type: 'UI.DataField', Value: primaryStatusCode, Label: '{i18n>primaryStatusCode}'},
+			{$Type: 'UI.DataField', Value: secondaryStatusCode, Label: '{i18n>secondaryStatusCode}'},
+			{$Type: 'UI.DataField', Value: normalizedStatusCode, Label: '{i18n>normalizedStatusCode}'},
+			{$Type: 'UI.DataField', Value: initialDeliveryAttempt, Label: '{i18n>initialDeliveryAttempt}'}
 		]
 	}
 );

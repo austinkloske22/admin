@@ -9,11 +9,13 @@ type description	: String(255);
 
 entity textDetail {
 	key UUID		: UUID;
+	key ITEM_UUID	: UUID default 'NULL';
 	key locale		: commonModel.languageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
 	description		: commonModel.description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
-    feedType		: Association to one admin.feedType on feedType.UUID = $self.UUID;
-    errorMessage	: Association to one admin.errorMessage on errorMessage.UUID = $self.UUID;
-    contentSource	: Association to one admin.contentSource on contentSource.UUID = $self.UUID;
-    contentAction	: Association to one admin.contentAction on contentAction.UUID = $self.UUID;
-    contentActionAssignment	: Association to one assignmentModel.contentActionAssignment on contentActionAssignment.assignmentUUID = $self.UUID;
+    feedTypes		: Association to one admin.feedType on feedTypes.UUID = $self.UUID;
+    errorMessages	: Association to one admin.errorMessage on errorMessages.UUID = $self.UUID;
+    contentSources	: Association to one admin.contentSource on contentSources.UUID = $self.UUID;
+    contentActions	: Association to one admin.contentAction on contentActions.UUID = $self.UUID;
+    contentActionAssignments	: Association to one assignmentModel.contentActionAssignment on contentActionAssignments.assignmentUUID = $self.UUID;
+    contentSourceStatuss		: Association to one admin.contentSourceStatus on contentSourceStatuss.UUID = $self.UUID and contentSourceStatuss.ITEM_UUID = $self.ITEM_UUID;
 }

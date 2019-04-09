@@ -1,16 +1,19 @@
-964fe6bc-4ffa-11e9-8647-d663bd873d93,en,FeedTypeOne
-964fea72-4ffa-11e9-8647-d663bd873d93,en,FeedTypeTwo
-964fee3c-4ffa-11e9-8647-d663bd873d93,en,FeedTypeThree
-3fa11eda-c8ca-40f5-8af8-e5907888e4dc,en,Duplicate ID exists.
-1f6cfd57-6139-4161-96f4-3a346f28bd36,en,Content Action Autoload
-8a70e479-aa8c-4398-ad12-36e2eb703432,en,USPSWS
-cacb1997-2ac8-41a5-ba57-71e92ffdf02e,en,acelynk
-52e3c53c-fd6d-4838-b973-4b6c9fcd2939,en,easy-post
-1dfd3ee2-a98e-4cc9-8637-d8dd8d84292b,en,easyPost
-84de7d48-1cac-44ac-b00d-04165cb0a4b3,en,fedExWS
-dad161e2-f098-4a59-9700-a20a75ed7e71,en,fedex-web-services
-326b1e53-c403-497f-a95c-6b31f1c680f4,en,ups-developer-kit
-01d2225e-42e9-40cd-a426-c6bb57d4fcd7,en,ups-trade-ability
-e24a70aa-e844-483c-8968-58022509eb81,en,ups-web-tools-api
-b97e1844-61e6-475c-8c0a-e9dad5a50dde,en,upsOlt
-1fc2ed92-055d-448b-a948-7333db678005,en,upsTrd
+964fe6bc-4ffa-11e9-8647-d663bd873d93,NULL,en,FeedTypeOne
+964fea72-4ffa-11e9-8647-d663bd873d93,NULL,en,FeedTypeTwo
+964fee3c-4ffa-11e9-8647-d663bd873d93,NULL,en,FeedTypeThree
+3fa11eda-c8ca-40f5-8af8-e5907888e4dc,NULL,en,Duplicate ID exists.
+1f6cfd57-6139-4161-96f4-3a346f28bd36,NULL,en,Content Action Autoload
+8a70e479-aa8c-4398-ad12-36e2eb703432,NULL,en,USPSWS
+cacb1997-2ac8-41a5-ba57-71e92ffdf02e,NULL,en,acelynk
+52e3c53c-fd6d-4838-b973-4b6c9fcd2939,NULL,en,easy-post
+1dfd3ee2-a98e-4cc9-8637-d8dd8d84292b,NULL,en,easyPost
+84de7d48-1cac-44ac-b00d-04165cb0a4b3,NULL,en,fedExWS
+dad161e2-f098-4a59-9700-a20a75ed7e71,NULL,en,fedex-web-services
+326b1e53-c403-497f-a95c-6b31f1c680f4,NULL,en,ups-developer-kit
+01d2225e-42e9-40cd-a426-c6bb57d4fcd7,NULL,en,ups-trade-ability
+e24a70aa-e844-483c-8968-58022509eb81,NULL,en,ups-web-tools-api
+b97e1844-61e6-475c-8c0a-e9dad5a50dde,NULL,en,upsOlt
+1fc2ed92-055d-448b-a948-7333db678005,NULL,en,upsTrd
+8a70e479-aa8c-4398-ad12-36e2eb703432,76d6a1f2-7ee4-4a83-8ee9-dddd958d696b,en,Delivered-In/At-Mailbox
+8a70e479-aa8c-4398-ad12-36e2eb703432,e879bf90-92b3-432c-ac5d-082c096cbea1,en,Delivered
+8a70e479-aa8c-4398-ad12-36e2eb703432,655db003-1d07-4e8d-8074-93a845585621,en,Delivered-Front-Desk/Reception

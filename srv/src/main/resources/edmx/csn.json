@@ -23,7 +23,7 @@
           "length": 60,
           "@cds.persistence.name": "ID"
         },
-        "contentSource": {
+        "contentSources": {
           "indexNo": 4,
           "type": "cds.Association",
           "target": "admin.contentSource",
@@ -34,16 +34,16 @@
             "op": "=",
             "args": [
               {
-                "=": "contentSource.UUID"
+                "=": "contentSources.UUID"
               },
               {
                 "=": "UUID"
               }
             ]
           },
-          "@cds.persistence.name": "CONTENTSOURCE"
+          "@cds.persistence.name": "CONTENTSOURCES"
         },
-        "contentAction": {
+        "contentActions": {
           "indexNo": 5,
           "type": "cds.Association",
           "target": "admin.contentAction",
@@ -57,7 +57,7 @@
                 "op": "=",
                 "args": [
                   {
-                    "=": "contentAction.UUID"
+                    "=": "contentActions.UUID"
                   },
                   {
                     "=": "UUID"
@@ -68,7 +68,7 @@
                 "op": "=",
                 "args": [
                   {
-                    "=": "contentAction.ID"
+                    "=": "contentActions.ID"
                   },
                   {
                     "=": "ID"
@@ -77,7 +77,7 @@
               }
             ]
           },
-          "@cds.persistence.name": "CONTENTACTION"
+          "@cds.persistence.name": "CONTENTACTIONS"
         },
         "textDetails": {
           "indexNo": 6,
@@ -129,23 +129,30 @@
           "type": "cds.UUID",
           "@cds.persistence.name": "UUID"
         },
-        "locale": {
+        "ITEM_UUID": {
           "key": true,
           "indexNo": 2,
+          "type": "cds.UUID",
+          "default": "NULL",
+          "@cds.persistence.name": "ITEM_UUID"
+        },
+        "locale": {
+          "key": true,
+          "indexNo": 3,
           "type": "cds.String",
           "@Common.Label": "{i18n>locale}",
           "length": 2,
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
-          "indexNo": 3,
+          "indexNo": 4,
           "type": "cds.String",
           "@Common.Label": "{i18n>description}",
           "length": 255,
           "@cds.persistence.name": "DESCRIPTION"
         },
-        "feedType": {
-          "indexNo": 4,
+        "feedTypes": {
+          "indexNo": 5,
           "type": "cds.Association",
           "target": "admin.feedType",
           "cardinality": {
@@ -155,17 +162,17 @@
             "op": "=",
             "args": [
               {
-                "=": "feedType.UUID"
+                "=": "feedTypes.UUID"
               },
               {
                 "=": "UUID"
               }
             ]
           },
-          "@cds.persistence.name": "FEEDTYPE"
+          "@cds.persistence.name": "FEEDTYPES"
         },
-        "errorMessage": {
-          "indexNo": 5,
+        "errorMessages": {
+          "indexNo": 6,
           "type": "cds.Association",
           "target": "admin.errorMessage",
           "cardinality": {
@@ -175,17 +182,17 @@
             "op": "=",
             "args": [
               {
-                "=": "errorMessage.UUID"
+                "=": "errorMessages.UUID"
               },
               {
                 "=": "UUID"
               }
             ]
           },
-          "@cds.persistence.name": "ERRORMESSAGE"
+          "@cds.persistence.name": "ERRORMESSAGES"
         },
-        "contentSource": {
-          "indexNo": 6,
+        "contentSources": {
+          "indexNo": 7,
           "type": "cds.Association",
           "target": "admin.contentSource",
           "cardinality": {
@@ -195,17 +202,17 @@
             "op": "=",
             "args": [
               {
-                "=": "contentSource.UUID"
+                "=": "contentSources.UUID"
               },
               {
                 "=": "UUID"
               }
             ]
           },
-          "@cds.persistence.name": "CONTENTSOURCE"
+          "@cds.persistence.name": "CONTENTSOURCES"
         },
-        "contentAction": {
-          "indexNo": 7,
+        "contentActions": {
+          "indexNo": 8,
           "type": "cds.Association",
           "target": "admin.contentAction",
           "cardinality": {
@@ -215,17 +222,17 @@
             "op": "=",
             "args": [
               {
-                "=": "contentAction.UUID"
+                "=": "contentActions.UUID"
               },
               {
                 "=": "UUID"
               }
             ]
           },
-          "@cds.persistence.name": "CONTENTACTION"
+          "@cds.persistence.name": "CONTENTACTIONS"
         },
-        "contentActionAssignment": {
-          "indexNo": 8,
+        "contentActionAssignments": {
+          "indexNo": 9,
           "type": "cds.Association",
           "target": "admin.assignmentModel.contentActionAssignment",
           "cardinality": {
@@ -235,14 +242,50 @@
             "op": "=",
             "args": [
               {
-                "=": "contentActionAssignment.assignmentUUID"
+                "=": "contentActionAssignments.assignmentUUID"
               },
               {
                 "=": "UUID"
               }
             ]
           },
-          "@cds.persistence.name": "CONTENTACTIONASSIGNMENT"
+          "@cds.persistence.name": "CONTENTACTIONASSIGNMENTS"
+        },
+        "contentSourceStatuss": {
+          "indexNo": 10,
+          "type": "cds.Association",
+          "target": "admin.contentSourceStatus",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "contentSourceStatuss.UUID"
+                  },
+                  {
+                    "=": "UUID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "contentSourceStatuss.ITEM_UUID"
+                  },
+                  {
+                    "=": "ITEM_UUID"
+                  }
+                ]
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCESTATUSS"
         }
       },
       "@cds.persistence.name": "ADMIN_COMMONMODEL_TEXTDETAIL"
@@ -302,9 +345,134 @@
             ]
           },
           "@cds.persistence.name": "TEXTDETAILS"
+        },
+        "contentSourceStatuss": {
+          "indexNo": 5,
+          "type": "cds.Association",
+          "target": "admin.contentSourceStatus",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "contentSourceStatuss.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCESTATUSS"
         }
       },
       "@cds.persistence.name": "ADMIN_CONTENTSOURCE"
+    },
+    "admin.contentSourceStatus": {
+      "kind": "entity",
+      "elements": {
+        "UUID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "UUID"
+        },
+        "ITEM_UUID": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "ITEM_UUID"
+        },
+        "primaryStatusCode": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "notNull": true,
+          "length": 60,
+          "@cds.persistence.name": "PRIMARYSTATUSCODE"
+        },
+        "secondaryStatusCode": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "notNull": true,
+          "length": 60,
+          "@cds.persistence.name": "SECONDARYSTATUSCODE"
+        },
+        "normalizedStatusCode": {
+          "indexNo": 5,
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "NORMALIZEDSTATUSCODE"
+        },
+        "exceptionType": {
+          "indexNo": 6,
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "EXCEPTIONTYPE"
+        },
+        "initialDeliveryAttempt": {
+          "indexNo": 7,
+          "type": "cds.Boolean",
+          "@cds.persistence.name": "INITIALDELIVERYATTEMPT"
+        },
+        "contentSources": {
+          "indexNo": 8,
+          "type": "cds.Association",
+          "target": "admin.contentSource",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "contentSources.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCES"
+        },
+        "textDetails": {
+          "indexNo": 9,
+          "type": "cds.Association",
+          "target": "admin.commonModel.textDetail",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "textDetails.UUID"
+                  },
+                  {
+                    "=": "UUID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "textDetails.ITEM_UUID"
+                  },
+                  {
+                    "=": "ITEM_UUID"
+                  }
+                ]
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_CONTENTSOURCESTATUS"
     },
     "admin.errorMessage": {
       "kind": "entity",
@@ -391,6 +559,7 @@
           "key": true,
           "indexNo": 1,
           "type": "cds.UUID",
+          "notNull": true,
           "@cds.persistence.name": "UUID"
         },
         "ID": {
@@ -498,6 +667,7 @@
           },
           "key": true,
           "type": "cds.UUID",
+          "notNull": true,
           "@cds.persistence.name": "UUID"
         },
         "ID": {
@@ -736,9 +906,20 @@
           "type": "cds.UUID",
           "@cds.persistence.name": "UUID"
         },
+        "ITEM_UUID": {
+          "origin": "admin.commonModel.textDetail..ITEM_UUID",
+          "indexNo": 2,
+          "value": {
+            "=": "textDetail.ITEM_UUID"
+          },
+          "key": true,
+          "type": "cds.UUID",
+          "default": "NULL",
+          "@cds.persistence.name": "ITEM_UUID"
+        },
         "locale": {
           "origin": "admin.commonModel.textDetail..locale",
-          "indexNo": 2,
+          "indexNo": 3,
           "value": {
             "=": "textDetail.locale"
           },
@@ -750,7 +931,7 @@
         },
         "description": {
           "origin": "admin.commonModel.textDetail..description",
-          "indexNo": 3,
+          "indexNo": 4,
           "value": {
             "=": "textDetail.description"
           },
@@ -759,11 +940,11 @@
           "length": 255,
           "@cds.persistence.name": "DESCRIPTION"
         },
-        "feedType": {
-          "origin": "admin.commonModel.textDetail..feedType",
-          "indexNo": 4,
+        "feedTypes": {
+          "origin": "admin.commonModel.textDetail..feedTypes",
+          "indexNo": 5,
           "value": {
-            "=": "textDetail.feedType"
+            "=": "textDetail.feedTypes"
           },
           "type": "cds.Association",
           "target": "CatalogService.feedTypes",
@@ -774,7 +955,7 @@
             "op": "=",
             "args": [
               {
-                "=": "feedType.UUID"
+                "=": "feedTypes.UUID"
               },
               {
                 "=": "UUID"
@@ -782,13 +963,13 @@
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "FEEDTYPE"
+          "@cds.persistence.name": "FEEDTYPES"
         },
-        "errorMessage": {
-          "origin": "admin.commonModel.textDetail..errorMessage",
-          "indexNo": 5,
+        "errorMessages": {
+          "origin": "admin.commonModel.textDetail..errorMessages",
+          "indexNo": 6,
           "value": {
-            "=": "textDetail.errorMessage"
+            "=": "textDetail.errorMessages"
           },
           "type": "cds.Association",
           "target": "CatalogService.errorMessages",
@@ -799,7 +980,7 @@
             "op": "=",
             "args": [
               {
-                "=": "errorMessage.UUID"
+                "=": "errorMessages.UUID"
               },
               {
                 "=": "UUID"
@@ -807,13 +988,13 @@
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "ERRORMESSAGE"
+          "@cds.persistence.name": "ERRORMESSAGES"
         },
-        "contentSource": {
-          "origin": "admin.commonModel.textDetail..contentSource",
-          "indexNo": 6,
+        "contentSources": {
+          "origin": "admin.commonModel.textDetail..contentSources",
+          "indexNo": 7,
           "value": {
-            "=": "textDetail.contentSource"
+            "=": "textDetail.contentSources"
           },
           "type": "cds.Association",
           "target": "CatalogService.contentSources",
@@ -824,7 +1005,7 @@
             "op": "=",
             "args": [
               {
-                "=": "contentSource.UUID"
+                "=": "contentSources.UUID"
               },
               {
                 "=": "UUID"
@@ -832,13 +1013,13 @@
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "CONTENTSOURCE"
+          "@cds.persistence.name": "CONTENTSOURCES"
         },
-        "contentAction": {
-          "origin": "admin.commonModel.textDetail..contentAction",
-          "indexNo": 7,
+        "contentActions": {
+          "origin": "admin.commonModel.textDetail..contentActions",
+          "indexNo": 8,
           "value": {
-            "=": "textDetail.contentAction"
+            "=": "textDetail.contentActions"
           },
           "type": "cds.Association",
           "target": "CatalogService.contentActions",
@@ -849,7 +1030,7 @@
             "op": "=",
             "args": [
               {
-                "=": "contentAction.UUID"
+                "=": "contentActions.UUID"
               },
               {
                 "=": "UUID"
@@ -857,13 +1038,13 @@
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "CONTENTACTION"
+          "@cds.persistence.name": "CONTENTACTIONS"
         },
-        "contentActionAssignment": {
-          "origin": "admin.commonModel.textDetail..contentActionAssignment",
-          "indexNo": 8,
+        "contentActionAssignments": {
+          "origin": "admin.commonModel.textDetail..contentActionAssignments",
+          "indexNo": 9,
           "value": {
-            "=": "textDetail.contentActionAssignment"
+            "=": "textDetail.contentActionAssignments"
           },
           "type": "cds.Association",
           "target": "CatalogService.contentActionAssignments",
@@ -874,7 +1055,7 @@
             "op": "=",
             "args": [
               {
-                "=": "contentActionAssignment.assignmentUUID"
+                "=": "contentActionAssignments.assignmentUUID"
               },
               {
                 "=": "UUID"
@@ -882,7 +1063,48 @@
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "CONTENTACTIONASSIGNMENT"
+          "@cds.persistence.name": "CONTENTACTIONASSIGNMENTS"
+        },
+        "contentSourceStatuss": {
+          "origin": "admin.commonModel.textDetail..contentSourceStatuss",
+          "indexNo": 10,
+          "value": {
+            "=": "textDetail.contentSourceStatuss"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.contentSourceStatuss",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "contentSourceStatuss.UUID"
+                  },
+                  {
+                    "=": "UUID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "contentSourceStatuss.ITEM_UUID"
+                  },
+                  {
+                    "=": "ITEM_UUID"
+                  }
+                ]
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCESTATUSS"
         }
       },
       "@Common.Label": "{i18n>textDetailService}",
@@ -1047,6 +1269,13 @@
         },
         {
           "$Type": "UI.ReferenceFacet",
+          "Target": "contentSourceStatuss/@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
           "Target": "contentActionAssignments/@UI.LineItem",
           "@UI.Importance": {
             "#": "High"
@@ -1140,9 +1369,283 @@
           },
           "redirected": true,
           "@cds.persistence.name": "TEXTDETAILS"
+        },
+        "contentSourceStatuss": {
+          "origin": "admin.contentSource..contentSourceStatuss",
+          "indexNo": 5,
+          "value": {
+            "=": "contentSource.contentSourceStatuss"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.contentSourceStatuss",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "contentSourceStatuss.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCESTATUSS"
         }
       },
       "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCES"
+    },
+    "CatalogService.contentSourceStatuss": {
+      "kind": "entity",
+      "source": "admin.contentSourceStatus",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "primaryStatusCode"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>primaryStatusCode}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "secondaryStatusCode"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>secondaryStatusCode}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "normalizedStatusCode"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>normalizedStatusCode}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "initialDeliveryAttempt"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>initialDeliveryAttempt}"
+        }
+      ],
+      "@UI.PresentationVariant.SortOrder": [
+        {
+          "$Type": "Common.SortOrderType",
+          "Property": {
+            "=": "primaryStatusCode"
+          },
+          "Descending": false
+        }
+      ],
+      "@UI.HeaderInfo.TypeName": "{i18n>contentSourceStatus}",
+      "@UI.HeaderInfo.TypeNamePlural": "{i18n>contentSourceStatus_Plural}",
+      "@UI.HeaderInfo.Title.Value": {
+        "=": "primaryStatusCode"
+      },
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.FieldGroup",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "textDetails/@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        }
+      ],
+      "@UI.FieldGroup.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "primaryStatusCode"
+          },
+          "Label": "{i18n>primaryStatusCode}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "secondaryStatusCode"
+          },
+          "Label": "{i18n>secondaryStatusCode}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "normalizedStatusCode"
+          },
+          "Label": "{i18n>normalizedStatusCode}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "initialDeliveryAttempt"
+          },
+          "Label": "{i18n>initialDeliveryAttempt}"
+        }
+      ],
+      "elements": {
+        "UUID": {
+          "origin": "admin.contentSourceStatus..UUID",
+          "indexNo": 1,
+          "value": {
+            "=": "contentSourceStatus.UUID"
+          },
+          "key": true,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "UUID"
+        },
+        "ITEM_UUID": {
+          "origin": "admin.contentSourceStatus..ITEM_UUID",
+          "indexNo": 2,
+          "value": {
+            "=": "contentSourceStatus.ITEM_UUID"
+          },
+          "key": true,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "ITEM_UUID"
+        },
+        "primaryStatusCode": {
+          "origin": "admin.contentSourceStatus..primaryStatusCode",
+          "indexNo": 3,
+          "value": {
+            "=": "contentSourceStatus.primaryStatusCode"
+          },
+          "type": "cds.String",
+          "notNull": true,
+          "length": 60,
+          "@cds.persistence.name": "PRIMARYSTATUSCODE"
+        },
+        "secondaryStatusCode": {
+          "origin": "admin.contentSourceStatus..secondaryStatusCode",
+          "indexNo": 4,
+          "value": {
+            "=": "contentSourceStatus.secondaryStatusCode"
+          },
+          "type": "cds.String",
+          "notNull": true,
+          "length": 60,
+          "@cds.persistence.name": "SECONDARYSTATUSCODE"
+        },
+        "normalizedStatusCode": {
+          "origin": "admin.contentSourceStatus..normalizedStatusCode",
+          "indexNo": 5,
+          "value": {
+            "=": "contentSourceStatus.normalizedStatusCode"
+          },
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "NORMALIZEDSTATUSCODE"
+        },
+        "exceptionType": {
+          "origin": "admin.contentSourceStatus..exceptionType",
+          "indexNo": 6,
+          "value": {
+            "=": "contentSourceStatus.exceptionType"
+          },
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "EXCEPTIONTYPE"
+        },
+        "initialDeliveryAttempt": {
+          "origin": "admin.contentSourceStatus..initialDeliveryAttempt",
+          "indexNo": 7,
+          "value": {
+            "=": "contentSourceStatus.initialDeliveryAttempt"
+          },
+          "type": "cds.Boolean",
+          "@cds.persistence.name": "INITIALDELIVERYATTEMPT"
+        },
+        "contentSources": {
+          "origin": "admin.contentSourceStatus..contentSources",
+          "indexNo": 8,
+          "value": {
+            "=": "contentSourceStatus.contentSources"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.contentSources",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "contentSources.UUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCES"
+        },
+        "textDetails": {
+          "origin": "admin.contentSourceStatus..textDetails",
+          "indexNo": 9,
+          "value": {
+            "=": "contentSourceStatus.textDetails"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.textDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "textDetails.UUID"
+                  },
+                  {
+                    "=": "UUID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "textDetails.ITEM_UUID"
+                  },
+                  {
+                    "=": "ITEM_UUID"
+                  }
+                ]
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCESTATUSS"
     },
     "CatalogService.contentActionAssignments": {
       "kind": "entity",
@@ -1233,11 +1736,11 @@
           "length": 60,
           "@cds.persistence.name": "ID"
         },
-        "contentSource": {
-          "origin": "admin.assignmentModel.contentActionAssignment..contentSource",
+        "contentSources": {
+          "origin": "admin.assignmentModel.contentActionAssignment..contentSources",
           "indexNo": 4,
           "value": {
-            "=": "contentActionAssignment.contentSource"
+            "=": "contentActionAssignment.contentSources"
           },
           "type": "cds.Association",
           "target": "CatalogService.contentSources",
@@ -1248,7 +1751,7 @@
             "op": "=",
             "args": [
               {
-                "=": "contentSource.UUID"
+                "=": "contentSources.UUID"
               },
               {
                 "=": "UUID"
@@ -1256,13 +1759,13 @@
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "CONTENTSOURCE"
+          "@cds.persistence.name": "CONTENTSOURCES"
         },
-        "contentAction": {
-          "origin": "admin.assignmentModel.contentActionAssignment..contentAction",
+        "contentActions": {
+          "origin": "admin.assignmentModel.contentActionAssignment..contentActions",
           "indexNo": 5,
           "value": {
-            "=": "contentActionAssignment.contentAction"
+            "=": "contentActionAssignment.contentActions"
           },
           "type": "cds.Association",
           "target": "CatalogService.contentActions",
@@ -1276,7 +1779,7 @@
                 "op": "=",
                 "args": [
                   {
-                    "=": "contentAction.UUID"
+                    "=": "contentActions.UUID"
                   },
                   {
                     "=": "UUID"
@@ -1287,7 +1790,7 @@
                 "op": "=",
                 "args": [
                   {
-                    "=": "contentAction.ID"
+                    "=": "contentActions.ID"
                   },
                   {
                     "=": "ID"
@@ -1297,7 +1800,7 @@
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "CONTENTACTION"
+          "@cds.persistence.name": "CONTENTACTIONS"
         },
         "textDetails": {
           "origin": "admin.assignmentModel.contentActionAssignment..textDetails",

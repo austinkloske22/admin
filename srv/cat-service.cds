@@ -45,6 +45,15 @@ service CatalogService {
 		}
 	) as projection on admin.contentSource;
 	
+	entity  contentSourceStatuss @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on admin.contentSourceStatus;
+	
+	
 	entity  contentActionAssignments @(
 		Capabilities: {
 			InsertRestrictions: {Insertable: true},
