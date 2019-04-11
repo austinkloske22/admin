@@ -16,18 +16,85 @@
 	<edmx:DataServices m:DataServiceVersion="2.0">
 		<Schema Namespace="CatalogService" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
 			<EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+				<EntitySet Name="carrierAssignments" EntityType="CatalogService.carrierAssignments"/>
+				<EntitySet Name="carrierMasters" EntityType="CatalogService.carrierMasters"/>
+				<EntitySet Name="contentActionAssignments" EntityType="CatalogService.contentActionAssignments"/>
+				<EntitySet Name="contentActions" EntityType="CatalogService.contentActions"/>
+				<EntitySet Name="contentSourceStatuss" EntityType="CatalogService.contentSourceStatuss"/>
+				<EntitySet Name="contentSources" EntityType="CatalogService.contentSources"/>
+				<EntitySet Name="contentValues" EntityType="CatalogService.contentValues"/>
 				<EntitySet Name="errorMessages" EntityType="CatalogService.errorMessages"/>
 				<EntitySet Name="feedTypes" EntityType="CatalogService.feedTypes"/>
 				<EntitySet Name="textDetails" EntityType="CatalogService.textDetails"/>
+				<AssociationSet Name="carrierAssignments_contentSources" Association="CatalogService.carrierAssignments_contentSources">
+					<End Role="carrierAssignments" EntitySet="carrierAssignments"/>
+					<End Role="contentSources" EntitySet="contentSources"/>
+				</AssociationSet>
+				<AssociationSet Name="carrierAssignments_carrierMasters" Association="CatalogService.carrierAssignments_carrierMasters">
+					<End Role="carrierAssignments" EntitySet="carrierAssignments"/>
+					<End Role="carrierMasters" EntitySet="carrierMasters"/>
+				</AssociationSet>
+				<AssociationSet Name="carrierAssignments_textDetails" Association="CatalogService.carrierAssignments_textDetails">
+					<End Role="carrierAssignments" EntitySet="carrierAssignments"/>
+					<End Role="textDetails" EntitySet="textDetails"/>
+				</AssociationSet>
+				<AssociationSet Name="carrierMasters_textDetails" Association="CatalogService.carrierMasters_textDetails">
+					<End Role="carrierMasters" EntitySet="carrierMasters"/>
+					<End Role="textDetails" EntitySet="textDetails"/>
+				</AssociationSet>
+				<AssociationSet Name="contentActionAssignments_contentSources" Association="CatalogService.contentActionAssignments_contentSources">
+					<End Role="contentActionAssignments" EntitySet="contentActionAssignments"/>
+					<End Role="contentSources" EntitySet="contentSources"/>
+				</AssociationSet>
+				<AssociationSet Name="contentActionAssignments_contentActions" Association="CatalogService.contentActionAssignments_contentActions">
+					<End Role="contentActionAssignments" EntitySet="contentActionAssignments"/>
+					<End Role="contentActions" EntitySet="contentActions"/>
+				</AssociationSet>
+				<AssociationSet Name="contentActionAssignments_textDetails" Association="CatalogService.contentActionAssignments_textDetails">
+					<End Role="contentActionAssignments" EntitySet="contentActionAssignments"/>
+					<End Role="contentActionAssignments1" EntitySet="contentActionAssignments"/>
+				</AssociationSet>
+				<AssociationSet Name="contentActions_contentSources" Association="CatalogService.contentActions_contentSources">
+					<End Role="contentActions" EntitySet="contentActions"/>
+					<End Role="contentSources" EntitySet="contentSources"/>
+				</AssociationSet>
+				<AssociationSet Name="contentActions_textDetails" Association="CatalogService.contentActions_textDetails">
+					<End Role="contentActions" EntitySet="contentActions"/>
+					<End Role="textDetails" EntitySet="textDetails"/>
+				</AssociationSet>
+				<AssociationSet Name="contentSourceStatuss_contentSource" Association="CatalogService.contentSourceStatuss_contentSource">
+					<End Role="contentSourceStatuss" EntitySet="contentSourceStatuss"/>
+					<End Role="contentSources" EntitySet="contentSources"/>
+				</AssociationSet>
+				<AssociationSet Name="contentSourceStatuss_textDetails" Association="CatalogService.contentSourceStatuss_textDetails">
+					<End Role="contentSourceStatuss" EntitySet="contentSourceStatuss"/>
+					<End Role="textDetails" EntitySet="textDetails"/>
+				</AssociationSet>
+				<AssociationSet Name="contentSources_contentActionAssignments" Association="CatalogService.contentSources_contentActionAssignments">
+					<End Role="contentSources" EntitySet="contentSources"/>
+					<End Role="contentActionAssignments" EntitySet="contentActionAssignments"/>
+				</AssociationSet>
+				<AssociationSet Name="contentSources_textDetails" Association="CatalogService.contentSources_textDetails">
+					<End Role="contentSources" EntitySet="contentSources"/>
+					<End Role="textDetails" EntitySet="textDetails"/>
+				</AssociationSet>
+				<AssociationSet Name="contentSources_contentSourceStatuss" Association="CatalogService.contentSources_contentSourceStatuss">
+					<End Role="contentSources" EntitySet="contentSources"/>
+					<End Role="contentSourceStatuss" EntitySet="contentSourceStatuss"/>
+				</AssociationSet>
+				<AssociationSet Name="contentValues_textDetails" Association="CatalogService.contentValues_textDetails">
+					<End Role="contentValues" EntitySet="contentValues"/>
+					<End Role="textDetails" EntitySet="textDetails"/>
+				</AssociationSet>
 				<AssociationSet Name="errorMessages_textDetails" Association="CatalogService.errorMessages_textDetails">
 					<End Role="errorMessages" EntitySet="errorMessages"/>
 					<End Role="textDetails" EntitySet="textDetails"/>
 				</AssociationSet>
-				<AssociationSet Name="feedTypes_textDetails" Association="CatalogService.feedTypes_textDetails">
+				<AssociationSet Name="feedTypes_to_textDetails" Association="CatalogService.feedTypes_to_textDetails">
 					<End Role="feedTypes" EntitySet="feedTypes"/>
 					<End Role="textDetails" EntitySet="textDetails"/>
 				</AssociationSet>
-				<AssociationSet Name="textDetails_feedType" Association="CatalogService.textDetails_feedType">
+				<AssociationSet Name="textDetails_to_feedType" Association="CatalogService.textDetails_to_feedType">
 					<End Role="textDetails" EntitySet="textDetails"/>
 					<End Role="feedTypes" EntitySet="feedTypes"/>
 				</AssociationSet>
@@ -35,7 +102,116 @@
 					<End Role="textDetails" EntitySet="textDetails"/>
 					<End Role="errorMessages" EntitySet="errorMessages"/>
 				</AssociationSet>
+				<AssociationSet Name="textDetails_contentSource" Association="CatalogService.textDetails_contentSource">
+					<End Role="textDetails" EntitySet="textDetails"/>
+					<End Role="contentSources" EntitySet="contentSources"/>
+				</AssociationSet>
+				<AssociationSet Name="textDetails_contentAction" Association="CatalogService.textDetails_contentAction">
+					<End Role="textDetails" EntitySet="textDetails"/>
+					<End Role="contentActions" EntitySet="contentActions"/>
+				</AssociationSet>
+				<AssociationSet Name="textDetails_contentActionAssignment" Association="CatalogService.textDetails_contentActionAssignment">
+					<End Role="textDetails" EntitySet="textDetails"/>
+					<End Role="contentActionAssignments" EntitySet="contentActionAssignments"/>
+				</AssociationSet>
+				<AssociationSet Name="textDetails_contentValue" Association="CatalogService.textDetails_contentValue">
+					<End Role="textDetails" EntitySet="textDetails"/>
+					<End Role="contentValues" EntitySet="contentValues"/>
+				</AssociationSet>
 			</EntityContainer>
+			<EntityType Name="carrierAssignments">
+				<Key>
+					<PropertyRef Name="UUID"/>
+				</Key>
+				<Property Name="UUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="parentUUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="assignmentUUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="CarrierID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+				<Property Name="AssignmentCarrier" Type="Edm.String" MaxLength="60"/>
+				<NavigationProperty Name="contentSources" Relationship="CatalogService.carrierAssignments_contentSources" FromRole="carrierAssignments"
+					ToRole="contentSources"/>
+				<NavigationProperty Name="carrierMasters" Relationship="CatalogService.carrierAssignments_carrierMasters" FromRole="carrierAssignments"
+					ToRole="carrierMasters"/>
+				<NavigationProperty Name="textDetails" Relationship="CatalogService.carrierAssignments_textDetails" FromRole="carrierAssignments"
+					ToRole="textDetails"/>
+			</EntityType>
+			<EntityType Name="carrierMasters">
+				<Key>
+					<PropertyRef Name="UUID"/>
+				</Key>
+				<Property Name="UUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="ID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+				<Property Name="logoURL" Type="Edm.String" MaxLength="1000"/>
+				<Property Name="status" Type="Edm.Boolean"/>
+				<NavigationProperty Name="textDetails" Relationship="CatalogService.carrierMasters_textDetails" FromRole="carrierMasters"
+					ToRole="textDetails"/>
+			</EntityType>
+			<EntityType Name="contentActionAssignments">
+				<Key>
+					<PropertyRef Name="UUID"/>
+				</Key>
+				<Property Name="UUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="parentUUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="assignmentUUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="ID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+				<NavigationProperty Name="contentSources" Relationship="CatalogService.contentActionAssignments_contentSources"
+					FromRole="contentActionAssignments" ToRole="contentSources"/>
+				<NavigationProperty Name="contentActions" Relationship="CatalogService.contentActionAssignments_contentActions"
+					FromRole="contentActionAssignments" ToRole="contentActions"/>
+				<NavigationProperty Name="textDetails" Relationship="CatalogService.contentActionAssignments_textDetails"
+					FromRole="contentActionAssignments" ToRole="contentActionAssignments1"/>
+			</EntityType>
+			<EntityType Name="contentActions">
+				<Key>
+					<PropertyRef Name="UUID"/>
+				</Key>
+				<Property Name="UUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="parentUUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="ID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+				<Property Name="value" Type="Edm.String" MaxLength="1000"/>
+				<NavigationProperty Name="contentSources" Relationship="CatalogService.contentActions_contentSources" FromRole="contentActions"
+					ToRole="contentSources"/>
+				<NavigationProperty Name="textDetails" Relationship="CatalogService.contentActions_textDetails" FromRole="contentActions"
+					ToRole="textDetails"/>
+			</EntityType>
+			<EntityType Name="contentSourceStatuss">
+				<Key>
+					<PropertyRef Name="UUID"/>
+				</Key>
+				<Property Name="UUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="parentUUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="primaryStatusCode" Type="Edm.String" MaxLength="60" Nullable="false"/>
+				<Property Name="secondaryStatusCode" Type="Edm.String" MaxLength="60" Nullable="false"/>
+				<Property Name="normalizedStatusCode" Type="Edm.String" MaxLength="255"/>
+				<Property Name="exceptionType" Type="Edm.String" MaxLength="255"/>
+				<Property Name="initialDeliveryAttempt" Type="Edm.Boolean"/>
+				<NavigationProperty Name="contentSource" Relationship="CatalogService.contentSourceStatuss_contentSource" FromRole="contentSourceStatuss"
+					ToRole="contentSources"/>
+				<NavigationProperty Name="textDetails" Relationship="CatalogService.contentSourceStatuss_textDetails" FromRole="contentSourceStatuss"
+					ToRole="textDetails"/>
+			</EntityType>
+			<EntityType Name="contentSources">
+				<Key>
+					<PropertyRef Name="UUID"/>
+				</Key>
+				<Property Name="UUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="ID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+				<NavigationProperty Name="contentActionAssignments" Relationship="CatalogService.contentSources_contentActionAssignments"
+					FromRole="contentSources" ToRole="contentActionAssignments"/>
+				<NavigationProperty Name="textDetails" Relationship="CatalogService.contentSources_textDetails" FromRole="contentSources"
+					ToRole="textDetails"/>
+				<NavigationProperty Name="contentSourceStatuss" Relationship="CatalogService.contentSources_contentSourceStatuss" FromRole="contentSources"
+					ToRole="contentSourceStatuss"/>
+			</EntityType>
+			<EntityType Name="contentValues">
+				<Key>
+					<PropertyRef Name="UUID"/>
+				</Key>
+				<Property Name="UUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="ID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+				<Property Name="value" Type="Edm.String" MaxLength="60"/>
+				<NavigationProperty Name="textDetails" Relationship="CatalogService.contentValues_textDetails" FromRole="contentValues" ToRole="textDetails"/>
+			</EntityType>
 			<EntityType Name="errorMessages">
 				<Key>
 					<PropertyRef Name="UUID"/>
@@ -50,19 +226,190 @@
 				</Key>
 				<Property Name="UUID" Type="Edm.Guid" Nullable="false"/>
 				<Property Name="ID" Type="Edm.String" MaxLength="60" Nullable="false"/>
-				<NavigationProperty Name="textDetails" Relationship="CatalogService.feedTypes_textDetails" FromRole="feedTypes" ToRole="textDetails"/>
+				<NavigationProperty Name="to_textDetails" Relationship="CatalogService.feedTypes_to_textDetails" FromRole="feedTypes" ToRole="textDetails"/>
 			</EntityType>
 			<EntityType Name="textDetails">
 				<Key>
 					<PropertyRef Name="UUID"/>
-					<PropertyRef Name="locale"/>
 				</Key>
 				<Property Name="UUID" Type="Edm.Guid" Nullable="false"/>
-				<Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
+				<Property Name="parentUUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="locale" Type="Edm.String" MaxLength="2"/>
 				<Property Name="description" Type="Edm.String" MaxLength="255"/>
-				<NavigationProperty Name="feedType" Relationship="CatalogService.textDetails_feedType" FromRole="textDetails" ToRole="feedTypes"/>
+				<NavigationProperty Name="to_feedType" Relationship="CatalogService.textDetails_to_feedType" FromRole="textDetails" ToRole="feedTypes"/>
 				<NavigationProperty Name="errorMessage" Relationship="CatalogService.textDetails_errorMessage" FromRole="textDetails" ToRole="errorMessages"/>
+				<NavigationProperty Name="contentSource" Relationship="CatalogService.textDetails_contentSource" FromRole="textDetails"
+					ToRole="contentSources"/>
+				<NavigationProperty Name="contentAction" Relationship="CatalogService.textDetails_contentAction" FromRole="textDetails"
+					ToRole="contentActions"/>
+				<NavigationProperty Name="contentActionAssignment" Relationship="CatalogService.textDetails_contentActionAssignment" FromRole="textDetails"
+					ToRole="contentActionAssignments"/>
+				<NavigationProperty Name="contentValue" Relationship="CatalogService.textDetails_contentValue" FromRole="textDetails" ToRole="contentValues"/>
 			</EntityType>
+			<Association Name="carrierAssignments_contentSources">
+				<End Role="carrierAssignments" Type="CatalogService.carrierAssignments" Multiplicity="*"/>
+				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="0..1"/>
+				<ReferentialConstraint>
+					<Principal Role="contentSources">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="carrierAssignments">
+						<PropertyRef Name="parentUUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="carrierAssignments_carrierMasters">
+				<End Role="carrierAssignments" Type="CatalogService.carrierAssignments" Multiplicity="*"/>
+				<End Role="carrierMasters" Type="CatalogService.carrierMasters" Multiplicity="0..1"/>
+				<ReferentialConstraint>
+					<Principal Role="carrierMasters">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="carrierAssignments">
+						<PropertyRef Name="assignmentUUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="carrierAssignments_textDetails">
+				<End Role="carrierAssignments" Type="CatalogService.carrierAssignments" Multiplicity="*"/>
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+				<ReferentialConstraint>
+					<Principal Role="textDetails">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="carrierAssignments">
+						<PropertyRef Name="UUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="carrierMasters_textDetails">
+				<End Role="carrierMasters" Type="CatalogService.carrierMasters" Multiplicity="*"/>
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+				<ReferentialConstraint>
+					<Principal Role="textDetails">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="carrierMasters">
+						<PropertyRef Name="UUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="contentActionAssignments_contentSources">
+				<End Role="contentActionAssignments" Type="CatalogService.contentActionAssignments" Multiplicity="*"/>
+				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="0..1"/>
+				<ReferentialConstraint>
+					<Principal Role="contentSources">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="contentActionAssignments">
+						<PropertyRef Name="parentUUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="contentActionAssignments_contentActions">
+				<End Role="contentActionAssignments" Type="CatalogService.contentActionAssignments" Multiplicity="*"/>
+				<End Role="contentActions" Type="CatalogService.contentActions" Multiplicity="0..1"/>
+				<ReferentialConstraint>
+					<Principal Role="contentActions">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="contentActionAssignments">
+						<PropertyRef Name="assignmentUUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="contentActionAssignments_textDetails">
+				<End Role="contentActionAssignments" Type="CatalogService.contentActionAssignments" Multiplicity="*"/>
+				<End Role="contentActionAssignments1" Type="CatalogService.contentActionAssignments" Multiplicity="*"/>
+				<ReferentialConstraint>
+					<Principal Role="contentActionAssignments1">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="contentActionAssignments">
+						<PropertyRef Name="UUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="contentActions_contentSources">
+				<End Role="contentActions" Type="CatalogService.contentActions" Multiplicity="*"/>
+				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="0..1"/>
+				<ReferentialConstraint>
+					<Principal Role="contentSources">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="contentActions">
+						<PropertyRef Name="parentUUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="contentActions_textDetails">
+				<End Role="contentActions" Type="CatalogService.contentActions" Multiplicity="*"/>
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+				<ReferentialConstraint>
+					<Principal Role="textDetails">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="contentActions">
+						<PropertyRef Name="UUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="contentSourceStatuss_contentSource">
+				<End Role="contentSourceStatuss" Type="CatalogService.contentSourceStatuss" Multiplicity="*"/>
+				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="0..1"/>
+				<ReferentialConstraint>
+					<Principal Role="contentSources">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="contentSourceStatuss">
+						<PropertyRef Name="parentUUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="contentSourceStatuss_textDetails">
+				<End Role="contentSourceStatuss" Type="CatalogService.contentSourceStatuss" Multiplicity="*"/>
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+				<ReferentialConstraint>
+					<Principal Role="textDetails">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="contentSourceStatuss">
+						<PropertyRef Name="UUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="contentSources_contentActionAssignments">
+				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="*"/>
+				<End Role="contentActionAssignments" Type="CatalogService.contentActionAssignments" Multiplicity="*"/>
+			</Association>
+			<Association Name="contentSources_textDetails">
+				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="*"/>
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+				<ReferentialConstraint>
+					<Principal Role="textDetails">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="contentSources">
+						<PropertyRef Name="UUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="contentSources_contentSourceStatuss">
+				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="*"/>
+				<End Role="contentSourceStatuss" Type="CatalogService.contentSourceStatuss" Multiplicity="*"/>
+			</Association>
+			<Association Name="contentValues_textDetails">
+				<End Role="contentValues" Type="CatalogService.contentValues" Multiplicity="*"/>
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+				<ReferentialConstraint>
+					<Principal Role="textDetails">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="contentValues">
+						<PropertyRef Name="UUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
 			<Association Name="errorMessages_textDetails">
 				<End Role="errorMessages" Type="CatalogService.errorMessages" Multiplicity="*"/>
 				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
@@ -75,19 +422,11 @@
 					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="feedTypes_textDetails">
+			<Association Name="feedTypes_to_textDetails">
 				<End Role="feedTypes" Type="CatalogService.feedTypes" Multiplicity="*"/>
 				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
-				<ReferentialConstraint>
-					<Principal Role="textDetails">
-						<PropertyRef Name="UUID"/>
-					</Principal>
-					<Dependent Role="feedTypes">
-						<PropertyRef Name="UUID"/>
-					</Dependent>
-				</ReferentialConstraint>
 			</Association>
-			<Association Name="textDetails_feedType">
+			<Association Name="textDetails_to_feedType">
 				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
 				<End Role="feedTypes" Type="CatalogService.feedTypes" Multiplicity="0..1"/>
 				<ReferentialConstraint>
@@ -95,7 +434,7 @@
 						<PropertyRef Name="UUID"/>
 					</Principal>
 					<Dependent Role="textDetails">
-						<PropertyRef Name="UUID"/>
+						<PropertyRef Name="parentUUID"/>
 					</Dependent>
 				</ReferentialConstraint>
 			</Association>
@@ -111,6 +450,450 @@
 					</Dependent>
 				</ReferentialConstraint>
 			</Association>
+			<Association Name="textDetails_contentSource">
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="0..1"/>
+				<ReferentialConstraint>
+					<Principal Role="contentSources">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="textDetails">
+						<PropertyRef Name="UUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="textDetails_contentAction">
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+				<End Role="contentActions" Type="CatalogService.contentActions" Multiplicity="0..1"/>
+				<ReferentialConstraint>
+					<Principal Role="contentActions">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="textDetails">
+						<PropertyRef Name="UUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="textDetails_contentActionAssignment">
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+				<End Role="contentActionAssignments" Type="CatalogService.contentActionAssignments" Multiplicity="0..1"/>
+				<ReferentialConstraint>
+					<Principal Role="contentActionAssignments">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="textDetails">
+						<PropertyRef Name="UUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="textDetails_contentValue">
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+				<End Role="contentValues" Type="CatalogService.contentValues" Multiplicity="0..1"/>
+				<ReferentialConstraint>
+					<Principal Role="contentValues">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="textDetails">
+						<PropertyRef Name="UUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Annotations Target="CatalogService.EntityContainer/carrierAssignments" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.DeleteRestrictions">
+					<Record Type="Capabilities.DeleteRestrictionsType">
+						<PropertyValue Property="Deletable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.InsertRestrictions">
+					<Record Type="Capabilities.InsertRestrictionsType">
+						<PropertyValue Property="Insertable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.UpdateRestrictions">
+					<Record Type="Capabilities.UpdateRestrictionsType">
+						<PropertyValue Property="Updatable" Bool="true"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CatalogService.EntityContainer/carrierMasters" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.DeleteRestrictions">
+					<Record Type="Capabilities.DeleteRestrictionsType">
+						<PropertyValue Property="Deletable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.InsertRestrictions">
+					<Record Type="Capabilities.InsertRestrictionsType">
+						<PropertyValue Property="Insertable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.UpdateRestrictions">
+					<Record Type="Capabilities.UpdateRestrictionsType">
+						<PropertyValue Property="Updatable" Bool="true"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CatalogService.contentActionAssignments" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="textDetails/@UI.LineItem"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ID"/>
+									<PropertyValue Property="Label" String="Content Action Assignment"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="ID"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="TypeName" String="Content Action Assignment"/>
+						<PropertyValue Property="TypeNamePlural" String="Content Actions Assignments"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ID"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+							<PropertyValue Property="Label" String="Content Action Assignment"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant">
+					<Record Type="UI.PresentationVariantType">
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="ID"/>
+									<PropertyValue Property="Descending" Bool="false"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CatalogService.EntityContainer/contentActionAssignments" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.DeleteRestrictions">
+					<Record Type="Capabilities.DeleteRestrictionsType">
+						<PropertyValue Property="Deletable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.InsertRestrictions">
+					<Record Type="Capabilities.InsertRestrictionsType">
+						<PropertyValue Property="Insertable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.UpdateRestrictions">
+					<Record Type="Capabilities.UpdateRestrictionsType">
+						<PropertyValue Property="Updatable" Bool="true"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CatalogService.contentActions" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="textDetails/@UI.LineItem"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ID"/>
+									<PropertyValue Property="Label" String="Content Action"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="ID"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="TypeName" String="Content Action"/>
+						<PropertyValue Property="TypeNamePlural" String="Content Actions"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ID"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+							<PropertyValue Property="Label" String="Content Action"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant">
+					<Record Type="UI.PresentationVariantType">
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="ID"/>
+									<PropertyValue Property="Descending" Bool="false"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>ID</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CatalogService.EntityContainer/contentActions" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.DeleteRestrictions">
+					<Record Type="Capabilities.DeleteRestrictionsType">
+						<PropertyValue Property="Deletable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.InsertRestrictions">
+					<Record Type="Capabilities.InsertRestrictionsType">
+						<PropertyValue Property="Insertable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.UpdateRestrictions">
+					<Record Type="Capabilities.UpdateRestrictionsType">
+						<PropertyValue Property="Updatable" Bool="true"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CatalogService.contentSourceStatuss" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="textDetails/@UI.LineItem"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="primaryStatusCode"/>
+									<PropertyValue Property="Label" String="Primary Status Code"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="secondaryStatusCode"/>
+									<PropertyValue Property="Label" String="Secondary Status Code"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="normalizedStatusCode"/>
+									<PropertyValue Property="Label" String="Normalized Status Code"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="initialDeliveryAttempt"/>
+									<PropertyValue Property="Label" String="Initial Delivery Attempt"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="primaryStatusCode"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="TypeName" String="Content Source Status"/>
+						<PropertyValue Property="TypeNamePlural" String="Content Source Statuses"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="primaryStatusCode"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+							<PropertyValue Property="Label" String="Primary Status Code"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="secondaryStatusCode"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+							<PropertyValue Property="Label" String="Secondary Status Code"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="normalizedStatusCode"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+							<PropertyValue Property="Label" String="Normalized Status Code"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="initialDeliveryAttempt"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+							<PropertyValue Property="Label" String="Initial Delivery Attempt"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant">
+					<Record Type="UI.PresentationVariantType">
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="primaryStatusCode"/>
+									<PropertyValue Property="Descending" Bool="false"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CatalogService.EntityContainer/contentSourceStatuss" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.DeleteRestrictions">
+					<Record Type="Capabilities.DeleteRestrictionsType">
+						<PropertyValue Property="Deletable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.InsertRestrictions">
+					<Record Type="Capabilities.InsertRestrictionsType">
+						<PropertyValue Property="Insertable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.UpdateRestrictions">
+					<Record Type="Capabilities.UpdateRestrictionsType">
+						<PropertyValue Property="Updatable" Bool="true"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CatalogService.contentSources" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="contentSourceStatuss/@UI.LineItem"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="contentActionAssignments/@UI.LineItem"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="textDetails/@UI.LineItem"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ID"/>
+									<PropertyValue Property="Label" String="Content Source"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="ID"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="TypeName" String="Content Source"/>
+						<PropertyValue Property="TypeNamePlural" String="Content Sources"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ID"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+							<PropertyValue Property="Label" String="Content Source"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant">
+					<Record Type="UI.PresentationVariantType">
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="ID"/>
+									<PropertyValue Property="Descending" Bool="false"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>ID</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CatalogService.EntityContainer/contentSources" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.DeleteRestrictions">
+					<Record Type="Capabilities.DeleteRestrictionsType">
+						<PropertyValue Property="Deletable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.InsertRestrictions">
+					<Record Type="Capabilities.InsertRestrictionsType">
+						<PropertyValue Property="Insertable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.UpdateRestrictions">
+					<Record Type="Capabilities.UpdateRestrictionsType">
+						<PropertyValue Property="Updatable" Bool="true"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CatalogService.EntityContainer/contentValues" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.DeleteRestrictions">
+					<Record Type="Capabilities.DeleteRestrictionsType">
+						<PropertyValue Property="Deletable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.InsertRestrictions">
+					<Record Type="Capabilities.InsertRestrictionsType">
+						<PropertyValue Property="Insertable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.UpdateRestrictions">
+					<Record Type="Capabilities.UpdateRestrictionsType">
+						<PropertyValue Property="Updatable" Bool="true"/>
+					</Record>
+				</Annotation>
+			</Annotations>
 			<Annotations Target="CatalogService.errorMessages" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 				<Annotation Term="UI.Facets">
 					<Collection>
@@ -130,7 +913,7 @@
 							<Collection>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="ID"/>
-									<PropertyValue Property="Label" String="{i18n>errorMessage}"/>
+									<PropertyValue Property="Label" String="Error Message"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -143,8 +926,8 @@
 								<PropertyValue Property="Value" Path="ID"/>
 							</Record>
 						</PropertyValue>
-						<PropertyValue Property="TypeName" String="{i18n>errorMessage}"/>
-						<PropertyValue Property="TypeNamePlural" String="{i18n>errorMessage_Plural}"/>
+						<PropertyValue Property="TypeName" String="Error Message"/>
+						<PropertyValue Property="TypeNamePlural" String="Error Messages"/>
 					</Record>
 				</Annotation>
 				<Annotation Term="UI.LineItem">
@@ -152,7 +935,7 @@
 						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="ID"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-							<PropertyValue Property="Label" String="{i18n>errorMessage}"/>
+							<PropertyValue Property="Label" String="Error Message"/>
 						</Record>
 					</Collection>
 				</Annotation>
@@ -195,22 +978,22 @@
 				<Annotation Term="UI.Facets">
 					<Collection>
 						<Record Type="UI.ReferenceFacet">
-							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneralInformation"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.ReferenceFacet">
-							<PropertyValue Property="Target" AnnotationPath="textDetails/@UI.LineItem"/>
+							<PropertyValue Property="Target" AnnotationPath="to_textDetails/@UI.LineItem"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 					</Collection>
 				</Annotation>
-				<Annotation Term="UI.FieldGroup" Qualifier="GeneralInformation">
+				<Annotation Term="UI.FieldGroup">
 					<Record Type="UI.FieldGroupType">
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="ID"/>
-									<PropertyValue Property="Label" String="{i18n>feedType}"/>
+									<PropertyValue Property="Label" String="Feed Type"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -223,8 +1006,8 @@
 								<PropertyValue Property="Value" Path="ID"/>
 							</Record>
 						</PropertyValue>
-						<PropertyValue Property="TypeName" String="{i18n>feedType}"/>
-						<PropertyValue Property="TypeNamePlural" String="{i18n>feedType_Plural}"/>
+						<PropertyValue Property="TypeName" String="Feed Type"/>
+						<PropertyValue Property="TypeNamePlural" String="Feed Types"/>
 					</Record>
 				</Annotation>
 				<Annotation Term="UI.LineItem">
@@ -232,7 +1015,7 @@
 						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="ID"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-							<PropertyValue Property="Label" String="{i18n>feedType}"/>
+							<PropertyValue Property="Label" String="Feed Type"/>
 						</Record>
 					</Collection>
 				</Annotation>
@@ -272,11 +1055,11 @@
 				</Annotation>
 			</Annotations>
 			<Annotations Target="CatalogService.textDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-				<Annotation Term="Common.Label" String="{i18n>textDetailService}"/>
+				<Annotation Term="Common.Label" String="Text Detail Service"/>
 				<Annotation Term="UI.Facets">
 					<Collection>
 						<Record Type="UI.ReferenceFacet">
-							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneralInformation"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.ReferenceFacet">
@@ -285,20 +1068,31 @@
 						</Record>
 					</Collection>
 				</Annotation>
-				<Annotation Term="UI.FieldGroup" Qualifier="GeneralInformation">
+				<Annotation Term="UI.FieldGroup">
 					<Record Type="UI.FieldGroupType">
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="locale"/>
-									<PropertyValue Property="Label" String="{i18n>locale}"/>
+									<PropertyValue Property="Label" String="Language"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="description"/>
-									<PropertyValue Property="Label" String="{i18n>description}"/>
+									<PropertyValue Property="Label" String="Description"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="locale"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="TypeName" String="Texts"/>
+						<PropertyValue Property="TypeNamePlural" String="Text"/>
 					</Record>
 				</Annotation>
 				<Annotation Term="UI.LineItem">
@@ -306,12 +1100,12 @@
 						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="locale"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-							<PropertyValue Property="Label" String="{i18n>locale}"/>
+							<PropertyValue Property="Label" String="Language"/>
 						</Record>
 						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="description"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-							<PropertyValue Property="Label" String="{i18n>description}"/>
+							<PropertyValue Property="Label" String="Description"/>
 						</Record>
 					</Collection>
 				</Annotation>
@@ -346,10 +1140,10 @@
 				</Annotation>
 			</Annotations>
 			<Annotations Target="CatalogService.textDetails/locale" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-				<Annotation Term="Common.Label" String="{i18n>locale}"/>
+				<Annotation Term="Common.Label" String="Language"/>
 			</Annotations>
 			<Annotations Target="CatalogService.textDetails/description" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-				<Annotation Term="Common.Label" String="{i18n>description}"/>
+				<Annotation Term="Common.Label" String="Description"/>
 			</Annotations>
 		</Schema>
 	</edmx:DataServices>

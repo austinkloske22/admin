@@ -22,7 +22,7 @@ annotate CatalogService.feedTypes with @(
 	//Page Facets
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
+		{$Type: 'UI.ReferenceFacet', Target: 'to_textDetails/@UI.LineItem', "@UI.Importance": #High}
 	],
 		
 	UI.FieldGroup: {
@@ -54,9 +54,9 @@ annotate CatalogService.contentSources with @(
 	//Page Facets
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: 'contentSourceStatuss/@UI.LineItem', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: 'contentActionAssignments/@UI.LineItem', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
+		{$Type: 'UI.ReferenceFacet', Target: 'to_contentSourceStatuss/@UI.LineItem', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'to_contentActionAssignments/@UI.LineItem', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'to_textDetails/@UI.LineItem', "@UI.Importance": #High}
 	],
 		
 	UI.FieldGroup: {
@@ -122,7 +122,7 @@ annotate CatalogService.contentActionAssignments with @(
 	//Page Facets
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
+		{$Type: 'UI.ReferenceFacet', Target: 'to_textDetails/@UI.LineItem', "@UI.Importance": #High}
 	],
 	UI.FieldGroup: {
 		Data: [
@@ -156,7 +156,7 @@ annotate CatalogService.contentActions with @(
 	//Page Facets
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
+		{$Type: 'UI.ReferenceFacet', Target: 'to_textDetails/@UI.LineItem', "@UI.Importance": #High}
 	],
 		
 	UI.FieldGroup: {
@@ -191,7 +191,7 @@ annotate CatalogService.errorMessages with @(
 	//Page Facets
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
+		{$Type: 'UI.ReferenceFacet', Target: 'to_textDetails/@UI.LineItem', "@UI.Importance": #High}
 	],
 		
 	UI.FieldGroup: {
@@ -225,7 +225,7 @@ annotate CatalogService.contentSourceStatuss with @(
 	//Page Facets
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: 'textDetails/@UI.LineItem', "@UI.Importance": #High}
+		{$Type: 'UI.ReferenceFacet', Target: 'to_textDetails/@UI.LineItem', "@UI.Importance": #High}
 	],
 
 	UI.FieldGroup: {

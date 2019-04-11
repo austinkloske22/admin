@@ -2,41 +2,58 @@ namespace admin;
 using admin.commonModel as commonModel from './common-model';
 using admin.assignmentModel as assignmentModel from './assignment-model.cds';
 
+entity carrierMaster {
+	key UUID					: UUID;
+	ID							: commonModel.adminKey not null;
+	logoURL						: commonModel.longString;
+	status						: Boolean;
+	to_textDetails				: Association to many commonModel.textDetail on to_textDetails.UUID = $self.UUID;
+}
+
 entity contentSource {
 	key UUID					: UUID; 
 	ID							: commonModel.adminKey not null;
-	contentActionAssignments	: Association to many assignmentModel.contentActionAssignment on contentActionAssignments.UUID = $self.UUID;
-	textDetails					: Association to many commonModel.textDetail on textDetails.UUID = $self.UUID;
-	contentSourceStatuss		: Association to many admin.contentSourceStatus on contentSourceStatuss.UUID = $self.UUID;
+	to_contentActionAssignments	: Association to many assignmentModel.contentActionAssignment on to_contentActionAssignments.assignmentUUID = UUID and to_contentActionAssignments.ID = ID;
+	to_textDetails				: Association to many commonModel.textDetail on to_textDetails.UUID = UUID;
+	to_contentSourceStatuss		: Association to many admin.contentSourceStatus on to_contentSourceStatuss.parentUUID = UUID;
 	} 
+
+entity contentValue {
+	key UUID					: UUID;
+	ID							: commonModel.adminKey not null;
+	value						: commonModel.adminKey;
+	to_textDetails				: Association to many commonModel.textDetail on to_textDetails.UUID = $self.UUID;
+}
 
 entity contentSourceStatus	{
 	key UUID					: UUID;
-	key ITEM_UUID				: UUID;
+	parentUUID					: UUID not null;
 	primaryStatusCode			: commonModel.adminKey not null;
 	secondaryStatusCode			: commonModel.adminKey not null;
 	normalizedStatusCode		: commonModel.description;
 	exceptionType				: commonModel.description;
 	initialDeliveryAttempt		: Boolean;
-	contentSources				: Association to one admin.contentSource on contentSources.UUID = $self.UUID;
-	textDetails					: Association to many commonModel.textDetail on textDetails.UUID = $self.UUID and textDetails.ITEM_UUID = $self.ITEM_UUID;
+	to_contentSource			: Association to one admin.contentSource on to_contentSource.UUID = parentUUID;
+	to_textDetails				: Association to many commonModel.textDetail on to_textDetails.UUID = UUID;
 }
 
 entity errorMessage {
-
-	key UUID	:	UUID;
-	ID			:	commonModel.adminKey not null;
-	textDetails	:	Association to many commonModel.textDetail on textDetails.UUID = $self.UUID;
+	key UUID		: UUID;
+	ID				: commonModel.adminKey not null;
+	to_textDetails		: Association to many commonModel.textDetail on to_textDetails.UUID = $self.UUID;
 } 
 
 entity contentAction {
 	key UUID	:	UUID; 
+	parentUUID	:	UUID not null;
 	ID			:	commonModel.adminKey not null;
-	textDetails	:	Association to many commonModel.textDetail on textDetails.UUID = $self.UUID;
+	value		:	commonModel.longString;
+	to_contentSource : Association to one admin.contentSource on to_contentSource.UUID = $self.parentUUID;
+	to_textDetails	 :	Association to many commonModel.textDetail on to_textDetails.UUID = $self.UUID;
 }
 
 entity feedType {
 	key UUID	:	UUID not null; 
 	ID			:	commonModel.adminKey not null;
-	textDetails	:	Association to many commonModel.textDetail on textDetails.UUID = $self.UUID;
+	to_textDetails	:	Association to many commonModel.textDetail on to_textDetails.parentUUID = $self.UUID;
 }

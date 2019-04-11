@@ -53,6 +53,13 @@ service CatalogService {
 		}
 	) as projection on admin.contentSourceStatus;
 	
+	entity  contentValues @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on admin.contentValue;
 	
 	entity  contentActionAssignments @(
 		Capabilities: {
@@ -61,4 +68,20 @@ service CatalogService {
 			DeleteRestrictions: {Deletable: true}
 		}
 	) as projection on assignmentModel.contentActionAssignment;
+	
+	entity  carrierMasters @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on admin.carrierMaster;
+	
+	entity  carrierAssignments @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on assignmentModel.carrierAssignment;
 }
