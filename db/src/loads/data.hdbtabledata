@@ -23,6 +23,34 @@
 		}
 	},
 	{
+		"target_table": "ADMIN_NORMALIZATIONMODEL_CARRIERMASTERNORMALIZATION",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "carriermasternormalization.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"PARENTUUID",
+				"ASSIGNMENTUUID",
+				"ID",
+				"NORMALIZEDID"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"PARENTUUID": 2,
+			"ASSIGNMENTUUID": 3,
+			"ID": 4,
+			"NORMALIZEDID": 5
+		}
+	},
+	{
 		"target_table": "ADMIN_COMMONMODEL_TEXTDETAIL",
 		"source_data": {
 			"data_type": "CSV",
@@ -47,6 +75,154 @@
 			"LOCALE": 3,
 			"DESCRIPTION": 4
 		}
-	}
-	]
+	},
+	{
+		"target_table": "ADMIN_ASSIGNMENTMODEL_CONTENTACTIONASSIGNMENT",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentactionassignment.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"PARENTUUID",
+				"ASSIGNMENTUUID",
+				"ID"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"PARENTUUID": 2,
+			"ASSIGNMENTUUID": 3,
+			"ID": 4
+		}
+	},
+	{
+		"target_table": "ADMIN_CONTENTACTION",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentaction.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"ID"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"ID": 2
+		}
+	},
+	{
+		"target_table": "ADMIN_ERRORMESSAGE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "errormessage.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"ID"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"ID": 2
+		}
+	},
+	{
+		"target_table": "ADMIN_CARRIERMASTER",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "carriermaster.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"ID",
+				"LOGOURL",
+				"STATUS"
+				]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"ID": 2,
+			"LOGOURL": 3,
+			"STATUS": 4
+		}
+	},
+	{
+		"target_table": "ADMIN_CONTENTSOURCE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsource.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"ID"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"ID": 2
+		}
+	},
+	{
+		"target_table": "ADMIN_CONTENTSOURCESTATUS",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourcestatus.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"UUID",
+				"PARENTUUID",
+				"PRIMARYSTATUSCODE",
+				"SECONDARYSTATUSCODE",
+				"NORMALIZEDSTATUSCODE",
+				"INITIALDELIVERYATTEMPT"]
+		},
+		"column_mappings": {
+			"UUID": 1,
+			"PARENTUUID": 2,
+			"PRIMARYSTATUSCODE": 3,
+			"SECONDARYSTATUSCODE": 4,
+			"NORMALIZEDSTATUSCODE": 5,
+			"INITIALDELIVERYATTEMPT": 6
+		}
+	}]
 }

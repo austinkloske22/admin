@@ -16,18 +16,15 @@ import com.sap.cloud.sdk.service.prov.api.request.QueryRequest;
  */
 public class textDetailsHooksHandler {
 	
+	public static void main(String[] args) {
+		
+	}
 	private static String PARENT_UUID = "null";
 	private static final String ELEMENT_PARENT_UUID = "parentUUID";
 	
 	
 	public static String GetParentUUID() {
 		return PARENT_UUID;
-	}
-	
-	public static void DeleteByUUID(String im_uuid) {
-		if (im_uuid != "null"){
-			
-		}
 	}
 	
 	private static void SetParentUUID(String im_uuid) {

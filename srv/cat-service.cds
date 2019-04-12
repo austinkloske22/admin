@@ -1,5 +1,6 @@
 using admin.commonModel as commonModel from '../db/common-model';
 using admin.assignmentModel as assignmentModel from '../db/assignment-model';
+using admin.normalizationModel as normalizationModel from '../db/normalize-model';
 using admin as admin from '../db/data-model';
 
 service CatalogService {
@@ -77,11 +78,11 @@ service CatalogService {
 		}
 	) as projection on admin.carrierMaster;
 	
-	entity  carrierAssignments @(
+	entity  carrierMasterNormalizations @(
 		Capabilities: {
 			InsertRestrictions: {Insertable: true},
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on assignmentModel.carrierAssignment;
+	) as projection on normalizationModel.carrierMasterNormalization;
 }

@@ -132,7 +132,7 @@
 						},
 						"pages": {
 							"ObjectPage|textDetails": {
-								"navigationProperty": "textDetails",
+								"navigationProperty": "to_textDetails",
 								"entitySet": "textDetails",
 								"component": {
 									"name": "sap.suite.ui.generic.template.ObjectPage"

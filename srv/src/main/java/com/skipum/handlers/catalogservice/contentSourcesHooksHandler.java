@@ -8,25 +8,26 @@ import com.sap.cloud.sdk.service.prov.api.response.*;
 
 import java.util.HashMap;
 import java.util.Map;
+
 /***
- * Handler class for persisted entity "feedTypes" of service "CatalogService".
+ * Handler class for persisted entity "contentSources" of service "CatalogService".
  * This handler registers custom handlers for before / after operation hooks.
  * For more information, see: https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/94c7b69cc4584a1a9dfd9cb2da295d5e.html
  */
-public class feedTypesHooksHandler {
+public class contentSourcesHooksHandler {
 	private static final String ENTITY_TEXTDETAILS = "textDetails";
 	private static final String ELEMENT_UUID = "UUID", ELEMENT_PARENTUUID = "parentUUID";
 	
-//	@BeforeRead(entity = "feedTypes", serviceName = "CatalogService")
-//	public BeforeReadResponse beforeReadfeedTypes(ReadRequest req, ExtensionHelper helper) {
+//	@BeforeRead(entity = "contentSources", serviceName = "CatalogService")
+//	public BeforeReadResponse beforeReadcontentSources(ReadRequest req, ExtensionHelper helper) {
 //		//TODO: add your custom logic / validations here...
 //
 //		return BeforeReadResponse.setSuccess().response(); //use this API if validation checks are successful.
 //		//return BeforeReadResponse.setError(ErrorResponse.getBuilder().setMessage("You are not authorized to read this item").response()); //use this API if your validation checks fail
 //	}
 
-//	@AfterRead(entity = "feedTypes", serviceName = "CatalogService")
-//	public ReadResponse afterReadfeedTypes(ReadRequest req, ReadResponseAccessor res, ExtensionHelper helper) {
+//	@AfterRead(entity = "contentSources", serviceName = "CatalogService")
+//	public ReadResponse afterReadcontentSources(ReadRequest req, ReadResponseAccessor res, ExtensionHelper helper) {
 //		EntityData data = res.getEntityData();
 //		//TODO: add your custom logic / validations here...
 //
@@ -35,16 +36,16 @@ public class feedTypesHooksHandler {
 //		//return ReadResponse.setError(ErrorResponse.getBuilder().setMessage("Read Operation Failed").response()); //use this API if should return error response.
 //	}
 
-//	@BeforeQuery(entity = "feedTypes", serviceName = "CatalogService")
-//	public BeforeQueryResponse beforeQueryfeedTypes(QueryRequest req, ExtensionHelper helper) {
+//	@BeforeQuery(entity = "contentSources", serviceName = "CatalogService")
+//	public BeforeQueryResponse beforeQuerycontentSources(QueryRequest req, ExtensionHelper helper) {
 //		//TODO: add your custom logic / validations here...
 //
 //		return BeforeQueryResponse.setSuccess().response(); //use this API if validation checks are successful.
 //		//return BeforeQueryResponse.setError(ErrorResponse.getBuilder().setMessage("You are not authorized to query this entity").response()); //use this API if any validation checks fail.
 //	}
 
-//	@AfterQuery(entity = "feedTypes", serviceName = "CatalogService")
-//	public QueryResponse afterQueryfeedTypes(QueryRequest req, QueryResponseAccessor res, ExtensionHelper helper) {
+//	@AfterQuery(entity = "contentSources", serviceName = "CatalogService")
+//	public QueryResponse afterQuerycontentSources(QueryRequest req, QueryResponseAccessor res, ExtensionHelper helper) {
 //		List<EntityData> dataList = res.getEntityDataList(); //original list
 //		//TODO: add your custom logic / validations here...
 //
@@ -53,8 +54,8 @@ public class feedTypesHooksHandler {
 //		//return QueryResponse.setError(ErrorResponse.getBuilder().setMessage("Query Operation Failed").response()); //use this API if should return error response.
 //	}
 
-//	@BeforeCreate(entity = "feedTypes", serviceName = "CatalogService")
-//	public BeforeCreateResponse beforeCreatefeedTypes(CreateRequest req, ExtensionHelper helper) {
+//	@BeforeCreate(entity = "contentSources", serviceName = "CatalogService")
+//	public BeforeCreateResponse beforeCreatecontentSources(CreateRequest req, ExtensionHelper helper) {
 //		EntityData data = req.getData();
 //		//TODO: add your custom logic / validations here...
 //
@@ -63,16 +64,16 @@ public class feedTypesHooksHandler {
 //		//return BeforeCreateResponse.setError(ErrorResponse.getBuilder().setMessage("You are not authorized to add items.").response()); //use this API if any validation checks fail.
 //	}
 
-//	@AfterCreate(entity = "feedTypes", serviceName = "CatalogService")
-//	public CreateResponse afterCreatefeedTypes(CreateRequest req, CreateResponseAccessor res, ExtensionHelper helper) {
+//	@AfterCreate(entity = "contentSources", serviceName = "CatalogService")
+//	public CreateResponse afterCreatecontentSources(CreateRequest req, CreateResponseAccessor res, ExtensionHelper helper) {
 //		//TODO: add your custom logic / validations here...
 //
 //		return res.getOriginalResponse(); //use this API if operation succeeded and payload has not been modified.
 //		//return CreateResponse.setError(ErrorResponse.getBuilder().setMessage("Create Operation Failed").response()); //use this API if should return error response.
 //	}
 
-//	@BeforeUpdate(entity = "feedTypes", serviceName = "CatalogService")
-//	public BeforeUpdateResponse beforeUpdatefeedTypes(UpdateRequest req, ExtensionHelper helper) {
+//	@BeforeUpdate(entity = "contentSources", serviceName = "CatalogService")
+//	public BeforeUpdateResponse beforeUpdatecontentSources(UpdateRequest req, ExtensionHelper helper) {
 //		EntityData data = req.getData();
 //		//TODO: add your custom logic / validations here...
 //
@@ -81,15 +82,15 @@ public class feedTypesHooksHandler {
 //		//return BeforeUpdateResponse.setError(ErrorResponse.getBuilder().setMessage("You are not authorized to update this item.").response()); //use this API if any validation checks fail.
 //	}
 
-//	@AfterUpdate(entity = "feedTypes", serviceName = "CatalogService")
-//	public UpdateResponse afterUpdatefeedTypes(UpdateRequest req, UpdateResponseAccessor res, ExtensionHelper helper) {
+//	@AfterUpdate(entity = "contentSources", serviceName = "CatalogService")
+//	public UpdateResponse afterUpdatecontentSources(UpdateRequest req, UpdateResponseAccessor res, ExtensionHelper helper) {
 //		//TODO: add your custom logic / validations here...
 //
 //		return res.getOriginalResponse(); //use this API if operation succeeded and payload has not been modified.
 //		//return UpdateResponse.setError(ErrorResponse.getBuilder().setMessage("Update Operation Failed").response()); //use this API if should return error response.
 //	}
 
-	@BeforeDelete(entity = "feedTypes", serviceName = "CatalogService")
+	@BeforeDelete(entity = "contentSources", serviceName = "CatalogService")
 	public BeforeDeleteResponse beforeDeletefeedTypes(DeleteRequest req, ExtensionHelper helper) {
 		// Delete dependent stock data
 		Map<String, Object> keys = new HashMap<String, Object>();
@@ -104,15 +105,12 @@ public class feedTypesHooksHandler {
 		}
 	}
 
-//	@AfterDelete(entity = "feedTypes", serviceName = "CatalogService")
-//	public DeleteResponse afterDeletefeedTypes(DeleteRequest req, DeleteResponseAccessor res, ExtensionHelper helper) {
-		//TODO: add your custom logic / validations here...
-		
-		//GetRequest request = Unirest.head(String url);
-		//deleteRequest.getKeys().get(UUID)
-		
+//	@AfterDelete(entity = "contentSources", serviceName = "CatalogService")
+//	public DeleteResponse afterDeletecontentSources(DeleteRequest req, DeleteResponseAccessor res, ExtensionHelper helper) {
+//		//TODO: add your custom logic / validations here...
+//
 //		return res.getOriginalResponse(); //use this API if operation succeeded and payload has not been modified.
-		//return DeleteResponse.setError(ErrorResponse.getBuilder().setMessage("Delete Operation Failed").response()); //use this API if should return error response.
+//		//return DeleteResponse.setError(ErrorResponse.getBuilder().setMessage("Delete Operation Failed").response()); //use this API if should return error response.
 //	}
 
 }

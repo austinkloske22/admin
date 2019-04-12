@@ -82,12 +82,12 @@ sap.ui.define([
 						sUri = oAnnotation.uri,
 						sLocalUri = jQuery.sap.getModulePath(_sAppModulePath + oAnnotation.settings.localUri.replace(".xml", ""), ".xml");
 
-					///annotiaons
+					// backend annotations
 					new MockServer({
 						rootUri: sUri,
 						requests: [{
 							method: "GET",
-							path: new RegExp(""),
+							path: new RegExp("([?#].*)?"),
 							response: function (oXhr) {
 								jQuery.sap.require("jquery.sap.xml");
 

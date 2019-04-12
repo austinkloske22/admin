@@ -88,119 +88,6 @@
         "to_textDetails": {
           "indexNo": 7,
           "type": "cds.Association",
-          "target": "admin.assignmentModel.contentActionAssignment",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "to_textDetails.UUID"
-              },
-              {
-                "=": "UUID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "TO_TEXTDETAILS"
-        }
-      },
-      "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CONTENTACTIONASSIGNMENT"
-    },
-    "admin.assignmentModel.carrierAssignment": {
-      "kind": "entity",
-      "elements": {
-        "UUID": {
-          "key": true,
-          "indexNo": 1,
-          "type": "cds.UUID",
-          "@cds.persistence.name": "UUID"
-        },
-        "parentUUID": {
-          "indexNo": 2,
-          "type": "cds.UUID",
-          "notNull": true,
-          "@cds.persistence.name": "PARENTUUID"
-        },
-        "assignmentUUID": {
-          "indexNo": 3,
-          "type": "cds.UUID",
-          "notNull": true,
-          "@cds.persistence.name": "ASSIGNMENTUUID"
-        },
-        "CarrierID": {
-          "indexNo": 4,
-          "type": "cds.String",
-          "notNull": true,
-          "length": 60,
-          "@cds.persistence.name": "CARRIERID"
-        },
-        "AssignmentCarrier": {
-          "indexNo": 5,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "ASSIGNMENTCARRIER"
-        },
-        "to_contentSource": {
-          "indexNo": 6,
-          "type": "cds.Association",
-          "target": "admin.contentSource",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "to_contentSource.UUID"
-              },
-              {
-                "=": "parentUUID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "TO_CONTENTSOURCE"
-        },
-        "to_carrierMaster": {
-          "indexNo": 7,
-          "type": "cds.Association",
-          "target": "admin.carrierMaster",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "and",
-            "args": [
-              {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "to_carrierMaster.UUID"
-                  },
-                  {
-                    "=": "assignmentUUID"
-                  }
-                ]
-              },
-              {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "to_carrierMaster.ID"
-                  },
-                  {
-                    "=": "CarrierID"
-                  }
-                ]
-              }
-            ]
-          },
-          "@cds.persistence.name": "TO_CARRIERMASTER"
-        },
-        "to_textDetails": {
-          "indexNo": 8,
-          "type": "cds.Association",
           "target": "admin.commonModel.textDetail",
           "cardinality": {
             "targetMax": "*"
@@ -209,17 +96,17 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
-                "=": "UUID"
+                "=": "assignmentUUID"
               }
             ]
           },
           "@cds.persistence.name": "TO_TEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CARRIERASSIGNMENT"
+      "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CONTENTACTIONASSIGNMENT"
     },
     "admin.commonModel.adminKey": {
       "kind": "type",
@@ -308,7 +195,7 @@
                 "=": "to_errorMessage.UUID"
               },
               {
-                "=": "UUID"
+                "=": "parentUUID"
               }
             ]
           },
@@ -328,7 +215,7 @@
                 "=": "to_contentSource.UUID"
               },
               {
-                "=": "UUID"
+                "=": "parentUUID"
               }
             ]
           },
@@ -348,34 +235,14 @@
                 "=": "to_contentAction.UUID"
               },
               {
-                "=": "UUID"
+                "=": "parentUUID"
               }
             ]
           },
           "@cds.persistence.name": "TO_CONTENTACTION"
         },
-        "to_contentActionAssignment": {
-          "indexNo": 9,
-          "type": "cds.Association",
-          "target": "admin.assignmentModel.contentActionAssignment",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "to_contentActionAssignment.UUID"
-              },
-              {
-                "=": "UUID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "TO_CONTENTACTIONASSIGNMENT"
-        },
         "to_contentValue": {
-          "indexNo": 10,
+          "indexNo": 9,
           "type": "cds.Association",
           "target": "admin.contentValue",
           "cardinality": {
@@ -388,11 +255,71 @@
                 "=": "to_contentValue.UUID"
               },
               {
-                "=": "UUID"
+                "=": "parentUUID"
               }
             ]
           },
           "@cds.persistence.name": "TO_CONTENTVALUE"
+        },
+        "to_carrierMaster": {
+          "indexNo": 10,
+          "type": "cds.Association",
+          "target": "admin.carrierMaster",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "to_carrierMaster.UUID"
+              },
+              {
+                "=": "parentUUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TO_CARRIERMASTER"
+        },
+        "to_contentActionAssignment": {
+          "indexNo": 11,
+          "type": "cds.Association",
+          "target": "admin.assignmentModel.contentActionAssignment",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "to_contentActionAssignment.assignmentUUID"
+              },
+              {
+                "=": "parentUUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TO_CONTENTACTIONASSIGNMENT"
+        },
+        "to_carrierMasterNormalization": {
+          "indexNo": 12,
+          "type": "cds.Association",
+          "target": "admin.normalizationModel.carrierMasterNormalization",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "to_carrierMasterNormalization.assignmentUUID"
+              },
+              {
+                "=": "parentUUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TO_CARRIERMASTERNORMALIZATION"
         }
       },
       "@cds.persistence.name": "ADMIN_COMMONMODEL_TEXTDETAIL"
@@ -435,7 +362,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -471,29 +398,13 @@
             "targetMax": "*"
           },
           "onCond": {
-            "op": "and",
+            "op": "=",
             "args": [
               {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "to_contentActionAssignments.assignmentUUID"
-                  },
-                  {
-                    "=": "UUID"
-                  }
-                ]
+                "=": "to_contentActionAssignments.parentUUID"
               },
               {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "to_contentActionAssignments.ID"
-                  },
-                  {
-                    "=": "ID"
-                  }
-                ]
+                "=": "UUID"
               }
             ]
           },
@@ -510,7 +421,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -538,6 +449,26 @@
             ]
           },
           "@cds.persistence.name": "TO_CONTENTSOURCESTATUSS"
+        },
+        "to_carrierMasterNormalizations": {
+          "indexNo": 6,
+          "type": "cds.Association",
+          "target": "admin.normalizationModel.carrierMasterNormalization",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "to_carrierMasterNormalizations.parentUUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TO_CARRIERMASTERNORMALIZATIONS"
         }
       },
       "@cds.persistence.name": "ADMIN_CONTENTSOURCE"
@@ -551,21 +482,27 @@
           "type": "cds.UUID",
           "@cds.persistence.name": "UUID"
         },
-        "ID": {
+        "parentUUID": {
           "indexNo": 2,
+          "type": "cds.UUID",
+          "notNull": true,
+          "@cds.persistence.name": "PARENTUUID"
+        },
+        "ID": {
+          "indexNo": 3,
           "type": "cds.String",
           "notNull": true,
           "length": 60,
           "@cds.persistence.name": "ID"
         },
         "value": {
-          "indexNo": 3,
+          "indexNo": 4,
           "type": "cds.String",
-          "length": 60,
+          "length": 1000,
           "@cds.persistence.name": "VALUE"
         },
         "to_textDetails": {
-          "indexNo": 4,
+          "indexNo": 5,
           "type": "cds.Association",
           "target": "admin.commonModel.textDetail",
           "cardinality": {
@@ -575,7 +512,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -664,7 +601,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -703,7 +640,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -724,47 +661,51 @@
           "type": "cds.UUID",
           "@cds.persistence.name": "UUID"
         },
-        "parentUUID": {
-          "indexNo": 2,
-          "type": "cds.UUID",
-          "notNull": true,
-          "@cds.persistence.name": "PARENTUUID"
-        },
         "ID": {
-          "indexNo": 3,
+          "indexNo": 2,
           "type": "cds.String",
           "notNull": true,
           "length": 60,
           "@cds.persistence.name": "ID"
         },
-        "value": {
-          "indexNo": 4,
-          "type": "cds.String",
-          "length": 1000,
-          "@cds.persistence.name": "VALUE"
-        },
-        "to_contentSource": {
-          "indexNo": 5,
+        "to_contentActionAssignment": {
+          "indexNo": 3,
           "type": "cds.Association",
-          "target": "admin.contentSource",
+          "target": "admin.assignmentModel.contentActionAssignment",
           "cardinality": {
-            "targetMax": 1
+            "targetMax": "*"
           },
           "onCond": {
-            "op": "=",
+            "op": "and",
             "args": [
               {
-                "=": "to_contentSource.UUID"
+                "op": "=",
+                "args": [
+                  {
+                    "=": "to_contentActionAssignment.assignmentUUID"
+                  },
+                  {
+                    "=": "UUID"
+                  }
+                ]
               },
               {
-                "=": "parentUUID"
+                "op": "=",
+                "args": [
+                  {
+                    "=": "to_contentActionAssignment.ID"
+                  },
+                  {
+                    "=": "ID"
+                  }
+                ]
               }
             ]
           },
-          "@cds.persistence.name": "TO_CONTENTSOURCE"
+          "@cds.persistence.name": "TO_CONTENTACTIONASSIGNMENT"
         },
         "to_textDetails": {
-          "indexNo": 6,
+          "indexNo": 4,
           "type": "cds.Association",
           "target": "admin.commonModel.textDetail",
           "cardinality": {
@@ -774,7 +715,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -825,6 +766,119 @@
         }
       },
       "@cds.persistence.name": "ADMIN_FEEDTYPE"
+    },
+    "admin.normalizationModel.carrierMasterNormalization": {
+      "kind": "entity",
+      "elements": {
+        "UUID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "UUID"
+        },
+        "parentUUID": {
+          "indexNo": 2,
+          "type": "cds.UUID",
+          "notNull": true,
+          "@cds.persistence.name": "PARENTUUID"
+        },
+        "assignmentUUID": {
+          "indexNo": 3,
+          "type": "cds.UUID",
+          "notNull": true,
+          "@cds.persistence.name": "ASSIGNMENTUUID"
+        },
+        "ID": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "notNull": true,
+          "length": 60,
+          "@cds.persistence.name": "ID"
+        },
+        "normalizedID": {
+          "indexNo": 5,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "NORMALIZEDID"
+        },
+        "to_contentSource": {
+          "indexNo": 6,
+          "type": "cds.Association",
+          "target": "admin.contentSource",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "to_contentSource.UUID"
+              },
+              {
+                "=": "parentUUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TO_CONTENTSOURCE"
+        },
+        "to_carrierMaster": {
+          "indexNo": 7,
+          "type": "cds.Association",
+          "target": "admin.carrierMaster",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "to_carrierMaster.UUID"
+                  },
+                  {
+                    "=": "assignmentUUID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "to_carrierMaster.ID"
+                  },
+                  {
+                    "=": "ID"
+                  }
+                ]
+              }
+            ]
+          },
+          "@cds.persistence.name": "TO_CARRIERMASTER"
+        },
+        "to_textDetails": {
+          "indexNo": 8,
+          "type": "cds.Association",
+          "target": "admin.commonModel.textDetail",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "to_textDetails.parentUUID"
+              },
+              {
+                "=": "assignmentUUID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TO_TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_NORMALIZATIONMODEL_CARRIERMASTERNORMALIZATION"
     },
     "CatalogService": {
       "kind": "service",
@@ -1042,7 +1096,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -1215,7 +1269,7 @@
                 "=": "to_errorMessage.UUID"
               },
               {
-                "=": "UUID"
+                "=": "parentUUID"
               }
             ]
           },
@@ -1240,7 +1294,7 @@
                 "=": "to_contentSource.UUID"
               },
               {
-                "=": "UUID"
+                "=": "parentUUID"
               }
             ]
           },
@@ -1265,41 +1319,16 @@
                 "=": "to_contentAction.UUID"
               },
               {
-                "=": "UUID"
+                "=": "parentUUID"
               }
             ]
           },
           "redirected": true,
           "@cds.persistence.name": "TO_CONTENTACTION"
         },
-        "to_contentActionAssignment": {
-          "origin": "admin.commonModel.textDetail..to_contentActionAssignment",
-          "indexNo": 9,
-          "value": {
-            "=": "textDetail.to_contentActionAssignment"
-          },
-          "type": "cds.Association",
-          "target": "CatalogService.contentActionAssignments",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "to_contentActionAssignment.UUID"
-              },
-              {
-                "=": "UUID"
-              }
-            ]
-          },
-          "redirected": true,
-          "@cds.persistence.name": "TO_CONTENTACTIONASSIGNMENT"
-        },
         "to_contentValue": {
           "origin": "admin.commonModel.textDetail..to_contentValue",
-          "indexNo": 10,
+          "indexNo": 9,
           "value": {
             "=": "textDetail.to_contentValue"
           },
@@ -1315,12 +1344,87 @@
                 "=": "to_contentValue.UUID"
               },
               {
-                "=": "UUID"
+                "=": "parentUUID"
               }
             ]
           },
           "redirected": true,
           "@cds.persistence.name": "TO_CONTENTVALUE"
+        },
+        "to_carrierMaster": {
+          "origin": "admin.commonModel.textDetail..to_carrierMaster",
+          "indexNo": 10,
+          "value": {
+            "=": "textDetail.to_carrierMaster"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.carrierMasters",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "to_carrierMaster.UUID"
+              },
+              {
+                "=": "parentUUID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TO_CARRIERMASTER"
+        },
+        "to_contentActionAssignment": {
+          "origin": "admin.commonModel.textDetail..to_contentActionAssignment",
+          "indexNo": 11,
+          "value": {
+            "=": "textDetail.to_contentActionAssignment"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.contentActionAssignments",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "to_contentActionAssignment.assignmentUUID"
+              },
+              {
+                "=": "parentUUID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TO_CONTENTACTIONASSIGNMENT"
+        },
+        "to_carrierMasterNormalization": {
+          "origin": "admin.commonModel.textDetail..to_carrierMasterNormalization",
+          "indexNo": 12,
+          "value": {
+            "=": "textDetail.to_carrierMasterNormalization"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.carrierMasterNormalizations",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "to_carrierMasterNormalization.assignmentUUID"
+              },
+              {
+                "=": "parentUUID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TO_CARRIERMASTERNORMALIZATION"
         }
       },
       "@Common.Label": "{i18n>textDetailService}",
@@ -1399,19 +1503,9 @@
           "type": "cds.UUID",
           "@cds.persistence.name": "UUID"
         },
-        "parentUUID": {
-          "origin": "admin.contentAction..parentUUID",
-          "indexNo": 2,
-          "value": {
-            "=": "contentAction.parentUUID"
-          },
-          "type": "cds.UUID",
-          "notNull": true,
-          "@cds.persistence.name": "PARENTUUID"
-        },
         "ID": {
           "origin": "admin.contentAction..ID",
-          "indexNo": 3,
+          "indexNo": 2,
           "value": {
             "=": "contentAction.ID"
           },
@@ -1420,44 +1514,50 @@
           "length": 60,
           "@cds.persistence.name": "ID"
         },
-        "value": {
-          "origin": "admin.contentAction..value",
-          "indexNo": 4,
+        "to_contentActionAssignment": {
+          "origin": "admin.contentAction..to_contentActionAssignment",
+          "indexNo": 3,
           "value": {
-            "=": "contentAction.value"
-          },
-          "type": "cds.String",
-          "length": 1000,
-          "@cds.persistence.name": "VALUE"
-        },
-        "to_contentSource": {
-          "origin": "admin.contentAction..to_contentSource",
-          "indexNo": 5,
-          "value": {
-            "=": "contentAction.to_contentSource"
+            "=": "contentAction.to_contentActionAssignment"
           },
           "type": "cds.Association",
-          "target": "CatalogService.contentSources",
+          "target": "CatalogService.contentActionAssignments",
           "cardinality": {
-            "targetMax": 1
+            "targetMax": "*"
           },
           "onCond": {
-            "op": "=",
+            "op": "and",
             "args": [
               {
-                "=": "to_contentSource.UUID"
+                "op": "=",
+                "args": [
+                  {
+                    "=": "to_contentActionAssignment.assignmentUUID"
+                  },
+                  {
+                    "=": "UUID"
+                  }
+                ]
               },
               {
-                "=": "parentUUID"
+                "op": "=",
+                "args": [
+                  {
+                    "=": "to_contentActionAssignment.ID"
+                  },
+                  {
+                    "=": "ID"
+                  }
+                ]
               }
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "TO_CONTENTSOURCE"
+          "@cds.persistence.name": "TO_CONTENTACTIONASSIGNMENT"
         },
         "to_textDetails": {
           "origin": "admin.contentAction..to_textDetails",
-          "indexNo": 6,
+          "indexNo": 4,
           "value": {
             "=": "contentAction.to_textDetails"
           },
@@ -1470,7 +1570,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -1544,6 +1644,13 @@
         },
         {
           "$Type": "UI.ReferenceFacet",
+          "Target": "to_carrierMasterNormalizations/@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
           "Target": "to_textDetails/@UI.LineItem",
           "@UI.Importance": {
             "#": "High"
@@ -1593,29 +1700,13 @@
             "targetMax": "*"
           },
           "onCond": {
-            "op": "and",
+            "op": "=",
             "args": [
               {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "to_contentActionAssignments.assignmentUUID"
-                  },
-                  {
-                    "=": "UUID"
-                  }
-                ]
+                "=": "to_contentActionAssignments.parentUUID"
               },
               {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "to_contentActionAssignments.ID"
-                  },
-                  {
-                    "=": "ID"
-                  }
-                ]
+                "=": "UUID"
               }
             ]
           },
@@ -1637,7 +1728,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -1671,6 +1762,31 @@
           },
           "redirected": true,
           "@cds.persistence.name": "TO_CONTENTSOURCESTATUSS"
+        },
+        "to_carrierMasterNormalizations": {
+          "origin": "admin.contentSource..to_carrierMasterNormalizations",
+          "indexNo": 6,
+          "value": {
+            "=": "contentSource.to_carrierMasterNormalizations"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.carrierMasterNormalizations",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "to_carrierMasterNormalizations.parentUUID"
+              },
+              {
+                "=": "UUID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TO_CARRIERMASTERNORMALIZATIONS"
         }
       },
       "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCES"
@@ -1895,7 +2011,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -1925,9 +2041,19 @@
           "type": "cds.UUID",
           "@cds.persistence.name": "UUID"
         },
+        "parentUUID": {
+          "origin": "admin.contentValue..parentUUID",
+          "indexNo": 2,
+          "value": {
+            "=": "contentValue.parentUUID"
+          },
+          "type": "cds.UUID",
+          "notNull": true,
+          "@cds.persistence.name": "PARENTUUID"
+        },
         "ID": {
           "origin": "admin.contentValue..ID",
-          "indexNo": 2,
+          "indexNo": 3,
           "value": {
             "=": "contentValue.ID"
           },
@@ -1938,17 +2064,17 @@
         },
         "value": {
           "origin": "admin.contentValue..value",
-          "indexNo": 3,
+          "indexNo": 4,
           "value": {
             "=": "contentValue.value"
           },
           "type": "cds.String",
-          "length": 60,
+          "length": 1000,
           "@cds.persistence.name": "VALUE"
         },
         "to_textDetails": {
           "origin": "admin.contentValue..to_textDetails",
-          "indexNo": 4,
+          "indexNo": 5,
           "value": {
             "=": "contentValue.to_textDetails"
           },
@@ -1961,7 +2087,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -2146,7 +2272,7 @@
             "=": "contentActionAssignment.to_textDetails"
           },
           "type": "cds.Association",
-          "target": "CatalogService.contentActionAssignments",
+          "target": "CatalogService.textDetails",
           "cardinality": {
             "targetMax": "*"
           },
@@ -2154,10 +2280,10 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
-                "=": "UUID"
+                "=": "assignmentUUID"
               }
             ]
           },
@@ -2229,7 +2355,7 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
                 "=": "UUID"
@@ -2242,69 +2368,137 @@
       },
       "@cds.persistence.name": "CATALOGSERVICE_CARRIERMASTERS"
     },
-    "CatalogService.carrierAssignments": {
+    "CatalogService.carrierMasterNormalizations": {
       "kind": "entity",
-      "source": "admin.assignmentModel.carrierAssignment",
+      "source": "admin.normalizationModel.carrierMasterNormalization",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "ID"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>carrierMaster}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "normalizedID"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>contentSourceCarrier}"
+        }
+      ],
+      "@UI.PresentationVariant.SortOrder": [
+        {
+          "$Type": "Common.SortOrderType",
+          "Property": {
+            "=": "primaryStatusCode"
+          },
+          "Descending": false
+        }
+      ],
+      "@UI.HeaderInfo.TypeName": "{i18n>carrierMasterNormalization}",
+      "@UI.HeaderInfo.TypeNamePlural": "{i18n>carrierMasterNormalization_Plural}",
+      "@UI.HeaderInfo.Title.Value": {
+        "=": "ID"
+      },
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.FieldGroup",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "to_textDetails/@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        }
+      ],
+      "@UI.FieldGroup.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "ID"
+          },
+          "Label": "{i18n>carrierMaster}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "normalizedID"
+          },
+          "Label": "{i18n>contentSourceCarrier}"
+        }
+      ],
       "elements": {
         "UUID": {
-          "origin": "admin.assignmentModel.carrierAssignment..UUID",
+          "origin": "admin.normalizationModel.carrierMasterNormalization..UUID",
           "indexNo": 1,
           "value": {
-            "=": "carrierAssignment.UUID"
+            "=": "carrierMasterNormalization.UUID"
           },
           "key": true,
           "type": "cds.UUID",
           "@cds.persistence.name": "UUID"
         },
         "parentUUID": {
-          "origin": "admin.assignmentModel.carrierAssignment..parentUUID",
+          "origin": "admin.normalizationModel.carrierMasterNormalization..parentUUID",
           "indexNo": 2,
           "value": {
-            "=": "carrierAssignment.parentUUID"
+            "=": "carrierMasterNormalization.parentUUID"
           },
           "type": "cds.UUID",
           "notNull": true,
           "@cds.persistence.name": "PARENTUUID"
         },
         "assignmentUUID": {
-          "origin": "admin.assignmentModel.carrierAssignment..assignmentUUID",
+          "origin": "admin.normalizationModel.carrierMasterNormalization..assignmentUUID",
           "indexNo": 3,
           "value": {
-            "=": "carrierAssignment.assignmentUUID"
+            "=": "carrierMasterNormalization.assignmentUUID"
           },
           "type": "cds.UUID",
           "notNull": true,
           "@cds.persistence.name": "ASSIGNMENTUUID"
         },
-        "CarrierID": {
-          "origin": "admin.assignmentModel.carrierAssignment..CarrierID",
+        "ID": {
+          "origin": "admin.normalizationModel.carrierMasterNormalization..ID",
           "indexNo": 4,
           "value": {
-            "=": "carrierAssignment.CarrierID"
+            "=": "carrierMasterNormalization.ID"
           },
           "type": "cds.String",
           "notNull": true,
           "length": 60,
-          "@cds.persistence.name": "CARRIERID"
+          "@cds.persistence.name": "ID"
         },
-        "AssignmentCarrier": {
-          "origin": "admin.assignmentModel.carrierAssignment..AssignmentCarrier",
+        "normalizedID": {
+          "origin": "admin.normalizationModel.carrierMasterNormalization..normalizedID",
           "indexNo": 5,
           "value": {
-            "=": "carrierAssignment.AssignmentCarrier"
+            "=": "carrierMasterNormalization.normalizedID"
           },
           "type": "cds.String",
           "length": 60,
-          "@cds.persistence.name": "ASSIGNMENTCARRIER"
+          "@cds.persistence.name": "NORMALIZEDID"
         },
         "to_contentSource": {
-          "origin": "admin.assignmentModel.carrierAssignment..to_contentSource",
+          "origin": "admin.normalizationModel.carrierMasterNormalization..to_contentSource",
           "indexNo": 6,
           "value": {
-            "=": "carrierAssignment.to_contentSource"
+            "=": "carrierMasterNormalization.to_contentSource"
           },
           "type": "cds.Association",
           "target": "CatalogService.contentSources",
@@ -2326,10 +2520,10 @@
           "@cds.persistence.name": "TO_CONTENTSOURCE"
         },
         "to_carrierMaster": {
-          "origin": "admin.assignmentModel.carrierAssignment..to_carrierMaster",
+          "origin": "admin.normalizationModel.carrierMasterNormalization..to_carrierMaster",
           "indexNo": 7,
           "value": {
-            "=": "carrierAssignment.to_carrierMaster"
+            "=": "carrierMasterNormalization.to_carrierMaster"
           },
           "type": "cds.Association",
           "target": "CatalogService.carrierMasters",
@@ -2357,7 +2551,7 @@
                     "=": "to_carrierMaster.ID"
                   },
                   {
-                    "=": "CarrierID"
+                    "=": "ID"
                   }
                 ]
               }
@@ -2367,10 +2561,10 @@
           "@cds.persistence.name": "TO_CARRIERMASTER"
         },
         "to_textDetails": {
-          "origin": "admin.assignmentModel.carrierAssignment..to_textDetails",
+          "origin": "admin.normalizationModel.carrierMasterNormalization..to_textDetails",
           "indexNo": 8,
           "value": {
-            "=": "carrierAssignment.to_textDetails"
+            "=": "carrierMasterNormalization.to_textDetails"
           },
           "type": "cds.Association",
           "target": "CatalogService.textDetails",
@@ -2381,10 +2575,10 @@
             "op": "=",
             "args": [
               {
-                "=": "to_textDetails.UUID"
+                "=": "to_textDetails.parentUUID"
               },
               {
-                "=": "UUID"
+                "=": "assignmentUUID"
               }
             ]
           },
@@ -2392,7 +2586,7 @@
           "@cds.persistence.name": "TO_TEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "CATALOGSERVICE_CARRIERASSIGNMENTS"
+      "@cds.persistence.name": "CATALOGSERVICE_CARRIERMASTERNORMALIZATIONS"
     }
   },
   "version": {
