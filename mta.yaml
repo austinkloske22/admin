@@ -11,9 +11,8 @@ modules:
       disk-quota: 256M
       memory: 256M
     requires:
-      - name: admin_html5_repo_runtime
       - name: admin-uaa
-      - name: admin_html5_repo_runtime
+      - name: admin-html5-rt
       - name: node_api
         group: destinations
         properties:
@@ -21,24 +20,17 @@ modules:
           name: node_api
           url: '~{url}'
       - name: portal_resources_admin
-      - name: admin-uaa
-      - name: admin-uaa
-      - name: admin-uaa
-      - name: admin-uaa
-      - name: admin-uaa
-      - name: admin-uaa
       - name: srv_api
         group: destinations
         properties:
           forwardAuthToken: true
           name: srv_api
           url: '~{url}'
-      - name: admin-uaa
-  - name: admin_ui_deployer
+  - name: admin-deployer
     type: com.sap.html5.application-content
     path: admin_ui_deployer
     requires:
-      - name: admin_html5_repo_host
+      - name: admin-html5-dt
     build-parameters:
       requires:
         - name: admin_errormessages
@@ -140,8 +132,8 @@ modules:
     requires:
       - name: portal_resources_admin
       - name: admin-uaa
-      - name: admin_html5_repo_host
-      - name: admin_ui_deployer
+      - name: admin-html5-dt
+      - name: admin-deployer
   - name: sapui5
     type: html5
     path: sapui5
@@ -200,17 +192,17 @@ modules:
           name: srv_api
           url: '~{url}'
 resources:
-  - name: admin_html5_repo_runtime
+  - name: admin-html5-rt
     parameters:
       service-plan: app-runtime
       service: html5-apps-repo
-      name: admin_html5_repo_runtime
     type: org.cloudfoundry.managed-service
-  - name: admin_html5_repo_host
+  - name: admin-html5-dt
     parameters:
       service-plan: app-host
       service: html5-apps-repo
-      name: admin_html5_repo_host
+      config:
+        sizeLimit: 20
     type: org.cloudfoundry.managed-service
   - name: admin-hdi-container
     type: com.sap.xs.hdi-container

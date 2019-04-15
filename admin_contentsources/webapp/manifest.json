@@ -25,6 +25,18 @@
 		"sourceTemplate": {
 			"id": "html5moduletemplates.smartTemplateModule",
 			"version": "1.40.12"
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"intent1": {
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					},
+					"semanticObject": "contentSources",
+					"action": "Manage"
+				}
+			}
 		}
 	},
 	"sap.ui": {
@@ -42,10 +54,7 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_belize"
-		]
+		"supportedThemes": ["sap_hcb", "sap_belize"]
 	},
 	"sap.ui5": {
 		"resources": {
@@ -144,10 +153,10 @@
 								},
 								"pages": {
 									"ObjectPage|textDetails": {
-									"navigationProperty": "to_textDetails",
-									"entitySet": "textDetails",
-									"component": {
-										"name": "sap.suite.ui.generic.template.ObjectPage"
+										"navigationProperty": "to_textDetails",
+										"entitySet": "textDetails",
+										"component": {
+											"name": "sap.suite.ui.generic.template.ObjectPage"
 										}
 									}
 								}
@@ -160,10 +169,10 @@
 								},
 								"pages": {
 									"ObjectPage|textDetails": {
-									"navigationProperty": "to_textDetails",
-									"entitySet": "textDetails",
-									"component": {
-										"name": "sap.suite.ui.generic.template.ObjectPage"
+										"navigationProperty": "to_textDetails",
+										"entitySet": "textDetails",
+										"component": {
+											"name": "sap.suite.ui.generic.template.ObjectPage"
 										}
 									}
 								}
@@ -180,7 +189,6 @@
 				}
 			}
 		}
-	
 	},
 	"sap.platform.hcp": {
 		"uri": ""

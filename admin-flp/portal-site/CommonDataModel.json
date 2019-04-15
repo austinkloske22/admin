@@ -30,6 +30,10 @@
 					"id": "admin_feedtypes-0-1554312774182",
 					"appId": "admin_feedtypes",
 					"intentHintId": "feedTypes-Manage"
+				}, {
+					"id": "admin_contentsources-1-1555342225647",
+					"appId": "admin_contentsources",
+					"intentHintId": "contentSources-Manage"
 				}]
 			}
 		}, {
