@@ -1,25 +1,33 @@
 namespace admin;
 using admin.commonModel as commonModel from './common-model.cds';
 using admin.assignmentModel as assignmentModel from './assignment-model.cds';
-using admin.normalizationModel as normalizationModel from './normalize-model.cds';
 
 entity carrierMaster {
 	key UUID					: UUID;
 	ID							: commonModel.adminKey not null;
 	logoURL						: commonModel.longString;
 	status						: Boolean;
+	to_carrierMasterAssignments	: Association to many admin.carrierMasterAssignment on to_carrierMasterAssignments.carrierMasterID = $self.ID; 
 	to_textDetails				: Association to many commonModel.textDetail on to_textDetails.parentUUID = $self.UUID;
 }
 
 entity contentSource {
 	key UUID						: UUID; 
 	ID								: commonModel.adminKey not null;
+	to_contentSourceStatuss			: Association to many admin.contentSourceStatus on to_contentSourceStatuss.parentUUID = $self.UUID;
 	to_contentActionAssignments		: Association to many assignmentModel.contentActionAssignment on to_contentActionAssignments.parentUUID = $self.UUID;
 	to_textDetails					: Association to many commonModel.textDetail on to_textDetails.parentUUID = $self.UUID;
-	to_contentSourceStatuss			: Association to many admin.contentSourceStatus on to_contentSourceStatuss.parentUUID = $self.UUID;
-	to_carrierMasterNormalizations	: Association to many normalizationModel.carrierMasterNormalization on to_carrierMasterNormalizations.parentUUID = $self.UUID;
+	to_carrierMasterAssignments		: Association to many admin.carrierMasterAssignment on to_carrierMasterAssignments.parentUUID = $self.UUID;
 } 
 
+entity carrierMasterAssignment {
+	key UUID			: UUID;
+	parentUUID			: UUID not null;
+	ID					: commonModel.adminKey;
+	carrierMasterID		: commonModel.adminKey;
+	to_contentSource	: Association to one admin.contentSource on to_contentSource.UUID = $self.parentUUID;
+	to_carrierMaster	: Association to one admin.carrierMaster on to_carrierMaster.ID = $self.carrierMasterID;
+}
 entity contentValue {
 	key UUID					: UUID;
 	parentUUID					: UUID not null;

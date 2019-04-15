@@ -23,10 +23,10 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_NORMALIZATIONMODEL_CARRIERMASTERNORMALIZATION",
+		"target_table": "ADMIN_CARRIERMASTERASSIGNMENT",
 		"source_data": {
 			"data_type": "CSV",
-			"file_name": "carriermasternormalization.csv",
+			"file_name": "carriermasterassignment.csv",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -38,16 +38,15 @@
 			"import_columns": [
 				"UUID",
 				"PARENTUUID",
-				"ASSIGNMENTUUID",
 				"ID",
-				"NORMALIZEDID"]
+				"CARRIERMASTERID"
+				]
 		},
 		"column_mappings": {
 			"UUID": 1,
 			"PARENTUUID": 2,
-			"ASSIGNMENTUUID": 3,
-			"ID": 4,
-			"NORMALIZEDID": 5
+			"ID": 3,
+			"CARRIERMASTERID": 4
 		}
 	},
 	{

@@ -49,6 +49,10 @@
 					"id": "admin.sapui5-1-1554317025649",
 					"appId": "admin.sapui5",
 					"intentHintId": "SAPUI5-Manage"
+				}, {
+					"id": "admin_carriermasters-2-1555293863688",
+					"appId": "admin_carriermasters",
+					"intentHintId": "carrierMasters-Manage"
 				}]
 			}
 		}],

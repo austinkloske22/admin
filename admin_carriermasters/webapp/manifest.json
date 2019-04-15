@@ -1,7 +1,7 @@
 {
 	"_version": "1.8.0",
 	"sap.app": {
-		"id": "admin_contentActions",
+		"id": "admin_carriermasters",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -33,8 +33,15 @@
 						"parameters": {},
 						"additionalParameters": "allowed"
 					},
-					"semanticObject": "contentActions",
-					"action": "Manage"
+					"semanticObject": "carrierMasters",
+					"action": "Manage",
+					"title": "CarrierMasters",
+					"info": "",
+					"subTitle": "Manage",
+					"indicatorDataSource": {
+						"dataSource": "mainService",
+						"path": "/odata/v2/CatalogService/"
+					}
 				}
 			}
 		}
@@ -75,13 +82,13 @@
 				"type": "sap.ui.model.resource.ResourceModel",
 				"uri": "i18n/i18n.properties"
 			},
-			"i18n|sap.suite.ui.generic.template.ListReport|contentActions": {
+			"i18n|sap.suite.ui.generic.template.ListReport|carrierMasters": {
 				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/ListReport/contentActions/i18n.properties"
+				"uri": "i18n/ListReport/carrierMasters/i18n.properties"
 			},
-			"i18n|sap.suite.ui.generic.template.ObjectPage|contentActions": {
+			"i18n|sap.suite.ui.generic.template.ObjectPage|carrierMasters": {
 				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/ObjectPage/contentActions/i18n.properties"
+				"uri": "i18n/ObjectPage/carrierMasters/i18n.properties"
 			},
 			"i18n|sap.suite.ui.generic.template.ObjectPage|textDetails": {
 				"type": "sap.ui.model.resource.ResourceModel",
@@ -115,8 +122,8 @@
 		"_version": "1.3.0",
 		"settings": {},
 		"pages": {
-			"ListReport|contentActions": {
-				"entitySet": "contentActions",
+			"ListReport|carrierMasters": {
+				"entitySet": "carrierMasters",
 				"component": {
 					"name": "sap.suite.ui.generic.template.ListReport",
 					"list": true,
@@ -125,8 +132,8 @@
 					}
 				},
 				"pages": {
-					"ObjectPage|contentActions": {
-						"entitySet": "contentActions",
+					"ObjectPage|carrierMasters": {
+						"entitySet": "carrierMasters",
 						"component": {
 							"name": "sap.suite.ui.generic.template.ObjectPage"
 						},

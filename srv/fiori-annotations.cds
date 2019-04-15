@@ -210,7 +210,7 @@ annotate CatalogService.contentSources with @(
 	UI.SelectionFields: [ ID ],
 	
 	UI.LineItem: 
-		[{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>contentSource}'}],
+		[{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>ContentSources}'}],
 	
 	UI.PresentationVariant: {
 		SortOrder: [ {$Type: 'Common.SortOrderType', Property: ID, Descending: false}]
@@ -227,9 +227,9 @@ annotate CatalogService.contentSources with @(
 	//Page Facets
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'to_carrierMasterAssignments/@UI.LineItem', "@UI.Importance": #High},
 		{$Type: 'UI.ReferenceFacet', Target: 'to_contentSourceStatuss/@UI.LineItem', "@UI.Importance": #High},
 		{$Type: 'UI.ReferenceFacet', Target: 'to_contentActionAssignments/@UI.LineItem', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: 'to_carrierMasterNormalizations/@UI.LineItem', "@UI.Importance": #High},
 		{$Type: 'UI.ReferenceFacet', Target: 'to_textDetails/@UI.LineItem', "@UI.Importance": #High}
 	],
 		
@@ -240,35 +240,74 @@ annotate CatalogService.contentSources with @(
 	}
 );
 
-annotate CatalogService.carrierMasterNormalizations with @(
-
+annotate CatalogService.carrierMasters with @(
+	
+	UI.SelectionFields: [ ID ],
+	
 	UI.LineItem: [
 		{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>carrierMaster}'},
-		{$Type: 'UI.DataField', Value: normalizedID, "@UI.Importance": #High, Label: '{i18n>contentSourceCarrier}'}
+		{$Type: 'UI.DataField', Value: status, "@UI.Importance": #High, Label: '{i18n>status}'}
 		],
+		
 	
 	UI.PresentationVariant: {
-		SortOrder: [ {$Type: 'Common.SortOrderType', Property: primaryStatusCode, Descending: false}]
+		SortOrder: [ {$Type: 'Common.SortOrderType', Property: ID, Descending: false}]
 	},
 // ---------------------------------------------------------------------------
 // Object Page
 // ---------------------------------------------------------------------------
 	UI.HeaderInfo: {
-		TypeName: '{i18n>carrierMasterNormalization}',
-		TypeNamePlural: '{i18n>carrierMasterNormalization_Plural}',
+		TypeName: '{i18n>carrierMaster}',
+		TypeNamePlural: '{i18n>carrierMaster_Plural}',
+		Title: {Value: ID},
+		ImageUrl: logoURL
+	},
+		
+	//Page Facets
+	UI.Facets: [
+		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'to_carrierMasterNormalizations/@UI.LineItem', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'to_textDetails/@UI.LineItem', "@UI.Importance": #High}
+	],
+		
+	UI.FieldGroup: {
+		Data: [
+			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>carrierMaster}',  }
+		]
+	}
+);
+
+annotate CatalogService.carrierMasterAssignments with @(
+	
+	UI.SelectionFields: [ ID ],
+	
+	UI.LineItem: [
+		{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>carrierMasterAssignment}'},
+		{$Type: 'UI.DataField', Value: carrierMasterID, "@UI.Importance": #High, Label: '{i18n>carrierMaster}'}
+		],
+		
+	
+	UI.PresentationVariant: {
+		SortOrder: [ {$Type: 'Common.SortOrderType', Property: ID, Descending: false}]
+	},
+// ---------------------------------------------------------------------------
+// Object Page
+// ---------------------------------------------------------------------------
+	UI.HeaderInfo: {
+		TypeName: '{i18n>carrierMasterAssignment}',
+		TypeNamePlural: '{i18n>carrierMasterAssignment_Plural}',
 		Title: {Value: ID}
 	},
 		
 	//Page Facets
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
-		{$Type: 'UI.ReferenceFacet', Target: 'to_textDetails/@UI.LineItem', "@UI.Importance": #High}
 	],
-
+		
 	UI.FieldGroup: {
 		Data: [
-			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>carrierMaster}'},
-			{$Type: 'UI.DataField', Value: normalizedID, Label: '{i18n>contentSourceCarrier}'}
+			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>carrierMasterAssignment}',  },
+			{$Type: 'UI.DataField', Value: carrierMasterID, Label: '{i18n>carrierMaster}',  }
 		]
 	}
 );

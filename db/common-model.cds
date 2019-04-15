@@ -2,7 +2,6 @@ namespace admin.commonModel;
 
 using admin as admin from './data-model';
 using admin.assignmentModel as assignmentModel from './assignment-model.cds';
-using admin.normalizationModel as normalizationModel from './normalize-model.cds';
 
 type adminKey		: String(60);
 type languageCode	: String(2);
@@ -21,5 +20,4 @@ entity textDetail {
     to_contentValue			: Association to one admin.contentValue on to_contentValue.UUID = $self.parentUUID;
     to_carrierMaster		: Association to one admin.carrierMaster on to_carrierMaster.UUID = $self.parentUUID;
     to_contentActionAssignment		: Association to one assignmentModel.contentActionAssignment on to_contentActionAssignment.assignmentUUID = $self.parentUUID;
-    to_carrierMasterNormalization   : Association to one normalizationModel.carrierMasterNormalization on to_carrierMasterNormalization.assignmentUUID = $self.parentUUID;
 }

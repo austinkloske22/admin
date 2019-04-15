@@ -31,6 +31,20 @@
 					<End Role="carrierMasterNormalizations" EntitySet="carrierMasterNormalizations"/>
 					<End Role="contentSources" EntitySet="contentSources"/>
 				</AssociationSet>
+				<AssociationSet Name="carrierMasterNormalizations_to_carrierMaster"
+					Association="CatalogService.carrierMasterNormalizations_to_carrierMaster">
+					<End Role="carrierMasterNormalizations" EntitySet="carrierMasterNormalizations"/>
+					<End Role="carrierMasters" EntitySet="carrierMasters"/>
+				</AssociationSet>
+				<AssociationSet Name="carrierMasterNormalizations_to_textDetails" Association="CatalogService.carrierMasterNormalizations_to_textDetails">
+					<End Role="carrierMasterNormalizations" EntitySet="carrierMasterNormalizations"/>
+					<End Role="textDetails" EntitySet="textDetails"/>
+				</AssociationSet>
+				<AssociationSet Name="carrierMasters_to_carrierMasterNormalizations"
+					Association="CatalogService.carrierMasters_to_carrierMasterNormalizations">
+					<End Role="carrierMasters" EntitySet="carrierMasters"/>
+					<End Role="carrierMasterNormalizations" EntitySet="carrierMasterNormalizations"/>
+				</AssociationSet>
 				<AssociationSet Name="carrierMasters_to_textDetails" Association="CatalogService.carrierMasters_to_textDetails">
 					<End Role="carrierMasters" EntitySet="carrierMasters"/>
 					<End Role="textDetails" EntitySet="textDetails"/>
@@ -63,15 +77,6 @@
 					<End Role="contentSourceStatuss" EntitySet="contentSourceStatuss"/>
 					<End Role="textDetails" EntitySet="textDetails"/>
 				</AssociationSet>
-				<AssociationSet Name="contentSources_to_carrierMasterNormalizations"
-					Association="CatalogService.contentSources_to_carrierMasterNormalizations">
-					<End Role="contentSources" EntitySet="contentSources"/>
-					<End Role="carrierMasterNormalizations" EntitySet="carrierMasterNormalizations"/>
-				</AssociationSet>
-				<AssociationSet Name="contentSources_to_contentSourceStatuss" Association="CatalogService.contentSources_to_contentSourceStatuss">
-					<End Role="contentSources" EntitySet="contentSources"/>
-					<End Role="contentSourceStatuss" EntitySet="contentSourceStatuss"/>
-				</AssociationSet>
 				<AssociationSet Name="contentSources_to_contentActionAssignments" Association="CatalogService.contentSources_to_contentActionAssignments">
 					<End Role="contentSources" EntitySet="contentSources"/>
 					<End Role="contentActionAssignments" EntitySet="contentActionAssignments"/>
@@ -79,6 +84,15 @@
 				<AssociationSet Name="contentSources_to_textDetails" Association="CatalogService.contentSources_to_textDetails">
 					<End Role="contentSources" EntitySet="contentSources"/>
 					<End Role="textDetails" EntitySet="textDetails"/>
+				</AssociationSet>
+				<AssociationSet Name="contentSources_to_contentSourceStatuss" Association="CatalogService.contentSources_to_contentSourceStatuss">
+					<End Role="contentSources" EntitySet="contentSources"/>
+					<End Role="contentSourceStatuss" EntitySet="contentSourceStatuss"/>
+				</AssociationSet>
+				<AssociationSet Name="contentSources_to_carrierMasterNormalizations"
+					Association="CatalogService.contentSources_to_carrierMasterNormalizations">
+					<End Role="contentSources" EntitySet="contentSources"/>
+					<End Role="carrierMasterNormalizations" EntitySet="carrierMasterNormalizations"/>
 				</AssociationSet>
 				<AssociationSet Name="contentValues_to_textDetails" Association="CatalogService.contentValues_to_textDetails">
 					<End Role="contentValues" EntitySet="contentValues"/>
@@ -120,6 +134,10 @@
 					<End Role="textDetails" EntitySet="textDetails"/>
 					<End Role="contentActionAssignments" EntitySet="contentActionAssignments"/>
 				</AssociationSet>
+				<AssociationSet Name="textDetails_to_carrierMasterNormalization" Association="CatalogService.textDetails_to_carrierMasterNormalization">
+					<End Role="textDetails" EntitySet="textDetails"/>
+					<End Role="carrierMasterNormalizations" EntitySet="carrierMasterNormalizations"/>
+				</AssociationSet>
 			</EntityContainer>
 			<EntityType Name="carrierMasterNormalizations">
 				<Key>
@@ -127,10 +145,15 @@
 				</Key>
 				<Property Name="UUID" Type="Edm.Guid" Nullable="false"/>
 				<Property Name="parentUUID" Type="Edm.Guid" Nullable="false"/>
-				<Property Name="CarrierID" Type="Edm.String" MaxLength="60" Nullable="false"/>
-				<Property Name="ID" Type="Edm.String" MaxLength="60"/>
+				<Property Name="assignmentUUID" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="ID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+				<Property Name="normalizedID" Type="Edm.String" MaxLength="60"/>
 				<NavigationProperty Name="to_contentSource" Relationship="CatalogService.carrierMasterNormalizations_to_contentSource"
 					FromRole="carrierMasterNormalizations" ToRole="contentSources"/>
+				<NavigationProperty Name="to_carrierMaster" Relationship="CatalogService.carrierMasterNormalizations_to_carrierMaster"
+					FromRole="carrierMasterNormalizations" ToRole="carrierMasters"/>
+				<NavigationProperty Name="to_textDetails" Relationship="CatalogService.carrierMasterNormalizations_to_textDetails"
+					FromRole="carrierMasterNormalizations" ToRole="textDetails"/>
 			</EntityType>
 			<EntityType Name="carrierMasters">
 				<Key>
@@ -140,6 +163,8 @@
 				<Property Name="ID" Type="Edm.String" MaxLength="60" Nullable="false"/>
 				<Property Name="logoURL" Type="Edm.String" MaxLength="1000"/>
 				<Property Name="status" Type="Edm.Boolean"/>
+				<NavigationProperty Name="to_carrierMasterNormalizations" Relationship="CatalogService.carrierMasters_to_carrierMasterNormalizations"
+					FromRole="carrierMasters" ToRole="carrierMasterNormalizations"/>
 				<NavigationProperty Name="to_textDetails" Relationship="CatalogService.carrierMasters_to_textDetails" FromRole="carrierMasters"
 					ToRole="textDetails"/>
 			</EntityType>
@@ -191,14 +216,14 @@
 				</Key>
 				<Property Name="UUID" Type="Edm.Guid" Nullable="false"/>
 				<Property Name="ID" Type="Edm.String" MaxLength="60" Nullable="false"/>
-				<NavigationProperty Name="to_carrierMasterNormalizations" Relationship="CatalogService.contentSources_to_carrierMasterNormalizations"
-					FromRole="contentSources" ToRole="carrierMasterNormalizations"/>
-				<NavigationProperty Name="to_contentSourceStatuss" Relationship="CatalogService.contentSources_to_contentSourceStatuss"
-					FromRole="contentSources" ToRole="contentSourceStatuss"/>
 				<NavigationProperty Name="to_contentActionAssignments" Relationship="CatalogService.contentSources_to_contentActionAssignments"
 					FromRole="contentSources" ToRole="contentActionAssignments"/>
 				<NavigationProperty Name="to_textDetails" Relationship="CatalogService.contentSources_to_textDetails" FromRole="contentSources"
 					ToRole="textDetails"/>
+				<NavigationProperty Name="to_contentSourceStatuss" Relationship="CatalogService.contentSources_to_contentSourceStatuss"
+					FromRole="contentSources" ToRole="contentSourceStatuss"/>
+				<NavigationProperty Name="to_carrierMasterNormalizations" Relationship="CatalogService.contentSources_to_carrierMasterNormalizations"
+					FromRole="contentSources" ToRole="carrierMasterNormalizations"/>
 			</EntityType>
 			<EntityType Name="contentValues">
 				<Key>
@@ -249,6 +274,8 @@
 					ToRole="carrierMasters"/>
 				<NavigationProperty Name="to_contentActionAssignment" Relationship="CatalogService.textDetails_to_contentActionAssignment"
 					FromRole="textDetails" ToRole="contentActionAssignments"/>
+				<NavigationProperty Name="to_carrierMasterNormalization" Relationship="CatalogService.textDetails_to_carrierMasterNormalization"
+					FromRole="textDetails" ToRole="carrierMasterNormalizations"/>
 			</EntityType>
 			<Association Name="carrierMasterNormalizations_to_contentSource">
 				<End Role="carrierMasterNormalizations" Type="CatalogService.carrierMasterNormalizations" Multiplicity="*"/>
@@ -261,6 +288,26 @@
 						<PropertyRef Name="parentUUID"/>
 					</Dependent>
 				</ReferentialConstraint>
+			</Association>
+			<Association Name="carrierMasterNormalizations_to_carrierMaster">
+				<End Role="carrierMasterNormalizations" Type="CatalogService.carrierMasterNormalizations" Multiplicity="*"/>
+				<End Role="carrierMasters" Type="CatalogService.carrierMasters" Multiplicity="0..1"/>
+				<ReferentialConstraint>
+					<Principal Role="carrierMasters">
+						<PropertyRef Name="UUID"/>
+					</Principal>
+					<Dependent Role="carrierMasterNormalizations">
+						<PropertyRef Name="assignmentUUID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="carrierMasterNormalizations_to_textDetails">
+				<End Role="carrierMasterNormalizations" Type="CatalogService.carrierMasterNormalizations" Multiplicity="*"/>
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+			</Association>
+			<Association Name="carrierMasters_to_carrierMasterNormalizations">
+				<End Role="carrierMasters" Type="CatalogService.carrierMasters" Multiplicity="*"/>
+				<End Role="carrierMasterNormalizations" Type="CatalogService.carrierMasterNormalizations" Multiplicity="*"/>
 			</Association>
 			<Association Name="carrierMasters_to_textDetails">
 				<End Role="carrierMasters" Type="CatalogService.carrierMasters" Multiplicity="*"/>
@@ -318,14 +365,6 @@
 				<End Role="contentSourceStatuss" Type="CatalogService.contentSourceStatuss" Multiplicity="*"/>
 				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
 			</Association>
-			<Association Name="contentSources_to_carrierMasterNormalizations">
-				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="*"/>
-				<End Role="carrierMasterNormalizations" Type="CatalogService.carrierMasterNormalizations" Multiplicity="*"/>
-			</Association>
-			<Association Name="contentSources_to_contentSourceStatuss">
-				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="*"/>
-				<End Role="contentSourceStatuss" Type="CatalogService.contentSourceStatuss" Multiplicity="*"/>
-			</Association>
 			<Association Name="contentSources_to_contentActionAssignments">
 				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="*"/>
 				<End Role="contentActionAssignments" Type="CatalogService.contentActionAssignments" Multiplicity="*"/>
@@ -333,6 +372,14 @@
 			<Association Name="contentSources_to_textDetails">
 				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="*"/>
 				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+			</Association>
+			<Association Name="contentSources_to_contentSourceStatuss">
+				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="*"/>
+				<End Role="contentSourceStatuss" Type="CatalogService.contentSourceStatuss" Multiplicity="*"/>
+			</Association>
+			<Association Name="contentSources_to_carrierMasterNormalizations">
+				<End Role="contentSources" Type="CatalogService.contentSources" Multiplicity="*"/>
+				<End Role="carrierMasterNormalizations" Type="CatalogService.carrierMasterNormalizations" Multiplicity="*"/>
 			</Association>
 			<Association Name="contentValues_to_textDetails">
 				<End Role="contentValues" Type="CatalogService.contentValues" Multiplicity="*"/>
@@ -422,11 +469,19 @@
 				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
 				<End Role="contentActionAssignments" Type="CatalogService.contentActionAssignments" Multiplicity="0..1"/>
 			</Association>
+			<Association Name="textDetails_to_carrierMasterNormalization">
+				<End Role="textDetails" Type="CatalogService.textDetails" Multiplicity="*"/>
+				<End Role="carrierMasterNormalizations" Type="CatalogService.carrierMasterNormalizations" Multiplicity="0..1"/>
+			</Association>
 			<Annotations Target="CatalogService.carrierMasterNormalizations" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 				<Annotation Term="UI.Facets">
 					<Collection>
 						<Record Type="UI.ReferenceFacet">
 							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="to_textDetails/@UI.LineItem"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 					</Collection>
@@ -436,12 +491,12 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="carrierID"/>
+									<PropertyValue Property="Value" Path="ID"/>
 									<PropertyValue Property="Label" String="Carrier Master"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ID"/>
-									<PropertyValue Property="Label" String="Carrier Master Normalization"/>
+									<PropertyValue Property="Value" Path="normalizedID"/>
+									<PropertyValue Property="Label" String="Content Source Carrier"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -451,7 +506,7 @@
 					<Record Type="UI.HeaderInfoType">
 						<PropertyValue Property="Title">
 							<Record Type="UI.DataField">
-								<PropertyValue Property="Value" Path="carrierID"/>
+								<PropertyValue Property="Value" Path="ID"/>
 							</Record>
 						</PropertyValue>
 						<PropertyValue Property="TypeName" String="Carrier Master Normalization"/>
@@ -461,14 +516,14 @@
 				<Annotation Term="UI.LineItem">
 					<Collection>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Value" Path="carrierID"/>
+							<PropertyValue Property="Value" Path="ID"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 							<PropertyValue Property="Label" String="Carrier Master"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Value" Path="ID"/>
+							<PropertyValue Property="Value" Path="normalizedID"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-							<PropertyValue Property="Label" String="normalizedCarrier"/>
+							<PropertyValue Property="Label" String="Content Source Carrier"/>
 						</Record>
 					</Collection>
 				</Annotation>
@@ -477,17 +532,12 @@
 						<PropertyValue Property="SortOrder">
 							<Collection>
 								<Record Type="Common.SortOrderType">
-									<PropertyValue Property="Property" PropertyPath="CarrierID"/>
+									<PropertyValue Property="Property" PropertyPath="primaryStatusCode"/>
 									<PropertyValue Property="Descending" Bool="false"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
 					</Record>
-				</Annotation>
-				<Annotation Term="UI.SelectionFields">
-					<Collection>
-						<PropertyPath>ID</PropertyPath>
-					</Collection>
 				</Annotation>
 			</Annotations>
 			<Annotations Target="CatalogService.EntityContainer/carrierMasterNormalizations" xmlns="http://docs.oasis-open.org/odata/ns/edm">
@@ -505,79 +555,6 @@
 					<Record Type="Capabilities.UpdateRestrictionsType">
 						<PropertyValue Property="Updatable" Bool="true"/>
 					</Record>
-				</Annotation>
-			</Annotations>
-			<Annotations Target="CatalogService.carrierMasters" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-				<Annotation Term="UI.Facets">
-					<Collection>
-						<Record Type="UI.ReferenceFacet">
-							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup"/>
-							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-						</Record>
-						<Record Type="UI.ReferenceFacet">
-							<PropertyValue Property="Target" AnnotationPath="to_carrierMasterNormalizations/@UI.LineItem"/>
-							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-						</Record>
-						<Record Type="UI.ReferenceFacet">
-							<PropertyValue Property="Target" AnnotationPath="to_textDetails/@UI.LineItem"/>
-							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-						</Record>
-					</Collection>
-				</Annotation>
-				<Annotation Term="UI.FieldGroup">
-					<Record Type="UI.FieldGroupType">
-						<PropertyValue Property="Data">
-							<Collection>
-								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ID"/>
-									<PropertyValue Property="Label" String="Carrier Master"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-				<Annotation Term="UI.HeaderInfo">
-					<Record Type="UI.HeaderInfoType">
-						<PropertyValue Property="ImageUrl" Path="logoURL"/>
-						<PropertyValue Property="Title">
-							<Record Type="UI.DataField">
-								<PropertyValue Property="Value" Path="ID"/>
-							</Record>
-						</PropertyValue>
-						<PropertyValue Property="TypeName" String="Carrier Master"/>
-						<PropertyValue Property="TypeNamePlural" String="Carrier Masters"/>
-					</Record>
-				</Annotation>
-				<Annotation Term="UI.LineItem">
-					<Collection>
-						<Record Type="UI.DataField">
-							<PropertyValue Property="Value" Path="ID"/>
-							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-							<PropertyValue Property="Label" String="Carrier Master"/>
-						</Record>
-						<Record Type="UI.DataField">
-							<PropertyValue Property="Value" Path="status"/>
-							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-							<PropertyValue Property="Label" String="Active"/>
-						</Record>
-					</Collection>
-				</Annotation>
-				<Annotation Term="UI.PresentationVariant">
-					<Record Type="UI.PresentationVariantType">
-						<PropertyValue Property="SortOrder">
-							<Collection>
-								<Record Type="Common.SortOrderType">
-									<PropertyValue Property="Property" PropertyPath="ID"/>
-									<PropertyValue Property="Descending" Bool="false"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-				<Annotation Term="UI.SelectionFields">
-					<Collection>
-						<PropertyPath>ID</PropertyPath>
-					</Collection>
 				</Annotation>
 			</Annotations>
 			<Annotations Target="CatalogService.EntityContainer/carrierMasters" xmlns="http://docs.oasis-open.org/odata/ns/edm">
@@ -862,15 +839,15 @@
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.ReferenceFacet">
-							<PropertyValue Property="Target" AnnotationPath="to_carrierMasterNormalizations/@UI.LineItem"/>
-							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-						</Record>
-						<Record Type="UI.ReferenceFacet">
 							<PropertyValue Property="Target" AnnotationPath="to_contentSourceStatuss/@UI.LineItem"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.ReferenceFacet">
 							<PropertyValue Property="Target" AnnotationPath="to_contentActionAssignments/@UI.LineItem"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="to_carrierMasterNormalizations/@UI.LineItem"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.ReferenceFacet">

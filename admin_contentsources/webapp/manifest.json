@@ -74,9 +74,9 @@
 				"type": "sap.ui.model.resource.ResourceModel",
 				"uri": "i18n/ObjectPage/contentSources/i18n.properties"
 			},
-			"i18n|sap.suite.ui.generic.template.ObjectPage|textDetails": {
+			"i18n|sap.suite.ui.generic.template.ObjectPage|carrierMasterNormalizations": {
 				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/ObjectPage/textDetails/i18n.properties"
+				"uri": "i18n/ObjectPage/carrierMasterNormalizations/i18n.properties"
 			},
 			"": {
 				"dataSource": "mainService",
@@ -127,15 +127,13 @@
 								"entitySet": "carrierMasterNormalizations",
 								"component": {
 									"name": "sap.suite.ui.generic.template.ObjectPage"
-								},
-								"pages": {
-									"ObjectPage|textDetails": {
-									"navigationProperty": "to_textDetails",
-									"entitySet": "textDetails",
-									"component": {
-										"name": "sap.suite.ui.generic.template.ObjectPage"
-										}
-									}
+								}
+							},
+							"ObjectPage|carrierMasterAssignments": {
+								"navigationProperty": "to_carrierMasterAssignments",
+								"entitySet": "carrierMasterAssignments",
+								"component": {
+									"name": "sap.suite.ui.generic.template.ObjectPage"
 								}
 							},
 							"ObjectPage|contentActionAssignments": {
@@ -182,6 +180,7 @@
 				}
 			}
 		}
+	
 	},
 	"sap.platform.hcp": {
 		"uri": ""

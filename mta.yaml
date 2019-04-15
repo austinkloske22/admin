@@ -24,6 +24,9 @@ modules:
       - name: admin-uaa
       - name: admin-uaa
       - name: admin-uaa
+      - name: admin-uaa
+      - name: admin-uaa
+      - name: admin-uaa
       - name: srv_api
         group: destinations
         properties:
@@ -62,6 +65,10 @@ modules:
           artifacts:
             - './*'
           target-path: resources/admin_contentsources
+        - name: admin_carriermasters
+          artifacts:
+            - './*'
+          target-path: resources/admin_carriermasters
   - name: admin-db
     type: hdb
     path: db
@@ -153,9 +160,9 @@ modules:
           strictSSL: false
           name: srv_api
           url: '~{url}'
-  - name: admin_contentsources
+  - name: admin_feedtypes
     type: html5
-    path: admin_contentsources
+    path: admin_feedtypes
     build-parameters:
       builder: grunt
     requires:
@@ -166,9 +173,22 @@ modules:
           strictSSL: false
           name: srv_api
           url: '~{url}'
-  - name: admin_feedtypes
+  - name: admin_carriermasters
     type: html5
-    path: admin_feedtypes
+    path: admin_carriermasters
+    build-parameters:
+      builder: grunt
+    requires:
+      - name: srv_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: '~{url}'
+  - name: admin_contentsources
+    type: html5
+    path: admin_contentsources
     build-parameters:
       builder: grunt
     requires:
