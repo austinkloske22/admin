@@ -91,14 +91,12 @@
 			"import_columns": [
 				"UUID",
 				"PARENTUUID",
-				"ASSIGNMENTUUID",
-				"ID"]
+				"CONTENTACTIONID"]
 		},
 		"column_mappings": {
 			"UUID": 1,
 			"PARENTUUID": 2,
-			"ASSIGNMENTUUID": 3,
-			"ID": 4
+			"CONTENTACTIONID": 3
 		}
 	},
 	{

@@ -131,11 +131,20 @@
 							"name": "sap.suite.ui.generic.template.ObjectPage"
 						},
 						"pages": {
-							"ObjectPage|carrierMasterNormalizations": {
-								"navigationProperty": "to_carrierMasterNormalizations",
-								"entitySet": "carrierMasterNormalizations",
+							"ObjectPage|contentValues": {
+								"navigationProperty": "to_contentValues",
+								"entitySet": "contentValues",
 								"component": {
 									"name": "sap.suite.ui.generic.template.ObjectPage"
+								},
+								"pages": {
+									"ObjectPage|contentValueTextDetails": {
+										"navigationProperty": "to_textDetails",
+										"entitySet": "contentValueTextDetails",
+										"component": {
+											"name": "sap.suite.ui.generic.template.ObjectPage"
+										}
+									}
 								}
 							},
 							"ObjectPage|carrierMasterAssignments": {

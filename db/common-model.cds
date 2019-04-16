@@ -17,7 +17,5 @@ entity textDetail {
     to_errorMessage			: Association to one admin.errorMessage on to_errorMessage.UUID = $self.parentUUID;
     to_contentSource		: Association to one admin.contentSource on to_contentSource.UUID = $self.parentUUID;
     to_contentAction		: Association to one admin.contentAction on to_contentAction.UUID = $self.parentUUID;
-    to_contentValue			: Association to one admin.contentValue on to_contentValue.UUID = $self.parentUUID;
     to_carrierMaster		: Association to one admin.carrierMaster on to_carrierMaster.UUID = $self.parentUUID;
-    to_contentActionAssignment		: Association to one assignmentModel.contentActionAssignment on to_contentActionAssignment.assignmentUUID = $self.parentUUID;
 }

@@ -1,6 +1,7 @@
 using admin.commonModel as commonModel from '../db/common-model';
 using admin.assignmentModel as assignmentModel from '../db/assignment-model';
 using admin as admin from '../db/data-model';
+using admin.textDetailModel as textDetailModel from '../db/textdetail-model';
 
 service CatalogService {
 
@@ -60,6 +61,14 @@ service CatalogService {
 			DeleteRestrictions: {Deletable: true}
 		}
 	) as projection on admin.contentValue;
+	
+	entity  contentValueTextDetails @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on textDetailModel.contentValueTextDetail;
 	
 	entity  contentActionAssignments @(
 		Capabilities: {

@@ -65,6 +65,74 @@ annotate CatalogService.textDetails with @(
 	}
 );
 
+annotate CatalogService.contentValues with @(
+	
+	UI.LineItem: [
+		{$Type: 'UI.DataField', Value: contentKey, "@UI.Importance": #High, Label: '{i18n>contentKey}'},
+		{$Type: 'UI.DataField', Value: contentValue, "@UI.Importance": #High, Label: '{i18n>contentValue}'}
+	],
+		
+	UI.PresentationVariant: {
+		SortOrder: [ {$Type: 'Common.SortOrderType', Property: contentKey, Descending: false} ]
+	},
+	
+// ---------------------------------------------------------------------------
+// Object Page
+// ---------------------------------------------------------------------------
+	UI.HeaderInfo: {
+		TypeName: '{i18n>contentValue}',
+		TypeNamePlural: '{i18n>contentValue_Plural}',
+		Title: {Value: contentKey}
+	},
+		
+	//Page Facets
+	UI.Facets: [
+		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'to_textDetails/@UI.LineItem', "@UI.Importance": #High}
+	],
+
+	UI.FieldGroup: {
+		Data: [
+			{$Type: 'UI.DataField', Value: contentKey, Label: '{i18n>contentKey}',  },
+			{$Type: 'UI.DataField', Value: contentValue, Label: '{i18n>contentValue}',  }
+		]
+	}
+);
+
+annotate CatalogService.contentValueTextDetails with @(
+	
+	UI.HeaderInfo: {
+		TypeName: '{i18n>textDetails}',
+		TypeNamePlural: '{i18n>textDetails_Plural}',
+		Title: {Value: locale}
+	},
+	
+	UI.LineItem: [
+		{$Type: 'UI.DataField', Value: locale, "@UI.Importance": #High, Label: '{i18n>locale}'},
+		{$Type: 'UI.DataField', Value: description, "@UI.Importance": #High, Label: '{i18n>description}'}
+	],
+
+	UI.PresentationVariant: {
+		SortOrder: [ {$Type: 'Common.SortOrderType', Property: locale, Descending: false} ]
+	},
+	
+// ---------------------------------------------------------------------------
+// Object Page
+// ---------------------------------------------------------------------------
+	//Page Facets
+	UI.Facets: [
+		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: '@UI.LineItem', "@UI.Importance": #High}
+	],
+	UI.FieldGroup: {
+		Data: [
+			{$Type: 'UI.DataField', Value: locale, Label: '{i18n>locale}'},
+			{$Type: 'UI.DataField', Value: description, Label: '{i18n>description}'},
+		]
+	}
+);
+
+
 annotate CatalogService.contentActions with @(
 
 	UI.SelectionFields: [ ID ],
@@ -105,15 +173,15 @@ annotate CatalogService.contentActionAssignments with @(
 	UI.HeaderInfo: {
 		TypeName: '{i18n>contentActionAssignment}',
 		TypeNamePlural: '{i18n>contentActionAssignment_Plural}',
-		Title: {Value: ID}
+		Title: {Value: contentActionID}
 	},
 	
 	UI.LineItem: [
-		{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>contentActionAssignment}'},
+		{$Type: 'UI.DataField', Value: contentActionID, "@UI.Importance": #High, Label: '{i18n>contentActionAssignment}'},
 	],
 		
 	UI.PresentationVariant: {
-		SortOrder: [ {$Type: 'Common.SortOrderType', Property: ID, Descending: false} ]
+		SortOrder: [ {$Type: 'Common.SortOrderType', Property: contentActionID, Descending: false} ]
 	},
 	
 // ---------------------------------------------------------------------------
@@ -126,7 +194,7 @@ annotate CatalogService.contentActionAssignments with @(
 	],
 	UI.FieldGroup: {
 		Data: [
-			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>contentActionAssignment}'}
+			{$Type: 'UI.DataField', Value: contentActionID, Label: '{i18n>contentActionAssignment}'}
 		]
 	}
 );
@@ -227,6 +295,7 @@ annotate CatalogService.contentSources with @(
 	//Page Facets
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
+		{$Type: 'UI.ReferenceFacet', Target: 'to_contentValues/@UI.LineItem', "@UI.Importance": #High},
 		{$Type: 'UI.ReferenceFacet', Target: 'to_carrierMasterAssignments/@UI.LineItem', "@UI.Importance": #High},
 		{$Type: 'UI.ReferenceFacet', Target: 'to_contentSourceStatuss/@UI.LineItem', "@UI.Importance": #High},
 		{$Type: 'UI.ReferenceFacet', Target: 'to_contentActionAssignments/@UI.LineItem', "@UI.Importance": #High},
@@ -282,20 +351,20 @@ annotate CatalogService.carrierMasterAssignments with @(
 	UI.SelectionFields: [ ID ],
 	
 	UI.LineItem: [
-		{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>carrierMasterAssignment}'},
-		{$Type: 'UI.DataField', Value: carrierMasterID, "@UI.Importance": #High, Label: '{i18n>carrierMaster}'}
+		{$Type: 'UI.DataField', Value: carrierMasterID, "@UI.Importance": #High, Label: '{i18n>carrierMaster}'},
+		{$Type: 'UI.DataField', Value: ID, "@UI.Importance": #High, Label: '{i18n>contentSourceCarrier}'}
 		],
 		
 	
 	UI.PresentationVariant: {
-		SortOrder: [ {$Type: 'Common.SortOrderType', Property: ID, Descending: false}]
+		SortOrder: [ {$Type: 'Common.SortOrderType', Property: carrierMasterID, Descending: false}]
 	},
 // ---------------------------------------------------------------------------
 // Object Page
 // ---------------------------------------------------------------------------
 	UI.HeaderInfo: {
-		TypeName: '{i18n>carrierMasterAssignment}',
-		TypeNamePlural: '{i18n>carrierMasterAssignment_Plural}',
+		TypeName: '{i18n>contentSourceCarrier}',
+		TypeNamePlural: '{i18n>contentSourceCarrier_Plural}',
 		Title: {Value: ID}
 	},
 		
@@ -306,8 +375,9 @@ annotate CatalogService.carrierMasterAssignments with @(
 		
 	UI.FieldGroup: {
 		Data: [
-			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>carrierMasterAssignment}',  },
-			{$Type: 'UI.DataField', Value: carrierMasterID, Label: '{i18n>carrierMaster}',  }
+			{$Type: 'UI.DataField', Value: carrierMasterID, Label: '{i18n>carrierMaster}',  },
+			{$Type: 'UI.DataField', Value: ID, Label: '{i18n>contentSourceCarrier}',  }
+			
 		]
 	}
 );
