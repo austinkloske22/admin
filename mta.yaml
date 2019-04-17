@@ -20,7 +20,6 @@ modules:
           name: node_api
           url: '~{url}'
       - name: portal_resources_admin
-      - name: admin-uaa
       - name: srv_api
         group: destinations
         properties:
@@ -75,8 +74,6 @@ modules:
           url: '~{url}'
           name: node_api
           forwardAuthToken: true
-    properties:
-      UAA_SERVICE_NAME: admin-uaa
   - name: admin-nodejs
     type: nodejs
     path: admin-nodejs
@@ -87,8 +84,6 @@ modules:
     requires:
       - name: admin-hdi-container
       - name: admin-uaa
-    properties:
-      UAA_SERVICE_NAME: admin-uaa
   - name: admin-flp
     type: com.sap.portal.content
     path: admin-flp
@@ -150,17 +145,11 @@ resources:
     properties:
       hdi-container-name: '${service-name}'
   - name: admin-uaa
-    type: org.cloudfoundry.managed-service
+    type: com.sap.xs.uaa
     parameters:
-      service-plan: application
       service: xsuaa
-      path: ./xs-security.json
-  - name: dest_admin
-    parameters:
       service-plan: application
       path: ./xs-security.json
-      service: xsuaa
-    type: org.cloudfoundry.managed-service
   - name: portal_resources_admin
     parameters:
       service-plan: standard
