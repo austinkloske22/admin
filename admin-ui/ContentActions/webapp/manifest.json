@@ -34,7 +34,14 @@
 						"additionalParameters": "allowed"
 					},
 					"semanticObject": "ContentActions",
-					"action": "Manage"
+					"action": "Manage",
+					"title": "ContentActions",
+					"subTitle": "Manage",
+					"indicatorDataSource": {
+						"dataSource": "mainService",
+						"path": "../odata/v2/CatalogService/"
+					},
+					"icon": "sap-icon://action"
 				}
 			}
 		}
