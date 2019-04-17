@@ -20,8 +20,14 @@
 						"parameters": {},
 						"additionalParameters": "allowed"
 					},
-					"semanticObject": "SAPUI5",
-					"action": "Manage"
+					"semanticObject": "ContentActions",
+					"action": "Manage",
+					"title": "ContentActions",
+					"subTitle": "Manage",
+					"indicatorDataSource": {
+						"dataSource": "mainService",
+						"path": "../odata/v2/CatalogService/"
+					}	
 				}
 			}
 		}

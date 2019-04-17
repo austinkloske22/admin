@@ -129,6 +129,20 @@
         <Property Name="carrierMasterID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
         <Property Name="description" Type="Edm.String" MaxLength="255"/>
+        <Property Name="HasDraftEntity" Type="Edm.Boolean"/>
+        <Property Name="HasActiveEntity" Type="Edm.Boolean"/>
+        <Property Name="HasDraft" Type="Edm.Boolean"/>
+        <Property Name="HasDraftAdministrativeData" Type="Edm.Boolean"/>
+        <Property Name="HasDraftPreparationAction" Type="Edm.Boolean"/>
+        <Property Name="HasDraftRoot" Type="Edm.Boolean"/>
+        <Property Name="HasDraftValidationFunction" Type="Edm.Boolean"/>
+        <Property Name="HasPreserveChanges" Type="Edm.Boolean"/>
+        <Property Name="HasSiblingEntity" Type="Edm.Boolean"/>
+        <Property Name="SiblingEntity" Type="Edm.Boolean"/>
+        <Property Name="IsDraftEnabled" Type="Edm.Boolean"/>
+        <Property Name="IsActiveEntity" Type="Edm.Boolean"/>
+        <Property Name="IsDraftRoot" Type="Edm.Boolean"/>
+        <Property Name="DraftAdministrativeData" Type="Edm.Boolean"/>
         <NavigationProperty Name="CarrierMaster" Relationship="CatalogService.CarrierMasterTextDetails_CarrierMaster" FromRole="CarrierMasterTextDetails" ToRole="CarrierMasters"/>
       </EntityType>
       <EntityType Name="CarrierMasters">
@@ -138,6 +152,20 @@
         <Property Name="carrierMasterID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <Property Name="logoURL" Type="Edm.String" MaxLength="1000"/>
         <Property Name="status" Type="Edm.Boolean"/>
+        <Property Name="HasDraftEntity" Type="Edm.Boolean"/>
+        <Property Name="HasActiveEntity" Type="Edm.Boolean"/>
+        <Property Name="HasDraft" Type="Edm.Boolean"/>
+        <Property Name="HasDraftAdministrativeData" Type="Edm.Boolean"/>
+        <Property Name="HasDraftPreparationAction" Type="Edm.Boolean"/>
+        <Property Name="HasDraftRoot" Type="Edm.Boolean"/>
+        <Property Name="HasDraftValidationFunction" Type="Edm.Boolean"/>
+        <Property Name="HasPreserveChanges" Type="Edm.Boolean"/>
+        <Property Name="HasSiblingEntity" Type="Edm.Boolean"/>
+        <Property Name="SiblingEntity" Type="Edm.Boolean"/>
+        <Property Name="IsDraftEnabled" Type="Edm.Boolean"/>
+        <Property Name="IsActiveEntity" Type="Edm.Boolean"/>
+        <Property Name="IsDraftRoot" Type="Edm.Boolean"/>
+        <Property Name="DraftAdministrativeData" Type="Edm.Boolean"/>
         <NavigationProperty Name="ContentSourceCarriers" Relationship="CatalogService.CarrierMasters_ContentSourceCarriers" FromRole="CarrierMasters" ToRole="ContentSourceCarriers"/>
         <NavigationProperty Name="TextDetails" Relationship="CatalogService.CarrierMasters_TextDetails" FromRole="CarrierMasters" ToRole="CarrierMasterTextDetails"/>
       </EntityType>
@@ -593,6 +621,8 @@
         </ReferentialConstraint>
       </Association>
       <Annotations Target="CatalogService.CarrierMasterTextDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.draftEnabled" Bool="true"/>
+        <Annotation Term="Capabilities.writeDraftPersistence" String="ADMIN_DRAFTMODEL_CARRIERMASTERTEXTDETAIL"/>
         <Annotation Term="UI.Facets">
           <Collection>
             <Record Type="UI.ReferenceFacet">
@@ -619,6 +649,18 @@
                 </Record>
               </Collection>
             </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.HeaderInfo">
+          <Record Type="UI.HeaderInfoType">
+            <PropertyValue Property="ImageUrl" Path="CarrierMaster/logoURL"/>
+            <PropertyValue Property="Title">
+              <Record Type="UI.DataField">
+                <PropertyValue Property="Value" Path="CarrierMaster/carrierMasterID"/>
+              </Record>
+            </PropertyValue>
+            <PropertyValue Property="TypeName" String="Carrier Master"/>
+            <PropertyValue Property="TypeNamePlural" String="Carrier Masters"/>
           </Record>
         </Annotation>
         <Annotation Term="UI.LineItem">
@@ -672,6 +714,8 @@
         <Annotation Term="Common.Label" String="Description"/>
       </Annotations>
       <Annotations Target="CatalogService.CarrierMasters" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.draftEnabled" Bool="true"/>
+        <Annotation Term="Capabilities.writeDraftPersistence" String="ADMIN_DRAFTMODEL_CARRIERMASTER"/>
         <Annotation Term="UI.Facets">
           <Collection>
             <Record Type="UI.ReferenceFacet">

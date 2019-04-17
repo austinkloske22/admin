@@ -30,6 +30,10 @@
 					"id": "CarrierMasters-0-1555470614790",
 					"appId": "CarrierMasters",
 					"intentHintId": "CarrierMasters-Manage"
+				}, {
+					"id": "ContentActions-1-1555531312423",
+					"appId": "ContentActions",
+					"intentHintId": "ContentActions-Manage"
 				}]
 			}
 		}, {

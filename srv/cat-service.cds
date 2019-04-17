@@ -112,6 +112,8 @@ service CatalogService {
 	
 	entity  CarrierMasters @(
 		Capabilities: {
+			draftEnabled: true,
+			writeDraftPersistence: 'ADMIN_DRAFTMODEL_CARRIERMASTER',
 			InsertRestrictions: {Insertable: true},
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
@@ -120,6 +122,8 @@ service CatalogService {
 	
 	entity  CarrierMasterTextDetails @(
 		Capabilities: {
+			draftEnabled: true,
+			writeDraftPersistence: 'ADMIN_DRAFTMODEL_CARRIERMASTERTEXTDETAIL',
 			InsertRestrictions: {Insertable: true},
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}

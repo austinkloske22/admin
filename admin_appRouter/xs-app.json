@@ -11,6 +11,11 @@
 		"csrfProtection": false,
 		"authenticationType": "xsuaa"
 	}, {
+		"source": "/admin-ui/(.*)",
+		"destination": "srv_api",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa"
+	}, {
 		"source": "/odata/v2/(.*)",
 		"destination": "srv_api",
 		"csrfProtection": false,

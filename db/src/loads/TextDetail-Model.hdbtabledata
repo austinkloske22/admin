@@ -24,6 +24,31 @@
 			"LOCALE": 2,
 			"DESCRIPTION": 3
 		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_CONTENTACTION",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentactiontextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTACTIONID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"CONTENTACTIONID": 1,
+			"LOCALE": 2,
+			"DESCRIPTION": 3
+		}
 	}
 	]
 }

@@ -8,6 +8,20 @@ entity CarrierMaster {
 	key carrierMasterID : CommonModel.AdminKey;
 	key locale			: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
 	description			: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
+	HasDraftEntity				: Boolean default true;
+	HasActiveEntity				: Boolean default true;
+	HasDraft					: Boolean default true;
+	HasDraftAdministrativeData	: Boolean default false;
+	HasDraftPreparationAction	: Boolean default false;
+	HasDraftRoot				: Boolean default false;
+	HasDraftValidationFunction	: Boolean default false;
+	HasPreserveChanges			: Boolean default false;
+	HasSiblingEntity			: Boolean default false;
+	SiblingEntity				: Boolean default false;
+	IsDraftEnabled				: Boolean default true;
+	IsActiveEntity				: Boolean default true;
+	IsDraftRoot					: Boolean default false;
+	DraftAdministrativeData		: Boolean default false;
 	CarrierMaster		: Association to one Admin.CarrierMaster on CarrierMaster.carrierMasterID = $self.carrierMasterID; 
 }
 

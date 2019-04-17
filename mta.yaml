@@ -37,11 +37,15 @@ modules:
         - name: sapui5
           artifacts:
             - './*'
-          target-path: resources/sapui5
+          target-path: resources/admin-ui/sapui5
         - name: CarrierMasters
           artifacts:
             - './*'
-          target-path: resources/CarrierMasters
+          target-path: resources/admin-ui/CarrierMasters
+        - name: ContentActions
+          artifacts:
+            - './*'
+          target-path: resources/admin-ui/ContentActions
   - name: admin-db
     type: hdb
     path: db
@@ -99,12 +103,25 @@ modules:
       - name: admin-deployer
   - name: sapui5
     type: html5
-    path: sapui5
+    path: admin-ui/sapui5
     build-parameters:
       builder: grunt
   - name: CarrierMasters
     type: html5
-    path: CarrierMasters
+    path: admin-ui/CarrierMasters
+    build-parameters:
+      builder: grunt
+    requires:
+      - name: srv_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: '~{url}'
+  - name: ContentActions
+    type: html5
+    path: admin-ui/ContentActions
     build-parameters:
       builder: grunt
     requires:

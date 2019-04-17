@@ -408,7 +408,7 @@ annotate CatalogService.CarrierMasters with @(
 );
 
 annotate CatalogService.CarrierMasterTextDetails with @(
-		
+	
 	UI.LineItem: [
 		{$Type: 'UI.DataField', Value: locale, "@UI.Importance": #High, Label: '{i18n>locale}'},
 		{$Type: 'UI.DataField', Value: description, "@UI.Importance": #High, Label: '{i18n>description}'}
@@ -422,6 +422,14 @@ annotate CatalogService.CarrierMasterTextDetails with @(
 // Object Page
 // ---------------------------------------------------------------------------
 	//Page Facets
+	
+	UI.HeaderInfo: {
+		TypeName: '{i18n>carrierMaster}',
+		TypeNamePlural: '{i18n>carrierMaster_Plural}',
+		Title: {Value: "CarrierMaster/carrierMasterID"},
+		ImageUrl: "CarrierMaster/logoURL"
+	},
+	
 	UI.Facets: [
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup', "@UI.Importance": #High},
 		{$Type: 'UI.ReferenceFacet', Target: '@UI.LineItem', "@UI.Importance": #High}

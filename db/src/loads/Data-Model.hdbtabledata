@@ -24,6 +24,27 @@
 			"LOGOURL": 2,
 			"STATUS": 3
 		}
+	},
+	{
+		"target_table": "ADMIN_CONTENTACTION",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentaction.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTACTIONID"
+				]
+		},
+		"column_mappings": {
+			"CONTENTACTIONID": 1
+		}
 	}
 	]
 }
