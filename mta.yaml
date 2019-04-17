@@ -20,6 +20,7 @@ modules:
           name: node_api
           url: '~{url}'
       - name: portal_resources_admin
+      - name: admin-uaa
       - name: srv_api
         group: destinations
         properties:
@@ -33,34 +34,14 @@ modules:
       - name: admin-html5-dt
     build-parameters:
       requires:
-        - name: admin_errormessages
-          artifacts:
-            - './*'
-          target-path: resources/admin_errormessages
-        - name: web
-          artifacts:
-            - './*'
-          target-path: resources/web
-        - name: admin_feedtypes
-          artifacts:
-            - './*'
-          target-path: resources/admin_feedtypes
         - name: sapui5
           artifacts:
             - './*'
           target-path: resources/sapui5
-        - name: admin_contentActions
+        - name: CarrierMasters
           artifacts:
             - './*'
-          target-path: resources/admin_contentActions
-        - name: admin_contentsources
-          artifacts:
-            - './*'
-          target-path: resources/admin_contentsources
-        - name: admin_carriermasters
-          artifacts:
-            - './*'
-          target-path: resources/admin_carriermasters
+          target-path: resources/CarrierMasters
   - name: admin-db
     type: hdb
     path: db
@@ -92,19 +73,6 @@ modules:
           forwardAuthToken: true
     properties:
       UAA_SERVICE_NAME: admin-uaa
-  - name: admin_errormessages
-    type: html5
-    path: admin_errormessages
-    build-parameters:
-      builder: grunt
-    requires:
-      - name: srv_api
-        group: destinations
-        properties:
-          forwardAuthToken: true
-          strictSSL: false
-          name: srv_api
-          url: '~{url}'
   - name: admin-nodejs
     type: nodejs
     path: admin-nodejs
@@ -117,11 +85,6 @@ modules:
       - name: admin-uaa
     properties:
       UAA_SERVICE_NAME: admin-uaa
-  - name: web
-    type: html5
-    path: admin-ui/web
-    build-parameters:
-      builder: grunt
   - name: admin-flp
     type: com.sap.portal.content
     path: admin-flp
@@ -139,48 +102,9 @@ modules:
     path: sapui5
     build-parameters:
       builder: grunt
-  - name: admin_contentActions
+  - name: CarrierMasters
     type: html5
-    path: admin_contentActions
-    build-parameters:
-      builder: grunt
-    requires:
-      - name: srv_api
-        group: destinations
-        properties:
-          forwardAuthToken: true
-          strictSSL: false
-          name: srv_api
-          url: '~{url}'
-  - name: admin_feedtypes
-    type: html5
-    path: admin_feedtypes
-    build-parameters:
-      builder: grunt
-    requires:
-      - name: srv_api
-        group: destinations
-        properties:
-          forwardAuthToken: true
-          strictSSL: false
-          name: srv_api
-          url: '~{url}'
-  - name: admin_carriermasters
-    type: html5
-    path: admin_carriermasters
-    build-parameters:
-      builder: grunt
-    requires:
-      - name: srv_api
-        group: destinations
-        properties:
-          forwardAuthToken: true
-          strictSSL: false
-          name: srv_api
-          url: '~{url}'
-  - name: admin_contentsources
-    type: html5
-    path: admin_contentsources
+    path: CarrierMasters
     build-parameters:
       builder: grunt
     requires:

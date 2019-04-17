@@ -27,13 +27,9 @@
 			},
 			"payload": {
 				"tiles": [{
-					"id": "admin_feedtypes-0-1554312774182",
-					"appId": "admin_feedtypes",
-					"intentHintId": "feedTypes-Manage"
-				}, {
-					"id": "admin_contentsources-1-1555342225647",
-					"appId": "admin_contentsources",
-					"intentHintId": "contentSources-Manage"
+					"id": "CarrierMasters-0-1555470614790",
+					"appId": "CarrierMasters",
+					"intentHintId": "CarrierMasters-Manage"
 				}]
 			}
 		}, {
@@ -46,17 +42,9 @@
 			},
 			"payload": {
 				"tiles": [{
-					"id": "admin_errormessages-0-1554312774183",
-					"appId": "admin_errormessages",
-					"intentHintId": "errorMessages-Manage"
-				}, {
 					"id": "admin.sapui5-1-1554317025649",
 					"appId": "admin.sapui5",
 					"intentHintId": "SAPUI5-Manage"
-				}, {
-					"id": "admin_carriermasters-2-1555293863688",
-					"appId": "admin_carriermasters",
-					"intentHintId": "carrierMasters-Manage"
 				}]
 			}
 		}],
