@@ -34,10 +34,10 @@ entity ContentSource {
 
 entity ContentValue {
 	key contentSourceID	: CommonModel.AdminKey;
-	key contentKey		: CommonModel.AdminKey;
+	key contentKeyID	: CommonModel.AdminKey;
 	key locale			: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
 	description			: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
-	ContentValue		: Association to one Admin.ContentValue on ContentValue.contentSourceID = $self.contentSourceID and ContentValue.contentKey = $self.contentKey;
+	ContentValue		: Association to one Admin.ContentValue on ContentValue.contentSourceID = $self.contentSourceID and ContentValue.contentKeyID = $self.contentKeyID;
 }
 
 entity ContentSourceStatus {

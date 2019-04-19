@@ -35,9 +35,9 @@ entity ContentSource {
 
 entity ContentValue {
 	key contentSourceID	: CommonModel.AdminKey;
-	key contentKey		: CommonModel.AdminKey;
+	key contentKeyID	: CommonModel.AdminKey;
 	contentValue		: CommonModel.LongString;
-	TextDetails			: Composition of many TextDetailModel.ContentValue on TextDetails.contentSourceID = $self.contentSourceID and TextDetails.contentKey = $self.contentKey;
+	TextDetails			: Composition of many TextDetailModel.ContentValue on TextDetails.contentSourceID = $self.contentSourceID and TextDetails.contentKeyID = $self.contentKeyID;
 }
 
 entity ContentSourceStatus	{
