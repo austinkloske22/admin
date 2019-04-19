@@ -26,6 +26,7 @@ modules:
           forwardAuthToken: true
           name: srv_api
           url: '~{url}'
+      - name: uaa_admin
   - name: admin-deployer
     type: com.sap.html5.application-content
     path: admin_ui_deployer
@@ -127,6 +128,7 @@ modules:
           strictSSL: false
           name: srv_api
           url: '~{url}'
+  
 resources:
   - name: admin-html5-rt
     parameters:
@@ -154,4 +156,10 @@ resources:
     parameters:
       service-plan: standard
       service: portal
+    type: org.cloudfoundry.managed-service
+  - name: uaa_admin
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
     type: org.cloudfoundry.managed-service

@@ -32,12 +32,28 @@ entity ContentSource {
 	ContentSource		: Association to one Admin.ContentSource on ContentSource.contentSourceID = $self.contentSourceID; 
 }
 
-entity ContentValue {
+entity ContentSourceValue {
 	key contentSourceID	: CommonModel.AdminKey;
 	key contentKeyID	: CommonModel.AdminKey;
 	key locale			: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
 	description			: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
-	ContentValue		: Association to one Admin.ContentValue on ContentValue.contentSourceID = $self.contentSourceID and ContentValue.contentKeyID = $self.contentKeyID;
+	ContentSourceValue	: Association to one Admin.ContentSourceValue on ContentSourceValue.contentSourceID = $self.contentSourceID and ContentSourceValue.contentKeyID = $self.contentKeyID;
+}
+
+entity ContentSourceCarrier {
+	key contentSourceID		: CommonModel.AdminKey;
+	key carrierMasterID		: CommonModel.AdminKey;
+	key locale				: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
+	description				: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
+	ContentSourceCarrier	: Association to one AssignmentModel.ContentSourceCarrier on ContentSourceCarrier.contentSourceID = $self.contentSourceID and ContentSourceCarrier.carrierMasterID = $self.carrierMasterID;
+}
+
+entity ContentSourceAction {
+	key contentSourceID	: CommonModel.AdminKey;
+	key contentActionID	: CommonModel.AdminKey;
+	key locale			: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
+	description			: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
+	ContentSourceAction	: Association to one AssignmentModel.ContentSourceAction on ContentSourceAction.contentSourceID = $self.contentSourceID and ContentSourceAction.contentActionID = $self.contentActionID;
 }
 
 entity ContentSourceStatus {

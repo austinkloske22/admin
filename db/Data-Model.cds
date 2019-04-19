@@ -27,17 +27,18 @@ entity CarrierMaster {
 
 entity ContentSource {
 	key contentSourceID		: CommonModel.AdminKey;
-	ContentValues			: Composition of many Admin.ContentValue on ContentValues.contentSourceID = $self.contentSourceID;
+	ContentSourceValues		: Composition of many Admin.ContentSourceValue on ContentSourceValues.contentSourceID = $self.contentSourceID;
 	ContentSourceStatuss	: Composition of many Admin.ContentSourceStatus on ContentSourceStatuss.contentSourceID = $self.contentSourceID;
 	ContentSourceCarriers	: Composition of many AssignmentModel.ContentSourceCarrier on ContentSourceCarriers.contentSourceID = $self.contentSourceID;
+	ContentSourceActions	: Composition of many AssignmentModel.ContentSourceAction on ContentSourceActions.contentSourceID = $self.contentSourceID;
 	TextDetails				: Composition of many TextDetailModel.ContentSource on TextDetails.contentSourceID = $self.contentSourceID;
 } 
 
-entity ContentValue {
+entity ContentSourceValue {
 	key contentSourceID	: CommonModel.AdminKey;
 	key contentKeyID	: CommonModel.AdminKey;
 	contentValue		: CommonModel.LongString;
-	TextDetails			: Composition of many TextDetailModel.ContentValue on TextDetails.contentSourceID = $self.contentSourceID and TextDetails.contentKeyID = $self.contentKeyID;
+	TextDetails			: Composition of many TextDetailModel.ContentSourceValue on TextDetails.contentSourceID = $self.contentSourceID and TextDetails.contentKeyID = $self.contentKeyID;
 }
 
 entity ContentSourceStatus	{
@@ -58,7 +59,7 @@ entity ErrorMessage {
 
 entity ContentAction {
 	key contentActionID		: CommonModel.AdminKey;
-	ContentActionAssignment	: Composition of many AssignmentModel.ContentAction on ContentActionAssignment.contentActionID = $self.contentActionID;
+	ContentSourceActions	: Composition of many AssignmentModel.ContentSourceAction on ContentSourceActions.contentActionID = $self.contentActionID;
 	TextDetails				: Composition of many TextDetailModel.ContentAction on TextDetails.contentActionID = $self.contentActionID;
 }
 

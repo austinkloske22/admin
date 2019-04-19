@@ -11,7 +11,7 @@ entity ContentSourceCarrier {
 	CarrierMaster		: Association to one Admin.CarrierMaster on CarrierMaster.carrierMasterID = $self.carrierMasterID;
 }
 
-entity ContentAction {
+entity ContentSourceAction {
 	key contentSourceID	: CommonModel.AdminKey;
 	key contentActionID	: CommonModel.AdminKey;
 	ContentSource		: Association to one Admin.ContentSource on ContentSource.contentSourceID = $self.contentSourceID;

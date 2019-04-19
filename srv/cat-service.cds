@@ -4,7 +4,23 @@ using Admin.AssignmentModel as AssignmentModel from '../db/Assignment-Model';
 using Admin.TextDetailModel as TextDetailModel from '../db/TextDetail-Model';
 
 service CatalogService {
-
+	
+	entity  ContentActions @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on Admin.ContentAction;
+	
+	entity  ContentActionTextDetails @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on TextDetailModel.ContentAction;
+	
 	entity  FeedTypes @(
 		Capabilities: {
 			InsertRestrictions: {Insertable: true},
@@ -38,22 +54,6 @@ service CatalogService {
 		}
 	) as projection on TextDetailModel.ErrorMessage;
 	
-	entity  ContentActions @(
-		Capabilities: {
-			InsertRestrictions: {Insertable: true},
-			UpdateRestrictions: {Updatable: true},
-			DeleteRestrictions: {Deletable: true}
-		}
-	) as projection on Admin.ContentAction;
-	
-	entity  ContentActionTextDetails @(
-		Capabilities: {
-			InsertRestrictions: {Insertable: true},
-			UpdateRestrictions: {Updatable: true},
-			DeleteRestrictions: {Deletable: true}
-		}
-	) as projection on TextDetailModel.ContentAction;
-	
 	entity  ContentSources @(
 		Capabilities: {
 			InsertRestrictions: {Insertable: true},
@@ -86,29 +86,21 @@ service CatalogService {
 		}
 	) as projection on TextDetailModel.ContentSourceStatus;
 	
-	entity  ContentValues @(
+	entity  ContentSourceValues @(
 		Capabilities: {
 			InsertRestrictions: {Insertable: true},
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on Admin.ContentValue;
+	) as projection on Admin.ContentSourceValue;
 	
-	entity  ContentValueTextDetails @(
+	entity  ContentSourceValueTextDetails @(
 		Capabilities: {
 			InsertRestrictions: {Insertable: true},
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on TextDetailModel.ContentValue;
-	
-	entity  ContentActionAssignments @(
-		Capabilities: {
-			InsertRestrictions: {Insertable: true},
-			UpdateRestrictions: {Updatable: true},
-			DeleteRestrictions: {Deletable: true}
-		}
-	) as projection on AssignmentModel.ContentAction;
+	) as projection on TextDetailModel.ContentSourceValue;
 	
 	entity  CarrierMasters @(
 		Capabilities: {
@@ -136,5 +128,29 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on Admin.AssignmentModel.ContentSourceCarrier;
+	) as projection on AssignmentModel.ContentSourceCarrier;
+	
+	entity  ContentSourceCarrierTextDetails @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on TextDetailModel.ContentSourceCarrier;
+	
+	entity  ContentSourceActions @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on AssignmentModel.ContentSourceAction;
+	
+	entity  ContentSourceActionTextDetails @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on TextDetailModel.ContentSourceAction;
 }

@@ -67,7 +67,7 @@
       },
       "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CONTENTSOURCECARRIER"
     },
-    "Admin.AssignmentModel.ContentAction": {
+    "Admin.AssignmentModel.ContentSourceAction": {
       "kind": "entity",
       "elements": {
         "contentSourceID": {
@@ -125,7 +125,7 @@
           "@cds.persistence.name": "CONTENTACTION"
         }
       },
-      "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CONTENTACTION"
+      "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CONTENTSOURCEACTION"
     },
     "Admin.CommonModel.AdminKey": {
       "kind": "type",
@@ -309,10 +309,10 @@
           "length": 60,
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
-        "ContentValues": {
+        "ContentSourceValues": {
           "indexNo": 2,
           "type": "cds.Composition",
-          "target": "Admin.ContentValue",
+          "target": "Admin.ContentSourceValue",
           "cardinality": {
             "targetMax": "*"
           },
@@ -320,14 +320,14 @@
             "op": "=",
             "args": [
               {
-                "=": "ContentValues.contentSourceID"
+                "=": "ContentSourceValues.contentSourceID"
               },
               {
                 "=": "contentSourceID"
               }
             ]
           },
-          "@cds.persistence.name": "CONTENTVALUES"
+          "@cds.persistence.name": "CONTENTSOURCEVALUES"
         },
         "ContentSourceStatuss": {
           "indexNo": 3,
@@ -369,8 +369,28 @@
           },
           "@cds.persistence.name": "CONTENTSOURCECARRIERS"
         },
-        "TextDetails": {
+        "ContentSourceActions": {
           "indexNo": 5,
+          "type": "cds.Composition",
+          "target": "Admin.AssignmentModel.ContentSourceAction",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceActions.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCEACTIONS"
+        },
+        "TextDetails": {
+          "indexNo": 6,
           "type": "cds.Composition",
           "target": "Admin.TextDetailModel.ContentSource",
           "cardinality": {
@@ -392,7 +412,7 @@
       },
       "@cds.persistence.name": "ADMIN_CONTENTSOURCE"
     },
-    "Admin.ContentValue": {
+    "Admin.ContentSourceValue": {
       "kind": "entity",
       "elements": {
         "contentSourceID": {
@@ -402,12 +422,12 @@
           "length": 60,
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
-        "contentKey": {
+        "contentKeyID": {
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
           "length": 60,
-          "@cds.persistence.name": "CONTENTKEY"
+          "@cds.persistence.name": "CONTENTKEYID"
         },
         "contentValue": {
           "indexNo": 3,
@@ -418,7 +438,7 @@
         "TextDetails": {
           "indexNo": 4,
           "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.ContentValue",
+          "target": "Admin.TextDetailModel.ContentSourceValue",
           "cardinality": {
             "targetMax": "*"
           },
@@ -440,10 +460,10 @@
                 "op": "=",
                 "args": [
                   {
-                    "=": "TextDetails.contentKey"
+                    "=": "TextDetails.contentKeyID"
                   },
                   {
-                    "=": "contentKey"
+                    "=": "contentKeyID"
                   }
                 ]
               }
@@ -452,7 +472,7 @@
           "@cds.persistence.name": "TEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "ADMIN_CONTENTVALUE"
+      "@cds.persistence.name": "ADMIN_CONTENTSOURCEVALUE"
     },
     "Admin.ContentSourceStatus": {
       "kind": "entity",
@@ -608,10 +628,10 @@
           "length": 60,
           "@cds.persistence.name": "CONTENTACTIONID"
         },
-        "ContentActionAssignment": {
+        "ContentSourceActions": {
           "indexNo": 2,
           "type": "cds.Composition",
-          "target": "Admin.AssignmentModel.ContentAction",
+          "target": "Admin.AssignmentModel.ContentSourceAction",
           "cardinality": {
             "targetMax": "*"
           },
@@ -619,14 +639,14 @@
             "op": "=",
             "args": [
               {
-                "=": "ContentActionAssignment.contentActionID"
+                "=": "ContentSourceActions.contentActionID"
               },
               {
                 "=": "contentActionID"
               }
             ]
           },
-          "@cds.persistence.name": "CONTENTACTIONASSIGNMENT"
+          "@cds.persistence.name": "CONTENTSOURCEACTIONS"
         },
         "TextDetails": {
           "indexNo": 3,
@@ -1054,7 +1074,7 @@
       },
       "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCE"
     },
-    "Admin.TextDetailModel.ContentValue": {
+    "Admin.TextDetailModel.ContentSourceValue": {
       "kind": "entity",
       "elements": {
         "contentSourceID": {
@@ -1064,12 +1084,12 @@
           "length": 60,
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
-        "contentKey": {
+        "contentKeyID": {
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
           "length": 60,
-          "@cds.persistence.name": "CONTENTKEY"
+          "@cds.persistence.name": "CONTENTKEYID"
         },
         "locale": {
           "key": true,
@@ -1086,10 +1106,10 @@
           "length": 255,
           "@cds.persistence.name": "DESCRIPTION"
         },
-        "ContentValue": {
+        "ContentSourceValue": {
           "indexNo": 5,
           "type": "cds.Association",
-          "target": "Admin.ContentValue",
+          "target": "Admin.ContentSourceValue",
           "cardinality": {
             "targetMax": 1
           },
@@ -1100,7 +1120,7 @@
                 "op": "=",
                 "args": [
                   {
-                    "=": "ContentValue.contentSourceID"
+                    "=": "ContentSourceValue.contentSourceID"
                   },
                   {
                     "=": "contentSourceID"
@@ -1111,19 +1131,161 @@
                 "op": "=",
                 "args": [
                   {
-                    "=": "ContentValue.contentKey"
+                    "=": "ContentSourceValue.contentKeyID"
                   },
                   {
-                    "=": "contentKey"
+                    "=": "contentKeyID"
                   }
                 ]
               }
             ]
           },
-          "@cds.persistence.name": "CONTENTVALUE"
+          "@cds.persistence.name": "CONTENTSOURCEVALUE"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTVALUE"
+      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCEVALUE"
+    },
+    "Admin.TextDetailModel.ContentSourceCarrier": {
+      "kind": "entity",
+      "elements": {
+        "contentSourceID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "carrierMasterID": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERMASTERID"
+        },
+        "locale": {
+          "key": true,
+          "indexNo": 3,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "ContentSourceCarrier": {
+          "indexNo": 5,
+          "type": "cds.Association",
+          "target": "Admin.AssignmentModel.ContentSourceCarrier",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "ContentSourceCarrier.contentSourceID"
+                  },
+                  {
+                    "=": "contentSourceID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "ContentSourceCarrier.carrierMasterID"
+                  },
+                  {
+                    "=": "carrierMasterID"
+                  }
+                ]
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCECARRIER"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCECARRIER"
+    },
+    "Admin.TextDetailModel.ContentSourceAction": {
+      "kind": "entity",
+      "elements": {
+        "contentSourceID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "contentActionID": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTACTIONID"
+        },
+        "locale": {
+          "key": true,
+          "indexNo": 3,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "ContentSourceAction": {
+          "indexNo": 5,
+          "type": "cds.Association",
+          "target": "Admin.AssignmentModel.ContentSourceAction",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "ContentSourceAction.contentSourceID"
+                  },
+                  {
+                    "=": "contentSourceID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "ContentSourceAction.contentActionID"
+                  },
+                  {
+                    "=": "contentActionID"
+                  }
+                ]
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCEACTION"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCEACTION"
     },
     "Admin.TextDetailModel.ContentSourceStatus": {
       "kind": "entity",
@@ -1315,6 +1477,270 @@
       "kind": "service",
       "@source": "srv/cat-service.cds"
     },
+    "CatalogService.ContentActions": {
+      "kind": "entity",
+      "source": "Admin.ContentAction",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "@UI.SelectionFields": [
+        {
+          "=": "contentActionID"
+        }
+      ],
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "contentActionID"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>contentAction}"
+        }
+      ],
+      "@UI.PresentationVariant.SortOrder": [
+        {
+          "$Type": "Common.SortOrderType",
+          "Property": {
+            "=": "contentActionID"
+          },
+          "Descending": false
+        }
+      ],
+      "@UI.HeaderInfo.TypeName": "{i18n>contentAction}",
+      "@UI.HeaderInfo.TypeNamePlural": "{i18n>contentAction_Plural}",
+      "@UI.HeaderInfo.Title.Value": {
+        "=": "contentActionID"
+      },
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.FieldGroup",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "TextDetails/@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        }
+      ],
+      "@UI.FieldGroup.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "contentActionID"
+          },
+          "Label": "{i18n>contentAction}"
+        }
+      ],
+      "elements": {
+        "contentActionID": {
+          "origin": "Admin.ContentAction..contentActionID",
+          "indexNo": 1,
+          "value": {
+            "=": "ContentAction.contentActionID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTACTIONID"
+        },
+        "ContentSourceActions": {
+          "origin": "Admin.ContentAction..ContentSourceActions",
+          "indexNo": 2,
+          "value": {
+            "=": "ContentAction.ContentSourceActions"
+          },
+          "type": "cds.Composition",
+          "target": "CatalogService.ContentSourceActions",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceActions.contentActionID"
+              },
+              {
+                "=": "contentActionID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCEACTIONS"
+        },
+        "TextDetails": {
+          "origin": "Admin.ContentAction..TextDetails",
+          "indexNo": 3,
+          "value": {
+            "=": "ContentAction.TextDetails"
+          },
+          "type": "cds.Composition",
+          "target": "CatalogService.ContentActionTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.contentActionID"
+              },
+              {
+                "=": "contentActionID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CONTENTACTIONS"
+    },
+    "CatalogService.ContentActionTextDetails": {
+      "kind": "entity",
+      "source": "Admin.TextDetailModel.ContentAction",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "@UI.HeaderInfo.TypeName": "{i18n>textDetails}",
+      "@UI.HeaderInfo.TypeNamePlural": "{i18n>textDetails_Plural}",
+      "@UI.HeaderInfo.Title.Value": {
+        "=": "contentActionID"
+      },
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "locale"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>locale}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "description"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>description}"
+        }
+      ],
+      "@UI.PresentationVariant.SortOrder": [
+        {
+          "$Type": "Common.SortOrderType",
+          "Property": {
+            "=": "locale"
+          },
+          "Descending": false
+        }
+      ],
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.FieldGroup",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        }
+      ],
+      "@UI.FieldGroup.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "locale"
+          },
+          "Label": "{i18n>locale}"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "description"
+          },
+          "Label": "{i18n>description}"
+        }
+      ],
+      "elements": {
+        "contentActionID": {
+          "origin": "Admin.TextDetailModel.ContentAction..contentActionID",
+          "indexNo": 1,
+          "value": {
+            "=": "ContentAction.contentActionID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTACTIONID"
+        },
+        "locale": {
+          "origin": "Admin.TextDetailModel.ContentAction..locale",
+          "indexNo": 2,
+          "value": {
+            "=": "ContentAction.locale"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "origin": "Admin.TextDetailModel.ContentAction..description",
+          "indexNo": 3,
+          "value": {
+            "=": "ContentAction.description"
+          },
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "ContentAction": {
+          "origin": "Admin.TextDetailModel.ContentAction..ContentAction",
+          "indexNo": 4,
+          "value": {
+            "=": "ContentAction.ContentAction"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.ContentActions",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentAction.contentActionID"
+              },
+              {
+                "=": "contentActionID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTACTION"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CONTENTACTIONTEXTDETAILS"
+    },
     "CatalogService.FeedTypes": {
       "kind": "entity",
       "source": "Admin.FeedType",
@@ -1372,7 +1798,7 @@
         {
           "$Type": "UI.DataField",
           "Value": {
-            "=": "ID"
+            "=": "feedTypeID"
           },
           "Label": "{i18n>feedType}"
         }
@@ -1793,47 +2219,75 @@
       },
       "@cds.persistence.name": "CATALOGSERVICE_ERRORMESSAGETEXTDETAILS"
     },
-    "CatalogService.ContentActions": {
+    "CatalogService.ContentSources": {
       "kind": "entity",
-      "source": "Admin.ContentAction",
+      "source": "Admin.ContentSource",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
       "@UI.SelectionFields": [
         {
-          "=": "contentActionID"
+          "=": "contentSourceID"
         }
       ],
       "@UI.LineItem": [
         {
           "$Type": "UI.DataField",
           "Value": {
-            "=": "contentActionID"
+            "=": "contentSourceID"
           },
           "@UI.Importance": {
             "#": "High"
           },
-          "Label": "{i18n>contentAction}"
+          "Label": "{i18n>ContentSources}"
         }
       ],
       "@UI.PresentationVariant.SortOrder": [
         {
           "$Type": "Common.SortOrderType",
           "Property": {
-            "=": "contentActionID"
+            "=": "contentSourceID"
           },
           "Descending": false
         }
       ],
-      "@UI.HeaderInfo.TypeName": "{i18n>contentAction}",
-      "@UI.HeaderInfo.TypeNamePlural": "{i18n>contentAction_Plural}",
+      "@UI.HeaderInfo.TypeName": "{i18n>contentSource}",
+      "@UI.HeaderInfo.TypeNamePlural": "{i18n>contentSource_Plural}",
       "@UI.HeaderInfo.Title.Value": {
-        "=": "contentActionID"
+        "=": "contentSourceID"
       },
       "@UI.Facets": [
         {
           "$Type": "UI.ReferenceFacet",
           "Target": "@UI.FieldGroup",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "ContentValues/@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "ContentSourceCarriers/@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "ContentSourceStatuss/@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "ContentActionAssignments/@UI.LineItem",
           "@UI.Importance": {
             "#": "High"
           }
@@ -1850,299 +2304,7 @@
         {
           "$Type": "UI.DataField",
           "Value": {
-            "=": "contentActionID"
-          },
-          "Label": "{i18n>contentAction}"
-        }
-      ],
-      "elements": {
-        "contentActionID": {
-          "origin": "Admin.ContentAction..contentActionID",
-          "indexNo": 1,
-          "value": {
-            "=": "ContentAction.contentActionID"
-          },
-          "key": true,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTACTIONID"
-        },
-        "ContentActionAssignment": {
-          "origin": "Admin.ContentAction..ContentActionAssignment",
-          "indexNo": 2,
-          "value": {
-            "=": "ContentAction.ContentActionAssignment"
-          },
-          "type": "cds.Composition",
-          "target": "CatalogService.ContentActionAssignments",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentActionAssignment.contentActionID"
-              },
-              {
-                "=": "contentActionID"
-              }
-            ]
-          },
-          "redirected": true,
-          "@cds.persistence.name": "CONTENTACTIONASSIGNMENT"
-        },
-        "TextDetails": {
-          "origin": "Admin.ContentAction..TextDetails",
-          "indexNo": 3,
-          "value": {
-            "=": "ContentAction.TextDetails"
-          },
-          "type": "cds.Composition",
-          "target": "CatalogService.ContentActionTextDetails",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "TextDetails.contentActionID"
-              },
-              {
-                "=": "contentActionID"
-              }
-            ]
-          },
-          "redirected": true,
-          "@cds.persistence.name": "TEXTDETAILS"
-        }
-      },
-      "@cds.persistence.name": "CATALOGSERVICE_CONTENTACTIONS"
-    },
-    "CatalogService.ContentActionTextDetails": {
-      "kind": "entity",
-      "source": "Admin.TextDetailModel.ContentAction",
-      "@Capabilities.InsertRestrictions.Insertable": true,
-      "@Capabilities.UpdateRestrictions.Updatable": true,
-      "@Capabilities.DeleteRestrictions.Deletable": true,
-      "@UI.HeaderInfo.TypeName": "{i18n>textDetails}",
-      "@UI.HeaderInfo.TypeNamePlural": "{i18n>textDetails_Plural}",
-      "@UI.HeaderInfo.Title.Value": {
-        "=": "contentActionID"
-      },
-      "@UI.LineItem": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "locale"
-          },
-          "@UI.Importance": {
-            "#": "High"
-          },
-          "Label": "{i18n>locale}"
-        },
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "description"
-          },
-          "@UI.Importance": {
-            "#": "High"
-          },
-          "Label": "{i18n>description}"
-        }
-      ],
-      "@UI.PresentationVariant.SortOrder": [
-        {
-          "$Type": "Common.SortOrderType",
-          "Property": {
-            "=": "locale"
-          },
-          "Descending": false
-        }
-      ],
-      "@UI.Facets": [
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "@UI.FieldGroup",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        },
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "@UI.LineItem",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        }
-      ],
-      "@UI.FieldGroup.Data": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "locale"
-          },
-          "Label": "{i18n>locale}"
-        },
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "description"
-          },
-          "Label": "{i18n>description}"
-        }
-      ],
-      "elements": {
-        "contentActionID": {
-          "origin": "Admin.TextDetailModel.ContentAction..contentActionID",
-          "indexNo": 1,
-          "value": {
-            "=": "ContentAction.contentActionID"
-          },
-          "key": true,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTACTIONID"
-        },
-        "locale": {
-          "origin": "Admin.TextDetailModel.ContentAction..locale",
-          "indexNo": 2,
-          "value": {
-            "=": "ContentAction.locale"
-          },
-          "key": true,
-          "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
-          "length": 2,
-          "@cds.persistence.name": "LOCALE"
-        },
-        "description": {
-          "origin": "Admin.TextDetailModel.ContentAction..description",
-          "indexNo": 3,
-          "value": {
-            "=": "ContentAction.description"
-          },
-          "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
-          "length": 255,
-          "@cds.persistence.name": "DESCRIPTION"
-        },
-        "ContentAction": {
-          "origin": "Admin.TextDetailModel.ContentAction..ContentAction",
-          "indexNo": 4,
-          "value": {
-            "=": "ContentAction.ContentAction"
-          },
-          "type": "cds.Association",
-          "target": "CatalogService.ContentActions",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentAction.contentActionID"
-              },
-              {
-                "=": "contentActionID"
-              }
-            ]
-          },
-          "redirected": true,
-          "@cds.persistence.name": "CONTENTACTION"
-        }
-      },
-      "@cds.persistence.name": "CATALOGSERVICE_CONTENTACTIONTEXTDETAILS"
-    },
-    "CatalogService.ContentSources": {
-      "kind": "entity",
-      "source": "Admin.ContentSource",
-      "@Capabilities.InsertRestrictions.Insertable": true,
-      "@Capabilities.UpdateRestrictions.Updatable": true,
-      "@Capabilities.DeleteRestrictions.Deletable": true,
-      "@UI.SelectionFields": [
-        {
-          "=": "ID"
-        }
-      ],
-      "@UI.LineItem": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "ID"
-          },
-          "@UI.Importance": {
-            "#": "High"
-          },
-          "Label": "{i18n>ContentSources}"
-        }
-      ],
-      "@UI.PresentationVariant.SortOrder": [
-        {
-          "$Type": "Common.SortOrderType",
-          "Property": {
-            "=": "ID"
-          },
-          "Descending": false
-        }
-      ],
-      "@UI.HeaderInfo.TypeName": "{i18n>contentSource}",
-      "@UI.HeaderInfo.TypeNamePlural": "{i18n>contentSource_Plural}",
-      "@UI.HeaderInfo.Title.Value": {
-        "=": "ID"
-      },
-      "@UI.Facets": [
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "@UI.FieldGroup",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        },
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "to_contentValues/@UI.LineItem",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        },
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "to_carrierMasterAssignments/@UI.LineItem",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        },
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "to_contentSourceStatuss/@UI.LineItem",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        },
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "to_contentActionAssignments/@UI.LineItem",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        },
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "to_textDetails/@UI.LineItem",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        }
-      ],
-      "@UI.FieldGroup.Data": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "ID"
+            "=": "contentSourceID"
           },
           "Label": "{i18n>contentSource}"
         }
@@ -2159,14 +2321,14 @@
           "length": 60,
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
-        "ContentValues": {
-          "origin": "Admin.ContentSource..ContentValues",
+        "ContentSourceValues": {
+          "origin": "Admin.ContentSource..ContentSourceValues",
           "indexNo": 2,
           "value": {
-            "=": "ContentSource.ContentValues"
+            "=": "ContentSource.ContentSourceValues"
           },
           "type": "cds.Composition",
-          "target": "CatalogService.ContentValues",
+          "target": "CatalogService.ContentSourceValues",
           "cardinality": {
             "targetMax": "*"
           },
@@ -2174,7 +2336,7 @@
             "op": "=",
             "args": [
               {
-                "=": "ContentValues.contentSourceID"
+                "=": "ContentSourceValues.contentSourceID"
               },
               {
                 "=": "contentSourceID"
@@ -2182,7 +2344,7 @@
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "CONTENTVALUES"
+          "@cds.persistence.name": "CONTENTSOURCEVALUES"
         },
         "ContentSourceStatuss": {
           "origin": "Admin.ContentSource..ContentSourceStatuss",
@@ -2234,9 +2396,34 @@
           "redirected": true,
           "@cds.persistence.name": "CONTENTSOURCECARRIERS"
         },
+        "ContentSourceActions": {
+          "origin": "Admin.ContentSource..ContentSourceActions",
+          "indexNo": 5,
+          "value": {
+            "=": "ContentSource.ContentSourceActions"
+          },
+          "type": "cds.Composition",
+          "target": "CatalogService.ContentSourceActions",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceActions.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCEACTIONS"
+        },
         "TextDetails": {
           "origin": "Admin.ContentSource..TextDetails",
-          "indexNo": 5,
+          "indexNo": 6,
           "value": {
             "=": "ContentSource.TextDetails"
           },
@@ -2648,121 +2835,53 @@
       },
       "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCESTATUSTEXTDETAILS"
     },
-    "CatalogService.ContentValues": {
+    "CatalogService.ContentSourceValues": {
       "kind": "entity",
-      "source": "Admin.ContentValue",
+      "source": "Admin.ContentSourceValue",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
-      "@UI.LineItem": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "contentKey"
-          },
-          "@UI.Importance": {
-            "#": "High"
-          },
-          "Label": "{i18n>contentKey}"
-        },
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "contentValue"
-          },
-          "@UI.Importance": {
-            "#": "High"
-          },
-          "Label": "{i18n>contentValue}"
-        }
-      ],
-      "@UI.PresentationVariant.SortOrder": [
-        {
-          "$Type": "Common.SortOrderType",
-          "Property": {
-            "=": "contentKey"
-          },
-          "Descending": false
-        }
-      ],
-      "@UI.HeaderInfo.TypeName": "{i18n>contentValue}",
-      "@UI.HeaderInfo.TypeNamePlural": "{i18n>contentValue_Plural}",
-      "@UI.HeaderInfo.Title.Value": {
-        "=": "contentKey"
-      },
-      "@UI.Facets": [
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "@UI.FieldGroup",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        },
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "TextDetails/@UI.LineItem",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        }
-      ],
-      "@UI.FieldGroup.Data": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "contentKey"
-          },
-          "Label": "{i18n>contentKey}"
-        },
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "contentValue"
-          },
-          "Label": "{i18n>contentValue}"
-        }
-      ],
       "elements": {
         "contentSourceID": {
-          "origin": "Admin.ContentValue..contentSourceID",
+          "origin": "Admin.ContentSourceValue..contentSourceID",
           "indexNo": 1,
           "value": {
-            "=": "ContentValue.contentSourceID"
+            "=": "ContentSourceValue.contentSourceID"
           },
           "key": true,
           "type": "cds.String",
           "length": 60,
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
-        "contentKey": {
-          "origin": "Admin.ContentValue..contentKey",
+        "contentKeyID": {
+          "origin": "Admin.ContentSourceValue..contentKeyID",
           "indexNo": 2,
           "value": {
-            "=": "ContentValue.contentKey"
+            "=": "ContentSourceValue.contentKeyID"
           },
           "key": true,
           "type": "cds.String",
           "length": 60,
-          "@cds.persistence.name": "CONTENTKEY"
+          "@cds.persistence.name": "CONTENTKEYID"
         },
         "contentValue": {
-          "origin": "Admin.ContentValue..contentValue",
+          "origin": "Admin.ContentSourceValue..contentValue",
           "indexNo": 3,
           "value": {
-            "=": "ContentValue.contentValue"
+            "=": "ContentSourceValue.contentValue"
           },
           "type": "cds.String",
           "length": 1000,
           "@cds.persistence.name": "CONTENTVALUE"
         },
         "TextDetails": {
-          "origin": "Admin.ContentValue..TextDetails",
+          "origin": "Admin.ContentSourceValue..TextDetails",
           "indexNo": 4,
           "value": {
-            "=": "ContentValue.TextDetails"
+            "=": "ContentSourceValue.TextDetails"
           },
           "type": "cds.Composition",
-          "target": "CatalogService.ContentValueTextDetails",
+          "target": "CatalogService.ContentSourceValueTextDetails",
           "cardinality": {
             "targetMax": "*"
           },
@@ -2784,10 +2903,10 @@
                 "op": "=",
                 "args": [
                   {
-                    "=": "TextDetails.contentKey"
+                    "=": "TextDetails.contentKeyID"
                   },
                   {
-                    "=": "contentKey"
+                    "=": "contentKeyID"
                   }
                 ]
               }
@@ -2797,110 +2916,42 @@
           "@cds.persistence.name": "TEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "CATALOGSERVICE_CONTENTVALUES"
+      "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCEVALUES"
     },
-    "CatalogService.ContentValueTextDetails": {
+    "CatalogService.ContentSourceValueTextDetails": {
       "kind": "entity",
-      "source": "Admin.TextDetailModel.ContentValue",
+      "source": "Admin.TextDetailModel.ContentSourceValue",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
-      "@UI.HeaderInfo.TypeName": "{i18n>textDetails}",
-      "@UI.HeaderInfo.TypeNamePlural": "{i18n>textDetails_Plural}",
-      "@UI.HeaderInfo.Title.Value": {
-        "=": "contentValueID"
-      },
-      "@UI.LineItem": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "locale"
-          },
-          "@UI.Importance": {
-            "#": "High"
-          },
-          "Label": "{i18n>locale}"
-        },
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "description"
-          },
-          "@UI.Importance": {
-            "#": "High"
-          },
-          "Label": "{i18n>description}"
-        }
-      ],
-      "@UI.PresentationVariant.SortOrder": [
-        {
-          "$Type": "Common.SortOrderType",
-          "Property": {
-            "=": "locale"
-          },
-          "Descending": false
-        }
-      ],
-      "@UI.Facets": [
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "@UI.FieldGroup",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        },
-        {
-          "$Type": "UI.ReferenceFacet",
-          "Target": "@UI.LineItem",
-          "@UI.Importance": {
-            "#": "High"
-          }
-        }
-      ],
-      "@UI.FieldGroup.Data": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "locale"
-          },
-          "Label": "{i18n>locale}"
-        },
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "description"
-          },
-          "Label": "{i18n>description}"
-        }
-      ],
       "elements": {
         "contentSourceID": {
-          "origin": "Admin.TextDetailModel.ContentValue..contentSourceID",
+          "origin": "Admin.TextDetailModel.ContentSourceValue..contentSourceID",
           "indexNo": 1,
           "value": {
-            "=": "ContentValue.contentSourceID"
+            "=": "ContentSourceValue.contentSourceID"
           },
           "key": true,
           "type": "cds.String",
           "length": 60,
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
-        "contentKey": {
-          "origin": "Admin.TextDetailModel.ContentValue..contentKey",
+        "contentKeyID": {
+          "origin": "Admin.TextDetailModel.ContentSourceValue..contentKeyID",
           "indexNo": 2,
           "value": {
-            "=": "ContentValue.contentKey"
+            "=": "ContentSourceValue.contentKeyID"
           },
           "key": true,
           "type": "cds.String",
           "length": 60,
-          "@cds.persistence.name": "CONTENTKEY"
+          "@cds.persistence.name": "CONTENTKEYID"
         },
         "locale": {
-          "origin": "Admin.TextDetailModel.ContentValue..locale",
+          "origin": "Admin.TextDetailModel.ContentSourceValue..locale",
           "indexNo": 3,
           "value": {
-            "=": "ContentValue.locale"
+            "=": "ContentSourceValue.locale"
           },
           "key": true,
           "type": "cds.String",
@@ -2909,24 +2960,24 @@
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
-          "origin": "Admin.TextDetailModel.ContentValue..description",
+          "origin": "Admin.TextDetailModel.ContentSourceValue..description",
           "indexNo": 4,
           "value": {
-            "=": "ContentValue.description"
+            "=": "ContentSourceValue.description"
           },
           "type": "cds.String",
           "@Common.Label": "{i18n>description}",
           "length": 255,
           "@cds.persistence.name": "DESCRIPTION"
         },
-        "ContentValue": {
-          "origin": "Admin.TextDetailModel.ContentValue..ContentValue",
+        "ContentSourceValue": {
+          "origin": "Admin.TextDetailModel.ContentSourceValue..ContentSourceValue",
           "indexNo": 5,
           "value": {
-            "=": "ContentValue.ContentValue"
+            "=": "ContentSourceValue.ContentSourceValue"
           },
           "type": "cds.Association",
-          "target": "CatalogService.ContentValues",
+          "target": "CatalogService.ContentSourceValues",
           "cardinality": {
             "targetMax": 1
           },
@@ -2937,7 +2988,7 @@
                 "op": "=",
                 "args": [
                   {
-                    "=": "ContentValue.contentSourceID"
+                    "=": "ContentSourceValue.contentSourceID"
                   },
                   {
                     "=": "contentSourceID"
@@ -2948,102 +2999,20 @@
                 "op": "=",
                 "args": [
                   {
-                    "=": "ContentValue.contentKey"
+                    "=": "ContentSourceValue.contentKeyID"
                   },
                   {
-                    "=": "contentKey"
+                    "=": "contentKeyID"
                   }
                 ]
               }
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "CONTENTVALUE"
+          "@cds.persistence.name": "CONTENTSOURCEVALUE"
         }
       },
-      "@cds.persistence.name": "CATALOGSERVICE_CONTENTVALUETEXTDETAILS"
-    },
-    "CatalogService.ContentActionAssignments": {
-      "kind": "entity",
-      "source": "Admin.AssignmentModel.ContentAction",
-      "@Capabilities.InsertRestrictions.Insertable": true,
-      "@Capabilities.UpdateRestrictions.Updatable": true,
-      "@Capabilities.DeleteRestrictions.Deletable": true,
-      "elements": {
-        "contentSourceID": {
-          "origin": "Admin.AssignmentModel.ContentAction..contentSourceID",
-          "indexNo": 1,
-          "value": {
-            "=": "ContentAction.contentSourceID"
-          },
-          "key": true,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTSOURCEID"
-        },
-        "contentActionID": {
-          "origin": "Admin.AssignmentModel.ContentAction..contentActionID",
-          "indexNo": 2,
-          "value": {
-            "=": "ContentAction.contentActionID"
-          },
-          "key": true,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTACTIONID"
-        },
-        "ContentSource": {
-          "origin": "Admin.AssignmentModel.ContentAction..ContentSource",
-          "indexNo": 3,
-          "value": {
-            "=": "ContentAction.ContentSource"
-          },
-          "type": "cds.Association",
-          "target": "CatalogService.ContentSources",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentSource.contentSourceID"
-              },
-              {
-                "=": "contentSourceID"
-              }
-            ]
-          },
-          "redirected": true,
-          "@cds.persistence.name": "CONTENTSOURCE"
-        },
-        "ContentAction": {
-          "origin": "Admin.AssignmentModel.ContentAction..ContentAction",
-          "indexNo": 4,
-          "value": {
-            "=": "ContentAction.ContentAction"
-          },
-          "type": "cds.Association",
-          "target": "CatalogService.ContentActions",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentAction.contentActionID"
-              },
-              {
-                "=": "contentActionID"
-              }
-            ]
-          },
-          "redirected": true,
-          "@cds.persistence.name": "CONTENTACTION"
-        }
-      },
-      "@cds.persistence.name": "CATALOGSERVICE_CONTENTACTIONASSIGNMENTS"
+      "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCEVALUETEXTDETAILS"
     },
     "CatalogService.CarrierMasters": {
       "kind": "entity",
@@ -3648,6 +3617,57 @@
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
+      "@UI.HeaderInfo.TypeName": "{i18n>contentSourceCarrier}",
+      "@UI.HeaderInfo.TypeNamePlural": "{i18n>contentSourceCarrier_Plural}",
+      "@UI.HeaderInfo.Title.Value": {
+        "=": "contentSourceCarrierID"
+      },
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "contentSourceCarrierID"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          },
+          "Label": "{i18n>contentSourceCarrier}"
+        }
+      ],
+      "@UI.PresentationVariant.SortOrder": [
+        {
+          "$Type": "Common.SortOrderType",
+          "Property": {
+            "=": "contentSourceCarrierID"
+          },
+          "Descending": false
+        }
+      ],
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.FieldGroup",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "TextDetails/@UI.LineItem",
+          "@UI.Importance": {
+            "#": "High"
+          }
+        }
+      ],
+      "@UI.FieldGroup.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "contentSourceCarrierID"
+          },
+          "Label": "{i18n>contentSourceCarrier}"
+        }
+      ],
       "elements": {
         "contentSourceID": {
           "origin": "Admin.AssignmentModel.ContentSourceCarrier..contentSourceID",
@@ -3733,6 +3753,280 @@
         }
       },
       "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCECARRIERS"
+    },
+    "CatalogService.ContentSourceCarrierTextDetails": {
+      "kind": "entity",
+      "source": "Admin.TextDetailModel.ContentSourceCarrier",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "contentSourceID": {
+          "origin": "Admin.TextDetailModel.ContentSourceCarrier..contentSourceID",
+          "indexNo": 1,
+          "value": {
+            "=": "ContentSourceCarrier.contentSourceID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "carrierMasterID": {
+          "origin": "Admin.TextDetailModel.ContentSourceCarrier..carrierMasterID",
+          "indexNo": 2,
+          "value": {
+            "=": "ContentSourceCarrier.carrierMasterID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERMASTERID"
+        },
+        "locale": {
+          "origin": "Admin.TextDetailModel.ContentSourceCarrier..locale",
+          "indexNo": 3,
+          "value": {
+            "=": "ContentSourceCarrier.locale"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "origin": "Admin.TextDetailModel.ContentSourceCarrier..description",
+          "indexNo": 4,
+          "value": {
+            "=": "ContentSourceCarrier.description"
+          },
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "ContentSourceCarrier": {
+          "origin": "Admin.TextDetailModel.ContentSourceCarrier..ContentSourceCarrier",
+          "indexNo": 5,
+          "value": {
+            "=": "ContentSourceCarrier.ContentSourceCarrier"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.ContentSourceCarriers",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "ContentSourceCarrier.contentSourceID"
+                  },
+                  {
+                    "=": "contentSourceID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "ContentSourceCarrier.carrierMasterID"
+                  },
+                  {
+                    "=": "carrierMasterID"
+                  }
+                ]
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCECARRIER"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCECARRIERTEXTDETAILS"
+    },
+    "CatalogService.ContentSourceActions": {
+      "kind": "entity",
+      "source": "Admin.AssignmentModel.ContentSourceAction",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "contentSourceID": {
+          "origin": "Admin.AssignmentModel.ContentSourceAction..contentSourceID",
+          "indexNo": 1,
+          "value": {
+            "=": "ContentSourceAction.contentSourceID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "contentActionID": {
+          "origin": "Admin.AssignmentModel.ContentSourceAction..contentActionID",
+          "indexNo": 2,
+          "value": {
+            "=": "ContentSourceAction.contentActionID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTACTIONID"
+        },
+        "ContentSource": {
+          "origin": "Admin.AssignmentModel.ContentSourceAction..ContentSource",
+          "indexNo": 3,
+          "value": {
+            "=": "ContentSourceAction.ContentSource"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.ContentSources",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSource.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCE"
+        },
+        "ContentAction": {
+          "origin": "Admin.AssignmentModel.ContentSourceAction..ContentAction",
+          "indexNo": 4,
+          "value": {
+            "=": "ContentSourceAction.ContentAction"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.ContentActions",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentAction.contentActionID"
+              },
+              {
+                "=": "contentActionID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTACTION"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCEACTIONS"
+    },
+    "CatalogService.ContentSourceActionTextDetails": {
+      "kind": "entity",
+      "source": "Admin.TextDetailModel.ContentSourceAction",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "contentSourceID": {
+          "origin": "Admin.TextDetailModel.ContentSourceAction..contentSourceID",
+          "indexNo": 1,
+          "value": {
+            "=": "ContentSourceAction.contentSourceID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "contentActionID": {
+          "origin": "Admin.TextDetailModel.ContentSourceAction..contentActionID",
+          "indexNo": 2,
+          "value": {
+            "=": "ContentSourceAction.contentActionID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTACTIONID"
+        },
+        "locale": {
+          "origin": "Admin.TextDetailModel.ContentSourceAction..locale",
+          "indexNo": 3,
+          "value": {
+            "=": "ContentSourceAction.locale"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "origin": "Admin.TextDetailModel.ContentSourceAction..description",
+          "indexNo": 4,
+          "value": {
+            "=": "ContentSourceAction.description"
+          },
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "ContentSourceAction": {
+          "origin": "Admin.TextDetailModel.ContentSourceAction..ContentSourceAction",
+          "indexNo": 5,
+          "value": {
+            "=": "ContentSourceAction.ContentSourceAction"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.ContentSourceActions",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "ContentSourceAction.contentSourceID"
+                  },
+                  {
+                    "=": "contentSourceID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "ContentSourceAction.contentActionID"
+                  },
+                  {
+                    "=": "contentActionID"
+                  }
+                ]
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCEACTION"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCEACTIONTEXTDETAILS"
     }
   },
   "version": {
