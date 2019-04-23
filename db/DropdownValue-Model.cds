@@ -10,7 +10,7 @@ entity ChargeType {
 } 
 
 entity FreightCostCode {
-	freightCostCodeID		: CommonModel.AdminKey;
+	freightCostCodeID		: CommonModel.Description;
 	TextDetails				: Composition of many TextDetailModel.FreightCostCode on TextDetails.freightCostCodeID = $self.freightCostCodeID;
 }
 
@@ -23,4 +23,3 @@ entity CommitmentTimeType {
 	commitmentTimeTypeID	: CommonModel.AdminKey;
 	TextDetails				: Composition of many TextDetailModel.CommitmentTimeType  on TextDetails.commitmentTimeTypeID = $self.commitmentTimeTypeID;
 }
-

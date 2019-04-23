@@ -7,21 +7,8 @@ entity CarrierMaster {
 	key carrierMasterID		: CommonModel.AdminKey;
 	logoURL					: CommonModel.LongString;
 	status					: Boolean;
-	HasDraftEntity				: Boolean default true;
-	HasActiveEntity				: Boolean default true;
-	HasDraft					: Boolean default true;
-	HasDraftAdministrativeData	: Boolean default true;
-	HasDraftPreparationAction	: Boolean default true;
-	HasDraftRoot				: Boolean default true;
-	HasDraftValidationFunction	: Boolean default true;
-	HasPreserveChanges			: Boolean default true;
-	HasSiblingEntity			: Boolean default true;
-	SiblingEntity				: Boolean default true;
-	IsDraftEnabled				: Boolean default true;
-	IsActiveEntity				: Boolean default true;
-	IsDraftRoot					: Boolean default true;
-	DraftAdministrativeData		: Boolean default true;
-	ContentSourceCarriers	: Composition of many AssignmentModel.ContentSourceCarrier on ContentSourceCarriers.carrierMasterID = $self.carrierMasterID; 
+	ContentSourceCarriers	: Composition of many AssignmentModel.ContentSourceCarrier on ContentSourceCarriers.carrierMasterID = $self.carrierMasterID;
+	CarrierMasterServices	: Composition of many CarrierMasterService on CarrierMasterServices.carrierMasterID = $self.carrierMasterID;
 	TextDetails				: Composition of many TextDetailModel.CarrierMaster on TextDetails.carrierMasterID = $self.carrierMasterID;
 }
 
@@ -67,3 +54,27 @@ entity FeedType {
 	key feedTypeID	: CommonModel.AdminKey;
 	TextDetails		: Composition of many TextDetailModel.FeedType on TextDetails.feedTypeID = $self.feedTypeID;
 }
+
+entity CarrierServiceType {
+	key carrierServiceTypeID	: CommonModel.AdminKey;
+	TextDetails					: Composition of many TextDetailModel.CarrierServiceType on TextDetails.carrierServiceTypeID = $self.carrierServiceTypeID;
+}
+
+entity CarrierServiceCategory {
+	key carrierServiceCategoryID	: CommonModel.AdminKey;
+	TextDetails						: Composition of many TextDetailModel.CarrierServiceCategory on TextDetails.carrierServiceCategoryID = $self.carrierServiceCategoryID;
+}
+
+entity CarrierMasterService {
+	key carrierMasterID		: CommonModel.AdminKey;
+	key carrierServiceID	: CommonModel.AdminKey;
+	carrierServiceType		: CommonModel.AdminKey;
+	carrierServiceCategory	: CommonModel.AdminKey;
+	commitmentTimeType		: CommonModel.AdminKey;
+	commitmentTime			: CommonModel.AdminKey;
+	daysInTransitType		: CommonModel.AdminKey;
+	daysInTransit			: Integer;
+	status					: Boolean;
+	CarrierMaster			: Association to one CarrierMaster on CarrierMaster.carrierMasterID = $self.carrierMasterID;
+}
+

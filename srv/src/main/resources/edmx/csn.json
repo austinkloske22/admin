@@ -44,25 +44,45 @@
           },
           "@cds.persistence.name": "CONTENTSOURCE"
         },
-        "CarrierMaster": {
+        "ContentSourceTextDetails": {
           "indexNo": 5,
           "type": "cds.Association",
-          "target": "Admin.CarrierMaster",
+          "target": "Admin.TextDetailModel.ContentSource",
           "cardinality": {
-            "targetMax": 1
+            "targetMax": "*"
           },
           "onCond": {
             "op": "=",
             "args": [
               {
-                "=": "CarrierMaster.carrierMasterID"
+                "=": "ContentSourceTextDetails.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
+        },
+        "CarrierMasterTextDetails": {
+          "indexNo": 6,
+          "type": "cds.Association",
+          "target": "Admin.TextDetailModel.CarrierMaster",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierMasterTextDetails.carrierMasterID"
               },
               {
                 "=": "carrierMasterID"
               }
             ]
           },
-          "@cds.persistence.name": "CARRIERMASTER"
+          "@cds.persistence.name": "CARRIERMASTERTEXTDETAILS"
         }
       },
       "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CONTENTSOURCECARRIER"
@@ -104,10 +124,76 @@
           },
           "@cds.persistence.name": "CONTENTSOURCE"
         },
-        "ContentAction": {
+        "ContentSourceTextDetails": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.ContentAction",
+          "target": "Admin.TextDetailModel.ContentSource",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceTextDetails.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
+        },
+        "ContentActionTextDetails": {
+          "indexNo": 5,
+          "type": "cds.Association",
+          "target": "Admin.TextDetailModel.ContentAction",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentActionTextDetails.contentActionID"
+              },
+              {
+                "=": "contentActionID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTACTIONTEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CONTENTSOURCEACTION"
+    },
+    "Admin.AssignmentModel.CarrierMasterContentAction": {
+      "kind": "entity",
+      "elements": {
+        "carrierMasterID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERMASTERID"
+        },
+        "contentActionID": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTACTIONID"
+        },
+        "contentSourceID": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "CarrierMaster": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "Admin.CarrierMaster",
           "cardinality": {
             "targetMax": 1
           },
@@ -115,17 +201,77 @@
             "op": "=",
             "args": [
               {
-                "=": "ContentAction.contentActionID"
+                "=": "CarrierMaster.carrierMasterID"
+              },
+              {
+                "=": "carrierMasterID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CARRIERMASTER"
+        },
+        "CarrierMasterTextDetails": {
+          "indexNo": 5,
+          "type": "cds.Association",
+          "target": "Admin.TextDetailModel.CarrierMaster",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierMasterTextDetails.carrierMasterID"
+              },
+              {
+                "=": "carrierMasterID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CARRIERMASTERTEXTDETAILS"
+        },
+        "ContentActionTextDetails": {
+          "indexNo": 6,
+          "type": "cds.Association",
+          "target": "Admin.TextDetailModel.ContentAction",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentActionTextDetails.contentActionID"
               },
               {
                 "=": "contentActionID"
               }
             ]
           },
-          "@cds.persistence.name": "CONTENTACTION"
+          "@cds.persistence.name": "CONTENTACTIONTEXTDETAILS"
+        },
+        "ContentSourceTextDetails": {
+          "indexNo": 7,
+          "type": "cds.Association",
+          "target": "Admin.TextDetailModel.ContentSource",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceTextDetails.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CONTENTSOURCEACTION"
+      "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CARRIERMASTERCONTENTACTION"
     },
     "Admin.CommonModel.AdminKey": {
       "kind": "type",
@@ -172,92 +318,8 @@
           "type": "cds.Boolean",
           "@cds.persistence.name": "STATUS"
         },
-        "HasDraftEntity": {
-          "indexNo": 4,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTENTITY"
-        },
-        "HasActiveEntity": {
-          "indexNo": 5,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASACTIVEENTITY"
-        },
-        "HasDraft": {
-          "indexNo": 6,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFT"
-        },
-        "HasDraftAdministrativeData": {
-          "indexNo": 7,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTADMINISTRATIVEDATA"
-        },
-        "HasDraftPreparationAction": {
-          "indexNo": 8,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTPREPARATIONACTION"
-        },
-        "HasDraftRoot": {
-          "indexNo": 9,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTROOT"
-        },
-        "HasDraftValidationFunction": {
-          "indexNo": 10,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTVALIDATIONFUNCTION"
-        },
-        "HasPreserveChanges": {
-          "indexNo": 11,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASPRESERVECHANGES"
-        },
-        "HasSiblingEntity": {
-          "indexNo": 12,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASSIBLINGENTITY"
-        },
-        "SiblingEntity": {
-          "indexNo": 13,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "SIBLINGENTITY"
-        },
-        "IsDraftEnabled": {
-          "indexNo": 14,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "ISDRAFTENABLED"
-        },
-        "IsActiveEntity": {
-          "indexNo": 15,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "ISACTIVEENTITY"
-        },
-        "IsDraftRoot": {
-          "indexNo": 16,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "ISDRAFTROOT"
-        },
-        "DraftAdministrativeData": {
-          "indexNo": 17,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "DRAFTADMINISTRATIVEDATA"
-        },
         "ContentSourceCarriers": {
-          "indexNo": 18,
+          "indexNo": 4,
           "type": "cds.Composition",
           "target": "Admin.AssignmentModel.ContentSourceCarrier",
           "cardinality": {
@@ -276,8 +338,28 @@
           },
           "@cds.persistence.name": "CONTENTSOURCECARRIERS"
         },
+        "CarrierMasterServices": {
+          "indexNo": 5,
+          "type": "cds.Composition",
+          "target": "Admin.CarrierMasterService",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierMasterServices.carrierMasterID"
+              },
+              {
+                "=": "carrierMasterID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CARRIERMASTERSERVICES"
+        },
         "TextDetails": {
-          "indexNo": 19,
+          "indexNo": 6,
           "type": "cds.Composition",
           "target": "Admin.TextDetailModel.CarrierMaster",
           "cardinality": {
@@ -704,7 +786,73 @@
       },
       "@cds.persistence.name": "ADMIN_FEEDTYPE"
     },
-    "Admin.DraftModel.CarrierMaster": {
+    "Admin.CarrierServiceType": {
+      "kind": "entity",
+      "elements": {
+        "carrierServiceTypeID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICETYPEID"
+        },
+        "TextDetails": {
+          "indexNo": 2,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetailModel.CarrierServiceType",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.carrierServiceTypeID"
+              },
+              {
+                "=": "carrierServiceTypeID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_CARRIERSERVICETYPE"
+    },
+    "Admin.CarrierServiceCategory": {
+      "kind": "entity",
+      "elements": {
+        "carrierServiceCategoryID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICECATEGORYID"
+        },
+        "TextDetails": {
+          "indexNo": 2,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetailModel.CarrierServiceCategory",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.carrierServiceCategoryID"
+              },
+              {
+                "=": "carrierServiceCategoryID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_CARRIERSERVICECATEGORY"
+    },
+    "Admin.CarrierMasterService": {
       "kind": "entity",
       "elements": {
         "carrierMasterID": {
@@ -714,185 +862,75 @@
           "length": 60,
           "@cds.persistence.name": "CARRIERMASTERID"
         },
-        "logoURL": {
+        "carrierServiceID": {
+          "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "length": 1000,
-          "@cds.persistence.name": "LOGOURL"
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICEID"
+        },
+        "carrierServiceType": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICETYPE"
+        },
+        "carrierServiceCategory": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICECATEGORY"
+        },
+        "commitmentTimeType": {
+          "indexNo": 5,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "COMMITMENTTIMETYPE"
+        },
+        "commitmentTime": {
+          "indexNo": 6,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "COMMITMENTTIME"
+        },
+        "daysInTransitType": {
+          "indexNo": 7,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "DAYSINTRANSITTYPE"
+        },
+        "daysInTransit": {
+          "indexNo": 8,
+          "type": "cds.Integer",
+          "@cds.persistence.name": "DAYSINTRANSIT"
         },
         "status": {
-          "indexNo": 3,
+          "indexNo": 9,
           "type": "cds.Boolean",
           "@cds.persistence.name": "STATUS"
         },
-        "HasDraftEntity": {
-          "indexNo": 4,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFTENTITY"
-        },
-        "HasActiveEntity": {
-          "indexNo": 5,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASACTIVEENTITY"
-        },
-        "HasDraft": {
-          "indexNo": 6,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFT"
-        },
-        "HasDraftAdministrativeData": {
-          "indexNo": 7,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFTADMINISTRATIVEDATA"
-        },
-        "HasDraftPreparationAction": {
-          "indexNo": 8,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFTPREPARATIONACTION"
-        },
-        "HasDraftRoot": {
-          "indexNo": 9,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFTROOT"
-        },
-        "HasDraftValidationFunction": {
+        "CarrierMaster": {
           "indexNo": 10,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFTVALIDATIONFUNCTION"
-        },
-        "HasPreserveChanges": {
-          "indexNo": 11,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASPRESERVECHANGES"
-        },
-        "HasSiblingEntity": {
-          "indexNo": 12,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASSIBLINGENTITY"
-        },
-        "SiblingEntity": {
-          "indexNo": 13,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "SIBLINGENTITY"
-        },
-        "IsDraftEnabled": {
-          "indexNo": 14,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "ISDRAFTENABLED"
-        },
-        "IsActiveEntity": {
-          "indexNo": 15,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "ISACTIVEENTITY"
-        },
-        "IsDraftRoot": {
-          "indexNo": 16,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "ISDRAFTROOT"
-        },
-        "DraftAdministrativeData": {
-          "indexNo": 17,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "DRAFTADMINISTRATIVEDATA"
+          "type": "cds.Association",
+          "target": "Admin.CarrierMaster",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierMaster.carrierMasterID"
+              },
+              {
+                "=": "carrierMasterID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CARRIERMASTER"
         }
       },
-      "@cds.persistence.name": "ADMIN_DRAFTMODEL_CARRIERMASTER"
-    },
-    "Admin.DraftModel.CarrierMasterTextDetail": {
-      "kind": "entity",
-      "elements": {
-        "carrierMasterID": {
-          "key": true,
-          "indexNo": 1,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CARRIERMASTERID"
-        },
-        "locale": {
-          "key": true,
-          "indexNo": 2,
-          "type": "cds.String",
-          "length": 2,
-          "@cds.persistence.name": "LOCALE"
-        },
-        "description": {
-          "indexNo": 3,
-          "type": "cds.String",
-          "length": 255,
-          "@cds.persistence.name": "DESCRIPTION"
-        },
-        "HasDraftEntity": {
-          "indexNo": 4,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFTENTITY"
-        },
-        "HasActiveEntity": {
-          "indexNo": 5,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASACTIVEENTITY"
-        },
-        "HasDraft": {
-          "indexNo": 6,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFT"
-        },
-        "HasDraftAdministrativeData": {
-          "indexNo": 7,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFTADMINISTRATIVEDATA"
-        },
-        "HasDraftPreparationAction": {
-          "indexNo": 8,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFTPREPARATIONACTION"
-        },
-        "HasDraftRoot": {
-          "indexNo": 9,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFTROOT"
-        },
-        "HasDraftValidationFunction": {
-          "indexNo": 10,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASDRAFTVALIDATIONFUNCTION"
-        },
-        "HasPreserveChanges": {
-          "indexNo": 11,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASPRESERVECHANGES"
-        },
-        "HasSiblingEntity": {
-          "indexNo": 12,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "HASSIBLINGENTITY"
-        },
-        "SiblingEntity": {
-          "indexNo": 13,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "SIBLINGENTITY"
-        },
-        "IsDraftEnabled": {
-          "indexNo": 14,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "ISDRAFTENABLED"
-        },
-        "IsActiveEntity": {
-          "indexNo": 15,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "ISACTIVEENTITY"
-        },
-        "IsDraftRoot": {
-          "indexNo": 16,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "ISDRAFTROOT"
-        },
-        "DraftAdministrativeData": {
-          "indexNo": 17,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "DRAFTADMINISTRATIVEDATA"
-        }
-      },
-      "@cds.persistence.name": "ADMIN_DRAFTMODEL_CARRIERMASTERTEXTDETAIL"
+      "@cds.persistence.name": "ADMIN_CARRIERMASTERSERVICE"
     },
     "Admin.DropdownValueModel.ChargeType": {
       "kind": "entity",
@@ -933,7 +971,7 @@
         "freightCostCodeID": {
           "indexNo": 1,
           "type": "cds.String",
-          "length": 60,
+          "length": 255,
           "@cds.persistence.name": "FREIGHTCOSTCODEID"
         },
         "TextDetails": {
@@ -1048,92 +1086,8 @@
           "length": 255,
           "@cds.persistence.name": "DESCRIPTION"
         },
-        "HasDraftEntity": {
-          "indexNo": 4,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTENTITY"
-        },
-        "HasActiveEntity": {
-          "indexNo": 5,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASACTIVEENTITY"
-        },
-        "HasDraft": {
-          "indexNo": 6,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFT"
-        },
-        "HasDraftAdministrativeData": {
-          "indexNo": 7,
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASDRAFTADMINISTRATIVEDATA"
-        },
-        "HasDraftPreparationAction": {
-          "indexNo": 8,
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASDRAFTPREPARATIONACTION"
-        },
-        "HasDraftRoot": {
-          "indexNo": 9,
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASDRAFTROOT"
-        },
-        "HasDraftValidationFunction": {
-          "indexNo": 10,
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASDRAFTVALIDATIONFUNCTION"
-        },
-        "HasPreserveChanges": {
-          "indexNo": 11,
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASPRESERVECHANGES"
-        },
-        "HasSiblingEntity": {
-          "indexNo": 12,
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASSIBLINGENTITY"
-        },
-        "SiblingEntity": {
-          "indexNo": 13,
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "SIBLINGENTITY"
-        },
-        "IsDraftEnabled": {
-          "indexNo": 14,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "ISDRAFTENABLED"
-        },
-        "IsActiveEntity": {
-          "indexNo": 15,
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "ISACTIVEENTITY"
-        },
-        "IsDraftRoot": {
-          "indexNo": 16,
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "ISDRAFTROOT"
-        },
-        "DraftAdministrativeData": {
-          "indexNo": 17,
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "DRAFTADMINISTRATIVEDATA"
-        },
         "CarrierMaster": {
-          "indexNo": 18,
+          "indexNo": 4,
           "type": "cds.Association",
           "target": "Admin.CarrierMaster",
           "cardinality": {
@@ -1677,7 +1631,7 @@
           "key": true,
           "indexNo": 1,
           "type": "cds.String",
-          "length": 60,
+          "length": 255,
           "@cds.persistence.name": "FREIGHTCOSTCODEID"
         },
         "locale": {
@@ -1813,6 +1767,173 @@
         }
       },
       "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_COMMITMENTTIMETYPE"
+    },
+    "Admin.TextDetailModel.CarrierServiceType": {
+      "kind": "entity",
+      "elements": {
+        "carrierServiceTypeID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICETYPEID"
+        },
+        "locale": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "CarrierServiceType": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "Admin.CarrierServiceType",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierServiceType.carrierServiceTypeID"
+              },
+              {
+                "=": "carrierServiceTypeID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CARRIERSERVICETYPE"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CARRIERSERVICETYPE"
+    },
+    "Admin.TextDetailModel.CarrierServiceCategory": {
+      "kind": "entity",
+      "elements": {
+        "carrierServiceCategoryID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICECATEGORYID"
+        },
+        "locale": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "CarrierServiceCategory": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "Admin.CarrierServiceCategory",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierServiceCategory.carrierServiceCategoryID"
+              },
+              {
+                "=": "carrierServiceCategoryID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CARRIERSERVICECATEGORY"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CARRIERSERVICECATEGORY"
+    },
+    "Admin.TextDetailModel.CarrierMasterService": {
+      "kind": "entity",
+      "elements": {
+        "carrierMasterID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERMASTERID"
+        },
+        "carrierServiceID": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICEID"
+        },
+        "locale": {
+          "key": true,
+          "indexNo": 3,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "CarrierMasterService": {
+          "indexNo": 5,
+          "type": "cds.Association",
+          "target": "Admin.CarrierMasterService",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "CarrierMasterService.carrierMasterID"
+                  },
+                  {
+                    "=": "carrierMasterID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "CarrierMasterService.carrierServiceID"
+                  },
+                  {
+                    "=": "carrierServiceID"
+                  }
+                ]
+              }
+            ]
+          },
+          "@cds.persistence.name": "CARRIERMASTERSERVICE"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CARRIERMASTERSERVICE"
     },
     "CatalogService": {
       "kind": "service",
@@ -3502,149 +3623,9 @@
           "type": "cds.Boolean",
           "@cds.persistence.name": "STATUS"
         },
-        "HasDraftEntity": {
-          "origin": "Admin.CarrierMaster..HasDraftEntity",
-          "indexNo": 4,
-          "value": {
-            "=": "CarrierMaster.HasDraftEntity"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTENTITY"
-        },
-        "HasActiveEntity": {
-          "origin": "Admin.CarrierMaster..HasActiveEntity",
-          "indexNo": 5,
-          "value": {
-            "=": "CarrierMaster.HasActiveEntity"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASACTIVEENTITY"
-        },
-        "HasDraft": {
-          "origin": "Admin.CarrierMaster..HasDraft",
-          "indexNo": 6,
-          "value": {
-            "=": "CarrierMaster.HasDraft"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFT"
-        },
-        "HasDraftAdministrativeData": {
-          "origin": "Admin.CarrierMaster..HasDraftAdministrativeData",
-          "indexNo": 7,
-          "value": {
-            "=": "CarrierMaster.HasDraftAdministrativeData"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTADMINISTRATIVEDATA"
-        },
-        "HasDraftPreparationAction": {
-          "origin": "Admin.CarrierMaster..HasDraftPreparationAction",
-          "indexNo": 8,
-          "value": {
-            "=": "CarrierMaster.HasDraftPreparationAction"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTPREPARATIONACTION"
-        },
-        "HasDraftRoot": {
-          "origin": "Admin.CarrierMaster..HasDraftRoot",
-          "indexNo": 9,
-          "value": {
-            "=": "CarrierMaster.HasDraftRoot"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTROOT"
-        },
-        "HasDraftValidationFunction": {
-          "origin": "Admin.CarrierMaster..HasDraftValidationFunction",
-          "indexNo": 10,
-          "value": {
-            "=": "CarrierMaster.HasDraftValidationFunction"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTVALIDATIONFUNCTION"
-        },
-        "HasPreserveChanges": {
-          "origin": "Admin.CarrierMaster..HasPreserveChanges",
-          "indexNo": 11,
-          "value": {
-            "=": "CarrierMaster.HasPreserveChanges"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASPRESERVECHANGES"
-        },
-        "HasSiblingEntity": {
-          "origin": "Admin.CarrierMaster..HasSiblingEntity",
-          "indexNo": 12,
-          "value": {
-            "=": "CarrierMaster.HasSiblingEntity"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASSIBLINGENTITY"
-        },
-        "SiblingEntity": {
-          "origin": "Admin.CarrierMaster..SiblingEntity",
-          "indexNo": 13,
-          "value": {
-            "=": "CarrierMaster.SiblingEntity"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "SIBLINGENTITY"
-        },
-        "IsDraftEnabled": {
-          "origin": "Admin.CarrierMaster..IsDraftEnabled",
-          "indexNo": 14,
-          "value": {
-            "=": "CarrierMaster.IsDraftEnabled"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "ISDRAFTENABLED"
-        },
-        "IsActiveEntity": {
-          "origin": "Admin.CarrierMaster..IsActiveEntity",
-          "indexNo": 15,
-          "value": {
-            "=": "CarrierMaster.IsActiveEntity"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "ISACTIVEENTITY"
-        },
-        "IsDraftRoot": {
-          "origin": "Admin.CarrierMaster..IsDraftRoot",
-          "indexNo": 16,
-          "value": {
-            "=": "CarrierMaster.IsDraftRoot"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "ISDRAFTROOT"
-        },
-        "DraftAdministrativeData": {
-          "origin": "Admin.CarrierMaster..DraftAdministrativeData",
-          "indexNo": 17,
-          "value": {
-            "=": "CarrierMaster.DraftAdministrativeData"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "DRAFTADMINISTRATIVEDATA"
-        },
         "ContentSourceCarriers": {
           "origin": "Admin.CarrierMaster..ContentSourceCarriers",
-          "indexNo": 18,
+          "indexNo": 4,
           "value": {
             "=": "CarrierMaster.ContentSourceCarriers"
           },
@@ -3667,9 +3648,34 @@
           "redirected": true,
           "@cds.persistence.name": "CONTENTSOURCECARRIERS"
         },
+        "CarrierMasterServices": {
+          "origin": "Admin.CarrierMaster..CarrierMasterServices",
+          "indexNo": 5,
+          "value": {
+            "=": "CarrierMaster.CarrierMasterServices"
+          },
+          "type": "cds.Composition",
+          "target": "CatalogService.Admin_CarrierMasterService",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierMasterServices.carrierMasterID"
+              },
+              {
+                "=": "carrierMasterID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CARRIERMASTERSERVICES"
+        },
         "TextDetails": {
           "origin": "Admin.CarrierMaster..TextDetails",
-          "indexNo": 19,
+          "indexNo": 6,
           "value": {
             "=": "CarrierMaster.TextDetails"
           },
@@ -3809,149 +3815,9 @@
           "length": 255,
           "@cds.persistence.name": "DESCRIPTION"
         },
-        "HasDraftEntity": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..HasDraftEntity",
-          "indexNo": 4,
-          "value": {
-            "=": "CarrierMaster.HasDraftEntity"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFTENTITY"
-        },
-        "HasActiveEntity": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..HasActiveEntity",
-          "indexNo": 5,
-          "value": {
-            "=": "CarrierMaster.HasActiveEntity"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASACTIVEENTITY"
-        },
-        "HasDraft": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..HasDraft",
-          "indexNo": 6,
-          "value": {
-            "=": "CarrierMaster.HasDraft"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "HASDRAFT"
-        },
-        "HasDraftAdministrativeData": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..HasDraftAdministrativeData",
-          "indexNo": 7,
-          "value": {
-            "=": "CarrierMaster.HasDraftAdministrativeData"
-          },
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASDRAFTADMINISTRATIVEDATA"
-        },
-        "HasDraftPreparationAction": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..HasDraftPreparationAction",
-          "indexNo": 8,
-          "value": {
-            "=": "CarrierMaster.HasDraftPreparationAction"
-          },
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASDRAFTPREPARATIONACTION"
-        },
-        "HasDraftRoot": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..HasDraftRoot",
-          "indexNo": 9,
-          "value": {
-            "=": "CarrierMaster.HasDraftRoot"
-          },
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASDRAFTROOT"
-        },
-        "HasDraftValidationFunction": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..HasDraftValidationFunction",
-          "indexNo": 10,
-          "value": {
-            "=": "CarrierMaster.HasDraftValidationFunction"
-          },
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASDRAFTVALIDATIONFUNCTION"
-        },
-        "HasPreserveChanges": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..HasPreserveChanges",
-          "indexNo": 11,
-          "value": {
-            "=": "CarrierMaster.HasPreserveChanges"
-          },
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASPRESERVECHANGES"
-        },
-        "HasSiblingEntity": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..HasSiblingEntity",
-          "indexNo": 12,
-          "value": {
-            "=": "CarrierMaster.HasSiblingEntity"
-          },
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "HASSIBLINGENTITY"
-        },
-        "SiblingEntity": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..SiblingEntity",
-          "indexNo": 13,
-          "value": {
-            "=": "CarrierMaster.SiblingEntity"
-          },
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "SIBLINGENTITY"
-        },
-        "IsDraftEnabled": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..IsDraftEnabled",
-          "indexNo": 14,
-          "value": {
-            "=": "CarrierMaster.IsDraftEnabled"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "ISDRAFTENABLED"
-        },
-        "IsActiveEntity": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..IsActiveEntity",
-          "indexNo": 15,
-          "value": {
-            "=": "CarrierMaster.IsActiveEntity"
-          },
-          "type": "cds.Boolean",
-          "default": true,
-          "@cds.persistence.name": "ISACTIVEENTITY"
-        },
-        "IsDraftRoot": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..IsDraftRoot",
-          "indexNo": 16,
-          "value": {
-            "=": "CarrierMaster.IsDraftRoot"
-          },
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "ISDRAFTROOT"
-        },
-        "DraftAdministrativeData": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..DraftAdministrativeData",
-          "indexNo": 17,
-          "value": {
-            "=": "CarrierMaster.DraftAdministrativeData"
-          },
-          "type": "cds.Boolean",
-          "default": false,
-          "@cds.persistence.name": "DRAFTADMINISTRATIVEDATA"
-        },
         "CarrierMaster": {
           "origin": "Admin.TextDetailModel.CarrierMaster..CarrierMaster",
-          "indexNo": 18,
+          "indexNo": 4,
           "value": {
             "=": "CarrierMaster.CarrierMaster"
           },
@@ -4092,22 +3958,47 @@
           "redirected": true,
           "@cds.persistence.name": "CONTENTSOURCE"
         },
-        "CarrierMaster": {
-          "origin": "Admin.AssignmentModel.ContentSourceCarrier..CarrierMaster",
+        "ContentSourceTextDetails": {
+          "origin": "Admin.AssignmentModel.ContentSourceCarrier..ContentSourceTextDetails",
           "indexNo": 5,
           "value": {
-            "=": "ContentSourceCarrier.CarrierMaster"
+            "=": "ContentSourceCarrier.ContentSourceTextDetails"
           },
           "type": "cds.Association",
-          "target": "CatalogService.CarrierMasters",
+          "target": "CatalogService.ContentSourceTextDetails",
           "cardinality": {
-            "targetMax": 1
+            "targetMax": "*"
           },
           "onCond": {
             "op": "=",
             "args": [
               {
-                "=": "CarrierMaster.carrierMasterID"
+                "=": "ContentSourceTextDetails.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
+        },
+        "CarrierMasterTextDetails": {
+          "origin": "Admin.AssignmentModel.ContentSourceCarrier..CarrierMasterTextDetails",
+          "indexNo": 6,
+          "value": {
+            "=": "ContentSourceCarrier.CarrierMasterTextDetails"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.CarrierMasterTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierMasterTextDetails.carrierMasterID"
               },
               {
                 "=": "carrierMasterID"
@@ -4115,7 +4006,7 @@
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "CARRIERMASTER"
+          "@cds.persistence.name": "CARRIERMASTERTEXTDETAILS"
         }
       },
       "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCECARRIERS"
@@ -4270,22 +4161,47 @@
           "redirected": true,
           "@cds.persistence.name": "CONTENTSOURCE"
         },
-        "ContentAction": {
-          "origin": "Admin.AssignmentModel.ContentSourceAction..ContentAction",
+        "ContentSourceTextDetails": {
+          "origin": "Admin.AssignmentModel.ContentSourceAction..ContentSourceTextDetails",
           "indexNo": 4,
           "value": {
-            "=": "ContentSourceAction.ContentAction"
+            "=": "ContentSourceAction.ContentSourceTextDetails"
           },
           "type": "cds.Association",
-          "target": "CatalogService.ContentActions",
+          "target": "CatalogService.ContentSourceTextDetails",
           "cardinality": {
-            "targetMax": 1
+            "targetMax": "*"
           },
           "onCond": {
             "op": "=",
             "args": [
               {
-                "=": "ContentAction.contentActionID"
+                "=": "ContentSourceTextDetails.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
+        },
+        "ContentActionTextDetails": {
+          "origin": "Admin.AssignmentModel.ContentSourceAction..ContentActionTextDetails",
+          "indexNo": 5,
+          "value": {
+            "=": "ContentSourceAction.ContentActionTextDetails"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.ContentActionTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentActionTextDetails.contentActionID"
               },
               {
                 "=": "contentActionID"
@@ -4293,7 +4209,7 @@
             ]
           },
           "redirected": true,
-          "@cds.persistence.name": "CONTENTACTION"
+          "@cds.persistence.name": "CONTENTACTIONTEXTDETAILS"
         }
       },
       "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCEACTIONS"
@@ -4393,6 +4309,129 @@
         }
       },
       "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCEACTIONTEXTDETAILS"
+    },
+    "CatalogService.Admin_CarrierMasterService": {
+      "kind": "entity",
+      "source": "Admin.CarrierMasterService",
+      "elements": {
+        "carrierMasterID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "value": {
+            "=": "CarrierMasterService.carrierMasterID"
+          },
+          "origin": "Admin.CarrierMasterService..carrierMasterID",
+          "@cds.persistence.name": "CARRIERMASTERID"
+        },
+        "carrierServiceID": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "value": {
+            "=": "CarrierMasterService.carrierServiceID"
+          },
+          "origin": "Admin.CarrierMasterService..carrierServiceID",
+          "@cds.persistence.name": "CARRIERSERVICEID"
+        },
+        "carrierServiceType": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 60,
+          "value": {
+            "=": "CarrierMasterService.carrierServiceType"
+          },
+          "origin": "Admin.CarrierMasterService..carrierServiceType",
+          "@cds.persistence.name": "CARRIERSERVICETYPE"
+        },
+        "carrierServiceCategory": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "length": 60,
+          "value": {
+            "=": "CarrierMasterService.carrierServiceCategory"
+          },
+          "origin": "Admin.CarrierMasterService..carrierServiceCategory",
+          "@cds.persistence.name": "CARRIERSERVICECATEGORY"
+        },
+        "commitmentTimeType": {
+          "indexNo": 5,
+          "type": "cds.String",
+          "length": 60,
+          "value": {
+            "=": "CarrierMasterService.commitmentTimeType"
+          },
+          "origin": "Admin.CarrierMasterService..commitmentTimeType",
+          "@cds.persistence.name": "COMMITMENTTIMETYPE"
+        },
+        "commitmentTime": {
+          "indexNo": 6,
+          "type": "cds.String",
+          "length": 60,
+          "value": {
+            "=": "CarrierMasterService.commitmentTime"
+          },
+          "origin": "Admin.CarrierMasterService..commitmentTime",
+          "@cds.persistence.name": "COMMITMENTTIME"
+        },
+        "daysInTransitType": {
+          "indexNo": 7,
+          "type": "cds.String",
+          "length": 60,
+          "value": {
+            "=": "CarrierMasterService.daysInTransitType"
+          },
+          "origin": "Admin.CarrierMasterService..daysInTransitType",
+          "@cds.persistence.name": "DAYSINTRANSITTYPE"
+        },
+        "daysInTransit": {
+          "indexNo": 8,
+          "type": "cds.Integer",
+          "value": {
+            "=": "CarrierMasterService.daysInTransit"
+          },
+          "origin": "Admin.CarrierMasterService..daysInTransit",
+          "@cds.persistence.name": "DAYSINTRANSIT"
+        },
+        "status": {
+          "indexNo": 9,
+          "type": "cds.Boolean",
+          "value": {
+            "=": "CarrierMasterService.status"
+          },
+          "origin": "Admin.CarrierMasterService..status",
+          "@cds.persistence.name": "STATUS"
+        },
+        "CarrierMaster": {
+          "indexNo": 10,
+          "type": "cds.Association",
+          "target": "CatalogService.CarrierMasters",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierMaster.carrierMasterID"
+              },
+              {
+                "=": "carrierMasterID"
+              }
+            ]
+          },
+          "value": {
+            "=": "CarrierMasterService.CarrierMaster"
+          },
+          "origin": "Admin.CarrierMasterService..CarrierMaster",
+          "redirected": true,
+          "@cds.persistence.name": "CARRIERMASTER"
+        }
+      },
+      "@cds.autoexposed": true,
+      "@cds.persistence.name": "CATALOGSERVICE_ADMIN_CARRIERMASTERSERVICE"
     }
   },
   "version": {

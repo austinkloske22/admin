@@ -12,6 +12,7 @@
   <edmx:DataServices m:DataServiceVersion="2.0">
     <Schema Namespace="CatalogService" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
       <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Admin_CarrierMasterService" EntityType="CatalogService.Admin_CarrierMasterService"/>
         <EntitySet Name="CarrierMasterTextDetails" EntityType="CatalogService.CarrierMasterTextDetails"/>
         <EntitySet Name="CarrierMasters" EntityType="CatalogService.CarrierMasters"/>
         <EntitySet Name="ContentActionTextDetails" EntityType="CatalogService.ContentActionTextDetails"/>
@@ -30,6 +31,10 @@
         <EntitySet Name="ErrorMessages" EntityType="CatalogService.ErrorMessages"/>
         <EntitySet Name="FeedTypeTextDetails" EntityType="CatalogService.FeedTypeTextDetails"/>
         <EntitySet Name="FeedTypes" EntityType="CatalogService.FeedTypes"/>
+        <AssociationSet Name="Admin_CarrierMasterService_CarrierMaster" Association="CatalogService.Admin_CarrierMasterService_CarrierMaster">
+          <End Role="Admin_CarrierMasterService" EntitySet="Admin_CarrierMasterService"/>
+          <End Role="CarrierMasters" EntitySet="CarrierMasters"/>
+        </AssociationSet>
         <AssociationSet Name="CarrierMasterTextDetails_CarrierMaster" Association="CatalogService.CarrierMasterTextDetails_CarrierMaster">
           <End Role="CarrierMasterTextDetails" EntitySet="CarrierMasterTextDetails"/>
           <End Role="CarrierMasters" EntitySet="CarrierMasters"/>
@@ -37,6 +42,10 @@
         <AssociationSet Name="CarrierMasters_ContentSourceCarriers" Association="CatalogService.CarrierMasters_ContentSourceCarriers">
           <End Role="CarrierMasters" EntitySet="CarrierMasters"/>
           <End Role="ContentSourceCarriers" EntitySet="ContentSourceCarriers"/>
+        </AssociationSet>
+        <AssociationSet Name="CarrierMasters_CarrierMasterServices" Association="CatalogService.CarrierMasters_CarrierMasterServices">
+          <End Role="CarrierMasters" EntitySet="CarrierMasters"/>
+          <End Role="Admin_CarrierMasterService" EntitySet="Admin_CarrierMasterService"/>
         </AssociationSet>
         <AssociationSet Name="CarrierMasters_TextDetails" Association="CatalogService.CarrierMasters_TextDetails">
           <End Role="CarrierMasters" EntitySet="CarrierMasters"/>
@@ -62,9 +71,13 @@
           <End Role="ContentSourceActions" EntitySet="ContentSourceActions"/>
           <End Role="ContentSources" EntitySet="ContentSources"/>
         </AssociationSet>
-        <AssociationSet Name="ContentSourceActions_ContentAction" Association="CatalogService.ContentSourceActions_ContentAction">
+        <AssociationSet Name="ContentSourceActions_ContentSourceTextDetails" Association="CatalogService.ContentSourceActions_ContentSourceTextDetails">
           <End Role="ContentSourceActions" EntitySet="ContentSourceActions"/>
-          <End Role="ContentActions" EntitySet="ContentActions"/>
+          <End Role="ContentSourceTextDetails" EntitySet="ContentSourceTextDetails"/>
+        </AssociationSet>
+        <AssociationSet Name="ContentSourceActions_ContentActionTextDetails" Association="CatalogService.ContentSourceActions_ContentActionTextDetails">
+          <End Role="ContentSourceActions" EntitySet="ContentSourceActions"/>
+          <End Role="ContentActionTextDetails" EntitySet="ContentActionTextDetails"/>
         </AssociationSet>
         <AssociationSet Name="ContentSourceCarrierTextDetails_ContentSourceCarrier" Association="CatalogService.ContentSourceCarrierTextDetails_ContentSourceCarrier">
           <End Role="ContentSourceCarrierTextDetails" EntitySet="ContentSourceCarrierTextDetails"/>
@@ -74,9 +87,13 @@
           <End Role="ContentSourceCarriers" EntitySet="ContentSourceCarriers"/>
           <End Role="ContentSources" EntitySet="ContentSources"/>
         </AssociationSet>
-        <AssociationSet Name="ContentSourceCarriers_CarrierMaster" Association="CatalogService.ContentSourceCarriers_CarrierMaster">
+        <AssociationSet Name="ContentSourceCarriers_ContentSourceTextDetails" Association="CatalogService.ContentSourceCarriers_ContentSourceTextDetails">
           <End Role="ContentSourceCarriers" EntitySet="ContentSourceCarriers"/>
-          <End Role="CarrierMasters" EntitySet="CarrierMasters"/>
+          <End Role="ContentSourceTextDetails" EntitySet="ContentSourceTextDetails"/>
+        </AssociationSet>
+        <AssociationSet Name="ContentSourceCarriers_CarrierMasterTextDetails" Association="CatalogService.ContentSourceCarriers_CarrierMasterTextDetails">
+          <End Role="ContentSourceCarriers" EntitySet="ContentSourceCarriers"/>
+          <End Role="CarrierMasterTextDetails" EntitySet="CarrierMasterTextDetails"/>
         </AssociationSet>
         <AssociationSet Name="ContentSourceStatusTextDetails_ContentSourceStatus" Association="CatalogService.ContentSourceStatusTextDetails_ContentSourceStatus">
           <End Role="ContentSourceStatusTextDetails" EntitySet="ContentSourceStatusTextDetails"/>
@@ -139,6 +156,22 @@
           <End Role="FeedTypeTextDetails" EntitySet="FeedTypeTextDetails"/>
         </AssociationSet>
       </EntityContainer>
+      <EntityType Name="Admin_CarrierMasterService">
+        <Key>
+          <PropertyRef Name="carrierMasterID"/>
+          <PropertyRef Name="carrierServiceID"/>
+        </Key>
+        <Property Name="carrierMasterID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <Property Name="carrierServiceID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <Property Name="carrierServiceType" Type="Edm.String" MaxLength="60"/>
+        <Property Name="carrierServiceCategory" Type="Edm.String" MaxLength="60"/>
+        <Property Name="commitmentTimeType" Type="Edm.String" MaxLength="60"/>
+        <Property Name="commitmentTime" Type="Edm.String" MaxLength="60"/>
+        <Property Name="daysInTransitType" Type="Edm.String" MaxLength="60"/>
+        <Property Name="daysInTransit" Type="Edm.Int32"/>
+        <Property Name="status" Type="Edm.Boolean"/>
+        <NavigationProperty Name="CarrierMaster" Relationship="CatalogService.Admin_CarrierMasterService_CarrierMaster" FromRole="Admin_CarrierMasterService" ToRole="CarrierMasters"/>
+      </EntityType>
       <EntityType Name="CarrierMasterTextDetails">
         <Key>
           <PropertyRef Name="carrierMasterID"/>
@@ -147,20 +180,6 @@
         <Property Name="carrierMasterID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
         <Property Name="description" Type="Edm.String" MaxLength="255"/>
-        <Property Name="HasDraftEntity" Type="Edm.Boolean"/>
-        <Property Name="HasActiveEntity" Type="Edm.Boolean"/>
-        <Property Name="HasDraft" Type="Edm.Boolean"/>
-        <Property Name="HasDraftAdministrativeData" Type="Edm.Boolean"/>
-        <Property Name="HasDraftPreparationAction" Type="Edm.Boolean"/>
-        <Property Name="HasDraftRoot" Type="Edm.Boolean"/>
-        <Property Name="HasDraftValidationFunction" Type="Edm.Boolean"/>
-        <Property Name="HasPreserveChanges" Type="Edm.Boolean"/>
-        <Property Name="HasSiblingEntity" Type="Edm.Boolean"/>
-        <Property Name="SiblingEntity" Type="Edm.Boolean"/>
-        <Property Name="IsDraftEnabled" Type="Edm.Boolean"/>
-        <Property Name="IsActiveEntity" Type="Edm.Boolean"/>
-        <Property Name="IsDraftRoot" Type="Edm.Boolean"/>
-        <Property Name="DraftAdministrativeData" Type="Edm.Boolean"/>
         <NavigationProperty Name="CarrierMaster" Relationship="CatalogService.CarrierMasterTextDetails_CarrierMaster" FromRole="CarrierMasterTextDetails" ToRole="CarrierMasters"/>
       </EntityType>
       <EntityType Name="CarrierMasters">
@@ -170,21 +189,8 @@
         <Property Name="carrierMasterID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <Property Name="logoURL" Type="Edm.String" MaxLength="1000"/>
         <Property Name="status" Type="Edm.Boolean"/>
-        <Property Name="HasDraftEntity" Type="Edm.Boolean"/>
-        <Property Name="HasActiveEntity" Type="Edm.Boolean"/>
-        <Property Name="HasDraft" Type="Edm.Boolean"/>
-        <Property Name="HasDraftAdministrativeData" Type="Edm.Boolean"/>
-        <Property Name="HasDraftPreparationAction" Type="Edm.Boolean"/>
-        <Property Name="HasDraftRoot" Type="Edm.Boolean"/>
-        <Property Name="HasDraftValidationFunction" Type="Edm.Boolean"/>
-        <Property Name="HasPreserveChanges" Type="Edm.Boolean"/>
-        <Property Name="HasSiblingEntity" Type="Edm.Boolean"/>
-        <Property Name="SiblingEntity" Type="Edm.Boolean"/>
-        <Property Name="IsDraftEnabled" Type="Edm.Boolean"/>
-        <Property Name="IsActiveEntity" Type="Edm.Boolean"/>
-        <Property Name="IsDraftRoot" Type="Edm.Boolean"/>
-        <Property Name="DraftAdministrativeData" Type="Edm.Boolean"/>
         <NavigationProperty Name="ContentSourceCarriers" Relationship="CatalogService.CarrierMasters_ContentSourceCarriers" FromRole="CarrierMasters" ToRole="ContentSourceCarriers"/>
+        <NavigationProperty Name="CarrierMasterServices" Relationship="CatalogService.CarrierMasters_CarrierMasterServices" FromRole="CarrierMasters" ToRole="Admin_CarrierMasterService"/>
         <NavigationProperty Name="TextDetails" Relationship="CatalogService.CarrierMasters_TextDetails" FromRole="CarrierMasters" ToRole="CarrierMasterTextDetails"/>
       </EntityType>
       <EntityType Name="ContentActionTextDetails">
@@ -225,7 +231,8 @@
         <Property Name="contentSourceID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <Property Name="contentActionID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <NavigationProperty Name="ContentSource" Relationship="CatalogService.ContentSourceActions_ContentSource" FromRole="ContentSourceActions" ToRole="ContentSources"/>
-        <NavigationProperty Name="ContentAction" Relationship="CatalogService.ContentSourceActions_ContentAction" FromRole="ContentSourceActions" ToRole="ContentActions"/>
+        <NavigationProperty Name="ContentSourceTextDetails" Relationship="CatalogService.ContentSourceActions_ContentSourceTextDetails" FromRole="ContentSourceActions" ToRole="ContentSourceTextDetails"/>
+        <NavigationProperty Name="ContentActionTextDetails" Relationship="CatalogService.ContentSourceActions_ContentActionTextDetails" FromRole="ContentSourceActions" ToRole="ContentActionTextDetails"/>
       </EntityType>
       <EntityType Name="ContentSourceCarrierTextDetails">
         <Key>
@@ -248,7 +255,8 @@
         <Property Name="carrierMasterID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <Property Name="contentSourceCarrierID" Type="Edm.String" MaxLength="60"/>
         <NavigationProperty Name="ContentSource" Relationship="CatalogService.ContentSourceCarriers_ContentSource" FromRole="ContentSourceCarriers" ToRole="ContentSources"/>
-        <NavigationProperty Name="CarrierMaster" Relationship="CatalogService.ContentSourceCarriers_CarrierMaster" FromRole="ContentSourceCarriers" ToRole="CarrierMasters"/>
+        <NavigationProperty Name="ContentSourceTextDetails" Relationship="CatalogService.ContentSourceCarriers_ContentSourceTextDetails" FromRole="ContentSourceCarriers" ToRole="ContentSourceTextDetails"/>
+        <NavigationProperty Name="CarrierMasterTextDetails" Relationship="CatalogService.ContentSourceCarriers_CarrierMasterTextDetails" FromRole="ContentSourceCarriers" ToRole="CarrierMasterTextDetails"/>
       </EntityType>
       <EntityType Name="ContentSourceStatusTextDetails">
         <Key>
@@ -356,6 +364,18 @@
         <Property Name="feedTypeID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <NavigationProperty Name="TextDetails" Relationship="CatalogService.FeedTypes_TextDetails" FromRole="FeedTypes" ToRole="FeedTypeTextDetails"/>
       </EntityType>
+      <Association Name="Admin_CarrierMasterService_CarrierMaster">
+        <End Role="Admin_CarrierMasterService" Type="CatalogService.Admin_CarrierMasterService" Multiplicity="*"/>
+        <End Role="CarrierMasters" Type="CatalogService.CarrierMasters" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="CarrierMasters">
+            <PropertyRef Name="carrierMasterID"/>
+          </Principal>
+          <Dependent Role="Admin_CarrierMasterService">
+            <PropertyRef Name="carrierMasterID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
       <Association Name="CarrierMasterTextDetails_CarrierMaster">
         <End Role="CarrierMasterTextDetails" Type="CatalogService.CarrierMasterTextDetails" Multiplicity="*"/>
         <End Role="CarrierMasters" Type="CatalogService.CarrierMasters" Multiplicity="0..1"/>
@@ -378,6 +398,20 @@
             <PropertyRef Name="carrierMasterID"/>
           </Principal>
           <Dependent Role="ContentSourceCarriers">
+            <PropertyRef Name="carrierMasterID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CarrierMasters_CarrierMasterServices">
+        <End Role="CarrierMasters" Type="CatalogService.CarrierMasters" Multiplicity="*"/>
+        <End Role="Admin_CarrierMasterService" Type="CatalogService.Admin_CarrierMasterService" Multiplicity="*">
+          <OnDelete Action="Cascade"/>
+        </End>
+        <ReferentialConstraint>
+          <Principal Role="CarrierMasters">
+            <PropertyRef Name="carrierMasterID"/>
+          </Principal>
+          <Dependent Role="Admin_CarrierMasterService">
             <PropertyRef Name="carrierMasterID"/>
           </Dependent>
         </ReferentialConstraint>
@@ -462,11 +496,23 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="ContentSourceActions_ContentAction">
+      <Association Name="ContentSourceActions_ContentSourceTextDetails">
         <End Role="ContentSourceActions" Type="CatalogService.ContentSourceActions" Multiplicity="*"/>
-        <End Role="ContentActions" Type="CatalogService.ContentActions" Multiplicity="0..1"/>
+        <End Role="ContentSourceTextDetails" Type="CatalogService.ContentSourceTextDetails" Multiplicity="*"/>
         <ReferentialConstraint>
-          <Principal Role="ContentActions">
+          <Principal Role="ContentSourceTextDetails">
+            <PropertyRef Name="contentSourceID"/>
+          </Principal>
+          <Dependent Role="ContentSourceActions">
+            <PropertyRef Name="contentSourceID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="ContentSourceActions_ContentActionTextDetails">
+        <End Role="ContentSourceActions" Type="CatalogService.ContentSourceActions" Multiplicity="*"/>
+        <End Role="ContentActionTextDetails" Type="CatalogService.ContentActionTextDetails" Multiplicity="*"/>
+        <ReferentialConstraint>
+          <Principal Role="ContentActionTextDetails">
             <PropertyRef Name="contentActionID"/>
           </Principal>
           <Dependent Role="ContentSourceActions">
@@ -500,11 +546,23 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="ContentSourceCarriers_CarrierMaster">
+      <Association Name="ContentSourceCarriers_ContentSourceTextDetails">
         <End Role="ContentSourceCarriers" Type="CatalogService.ContentSourceCarriers" Multiplicity="*"/>
-        <End Role="CarrierMasters" Type="CatalogService.CarrierMasters" Multiplicity="0..1"/>
+        <End Role="ContentSourceTextDetails" Type="CatalogService.ContentSourceTextDetails" Multiplicity="*"/>
         <ReferentialConstraint>
-          <Principal Role="CarrierMasters">
+          <Principal Role="ContentSourceTextDetails">
+            <PropertyRef Name="contentSourceID"/>
+          </Principal>
+          <Dependent Role="ContentSourceCarriers">
+            <PropertyRef Name="contentSourceID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="ContentSourceCarriers_CarrierMasterTextDetails">
+        <End Role="ContentSourceCarriers" Type="CatalogService.ContentSourceCarriers" Multiplicity="*"/>
+        <End Role="CarrierMasterTextDetails" Type="CatalogService.CarrierMasterTextDetails" Multiplicity="*"/>
+        <ReferentialConstraint>
+          <Principal Role="CarrierMasterTextDetails">
             <PropertyRef Name="carrierMasterID"/>
           </Principal>
           <Dependent Role="ContentSourceCarriers">

@@ -9,20 +9,6 @@ entity CarrierMaster {
 	key carrierMasterID : CommonModel.AdminKey;
 	key locale			: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
 	description			: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
-	HasDraftEntity				: Boolean default true;
-	HasActiveEntity				: Boolean default true;
-	HasDraft					: Boolean default true;
-	HasDraftAdministrativeData	: Boolean default false;
-	HasDraftPreparationAction	: Boolean default false;
-	HasDraftRoot				: Boolean default false;
-	HasDraftValidationFunction	: Boolean default false;
-	HasPreserveChanges			: Boolean default false;
-	HasSiblingEntity			: Boolean default false;
-	SiblingEntity				: Boolean default false;
-	IsDraftEnabled				: Boolean default true;
-	IsActiveEntity				: Boolean default true;
-	IsDraftRoot					: Boolean default false;
-	DraftAdministrativeData		: Boolean default false;
 	CarrierMaster		: Association to one Admin.CarrierMaster on CarrierMaster.carrierMasterID = $self.carrierMasterID; 
 }
 
@@ -95,7 +81,7 @@ entity ChargeType {
 }
 
 entity FreightCostCode {
-	key freightCostCodeID	: CommonModel.AdminKey;
+	key freightCostCodeID	: CommonModel.Description;
 	key locale				: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
 	description				: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
 	FreightCostCode			: Association to one DropdownValueModel.FreightCostCode on FreightCostCode.freightCostCodeID = $self.freightCostCodeID; 
@@ -115,3 +101,24 @@ entity CommitmentTimeType {
 	CommitmentTimeType			: Association to one DropdownValueModel.CommitmentTimeType on CommitmentTimeType.commitmentTimeTypeID = $self.commitmentTimeTypeID; 
 }
 
+entity CarrierServiceType {
+	key carrierServiceTypeID	: CommonModel.AdminKey;
+	key locale					: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
+	description					: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
+	CarrierServiceType			: Association to one  Admin.CarrierServiceType on CarrierServiceType.carrierServiceTypeID = $self.carrierServiceTypeID;
+}
+
+entity CarrierServiceCategory {
+	key carrierServiceCategoryID	: CommonModel.AdminKey;
+	key locale						: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
+	description						: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
+	CarrierServiceCategory			: Association to one Admin.CarrierServiceCategory on CarrierServiceCategory.carrierServiceCategoryID = $self.carrierServiceCategoryID;
+}
+
+entity CarrierMasterService {
+	key carrierMasterID		: CommonModel.AdminKey;
+	key carrierServiceID	: CommonModel.AdminKey;
+	key locale				: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
+	description				: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
+	CarrierMasterService	: Association to one Admin.CarrierMasterService on CarrierMasterService.carrierMasterID = $self.carrierMasterID and CarrierMasterService.carrierServiceID = $self.carrierServiceID;
+}
