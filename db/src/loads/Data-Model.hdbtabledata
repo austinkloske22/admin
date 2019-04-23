@@ -26,6 +26,59 @@
 		}
 	},
 	{
+		"target_table": "ADMIN_CONTENTSOURCE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsource.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTSOURCEID"
+				]
+		},
+		"column_mappings": {
+			"CONTENTSOURCEID": 1
+		}
+	},
+	{
+		"target_table": "ADMIN_CONTENTSOURCESTATUS",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourcestatus.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTSOURCEID",
+				"PRIMARYSTATUSCODE",
+				"SECONDARYSTATUSCODE",
+				"NORMALIZEDSTATUSCODE",
+				"EXCEPTIONTYPE",
+				"INITIALDELIVERYATTEMPT"
+				]
+		},
+		"column_mappings": {
+			"CONTENTSOURCEID": 1,
+			"PRIMARYSTATUSCODE": 2,
+			"SECONDARYSTATUSCODE": 3,
+			"NORMALIZEDSTATUSCODE": 4,
+			"EXCEPTIONTYPE": 5,
+			"INITIALDELIVERYATTEMPT": 6
+			
+		}
+	},
+	{
 		"target_table": "ADMIN_CONTENTACTION",
 		"source_data": {
 			"data_type": "CSV",

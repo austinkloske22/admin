@@ -49,6 +49,31 @@
 			"LOCALE": 2,
 			"DESCRIPTION": 3
 		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourcetextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTSOURCEID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"CONTENTSOURCEID": 1,
+			"LOCALE": 2,
+			"DESCRIPTION": 3
+		}
 	}
 	]
 }

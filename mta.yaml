@@ -26,7 +26,6 @@ modules:
           forwardAuthToken: true
           name: srv_api
           url: '~{url}'
-      - name: uaa_admin
   - name: admin-deployer
     type: com.sap.html5.application-content
     path: admin_ui_deployer
@@ -46,6 +45,10 @@ modules:
           artifacts:
             - './*'
           target-path: resources/admin-ui/ContentActions
+        - name: ContentSources
+          artifacts:
+            - './*'
+          target-path: resources/ContentSources
   - name: admin-db
     type: hdb
     path: db
@@ -128,7 +131,19 @@ modules:
           strictSSL: false
           name: srv_api
           url: '~{url}'
-  
+  - name: ContentSources
+    type: html5
+    path: admin-ui/ContentSources
+    build-parameters:
+      builder: grunt
+    requires:
+      - name: srv_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: '~{url}'
 resources:
   - name: admin-html5-rt
     parameters:
