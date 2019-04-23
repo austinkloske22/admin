@@ -3,6 +3,7 @@ namespace Admin.TextDetailModel;
 using Admin as Admin from './Data-Model';
 using Admin.AssignmentModel as AssignmentModel from './Assignment-Model.cds';
 using Admin.CommonModel as CommonModel from './Common-Model.cds';
+using Admin.DropdownValueModel as DropdownValueModel from './DropdownValue-Model.cds';
 
 entity CarrierMaster {
 	key carrierMasterID : CommonModel.AdminKey;
@@ -62,6 +63,7 @@ entity ContentSourceStatus {
 	key secondaryStatusCode	: CommonModel.AdminKey;
 	key locale				: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
 	description				: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
+	ContentSourceStatus		: Association to one Admin.ContentSourceStatus on ContentSourceStatus.contentSourceID = $self.contentSourceID;
 }
 
 entity ErrorMessage {
@@ -84,3 +86,32 @@ entity FeedType {
 	description			: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
 	FeedType			: Association to one Admin.FeedType on FeedType.feedTypeID = $self.feedTypeID; 
 }
+
+entity ChargeType {
+	key chargeTypeID		: CommonModel.AdminKey;
+	key locale				: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
+	description				: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
+	ChargeType				: Association to one DropdownValueModel.ChargeType on ChargeType.chargeTypeID = $self.chargeTypeID;
+}
+
+entity FreightCostCode {
+	key freightCostCodeID	: CommonModel.AdminKey;
+	key locale				: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
+	description				: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
+	FreightCostCode			: Association to one DropdownValueModel.FreightCostCode on FreightCostCode.freightCostCodeID = $self.freightCostCodeID; 
+}
+
+entity DaysInTransitType {
+	key daysInTransitTypeID	: CommonModel.AdminKey;
+	key locale				: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
+	description				: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
+	DaysInTransitType		: Association to one DropdownValueModel.DaysInTransitType on DaysInTransitType.daysInTransitTypeID = $self.daysInTransitTypeID; 
+}
+
+entity CommitmentTimeType {
+	key commitmentTimeTypeID	: CommonModel.AdminKey;
+	key locale					: CommonModel.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
+	description					: CommonModel.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
+	CommitmentTimeType			: Association to one DropdownValueModel.CommitmentTimeType on CommitmentTimeType.commitmentTimeTypeID = $self.commitmentTimeTypeID; 
+}
+

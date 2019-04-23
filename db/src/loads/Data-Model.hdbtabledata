@@ -115,13 +115,13 @@
         	"include_filter" : [ ],			
 			"import_columns": [
 				"CONTENTSOURCEID",
-				"CONTENTKEY",
-				"CONTENTVALUE",
+				"CONTENTKEYID",
+				"CONTENTVALUE"
 				]
 		},
 		"column_mappings": {
 			"CONTENTSOURCEID": 1,
-			"CONTENTKEY": 2,
+			"CONTENTKEYID": 2,
 			"CONTENTVALUE": 3
 		}
 	},
@@ -166,6 +166,6 @@
 		"column_mappings": {
 			"FEEDTYPEID": 1
 		}
-	},
+	}
 	]
 }

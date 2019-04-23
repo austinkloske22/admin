@@ -4,11 +4,11 @@ using Admin as Admin from './Data-Model';
 using Admin.CommonModel as CommonModel from './Common-Model';
 
 entity ContentSourceCarrier {
-	key contentSourceID	: CommonModel.AdminKey;
-	key carrierMasterID	: CommonModel.AdminKey;
-	ID					: CommonModel.AdminKey;
-	ContentSource		: Association to one Admin.ContentSource on ContentSource.contentSourceID = $self.contentSourceID;
-	CarrierMaster		: Association to one Admin.CarrierMaster on CarrierMaster.carrierMasterID = $self.carrierMasterID;
+	key contentSourceID		: CommonModel.AdminKey;
+	key carrierMasterID		: CommonModel.AdminKey;
+	contentSourceCarrierID	: CommonModel.AdminKey;
+	ContentSource			: Association to one Admin.ContentSource on ContentSource.contentSourceID = $self.contentSourceID;
+	CarrierMaster			: Association to one Admin.CarrierMaster on CarrierMaster.carrierMasterID = $self.carrierMasterID;
 }
 
 entity ContentSourceAction {

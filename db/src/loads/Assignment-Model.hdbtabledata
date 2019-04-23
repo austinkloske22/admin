@@ -1,0 +1,52 @@
+{ 
+	"format_version": 1,
+	"imports": [{
+		"target_table": "ADMIN_ASSIGNMENTMODEL_CONTENTSOURCECARRIER",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourcecarrier.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTSOURCEID",
+				"CARRIERMASTERID",
+				"CONTENTSOURCECARRIERID"
+				]
+		},
+		"column_mappings": {
+			"CONTENTSOURCEID": 1,
+			"CARRIERMASTERID": 2,
+			"CONTENTSOURCECARRIERID": 3
+		}
+	},
+	{
+		"target_table": "ADMIN_ASSIGNMENTMODEL_CONTENTSOURCEACTION",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourceaction.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTSOURCEID",
+				"CONTENTACTIONID"
+				]
+		},
+		"column_mappings": {
+			"CONTENTSOURCEID": 1,
+			"CONTENTACTIONID": 2
+		}
+	}
+	]
+}

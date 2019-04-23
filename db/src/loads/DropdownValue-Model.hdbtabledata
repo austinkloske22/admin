@@ -1,0 +1,88 @@
+{ 
+	"format_version": 1,
+	"imports": [{
+		"target_table": "ADMIN_DROPDOWNVALUEMODEL_CHARGETYPE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "chargetype.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CHARGETYPEID"
+				]
+		},
+		"column_mappings": {
+			"CHARGETYPEID": 1
+		}
+	},
+	{
+		"target_table": "ADMIN_DROPDOWNVALUEMODEL_FREIGHTCOSTCODE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "freightcostcode.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"FREIGHTCOSTCODEID"
+				]
+		},
+		"column_mappings": {
+			"FREIGHTCOSTCODEID": 1
+		}
+	},
+	{
+		"target_table": "ADMIN_DROPDOWNVALUEMODEL_DAYSINTRANSITTYPE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "daysintransittype.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"DAYSINTRANSITTYPEID"
+				]
+		},
+		"column_mappings": {
+			"DAYSINTRANSITTYPEID": 1
+		}
+	},
+	{
+		"target_table": "ADMIN_DROPDOWNVALUEMODEL_COMMITMENTTIMETYPE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "commitmenttimetype.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"COMMITMENTTIMETYPEID"
+				]
+		},
+		"column_mappings": {
+			"COMMITMENTTIMETYPEID": 1
+		}
+	}
+	]
+}

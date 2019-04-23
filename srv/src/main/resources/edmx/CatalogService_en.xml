@@ -78,6 +78,10 @@
           <End Role="ContentSourceCarriers" EntitySet="ContentSourceCarriers"/>
           <End Role="CarrierMasters" EntitySet="CarrierMasters"/>
         </AssociationSet>
+        <AssociationSet Name="ContentSourceStatusTextDetails_ContentSourceStatus" Association="CatalogService.ContentSourceStatusTextDetails_ContentSourceStatus">
+          <End Role="ContentSourceStatusTextDetails" EntitySet="ContentSourceStatusTextDetails"/>
+          <End Role="ContentSourceStatuss" EntitySet="ContentSourceStatuss"/>
+        </AssociationSet>
         <AssociationSet Name="ContentSourceStatuss_ContentSource" Association="CatalogService.ContentSourceStatuss_ContentSource">
           <End Role="ContentSourceStatuss" EntitySet="ContentSourceStatuss"/>
           <End Role="ContentSources" EntitySet="ContentSources"/>
@@ -242,7 +246,7 @@
         </Key>
         <Property Name="contentSourceID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <Property Name="carrierMasterID" Type="Edm.String" MaxLength="60" Nullable="false"/>
-        <Property Name="ID" Type="Edm.String" MaxLength="60"/>
+        <Property Name="contentSourceCarrierID" Type="Edm.String" MaxLength="60"/>
         <NavigationProperty Name="ContentSource" Relationship="CatalogService.ContentSourceCarriers_ContentSource" FromRole="ContentSourceCarriers" ToRole="ContentSources"/>
         <NavigationProperty Name="CarrierMaster" Relationship="CatalogService.ContentSourceCarriers_CarrierMaster" FromRole="ContentSourceCarriers" ToRole="CarrierMasters"/>
       </EntityType>
@@ -258,6 +262,7 @@
         <Property Name="secondaryStatusCode" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
         <Property Name="description" Type="Edm.String" MaxLength="255"/>
+        <NavigationProperty Name="ContentSourceStatus" Relationship="CatalogService.ContentSourceStatusTextDetails_ContentSourceStatus" FromRole="ContentSourceStatusTextDetails" ToRole="ContentSourceStatuss"/>
       </EntityType>
       <EntityType Name="ContentSourceStatuss">
         <Key>
@@ -504,6 +509,18 @@
           </Principal>
           <Dependent Role="ContentSourceCarriers">
             <PropertyRef Name="carrierMasterID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="ContentSourceStatusTextDetails_ContentSourceStatus">
+        <End Role="ContentSourceStatusTextDetails" Type="CatalogService.ContentSourceStatusTextDetails" Multiplicity="*"/>
+        <End Role="ContentSourceStatuss" Type="CatalogService.ContentSourceStatuss" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="ContentSourceStatuss">
+            <PropertyRef Name="contentSourceID"/>
+          </Principal>
+          <Dependent Role="ContentSourceStatusTextDetails">
+            <PropertyRef Name="contentSourceID"/>
           </Dependent>
         </ReferentialConstraint>
       </Association>

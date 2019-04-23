@@ -18,11 +18,11 @@
           "length": 60,
           "@cds.persistence.name": "CARRIERMASTERID"
         },
-        "ID": {
+        "contentSourceCarrierID": {
           "indexNo": 3,
           "type": "cds.String",
           "length": 60,
-          "@cds.persistence.name": "ID"
+          "@cds.persistence.name": "CONTENTSOURCECARRIERID"
         },
         "ContentSource": {
           "indexNo": 4,
@@ -894,6 +894,135 @@
       },
       "@cds.persistence.name": "ADMIN_DRAFTMODEL_CARRIERMASTERTEXTDETAIL"
     },
+    "Admin.DropdownValueModel.ChargeType": {
+      "kind": "entity",
+      "elements": {
+        "chargeTypeID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CHARGETYPEID"
+        },
+        "TextDetails": {
+          "indexNo": 2,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetailModel.ChargeType",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.chargeTypeID"
+              },
+              {
+                "=": "chargeTypeID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_DROPDOWNVALUEMODEL_CHARGETYPE"
+    },
+    "Admin.DropdownValueModel.FreightCostCode": {
+      "kind": "entity",
+      "elements": {
+        "freightCostCodeID": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "FREIGHTCOSTCODEID"
+        },
+        "TextDetails": {
+          "indexNo": 2,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetailModel.FreightCostCode",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.freightCostCodeID"
+              },
+              {
+                "=": "freightCostCodeID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_DROPDOWNVALUEMODEL_FREIGHTCOSTCODE"
+    },
+    "Admin.DropdownValueModel.DaysInTransitType": {
+      "kind": "entity",
+      "elements": {
+        "daysInTransitTypeID": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "DAYSINTRANSITTYPEID"
+        },
+        "TextDetails": {
+          "indexNo": 2,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetailModel.DaysInTransitType",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.daysInTransitTypeID"
+              },
+              {
+                "=": "daysInTransitTypeID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_DROPDOWNVALUEMODEL_DAYSINTRANSITTYPE"
+    },
+    "Admin.DropdownValueModel.CommitmentTimeType": {
+      "kind": "entity",
+      "elements": {
+        "commitmentTimeTypeID": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "COMMITMENTTIMETYPEID"
+        },
+        "TextDetails": {
+          "indexNo": 2,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetailModel.CommitmentTimeType",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.commitmentTimeTypeID"
+              },
+              {
+                "=": "commitmentTimeTypeID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_DROPDOWNVALUEMODEL_COMMITMENTTIMETYPE"
+    },
     "Admin.TextDetailModel.CarrierMaster": {
       "kind": "entity",
       "elements": {
@@ -1325,6 +1454,26 @@
           "@Common.Label": "{i18n>description}",
           "length": 255,
           "@cds.persistence.name": "DESCRIPTION"
+        },
+        "ContentSourceStatus": {
+          "indexNo": 6,
+          "type": "cds.Association",
+          "target": "Admin.ContentSourceStatus",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceStatus.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCESTATUS"
         }
       },
       "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCESTATUS"
@@ -1472,6 +1621,198 @@
         }
       },
       "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_FEEDTYPE"
+    },
+    "Admin.TextDetailModel.ChargeType": {
+      "kind": "entity",
+      "elements": {
+        "chargeTypeID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CHARGETYPEID"
+        },
+        "locale": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "ChargeType": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "Admin.DropdownValueModel.ChargeType",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ChargeType.chargeTypeID"
+              },
+              {
+                "=": "chargeTypeID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CHARGETYPE"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CHARGETYPE"
+    },
+    "Admin.TextDetailModel.FreightCostCode": {
+      "kind": "entity",
+      "elements": {
+        "freightCostCodeID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "FREIGHTCOSTCODEID"
+        },
+        "locale": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "FreightCostCode": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "Admin.DropdownValueModel.FreightCostCode",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "FreightCostCode.freightCostCodeID"
+              },
+              {
+                "=": "freightCostCodeID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "FREIGHTCOSTCODE"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_FREIGHTCOSTCODE"
+    },
+    "Admin.TextDetailModel.DaysInTransitType": {
+      "kind": "entity",
+      "elements": {
+        "daysInTransitTypeID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "DAYSINTRANSITTYPEID"
+        },
+        "locale": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "DaysInTransitType": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "Admin.DropdownValueModel.DaysInTransitType",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "DaysInTransitType.daysInTransitTypeID"
+              },
+              {
+                "=": "daysInTransitTypeID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "DAYSINTRANSITTYPE"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_DAYSINTRANSITTYPE"
+    },
+    "Admin.TextDetailModel.CommitmentTimeType": {
+      "kind": "entity",
+      "elements": {
+        "commitmentTimeTypeID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "COMMITMENTTIMETYPEID"
+        },
+        "locale": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "@Common.Label": "{i18n>description}",
+          "length": 255,
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "CommitmentTimeType": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "Admin.DropdownValueModel.CommitmentTimeType",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CommitmentTimeType.commitmentTimeTypeID"
+              },
+              {
+                "=": "commitmentTimeTypeID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "COMMITMENTTIMETYPE"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_COMMITMENTTIMETYPE"
     },
     "CatalogService": {
       "kind": "service",
@@ -2831,6 +3172,31 @@
           "@Common.Label": "{i18n>description}",
           "length": 255,
           "@cds.persistence.name": "DESCRIPTION"
+        },
+        "ContentSourceStatus": {
+          "origin": "Admin.TextDetailModel.ContentSourceStatus..ContentSourceStatus",
+          "indexNo": 6,
+          "value": {
+            "=": "ContentSourceStatus.ContentSourceStatus"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.ContentSourceStatuss",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceStatus.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCESTATUS"
         }
       },
       "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCESTATUSTEXTDETAILS"
@@ -3691,15 +4057,15 @@
           "length": 60,
           "@cds.persistence.name": "CARRIERMASTERID"
         },
-        "ID": {
-          "origin": "Admin.AssignmentModel.ContentSourceCarrier..ID",
+        "contentSourceCarrierID": {
+          "origin": "Admin.AssignmentModel.ContentSourceCarrier..contentSourceCarrierID",
           "indexNo": 3,
           "value": {
-            "=": "ContentSourceCarrier.ID"
+            "=": "ContentSourceCarrier.contentSourceCarrierID"
           },
           "type": "cds.String",
           "length": 60,
-          "@cds.persistence.name": "ID"
+          "@cds.persistence.name": "CONTENTSOURCECARRIERID"
         },
         "ContentSource": {
           "origin": "Admin.AssignmentModel.ContentSourceCarrier..ContentSource",
