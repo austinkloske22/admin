@@ -1,5 +1,6 @@
-ABF,en,ABF Freight System,true
-Estes,en,Estes,true
-FedEx,en,Federal Express,true
-TestCarrier,en,Test Carrier,true
-UPS,en,United Parcel Service,true
+USPS,en,United States Postal Service
+ABF,en,ABF Freight System
+Estes,en,Estes
+FedEx,en,Federal Express
+TestCarrier,en,Test Carrier
+UPS,en,United Parcel Service

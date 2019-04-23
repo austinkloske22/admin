@@ -26,6 +26,27 @@
 		}
 	},
 	{
+		"target_table": "ADMIN_CONTENTACTION",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentaction.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTACTIONID"
+				]
+		},
+		"column_mappings": {
+			"CONTENTACTIONID": 1
+		}
+	},
+	{
 		"target_table": "ADMIN_CONTENTSOURCE",
 		"source_data": {
 			"data_type": "CSV",
@@ -78,11 +99,12 @@
 			
 		}
 	},
+
 	{
-		"target_table": "ADMIN_CONTENTACTION",
+		"target_table": "ADMIN_CONTENTSOURCEVALUE",
 		"source_data": {
 			"data_type": "CSV",
-			"file_name": "contentaction.csv",
+			"file_name": "contentsourcevalue.csv",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -92,12 +114,58 @@
 		"import_settings": {
         	"include_filter" : [ ],			
 			"import_columns": [
-				"CONTENTACTIONID"
+				"CONTENTSOURCEID",
+				"CONTENTKEY",
+				"CONTENTVALUE",
 				]
 		},
 		"column_mappings": {
-			"CONTENTACTIONID": 1
+			"CONTENTSOURCEID": 1,
+			"CONTENTKEY": 2,
+			"CONTENTVALUE": 3
 		}
-	}
+	},
+	{
+		"target_table": "ADMIN_ERRORMESSAGE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "errormessage.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"ERRORMESSAGEID"
+				]
+		},
+		"column_mappings": {
+			"ERRORMESSAGEID": 1
+		}
+	},
+	{
+		"target_table": "ADMIN_FEEDTYPE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "feedtype.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"FEEDTYPEID"
+				]
+		},
+		"column_mappings": {
+			"FEEDTYPEID": 1
+		}
+	},
 	]
 }
