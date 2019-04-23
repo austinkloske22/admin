@@ -1,1073 +1,1073 @@
-renewal,Renewal
-account-number-correction-charge,Account Number Correction Charge
-dividend,Dividend
-activation-of-carnet,Activation of Carnet
-overpayment,Overpayment
-suspense,Suspense
-balance-forward,Balance Forward
-dividend-interest,Dividend Interest
-add-on-destination,Add on - Destination
-loan-interest,Loan Interest
-premium-waiver,Premium Waiver
-add-on-origin,Add on - Origin
-dividend-adjustment,Dividend Adjustment
-interest,Interest
-address-correction,Address Correction
-advance-destination-amount,Advance Destination Amount
-integrated-business-services-ibs-service-charge,Integrated Business Services (IBS) Service Charge
-special-packaging,Special Packaging
-box-liners,Box Liners
-product-personalization,Product Personalization
-advance-destination-fee,Advance Destination Fee
-tape-charges,Tape Charges
-subject-to-tax,Subject to Tax
-advance-origin-amount,Advance Origin Amount
-advance-origin-fee,Advance Origin Fee
-advance-fee,Advance Fee
-agent-disbursement-destination,Agent Disbursement - Destination
-agent-disbursement-fee-destination,Agent Disbursement Fee - Destination
-agent-disbursement-origin,Agent Disbursement - Origin
-agent-disbursement-fee-origin,Agent Disbursement Fee - Origin
-air-export-certificate,Air Export Certificate
-air-express-charge,Air Express Charge
-air-transportation-charge,Air Transportation Charge
-airline-opening-fee,Airline Opening Fee
-airport-tax-destination,Airport Tax - Destination
-airport-tax-origin,Airport Tax - Origin
-airport-terminal-handling-charge,Airport Terminal Handling Charge
-acknowledgement-of-delivery-fee-aod,Acknowledgement of Delivery Fee (AOD)
-amending-export-documentation,Amending Export Documentation
-assembly-fee,Assembly Fee
-banking-drafts,Banking Drafts
-cables-sending-of,Cables (sending of)
-call-tag,Call Tag
-canadian-c-q-customs-clearance,Canadian C.Q.Customs Clearance
-canadian-currency-exchange,Canadian Currency Exchange
-canadian-import-termination-fee,Canadian Import Termination Fee
-canadian-reconsignment-fee,Canadian Reconsignment Fee
-canadian-remanifest-fee,Canadian Remanifest Fee
-certificate-of-origin,Certificate of Origin
-certificate-of-registration,Certificate of Registration
-chamber-of-commerce-service-charge,Chamber of Commerce Service Charge
-change-of-airbill-service-fee,Change of Airbill - Service Fee
-chemical-milling-charge,Chemical Milling Charge
-city-terminal-charge,City Terminal Charge
-collect-surcharge,Collect Surcharge
-constant-surveillance-service,Constant Surveillance Service
-consular-legalization-service,Consular Legalization Service
-consularization-fee,Consularization Fee
-constant-surveillance-service-armed,Constant Surveillance Service - Armed
-credit,Credit
-customer-account-identification,Customer Account Identification
-customs-broker-fee,Customs Broker Fee
-customs-invoice,Customs Invoice
-customs-invoice-additional-page,Customs Invoice - Additional Page
-data-drawing-charge,Data/Drawing Charge
-delivery-surcharge,Delivery Surcharge
-development-charge,Development Charge
-discount-drop-box-convenience-ctr,Discount - Drop Box/Convenience Ctr.
-discount-incentive,Discount - Incentive
-discount-multiple-shipment,Discount - Multiple Shipment
-discount-service-option-delivery,Discount - Service Option (Delivery)
-discount-service-option-pickup,Discount - Service Option (Pickup)
-discount-special,Discount - Special
-contingency-credit-charge,Contingency Credit Charge
-distribution-fee,Distribution Fee
-dry-ice,Dry Ice
-duty-charge,Duty Charge
-endorsement-fee,Endorsement Fee
-eur1-presentation-fee,Eur1 Presentation Fee
-excise-tax-destination,Excise Tax - Destination
-excise-tax-origin,Excise Tax - Origin
-expedited-one-day-consular-service,Expedited One Day Consular Service
-expedited-shipments,Expedited Shipments
-extra-copies-and-mailings,Extra Copies and Mailings
-export-customs-clearance,Export Customs Clearance
-export-declarations-automated,Export Declarations - Automated
-export-declarations-u-s-shippers,Export Declarations - U.S. Shippers
-export-license-application,Export License Application
-extra-service-counter-to-counter,Extra Service - Counter-to-Counter
-facsimile-charges,Facsimile Charges
-facsimile-charges-additional-pages,Facsimile Charges - Additional Pages
-failed-lamp-panel-charge,Failed Lamp Panel Charge
-first-article-charge,First Article Charge
-free-domicile-shipment-processing,Free Domicile Shipment Processing
-freight,Freight
-fuel-surcharge,Fuel Surcharge
-government-warehouse-fee-destination,Government Warehouse Fee - Destination
-government-warehouse-fee-origin,Government Warehouse Fee - Origin
-grain-flow-charge,Grain Flow Charge
-hazardous-materials-handling-fee-domestic,Hazardous Materials Handling Fee - Domestic
-hazardous-materials-handling-fee-international,Hazardous Materials Handling Fee - International
-heat-treat-charge,Heat Treat Charge
-iata-airbill-preparation,IATA Airbill Preparation
-iata-fee,IATA Fee
-import-service-fee,Import Service Fee
-insurance-fee,Insurance Fee
-inland-transportation,Inland Transportation
-insurance-premium,Insurance Premium
-international-door-to-door-handling-fee,International Door-to-Door Handling Fee
-incorrect-billing-account-charge,Incorrect Billing Account Charge
-italian-release-charge,Italian Release Charge
-letter-of-credit-processing,Letter of Credit Processing
-mailing-postage-cost,Mailing - Postage Cost
-mailing-service-fee,Mailing - Service Fee
-messenger-service,Messenger Service
-minimum-air-transportation-charge,Minimum Air Transportation Charge
-miscellaneous-destination,Miscellaneous - Destination
-miscellaneous-origin,Miscellaneous - Origin
-missing-account-nbr-charge,Missing Account NBR Charge
-offshore-alaska-hawaii,Offshore - Alaska/Hawaii
-on-hand-service,On Hand Service
-oversized-premium,Oversized Premium
-passing-shippers-export-entry,Passing Shippers Export Entry
-pickup-out-of-area,Pickup - Out of Area
-pickup-surcharge,Pickup Surcharge
-pre-positioned-inventory-service,Pre-Positioned Inventory Service
-preparation-of-air-waybill-origin,Preparation of Air Waybill - Origin
-preparation-of-canadian-customs-invoice,Preparation of Canadian Customs Invoice
-preparation-of-commercial-invoice,Preparation of Commercial Invoice
-preparation-of-export-entry,Preparation of Export Entry
-preparation-of-insurance-certificate,Preparation of Insurance Certificate
-priority-service,Priority Service
-preparation-of-u-s-export-documentation,Preparation of U.S. Export Documentation
-processing-charge,Processing Charge
-rebilled-drayage-destination,Rebilled Drayage - Destination
-re-bill-charge,Re-Bill Charge
-proforma-invoice,Proforma Invoice
-recipient-address-correction,Recipient Address Correction
-rebilled-drayage-origin,Rebilled Drayage - Origin
-record-filing,Record/Filing
-recovery-fee,Recovery Fee
-recrating-recoopering-destination,Recrating/Recoopering - Destination
-recrating-recoopering-origin,Recrating/Recoopering - Origin
-registration-of-export-shipments,Registration of Export Shipments
-registration-of-export-for-reentry,Registration of Export for Reentry
-reliability-charge,Reliability Charge
-restricted-article-fee,Restricted Article Fee
-repickup,Repickup
-saturday-delivery,Saturday Delivery
-saturday-pick-up,Saturday Pick-Up
-security-signature-service,Security Signature Service
-service-upgrade,Service Upgrade
-special-delivery,Special Delivery
-special-handling-service,Special Handling Service
-special-pickup,Special Pickup
-special-test-equipment-charge,Special Test Equipment Charge
-special-tooling-charge,Special Tooling Charge
-special-vehicle-rent,Special Vehicle Rent
-stamp-fee,Stamp Fee
-straightening-charge,Straightening Charge
-telephone-destination,Telephone - Destination
-telephone-origin,Telephone - Origin
-terminal-service-fee,Terminal Service Fee
-test-qualification-charge,Test/Qualification Charge
-tooling-rework-charge,Tooling Rework Charge
-tracing-inbound-via-other-carriers,Tracing Inbound Via Other Carriers
-tracing-service-fee,Tracing Service Fee
-transfer-of-lading-charge,Transfer of Lading Charge
-valuation-fee,Valuation Fee
-value-added-tax-vat,Value Added Tax (VAT)
-waybill-and-invoice-distribution,Waybill and Invoice Distribution
-written-proof-of-delivery,Written Proof of Delivery
-x-ray-charge,X-ray Charge
-other-see-related-description,Other (See related description)
-advertising-allowance,Advertising Allowance
-adjustments,Adjustments
-additional-material,Additional Material
-allowance-non-performance,Allowance Non-performance
-allowance-advance,Allowance Advance
-attendants-accompanying,Attendants Accompanying
-handling-charge-tax,Handling Charge Tax
-alcoholic-beverage-report-charge,Alcoholic Beverage Report Charge
-attachments-to-bill-of-lading-charge,Attachments to Bill of Lading Charge
-allegheny-county-pa-delivery-charge,"Allegheny County, PA Delivery Charge"
-access-charge-federal,Access Charge - Federal
-access-charges,Access Charges
-actual-labor-charge,Actual Labor Charge
-access-charge-state,Access Charge - State
-advance-charges-handling,Advance Charges Handling
-advance-loading-charge,Advance Loading Charge
-advances,Advances
-additional-copies-of-freight-bill,Additional Copies of Freight Bill
-collect-on-delivery-alteration-charge,Collect on Delivery Alteration Charge
-armed-guard-service,Armed Guard Service
-additional-injection-blending-service-charge,Additional Injection/Blending Service Charge
-air-freight-consolidation,Air Freight - Consolidation
-air-freight,Air Freight
-advance-lading-charge,Advance Lading Charge
-use-of-alternate-port,Use of Alternate Port
-adjustment-for-maximum-charges-billing,Adjustment for Maximum Charges Billing
-absolute-minimum-charge,Absolute Minimum Charge
-adjustment-for-minimum-average-time-requirement-billing,Adjustment for Minimum Average Time Requirement Billing
-adjustment-for-minimum-charges-billing,Adjustment for Minimum Charges Billing
-anchoring-and-unanchoring,Anchoring and Unanchoring
-anodizing-charge,Anodizing Charge
-appliance-servicing,Appliance Servicing
-appointment-notification,Appointment (Notification)
-arbitrary-in-addition-to-through-rates-and-charges,Arbitrary (In Addition to Through Rates and Charges)
-air-conditioning-disconnect-and-connect,Air Conditioning Disconnect and Connect
-rail-armed-guard-service,Rail Armed Guard Service
-air-ride-tractor-service-charge,Air Ride Tractor Service Charge
-assembly-charge,Assembly Charge
-auxiliary-service,Auxiliary Service
-ad-valorem,Ad Valorem
-beaming-charge,Beaming Charge
-brokerage-or-duty,Brokerage or Duty
-buyers-car-allowance,Buyers Car Allowance
-bad-debt,Bad Debt
-both-flat,Both-Flat
-broken-package-charge,Broken Package Charge
-base-charge,Base Charge
-break-bulk-surface-charge,Break Bulk Surface Charge
-bordeaux-arbitraries,Bordeaux Arbitraries
-beyond-freight-charges,Beyond Freight Charges
-bedding-feeding-disinfecting,Bedding/Feeding/Disinfecting
-bulky-article,Bulky Article
-bill-of-lading-attendancy,Bill of Lading Attendancy
-bill-of-lading-charge,Bill of Lading Charge
-billed-demand,Billed Demand
-blocking-and-bracing-charge,Blocking and Bracing Charge
-blower-charge,Blower Charge
-bond-charges,Bond Charges
-bobtail-charges,Bobtail Charges
-bop-sheet-charge,Bop Sheet Charge
-basic-reorder-allowance,Basic Reorder Allowance
-bridge-toll,Bridge Toll
-aqua-train,Aqua Train
-bunker-surcharge,Bunker Surcharge
-broker-selection-surcharge,Broker Selection Surcharge
-bi-level-tri-level-charges,"Bi-level, Tri-level Charges"
-bunker-adjustment-20-foot-container,Bunker Adjustment - 20 Foot Container
-bunker-adjustment-40-foot-container,Bunker Adjustment - 40 Foot Container
-bunker-adjustment,Bunker Adjustment
-bureau-report-charge,Bureau Report Charge
-beyond-charge,Beyond Charge
-currency-adjustment-break-bulk,Currency Adjustment - Break Bulk
-currency-adjustment-20-foot-container,Currency Adjustment - 20 Foot Container
-currency-adjustment-40-foot-container,Currency Adjustment - 40 Foot Container
-cancellation-charge,Cancellation Charge
-cash-discount,Cash Discount
-certification-fee,Certification Fee
-co-manufacturing-discount,Co-manufacturing Discount
-competitive-allowance,Competitive Allowance
-competitive-car-allowance,Competitive Car Allowance
-compressor-charge,Compressor Charge
-crafting,Crafting
-customer-equipment-allowance,Customer Equipment Allowance
-cutting-charge,Cutting Charge
-co-op-credit,Co-op Credit
-car-loading,Car Loading
-contract-escalation,Contract Escalation
-car-rental,Car Rental
-container-deposits,Container Deposits
-contract-allowance,Contract Allowance
-cooperative-advertising-merchandising-allowance-performance,Cooperative Advertising/Merchandising Allowance (Performance)
-claims-commercial-auto-report-charge,Claims Commercial Auto Report Charge
-copy-of-bill-of-lading-charge,Copy of Bill of Lading Charge
-cents-off,Cents Off
-competitive-price,Competitive Price
-carrier,Carrier
-container-allowance,Container Allowance
-city-sales-tax-only,City Sales Tax (Only)
-carrier-credit-allowance,Carrier Credit Allowance
-certification-charge,Certification Charge
-claims-commercial-property-report-charge,Claims Commercial Property Report Charge
-concession-credit,Concession Credit
-carrier-caboose-charge,Carrier Caboose Charge
-carrier-debit-allowance,Carrier Debit Allowance
-corrosion-additive-service-charge,Corrosion Additive Service Charge
-cancelled-order-heavy-duty-flatcar,"Cancelled Order, Heavy Duty Flatcar"
-copy-of-delivery-receipt-charge,Copy of Delivery Receipt Charge
-container-service-charge-uk-eur,Container Service Charge UK/EUR
-customs-fees-container-level,Customs Fees - Container Level
-customs-fees-lift-level,Customs Fees - Lift Level
-carrier-guard-car-charge,Carrier Guard Car Charge
-canada-great-lakes-additionals,Canada Great Lakes Additionals
-return-carrier-guard-car-charge,Return Carrier Guard Car Charge
-cargo-taxes,Cargo Taxes
-chassis-equipment-lease-charge,Chassis Equipment Lease Charge
-charges-forward-advance-charge,Charges Forward/Advance Charge
-chain-and-binders,Chain and Binders
-special-circus-trains,Special Circus Trains
-constant-surveillance,Constant Surveillance
-chicago-loop-charge,Chicago Loop Charge
-container-loss-damage,Container Loss/Damage
-cleaning-charge,Cleaning Charge
-container-leasing,Container Leasing
-concession-money,Concession Money
-city-maintenance-fee,City maintenance fee
-continuous-mileage,Continuous Mileage
-camp-arbitrary,Camp Arbitrary
-consolidation,Consolidation
-converting,Converting
-commission-amount,Commission Amount
-connect-charge,Connect Charge
-cod-amount,COD Amount
-ocean-freight,Ocean Freight
-fee-for-collecting-cod-charge,Fee for Collecting COD Charge
-combination,Combination
-congestion-surcharge,Congestion Surcharge
-port-changes,Port Changes
-core-charge,Core Charge
-consignee-unload,Consignee Unload
-claims-personal-auto-report-charge,Claims Personal Auto Report Charge
-copilot-service-charge,Copilot Service Charge
-computer-processing-expense,Computer Processing Expense
-claims-personal-property-report-charge,Claims Personal Property Report Charge
-cost-recovery-adjustment,Cost recovery/adjustment
-cost-recovery-factor,Cost Recovery Factor
-court-reporter-charge,Court Reporter Charge
-credit-report-charge,Credit Report Charge
-courier-services,Courier Services
-closing-and-sealing,Closing & Sealing
-contract-service-charge,Contract Service Charge
-customs-entry,Customs Entry
-customs-formalities,Customs Formalities
-government-caboose-charge,Government Caboose Charge
-conservation-research-fee,Conservation research fee
-cassette,Cassette
-container-trailer-allowance,Container/Trailer Allowance
-container-service-charge-usa-canada,Container Service Charge USA/Canada
-customer-required-special-truck-at-destination,Customer Required Special Truck at Destination
-court-or-trial-expense,Court or Trial Expense
-chassis-transfer,Chassis Transfer
-cartage-charge,Cartage Charge
-controlled-atmosphere,Controlled Atmosphere
-customer-required-special-truck-at-origin,Customer Required Special Truck at Origin
-circuitous-routing-charge,Circuitous Routing Charge
-customs-exams-intensive-tailgate,"Customs Exams (Intensive, Tailgate)"
-currency-adjustment,Currency Adjustment
-currency-discount,Currency Discount
-currency-adjustment-factor,Currency Adjustment Factor
-customer-paid-deductible,Customer Paid Deductible
-customs-charge,Customs Charge
-deficit-freight,Deficit Freight
-deposit,Deposit
-distributor-discount-allowance,Distributor Discount/Allowance
-drum-up-charge,Drum Up Charge
-damaged-merchandise,Damaged Merchandise
-dockage-boat-detention,Dockage - Boat Detention
-double-wide-separate-and-reassemble,Double Wide Separate and Reassemble
-delivery-of-fuel-from-barge-to-pipeline-charge,Delivery of Fuel from Barge to Pipeline Charge
-damage-to-carrier-equipment,Damage to Carrier Equipment
-disconnect-charge,Disconnect charge
-city-delivery,City Delivery
-damage-to-carrier-vessel,Damage to Carrier Vessel
-defective-allowance,Defective Allowance
-drum-cost,Drum Cost
-drum-deposit,Drum Deposit
-dowel-pin-charge,Dowel Pin Charge
-dual-driver-with-national-agency-check,Dual Driver with National Agency Check
-dual-driver-protectice-service,Dual Driver Protectice Service
-deaf-and-disabled-surcharge,Deaf and Disabled Surcharge
-drayage-at-port-of-debarkation-zone-rate,Drayage at Port of Debarkation (Zone Rate)
-demurrage-average-agreement,Demurrage - Average Agreement
-deductible,Deductible
-delivery-charge,Delivery Charge
-demurrage,Demurrage
-detention-of-power-units,Detention of Power Units
-derrick-charge,Derrick Charge
-demurrage-special,Demurrage - Special
-detention-of-trailers,Detention of Trailers
-texas-rail-commission-deviation-charge,Texas Rail Commission Deviation Charge
-detention-without-power-unit,Detention Without Power Unit
-drayage-at-port-of-embarkation-zone-rate,Drayage at Port of Embarkation (Zone Rate)
-keep-from-freezing-percent-differential,Keep from Freezing Percent Differential
-410-dromedary-with-mechanical-restraining-devices-charge,410 Dromedary with Mechanical Restraining Devices Charge
-410-dromedary,410 Dromedary
-delay-furnishing-destination-weights,Delay Furnishing Destination Weights
-damage-to-government-equipment,Damage to Government Equipment
-dangerous-goods-surcharge,Dangerous Goods Surcharge
-diversion-charge,Diversion Charge
-direct-repair,Direct Repair
-distribution-service,Distribution Service
-diversion-and-reconsignment,Diversion and Reconsignment
-drayage-line-haul,Drayage/Line Haul
-delivery-of-fuel-from-rail-tank-car-to-pipeline-charge,Delivery of Fuel from Rail Tank Car to Pipeline Charge
-deadhead-mileage-charge,Deadhead Mileage Charge
-demand-charge,Demand charge
-dunnage-allowance,Dunnage Allowance
-documentation-charge,Documentation Charge
-deposit-in-lieu-of-order,Deposit in Lieu of Order
-container-diversion,Container Diversion
-delivery-of-fuel-from-pipeline-to-barge-charge,Delivery of Fuel from Pipeline to Barge Charge
-drayage-at-port-of-debarkation,Drayage at Port of Debarkation
-drayage-at-port-of-embarkation,Drayage at Port of Embarkation
-delivery-of-fuel-from-pipeline-to-rail-tank-car-charge,Delivery of Fuel from Pipeline to Rail Tank Car Charge
-depreciation,Depreciation
-delivery-of-fuel-from-pipeline-to-tank-truck-or-trailer-charge,Delivery of Fuel from Pipeline to Tank Truck or Trailer Charge
-detention-with-power-units-30-minute-periods-charge,Detention with Power Units (30 minute periods) Charge
-drayage,Drayage
-deramping,Deramping
-driver-license-record-report-charge,Driver License Record Report Charge
-dryer-charge,Dryer Charge
-discount,Discount
-detention-special-type-flat-car,Detention - Special Type Flat Car
-dromedary-with-mechanical-restraining-devices-charge,Dromedary with Mechanical Restraining Devices Charge
-dromedary-service-charge,Dromedary Service Charge
-container-destuffing,Container Destuffing
-diversion-to-air-charge,Diversion to Air Charge
-detention-labor,Detention (Labor)
-destination-charge,Destination Charge
-destination-duty,Destination Duty
-destination-inland-freight,Destination Inland Freight
-detention-loading,Detention Loading
-delivery-of-fuel-from-tank-truck-or-trailer-to-pipeline-charge,Delivery of Fuel from Tank Truck or Trailer to Pipeline Charge
-detention-unloading,Detention Unloading
-detention-vehicle,Detention (Vehicle)
-drivers-wages,Driver's Wages
-detention-with-power-units-60-minute-periods-charge,Detention with Power Units (60 minute periods) Charge
-exchange-access-credit,Exchange Access Credit
-extra-axles,Extra Axles
-exhibition-delivery-charge,Exhibition Delivery Charge
-exhibition-pickup-charge,Exhibition Pickup Charge
-will-call-charge,Will Call Charge
-escort-courier-service-charge,Escort/Courier Service Charge
-empty-railcar-ordered-but-not-used-charge,Empty Railcar Ordered But Not Used Charge
-equipment-hose-at-destination-charge,Equipment Hose at Destination Charge
-equipment-hose-at-origin-charge,Equipment Hose at Origin Charge
-early-buy-allowance,Early Buy Allowance
-early-payment-allowance,Early Payment Allowance
-escalation,Escalation
-expediting-fee,Expediting Fee
-one-time-engineering-charge,One Time Engineering Charge
-engineering-charge,Engineering Charge
-expediting-premium,Expediting Premium
-export-shipping-charge,Export Shipping Charge
-export-import-charge,Export/Import Charge
-extra-lights,Extra Lights
-emergency-response-service,Emergency Response Service
-emergency-surcharge,Emergency Surcharge
-empty-movement,Empty Movement
-energy-charge,Energy charge
-energy-surcharge-fuel-adjustment-factor,Energy Surcharge (Fuel Adjustment Factor)
-emergency-port-charge,Emergency Port Charge
-environmental-protection-service,Environmental Protection Service
-empty-return,Empty Return
-satisfactory-service-standards-charge,Satisfactory Service Standards Charge
-early-ship-allowance,Early Ship Allowance
-emergency-service,Emergency Service
-estimated-customs-duty-dutypaid-charge,Estimated Customs Duty (Dutypaid - Charge)
-external-service-expense,External Service Expense
-empty-trailer-returned-charge,Empty Trailer Returned Charge
-european-port-charges,European Port Charges
-excessive-value-charge,Excessive Value Charge
-exclusive-use-charge,Exclusive Use Charge
-extra-driver,Extra Driver
-extra-length,Extra Length
-excess-mileage-charge,Excess Mileage Charge
-expedited-service-charge,Expedited Service Charge
-excess-periods,Excess Periods
-excess-weight,Excess Weight
-expando-remove-and-install,Expando Remove and Install
-f-e-t-federal-excise-tax,F.E.T. Federal Excise Tax
-f-e-t-percent,F.E.T. (Percent)
-f-e-t-dollar-value,F.E.T. (Dollar Value)
-fabrication-charge,Fabrication Charge
-f-e-t-tires,F.E.T. Tires
-freight-equalization,Freight Equalization
-freight-surcharge,Freight Surcharge
-barge-freight-all-kinds-service,Barge Freight All Kinds Service
-freight-based-on-dollar-minimum,"Freight, Based on Dollar Minimum"
-freight-charges-to-border,Freight Charges to Border
-freight-charges-to-destination,Freight Charges to Destination
-freight-charges-inbound-and-outbound,Freight Charges Inbound and Outbound
-furnishing-chassis,Furnishing Chassis
-food-and-lodging,Food and Lodging
-financial-document-surcharge,Financial Document Surcharge
-fuel-filters-furnished-by-carrier-charge,Fuel Filters Furnished by Carrier Charge
-finance-charge,Finance Charge
-freshness-leaker-allowance,Freshness/Leaker Allowance
-special-finish-charge,Special Finish Charge
-freight-passthrough,Freight Passthrough
-flat-rate,Flat Rate
-fuel-filters-furnished-by-shipper-charge,Fuel Filters Furnished by Shipper Charge
-fire-report,Fire Report
-flatrack-surcharge,Flatrack Surcharge
-ferry-service,Ferry Service
-foreign-military-sales-fms-rental,Foreign Military Sales (FMS) Rental
-foreign-military-sales-fms-special-charge,Foreign Military Sales (FMS) Special Charge
-franchise-fee,Franchise fee
-federal-transfer-surcharge,Federal Transfer Surcharge
-filtration-service-charge,Filtration Service Charge
-fuel-charge,Fuel Charge
-forwarding-agent-commission,Forwarding Agent Commission
-forwarding-charge,Forwarding Charge
-texas-rail-commission-fixed-charge,Texas Rail Commission Fixed Charge
-garment-district,Garment District
-gate-inspection-charge-intermodal,Gate Inspection Charge (Intermodal)
-grain-doors,Grain Doors
-glaze-allowance,Glaze Allowance
-gold-factor,Gold Factor
-gasket,Gasket
-garment-surcharge,Garment Surcharge
-government-owned-containers,Government-owned Containers
-gulf-port-delivery-charge,Gulf Port Delivery Charge
-groupage-discount,Groupage Discount
-gross-receipts-surcharge,Gross Receipts Surcharge
-government-guard-car-charge,Government Guard Car Charge
-greater-security-service,Greater Security Service
-goods-and-services-tax-charge,Goods and Services Tax Charge
-handling-charges-on-distribution-freight-forwarded-beyond,Handling Charges on Distribution Freight Forwarded Beyond
-hazardous-cargo-charge,Hazardous Cargo Charge
-harbor-dues,Harbor Dues
-heavy-duty-flat-car-charge,Heavy Duty Flat Car Charge
-holding-charge,Holding Charge
-shipment-holdover-charge-for-holidays,Shipment Holdover Charge for Holidays
-shipment-holdover-charge-for-weekends,Shipment Holdover Charge for Weekends
-heat-in-transit-charges,Heat in Transit Charges
-handling-freight-at-positions-not-immediately-adjacent-to-vehicle-charge,Handling Freight At Positions Not Immediately Adjacent To Vehicle Charge
-hauling-and-hoisting-to-be-direct-billed,Hauling and Hoisting to be Direct Billed
-handling,Handling
-household-goods-pick-up-or-delivery,Household Goods Pick-up or Delivery
-highway-interchange,Highway Interchange
-home-line-freight-charge,Home Line Freight Charge
-accessible-hazardous-material,Accessible Hazardous Material
-inaccessible-hazardous-material,Inaccessible Hazardous Material
-hook-up-charge,Hook-up charge
-sunday-or-holiday-pick-up-or-delivery,Sunday or Holiday Pick-up or Delivery
-hose-charge,Hose Charge
-hose-charge-special,Hose Charge Special
-heater-or-refrigeration,Heater or Refrigeration
-high-security-red-in-bond-seal-charge,High Security Red In-bond Seal Charge
-heavy-lift,Heavy Lift
-hazardous-materials-surcharge-charge,Hazardous Materials Surcharge Charge
-hazardous-cargo-on-deck,Hazardous Cargo on Deck
-hazardous-storage,Hazardous Storage
-industry-price-allowance,Industry Price Allowance
-income-freight-manufacturing-to-shipping-point,Income Freight (Manufacturing to Shipping Point)
-inspection-fee,Inspection Fee
-cooling-service,Cooling Service
-idler-car-charge,Idler Car Charge
-improper-documentation,Improper Documentation
-inside-delivery,Inside Delivery
-interdivision-profit,Interdivision Profit
-inbound-freight-charges,Inbound Freight Charges
-interstate-highway-toll,Interstate/Highway Toll
-invoice-adjustment,Invoice Adjustment
-icing-inhibitor-charge,Icing Inhibitor Charge
-item-percentage,Item Percentage
-item-unit,Item-Unit
-island-delivery-charge,Island Delivery Charge
-initial-license-fee,Initial License Fee
-island-pick-up-charge,Island Pick-Up Charge
-impactographs,Impactographs
-intermodal-shipment-service-charge,Intermodal Shipment Service Charge
-insurance-surcharge,Insurance Surcharge
-interplant-charge,Interplant Charge
-interest-on-refund,Interest on refund
-insurance,Insurance
-interpreter-expense,Interpreter Expense
-intra-plant-charge,Intra-plant Charge
-inside-pick-up,Inside Pick-up
-irish-arbitraries,Irish Arbitraries
-interest-on-security-deposit,Interest on security deposit
-intermodal-storage-origin,Intermodal Storage (Origin)
-intermodal-storage-destination,Intermodal Storage (Destination)
-insulated-tank-charge,Insulated Tank Charge
-interline-transfer-charge,Interline Transfer Charge
-junction-settlement-charge,Junction Settlement Charge
-glass-kit,Glass Kit
-labor-charges,Labor Charges
-extra-labor-helper-service,Extra Labor (Helper Service)
-lading-adjustment-charge,Lading Adjustment Charge
-labor-repair-and-return-orders,Labor (Repair and Return Orders)
-one-time-license-fee,One-Time License Fee
-labor-adjustment-allowance,Labor Adjustment Allowance
-license-and-title,License and Title
-layover-charges,Layover Charges
-light-bar-service-charge,Light Bar Service Charge
-land-currency-adjustment-factor-20-foot-container,Land Currency Adjustment Factor - 20 Foot Container
-land-currency-adjustment-factor-40-foot-container,Land Currency Adjustment Factor - 40 Foot Container
-late-order-charge,Late Order Charge
-percent-differential-less-than-container,Percent Differential - Less than Container
-labor-cost-of-removal,Labor Cost of Removal
-loading-allowance,Loading Allowance
-loading,Loading
-unloading-allowance,Unloading Allowance
-locomotive-delayed-in-switching-service,Locomotive Delayed in Switching Service
-less-than-container,Less than Container
-lift-charge-intermodal,Lift Charge (Intermodal)
-linehaul-from-port-of-debarkation,Linehaul from Port of Debarkation
-lift-gate-truck-or-forklift-service-at-pick-up-delivery,Lift Gate (Truck) or Forklift Service at Pick-up/Delivery
-lodging,Lodging
-linehaul-service,Linehaul Service
-recurring-license-fee,Recurring License Fee
-liability-of-carrier-charge,Liability of Carrier Charge
-limited-liability,Limited Liability
-lot-charge,Lot Charge
-lead-factor,Lead Factor
-loan-fee,Loan Fee
-local-sales-tax-all-applicable-sales-taxes-by-taxing-authorities-below-the-state-level,Local Sales Tax (All Applicable Sales Taxes by Taxing Authorities Below the State Level)
-labor-modify,"Labor, Modify"
-liner-terms-at-port-of-debarkation,Liner Terms at Port of Debarkation
-liner-terms-at-port-of-embarkation,Liner Terms at Port of Embarkation
-labor-no-trouble-found,"Labor, No Trouble Found"
-loading-labor-charges,Loading (Labor Charges)
-local-delivery-drayage,Local Delivery/Drayage
-late-payment-charge,Late payment charge
-linehaul-percent-differential,Linehaul Percent Differential
-laboratory-pack-fee,Laboratory Pack Fee
-liquidated-damages,Liquidated Damages
-labor-service,Labor Service
-lashing,Lashing
-lifeline-surcharge,Lifeline Surcharge
-labor-test-and-calibrate,"Labor, Test and Calibrate"
-linehaul-to-port-of-embarkation,Linehaul to Port of Embarkation
-lubricant-charge,Lubricant Charge
-locomotive-under-own-power,Locomotive Under Own Power
-leaking-underground-storage-tax-lust,Leaking underground storage tax (LUST)
-layover-service-charge,Layover Service Charge
-metals-surcharge,Metals Surcharge
-mileage-or-travel,Mileage or Travel
-mileage-fee-for-repair-and-return,Mileage Fee (For Repair and Return)
-minimum-order-minimum-billing-charge,Minimum Order/Minimum Billing Charge
-monthly-rental,Monthly Rental
-marriage-rule,Marriage Rule
-modified-atmosphere,Modified Atmosphere
-machining-charge,Machining Charge
-molding,Molding
-mount-demount,Mount/Demount
-meals-or-lodging-charge,Meals or Lodging Charge
-escort-service-with-overnight-subsistence,Escort Service with Overnight Subsistence
-escort-service,Escort Service
-escort-service-telephone,Escort Service (Telephone)
-manifest-charge,Manifest Charge
-manufacturing,Manufacturing
-message-rate-adjustment,Message Rate Adjustment
-message-charge,Message Charge
-minimum-charge,Minimum Charge
-special-mileage-movements,Special Mileage Movements
-minimum-guarantee,Minimum Guarantee
-markup-charge,Markup Charge
-minimum-bill-of-lading-charge,Minimum Bill of Lading Charge
-meals,Meals
-minimum-maximum-charge,Minimum/Maximum Charge
-mill-freight,Mill Freight
-market-development-funds,Market Development Funds
-metropolitan-transit-tax,Metropolitan Transit Tax
-notify-consignee,Notify Consignee
-motor-surveillance-service,Motor Surveillance Service
-miscellaneous-parts-charge,Miscellaneous Parts Charge
-marking-or-tagging-charge,Marking or Tagging Charge
-medical-report-charge,Medical Report Charge
-other-accessorial-service-charge,Other Accessorial Service Charge
-miscellaneous-charge,Miscellaneous Charge
-meter-charge,Meter Charge
-municipal-surcharge,Municipal Surcharge
-motor-vehicle-report-mvr-charge,Motor Vehicle Report (MVR) Charge
-special-motor-surveillance-charge,Special Motor Surveillance Charge
-venting-instructions,Venting Instructions
-non-generated-freight,Non Generated Freight
-new-store-allowance,New Store Allowance
-nozzle-charge,Nozzle Charge
-order-notify-charge,Order Notify Charge
-non-document-surcharge,Non-document Surcharge
-carrier-notification-charge,Carrier Notification Charge
-n-h-d-wharfage,N.H.D. Wharfage
-new-store-discount,New Store Discount
-new-warehouse-discount,New Warehouse Discount
-new-york-delivery-charge,New York Delivery Charge
-new-york-pick-up-charge,New York Pick-up Charge
-o-t-o-charge,O.T.O. Charge
-overrun-charge,Overrun Charge
-overtime-loading,Overtime Loading
-ocean-charges----hazardous,Ocean Charges -- Hazardous
-over-height-container,Over Height Container
-collect-on-delivery-deletion-charge,Collect on Delivery Deletion Charge
-official-report-charge,Official Report Charge
-fumigation,Fumigation
-on-carriage,On Carriage
-option-charge-color-fabric-office-furniture,Option Charge (Color Fabric Office Furniture)
-on-deck-break-bulk-differential,On Deck Break Bulk Differential
-order-flat,Order-Flat
-optional-charge,Optional Charge
-operator-credit,Operator Credit
-out-of-route-miles,Out of Route Miles
-outside-charge,Outside Charge
-optional-software-support-for-operational-support-systems,Optional Software Support for Operational Support Systems
-optional-software-support-for-switching-systems,Optional Software Support for Switching Systems
-out-of-zone-pick-up-or-delivery,Out of Zone Pick-up or Delivery
-over-dimension,Over Dimension
-over-width-container,Over Width Container
-percent-of-product,Percent of Product
-pump-air-charge,Pump Air Charge
-premium-charge,Premium Charge
-premium-transportation,Premium Transportation
-price-deviation,Price Deviation
-professional-fees,Professional Fees
-promotional-allowance,Promotional Allowance
-promotional-discount,Promotional Discount
-pump-charge,Pump Charge
-preparation-and-delivery,Preparation and Delivery
-parts-adjustment-allowance,Parts Adjustment Allowance
-parts-charge,Parts Charge
-priced-parts-charge,Priced Parts Charge
-pickup-of-shipments-on-saturday-sunday-and-or-holidays-requiring-absolute-next-day-delivery-charge,"Pickup of Shipments on Saturday, Sunday, and/or Holidays Requiring Next Day Delivery Charge"
-prior-billing-amount,Prior billing amount
-permits-bonds-escort-attendant,Permits Bonds Escort Attendant
-pier-charges-other-than-wharfage,Pier Charges Other Than Wharfage
-protective-service-charge,Protective Service Charge
-city-pick-up,City Pick-up
-prior-delivery-of-bill-charge,Prior Delivery Of Bill Charge
-preloading-charge,Preloading Charge
-pickup-and-delivery-from-storage-in-transit,Pickup and Delivery from Storage in Transit
-pickup-and-delivery-beyond-service-area-charge,Pickup and Delivery Beyond Service Area Charge
-pallet-exchange-charge,Pallet Exchange Charge
-penalty-charge,Penalty Charge
-permit-charge,Permit Charge
-power-factor-adjustment,Power Factor Adjustment
-photocopy,Photocopy
-photographs,Photographs
-pier-pick-up-and-or-delivery,Pier Pick-up and/or Delivery
-packing-surcharge,Packing Surcharge
-insurance-placement-cost-charge,Insurance Placement Cost Charge
-pallets-skids-platforms,Pallets/Skids/Platforms
-prior-month-credit,Prior Month Credit
-paint-and-materials,Paint and Materials
-pickup-of-shipments-requiring-same-day-delivery-service-charge,Pickup of Shipments Requiring Same Day Delivery Service Charge
-pickup-of-shipments-requiring-same-day-delivery-service-and-or-delivery-at-a-specified-time-charge,Pickup of Shipments Requiring Same Day Delivery Service and/or Delivery at Specified Time Charge
-normal-pump-charge,Normal Pump Charge
-special-pump-charge,Special Pump Charge
-prior-period-net-adjustment,Prior Period Net Adjustment
-piano-organ-carry,Piano/Organ Carry
-proof-of-delivery,Proof of Delivery
-police-report-charge,Police Report Charge
-positioning-at-origin,Positioning at Origin
-per-pound-charge,Per Pound Charge
-pickup-and-delivery-service-for-perishables-charge,Pickup and Delivery Service for Perishables Charge
-per-item-charge,Per Item Charge
-pick-up-allowance,Pick/Up Allowance
-precious-metal-content,Precious Metal Content
-pallet-charge,Pallet Charge
-per-order-charge,Per Order Charge
-performance-award,Performance Award
-placement-and-or-removal-charge,Placement and/or Removal Charge
-parish-county-sales-tax-only,Parish/County Sales Tax (only)
-prepaid-usage-allowance,Prepaid Usage Allowance
-prior-balance,Prior Balance
-pre-carriage,Pre-carriage
-pre-carriage-excess,Pre-carriage Excess
-parking,Parking
-prelodge-charge,Prelodge Charge
-premise-use,Premise Use
-prior-period-rebook,Prior Period Rebook
-prior-period-reversal,Prior Period Reversal
-protective-service-cold,Protective Service - Cold
-preparation-of-special-documents,Preparation of Special Documents
-protective-service-security-with-armed-guards,Protective Service Security with Armed Guards
-protective-service-heat,Protective Service - Heat
-protective-service-security,Protective Service Security
-postage,Postage
-tobacco-products-report-charge,Tobacco Products Report Charge
-protective-tarp-for-security-purposes,Protective Tarp for Security Purposes
-pick-up-charge,Pick-up Charge
-pick-up-and-delivery,Pick-up and Delivery
-pack-and-unpack,Pack and Unpack
-bonded-privately-owned-vehicle-charge,Bonded Privately Owned Vehicle Charge
-detention-of-privately-owned-vehicle-charge,Detention of Privately Owned Vehicle Charge
-inoperable-privately-owned-vehicle-charge,Inoperable Privately Owned Vehicle Charge
-loading-unloading-of-privately-owned-vehicle-charge,Loading/Unloading of Privately Owned Vehicle Charge
-privately-owned-vehicle-processing,Privately Owned Vehicle Processing
-stop-offs-for-privately-owned-vehicle-shipment-charge,Stop-offs for Privately Owned Vehicle Shipment Charge
-privately-owned-vehicle-in-truckaway-service-charge,Privately Owned Vehicle in Truckaway Service Charge
-pier-charges-wharfage,Pier Charges - Wharfage
-pallet-allowance,Pallet Allowance
-priority-service-charge,Priority Service Charge
-quantity-surcharge,Quantity Surcharge
-quantity-discount,Quantity Discount
-rebate,Rebate
-reclamation-federal,"Reclamation, Federal"
-reclamation-state,"Reclamation, State"
-recovery-allowance,Recovery Allowance
-redistribution-allowance,Redistribution Allowance
-rental-deduction,Rental Deduction
-repack-charge,Repack Charge
-retainer,Retainer
-resellers-discount,Resellers Discount
-restocking-charge,Restocking Charge
-royalties,Royalties
-roll-rebate,Roll Rebate
-ramping,Ramping
-no-return-credit-allowance,No Return Credit Allowance
-repair-at-buyers-expense-charge,Repair at buyers expense charge
-reconsignment-charge,Reconsignment Charge
-reconsign-consignee-charge,Reconsign Consignee Charge
-repair-at-customer-expense-charge,Repair at customer expense charge
-repair-at-government-expense-charge,Repair at government expense charge
-redelivery,Redelivery
-recoopering-at-owners-or-shippers-expense,Recoopering (at Owner's or Shipper's Expense)
-reconnect-charge,Reconnect charge
-reconsign-delivery-charge,Reconsign Delivery Charge
-research-and-development-fee,Research & development fee
-railhead-handling,Railhead Handling
-return-cargo-charge,Return Cargo Charge
-regulatory-fee,Regulatory Fee
-refrigeration,Refrigeration
-regulatory-tax,Regulatory tax
-requested-labor-charge,Requested Labor Charge
-residential-pick-up,Residential Pick-up
-request-via-canada,Request Via Canada
-residential-delivery,Residential Delivery
-returned-load,Returned Load
-refund,Refund
-reefer-maintenance,Reefer Maintenance
-regain-allowance,Regain Allowance
-regain-charge,Regain Charge
-recurring-hardware-maintenance-charge,Recurring Hardware Maintenance Charge
-riding-attendant-charge,Riding Attendant Charge
-released-value-charge-in-excess-of-carrier-maximum-liability-charge,Released Value Charge in Excess of Carrier Maximum Liability Charge
-retail-loss-allowance,Retail Loss Allowance
-rents-and-leases,Rents and Leases
-relinquishment-charge,Relinquishment Charge
-relocation-of-vehicle,Relocation of Vehicle
-rocky-mountain-bureau-583-item-1100-arbitrary-charge,Rocky Mountain Bureau 583 Item 1100 Arbitrary Charge
-return-of-empty-container-charge,Return of Empty Container Charge
-refrigeration-mechanical-detention,Refrigeration/Mechanical Detention
-return-movement-of-pallet-charge,Return Movement of Pallet Charge
-rail-surveillance,Rail Surveillance
-roll-out-adjustment,Roll Out Adjustment
-reduction-prepalletized-cargo,Reduction Prepalletized Cargo
-reefer-cargo-percent-differential,Reefer Cargo Percent Differential
-reel-cable,Reel Cable
-reel-deposit,Reel Deposit
-refurbishing-charge,Refurbishing Charge
-rental-charge,Rental Charge
-repair-charge,Repair Charge
-regulatory-required-refund,Regulatory required refund
-recurring-software-maintenance-charge,Recurring Software Maintenance Charge
-reshipment,Reshipment
-restricted-speeds,Restricted Speeds
-respotting,Respotting
-reservations,Reservations
-rate-code,Rate Code
-subject-to-cooperative-advertising-allowance,Subject to Cooperative Advertising Allowance
-shipping-and-handling,Shipping and Handling
-service-charge-with-cash-discount,Service Charge (with Cash Discount)
-scrap-allowance,Scrap Allowance
-shrink-wrap-charge,Shrink-Wrap Charge
-special-credit,Special Credit
-state-motor-fuel,State Motor Fuel
-stenciling-charge,Stenciling Charge
-super-fund-excise-tax,Super Fund Excise Tax
-surcharge-dollar-value,Surcharge (Dollar Value)
-surcharge-percentage,Surcharge (Percentage)
-stopcharge,Stopcharge
-state-sales-charge,State Sales Charge
-service-assistance-program-surcharge,Service Assistance Program Surcharge
-shipment-holdover-on-weekends-charge,Shipment Holdover on Weekends Charge
-saturday-pick-up-or-delivery-charge,Saturday Pick-up or Delivery Charge
-standby-charge,Standby Charge
-sublet,Sublet
-special-seal-charge,Special Seal Charge
-special-containers,Special Containers
-small-order-charge,Small Order Charge
-scale-charge,Scale Charge
-scale-charge-unloading,Scale Charge Unloading
-special-detention-charge,Special Detention Charge
-split-delivery,Split Delivery
-special-dromedary-service,Special Dromedary Service
-special-equipment-charge,Special Equipment Charge
-stairs-elevator-excess-carry,"Stairs, Elevator, Excess Carry"
-segregating-sorting,Segregating (Sorting)
-self-unloader,Self Unloader
-ship-exact-quantity-charge,Ship Exact Quantity Charge
-service-charge,Service Charge
-security-escort-vehicle-service,Security Escort Vehicle Service
-single-factor-origination-destination,Single Factor Origination/Destination
-stuffing-charge,Stuffing Charge
-single-factor-orginiation-port-of-debarkation,Single Factor Orginiation/Port of Debarkation
-single-factor-port-of-embarkation-destination,Single Factor Port of Embarkation/Destination
-special-train-movement,Special Train Movement
-single-pick-up,Single Pick-up
-shipment-holdover-on-holidays-charge,Shipment Holdover on Holidays Charge
-shipper-load,Shipper Load
-state-hazardous-substance-tax,State Hazardous Substance Tax
-shipment-holdover-on-weekdays-charge,Shipment Holdover on Weekdays Charge
-skirting-and-unskirting,Skirting and Unskirting
-street-lamps-charge,Street lamps charge
-slip-sheet-charge,Slip Sheet Charge
-state-metropolitan-transit-authority-surcharge,State/Metropolitan Transit Authority Surcharge
-satellite-surveillance-service,Satellite Surveillance Service
-shipment-from-non-temp-storage,Shipment from Non-temp Storage
-stop-off-charge,Stop-off Charge
-stop-off-at-pier-charge,Stop-off at Pier Charge
-special-allowance,Special Allowance
-special-buy,Special Buy
-special-permits,Special Permits
-spreader-charge,Spreader Charge
-spool-charge,Spool Charge
-split-pick-up-at-pier-charge,Split Pick-Up at Pier Charge
-special-freight-supplements,Special Freight Supplements
-spotting-of-trailer,Spotting of Trailer
-split-pick-up,Split Pick-up
-storage,Storage
-surveying-routes,Surveying Routes
-salvage,Salvage
-super-bag-charge,Super Bag Charge
-stripping-sorting-and-consolidation,"Stripping, Sorting, and Consolidation"
-single-shipment-fee,Single Shipment Fee
-select-charge,Select Charge
-pole-wood-service-charge,"Pole, Wood-service Charge"
-shipside-pickup,Shipside Pickup
-software-support-service,Software Support Service
-sales-tax-state-and-local,Sales Tax (State and Local)
-pole-lashing-equipment-ple-surcharge,Pole Lashing Equipment (PLE) Surcharge
-sales-and-use-tax,Sales and Use Tax
-conductivity-anti-static-additive,Conductivity/Anti-static Additive
-state-surcharge,State Surcharge
-stopoff-at-destination,Stopoff at Destination
-container-stuffing,Container Stuffing
-standard-labor-charge,Standard Labor Charge
-steaming-charge,Steaming Charge
-stowage-charge,Stowage Charge
-stopping-in-transit,Stopping in Transit
-stopoff-at-orgination,Stopoff at Orgination
-storage-in-transit,Storage in Transit
-special-tooling-rework-charge,Special tooling rework charge
-special-use,Special Use
-sufferance-warehouse-charge-export-or-import,Sufferance Warehouse Charge (Export or Import)
-supervisor-charge,Supervisor Charge
-surcharge,Surcharge
-single-invoice-allowance,Single Invoice Allowance
-manual-surveillance-of-shipment,Manual Surveillance of Shipment
-storage-of-vehicles,Storage of Vehicles
-switching-charge,Switching Charge
-telephone-charge,Telephone Charge
-tank-rental,Tank Rental
-temporary-allowance,Temporary Allowance
-tax-on-transportation,Tax on Transportation
-temporary-voluntary-allowance,Temporary Voluntary Allowance
-terminal-differential,Terminal Differential
-testing-charge,Testing Charge
-tool-charge,Tool Charge
-testing-allowance,Testing Allowance
-trade-in,Trade In
-transportation-and-setup,Transportation and Setup
-truckload-discount,Truckload Discount
-tarping-charge,Tarping Charge
-tax-charge,Tax Charge
-governmental-tax,Governmental Tax
-telegram-chargeback,Telegram Chargeback
-transportation-charge-minimum-rate,Transportation Charge (Minimum Rate)
-truck-detention,Truck Detention
-terminal-charge,Terminal Charge
-trimming-charge,Trimming Charge
-multi-tank-surveillance-service,Multi-Tank Surveillance Service
-tendering-of-multiple-vehicles,Tendering of Multiple Vehicles
-total-assessorial-charges,Total Assessorial Charges
-tofc-service-charge,TOFC Service Charge
-carrier-equipment-pool-charge,Carrier Equipment Pool Charge
-throughput-container-charge,Throughput Container Charge
-third-party-service,Third-Party Service
-travel-charge,Travel Charge
-trailer-rental-charge,Trailer Rental Charge
-travel-expense,Travel Expense
-transfer-charge,Transfer Charge
-termination,Termination
-transit,Transit
-process-in-transit-privilege,Process in Transit Privilege
-transferred-charges,Transferred Charges
-thruway-charge,Thruway Charge
-testing-services-charge,Testing Services Charge
-tank-surveillance-service,Tank Surveillance Service
-track-storage,Track Storage
-tank-car-allowance,Tank Car Allowance
-transportation-direct-billing,Transportation-Direct Billing
-trade-discount,Trade Discount
-local-tax,Local Tax
-tax-on-miscellaneous-charges,Tax on Miscellaneous Charges
-third-party-allowance,Third Party Allowance
-throughput-allowance,Throughput Allowance
-state-tax,State Tax
-transportation-third-party-billing,Transportation - Third Party Billing
-tire-repair-and-replace,Tire Repair and Replace
-transportation-vendor-provided,Transportation - Vendor Provided
-turning-charge,Turning Charge
-two-door-pick-up,Two Door Pick Up
-under-carriage-furnished-by-carrier-charge,Under Carriage Furnished By Carrier Charge
-unloading,Unloading
-unloading-labor-charges,Unloading (Labor Charges)
-usage-plan-detail-charge,Usage Plan Detail Charge
-unpacking,Unpacking
-unloading-reloading-charge,Unloading/Reloading Charge
-use-special-type-flat-car,Use - Special Type Flat Car
-u-s-vehicles,U.S. Vehicles
-unabsorbed-switching,Unabsorbed Switching
-utilities-disconnect-and-connect,Utilities Disconnect and Connect
-use-charge-tooling-personnel,Use charge tooling/personnel
-up-charge,Up Charge
-unsalable-merchandise-allowance,Unsalable Merchandise Allowance
-use-tax,Use Tax
-vendor-freight,Vendor Freight
-volume-discount,Volume Discount
-van-cleaning,Van Cleaning
-voluntary-contribution-charge,Voluntary contribution charge
-excess-mileage-for-stop-off-delivery-of-personal-vehicles-charge,Excess Mileage for Stop Off Delivery of Personal Vehicles Charge
-vehicles-furnished-but-not-used,Vehicles Furnished But Not Used
-vehicles-inoperable,Vehicles Inoperable
-virgin-island-transfer-charge,Virgin Island Transfer Charge
-vehicle-ordered-but-not-used,Vehicle Ordered but Not Used
-stop-off-delivery-of-personal-vehicles-charge,Stop Off Delivery of Personal Vehicles Charge
-vehicles-in-truckway,Vehicles in Truckway
-vehicle-load-allowance,Vehicle Load Allowance
-vehicle-prep-charge-courtesy-delivery,Vehicle Prep Charge (courtesy delivery)
-war-risk-surcharge,War Risk Surcharge
-wide-area-telephone-service-wats-usage-credit,Wide Area Telephone Service (WATS) Usage Credit
-wharfage-breakbulk,Wharfage - Breakbulk
-wharfage-container,Wharfage - Container
-waterfront-delivery-charge,Waterfront Delivery Charge
-weather-protection,Weather Protection
-weighing-charge-intermodal,Weighing Charge (Intermodal)
-wharfage,Wharfage
-wharfage-and-handling,Wharfage & Handling
-wasted-futile-trip,Wasted/Futile Trip
-warehouse-charge,Warehouse Charge
-war-risk-crew-bonus,War Risk Crew Bonus
-load-weighing-charge,Load Weighing Charge
-empty-weighing-charge,Empty Weighing Charge
-war-risk-insurance,War Risk Insurance
-warehouse-allowance,Warehouse Allowance
-waiting-time,Waiting Time
-waiting-time-service-charge,Waiting Time Service Charge
-weight-verification-charge,Weight Verification Charge
-wharfage-charge,Wharfage Charge
-protective-service-rule-25,Protective Service Rule 25
-protective-service-rule-27,Protective Service Rule 27
-protective-service-rule-37,Protective Service Rule 37
-protective-service-rule-75,Protective Service Rule 75
-protective-service-rule-95,Protective Service Rule 95
-protective-service-rule-140,Protective Service Rule 140
-protective-service-rule-160,Protective Service Rule 160
-protective-service-rule-165,Protective Service Rule 165
-protective-service-rule-500,Protective Service Rule 500
-protective-service-rule-510,Protective Service Rule 510
-protective-service-rule-518,Protective Service Rule 518
-protective-service-rule-530,Protective Service Rule 530
-protective-service-rule-531,Protective Service Rule 531
-protective-service-rule-545,Protective Service Rule 545
-protective-service-rule-565,Protective Service Rule 565
-protective-service-rule-570,Protective Service Rule 570
-protective-service-rule-580,Protective Service Rule 580
-protective-service-rule-581,Protective Service Rule 581
-protective-service-rule-705,Protective Service Rule 705
-protective-service-rule-710,Protective Service Rule 710
-protective-service-rule-711,Protective Service Rule 711
-protective-service-rule-712,Protective Service Rule 712
-protective-service-rule-716,Protective Service Rule 716
-protective-service-rule-720,Protective Service Rule 720
-protective-service-rule-725,Protective Service Rule 725
-protective-service-rule-727,Protective Service Rule 727
-protective-service-rule-735,Protective Service Rule 735
-protective-service-rule-740,Protective Service Rule 740
-protective-service-rule-760,Protective Service Rule 760
-protective-service-rule-815,Protective Service Rule 815
-quality-differential,Quality Differential
-protective-service-rule-26,Protective Service Rule 26
-protective-service-rule-715,Protective Service Rule 715
-protective-service-rule-745,Protective Service Rule 745
-protective-service-rule-755,Protective Service Rule 755
-first-flight-out,First Flight Out
-mutually-defined,Mutually Defined
-unknown,Unknown
+renewal
+account-number-correction-charge
+dividend
+activation-of-carnet
+overpayment
+suspense
+balance-forward
+dividend-interest
+add-on-destination
+loan-interest
+premium-waiver
+add-on-origin
+dividend-adjustment
+interest
+address-correction
+advance-destination-amount
+integrated-business-services-ibs-service-charge
+special-packaging
+box-liners
+product-personalization
+advance-destination-fee
+tape-charges
+subject-to-tax
+advance-origin-amount
+advance-origin-fee
+advance-fee
+agent-disbursement-destination
+agent-disbursement-fee-destination
+agent-disbursement-origin
+agent-disbursement-fee-origin
+air-export-certificate
+air-express-charge
+air-transportation-charge
+airline-opening-fee
+airport-tax-destination
+airport-tax-origin
+airport-terminal-handling-charge
+acknowledgement-of-delivery-fee-aod
+amending-export-documentation
+assembly-fee
+banking-drafts
+cables-sending-of
+call-tag
+canadian-c-q-customs-clearance
+canadian-currency-exchange
+canadian-import-termination-fee
+canadian-reconsignment-fee
+canadian-remanifest-fee
+certificate-of-origin
+certificate-of-registration
+chamber-of-commerce-service-charge
+change-of-airbill-service-fee
+chemical-milling-charge
+city-terminal-charge
+collect-surcharge
+constant-surveillance-service
+consular-legalization-service
+consularization-fee
+constant-surveillance-service-armed
+credit
+customer-account-identification
+customs-broker-fee
+customs-invoice
+customs-invoice-additional-page
+data-drawing-charge
+delivery-surcharge
+development-charge
+discount-drop-box-convenience-ctr
+discount-incentive
+discount-multiple-shipment
+discount-service-option-delivery
+discount-service-option-pickup
+discount-special
+contingency-credit-charge
+distribution-fee
+dry-ice
+duty-charge
+endorsement-fee
+eur1-presentation-fee
+excise-tax-destination
+excise-tax-origin
+expedited-one-day-consular-service
+expedited-shipments
+extra-copies-and-mailings
+export-customs-clearance
+export-declarations-automated
+export-declarations-u-s-shippers
+export-license-application
+extra-service-counter-to-counter
+facsimile-charges
+facsimile-charges-additional-pages
+failed-lamp-panel-charge
+first-article-charge
+free-domicile-shipment-processing
+freight
+fuel-surcharge
+government-warehouse-fee-destination
+government-warehouse-fee-origin
+grain-flow-charge
+hazardous-materials-handling-fee-domestic
+hazardous-materials-handling-fee-international
+heat-treat-charge
+iata-airbill-preparation
+iata-fee
+import-service-fee
+insurance-fee
+inland-transportation
+insurance-premium
+international-door-to-door-handling-fee
+incorrect-billing-account-charge
+italian-release-charge
+letter-of-credit-processing
+mailing-postage-cost
+mailing-service-fee
+messenger-service
+minimum-air-transportation-charge
+miscellaneous-destination
+miscellaneous-origin
+missing-account-nbr-charge
+offshore-alaska-hawaii
+on-hand-service
+oversized-premium
+passing-shippers-export-entry
+pickup-out-of-area
+pickup-surcharge
+pre-positioned-inventory-service
+preparation-of-air-waybill-origin
+preparation-of-canadian-customs-invoice
+preparation-of-commercial-invoice
+preparation-of-export-entry
+preparation-of-insurance-certificate
+priority-service
+preparation-of-u-s-export-documentation
+processing-charge
+rebilled-drayage-destination
+re-bill-charge
+proforma-invoice
+recipient-address-correction
+rebilled-drayage-origin
+record-filing
+recovery-fee
+recrating-recoopering-destination
+recrating-recoopering-origin
+registration-of-export-shipments
+registration-of-export-for-reentry
+reliability-charge
+restricted-article-fee
+repickup
+saturday-delivery
+saturday-pick-up
+security-signature-service
+service-upgrade
+special-delivery
+special-handling-service
+special-pickup
+special-test-equipment-charge
+special-tooling-charge
+special-vehicle-rent
+stamp-fee
+straightening-charge
+telephone-destination
+telephone-origin
+terminal-service-fee
+test-qualification-charge
+tooling-rework-charge
+tracing-inbound-via-other-carriers
+tracing-service-fee
+transfer-of-lading-charge
+valuation-fee
+value-added-tax-vat
+waybill-and-invoice-distribution
+written-proof-of-delivery
+x-ray-charge
+other-see-related-description
+advertising-allowance
+adjustments
+additional-material
+allowance-non-performance
+allowance-advance
+attendants-accompanying
+handling-charge-tax
+alcoholic-beverage-report-charge
+attachments-to-bill-of-lading-charge
+allegheny-county-pa-delivery-charge
+access-charge-federal
+access-charges
+actual-labor-charge
+access-charge-state
+advance-charges-handling
+advance-loading-charge
+advances
+additional-copies-of-freight-bill
+collect-on-delivery-alteration-charge
+armed-guard-service
+additional-injection-blending-service-charge
+air-freight-consolidation
+air-freight
+advance-lading-charge
+use-of-alternate-port
+adjustment-for-maximum-charges-billing
+absolute-minimum-charge
+adjustment-for-minimum-average-time-requirement-billing
+adjustment-for-minimum-charges-billing
+anchoring-and-unanchoring
+anodizing-charge
+appliance-servicing
+appointment-notification
+arbitrary-in-addition-to-through-rates-and-charges
+air-conditioning-disconnect-and-connect
+rail-armed-guard-service
+air-ride-tractor-service-charge
+assembly-charge
+auxiliary-service
+ad-valorem
+beaming-charge
+brokerage-or-duty
+buyers-car-allowance
+bad-debt
+both-flat
+broken-package-charge
+base-charge
+break-bulk-surface-charge
+bordeaux-arbitraries
+beyond-freight-charges
+bedding-feeding-disinfecting
+bulky-article
+bill-of-lading-attendancy
+bill-of-lading-charge
+billed-demand
+blocking-and-bracing-charge
+blower-charge
+bond-charges
+bobtail-charges
+bop-sheet-charge
+basic-reorder-allowance
+bridge-toll
+aqua-train
+bunker-surcharge
+broker-selection-surcharge
+bi-level-tri-level-charges
+bunker-adjustment-20-foot-container
+bunker-adjustment-40-foot-container
+bunker-adjustment
+bureau-report-charge
+beyond-charge
+currency-adjustment-break-bulk
+currency-adjustment-20-foot-container
+currency-adjustment-40-foot-container
+cancellation-charge
+cash-discount
+certification-fee
+co-manufacturing-discount
+competitive-allowance
+competitive-car-allowance
+compressor-charge
+crafting
+customer-equipment-allowance
+cutting-charge
+co-op-credit
+car-loading
+contract-escalation
+car-rental
+container-deposits
+contract-allowance
+cooperative-advertising-merchandising-allowance-performance
+claims-commercial-auto-report-charge
+copy-of-bill-of-lading-charge
+cents-off
+competitive-price
+carrier
+container-allowance
+city-sales-tax-only
+carrier-credit-allowance
+certification-charge
+claims-commercial-property-report-charge
+concession-credit
+carrier-caboose-charge
+carrier-debit-allowance
+corrosion-additive-service-charge
+cancelled-order-heavy-duty-flatcar
+copy-of-delivery-receipt-charge
+container-service-charge-uk-eur
+customs-fees-container-level
+customs-fees-lift-level
+carrier-guard-car-charge
+canada-great-lakes-additionals
+return-carrier-guard-car-charge
+cargo-taxes
+chassis-equipment-lease-charge
+charges-forward-advance-charge
+chain-and-binders
+special-circus-trains
+constant-surveillance
+chicago-loop-charge
+container-loss-damage
+cleaning-charge
+container-leasing
+concession-money
+city-maintenance-fee
+continuous-mileage
+camp-arbitrary
+consolidation
+converting
+commission-amount
+connect-charge
+cod-amount
+ocean-freight
+fee-for-collecting-cod-charge
+combination
+congestion-surcharge
+port-changes
+core-charge
+consignee-unload
+claims-personal-auto-report-charge
+copilot-service-charge
+computer-processing-expense
+claims-personal-property-report-charge
+cost-recovery-adjustment
+cost-recovery-factor
+court-reporter-charge
+credit-report-charge
+courier-services
+closing-and-sealing
+contract-service-charge
+customs-entry
+customs-formalities
+government-caboose-charge
+conservation-research-fee
+cassette
+container-trailer-allowance
+container-service-charge-usa-canada
+customer-required-special-truck-at-destination
+court-or-trial-expense
+chassis-transfer
+cartage-charge
+controlled-atmosphere
+customer-required-special-truck-at-origin
+circuitous-routing-charge
+customs-exams-intensive-tailgate
+currency-adjustment
+currency-discount
+currency-adjustment-factor
+customer-paid-deductible
+customs-charge
+deficit-freight
+deposit
+distributor-discount-allowance
+drum-up-charge
+damaged-merchandise
+dockage-boat-detention
+double-wide-separate-and-reassemble
+delivery-of-fuel-from-barge-to-pipeline-charge
+damage-to-carrier-equipment
+disconnect-charge
+city-delivery
+damage-to-carrier-vessel
+defective-allowance
+drum-cost
+drum-deposit
+dowel-pin-charge
+dual-driver-with-national-agency-check
+dual-driver-protectice-service
+deaf-and-disabled-surcharge
+drayage-at-port-of-debarkation-zone-rate
+demurrage-average-agreement
+deductible
+delivery-charge
+demurrage
+detention-of-power-units
+derrick-charge
+demurrage-special
+detention-of-trailers
+texas-rail-commission-deviation-charge
+detention-without-power-unit
+drayage-at-port-of-embarkation-zone-rate
+keep-from-freezing-percent-differential
+410-dromedary-with-mechanical-restraining-devices-charge
+410-dromedary
+delay-furnishing-destination-weights
+damage-to-government-equipment
+dangerous-goods-surcharge
+diversion-charge
+direct-repair
+distribution-service
+diversion-and-reconsignment
+drayage-line-haul
+delivery-of-fuel-from-rail-tank-car-to-pipeline-charge
+deadhead-mileage-charge
+demand-charge
+dunnage-allowance
+documentation-charge
+deposit-in-lieu-of-order
+container-diversion
+delivery-of-fuel-from-pipeline-to-barge-charge
+drayage-at-port-of-debarkation
+drayage-at-port-of-embarkation
+delivery-of-fuel-from-pipeline-to-rail-tank-car-charge
+depreciation
+delivery-of-fuel-from-pipeline-to-tank-truck-or-trailer-charge
+detention-with-power-units-30-minute-periods-charge
+drayage
+deramping
+driver-license-record-report-charge
+dryer-charge
+discount
+detention-special-type-flat-car
+dromedary-with-mechanical-restraining-devices-charge
+dromedary-service-charge
+container-destuffing
+diversion-to-air-charge
+detention-labor
+destination-charge
+destination-duty
+destination-inland-freight
+detention-loading
+delivery-of-fuel-from-tank-truck-or-trailer-to-pipeline-charge
+detention-unloading
+detention-vehicle
+drivers-wages
+detention-with-power-units-60-minute-periods-charge
+exchange-access-credit
+extra-axles
+exhibition-delivery-charge
+exhibition-pickup-charge
+will-call-charge
+escort-courier-service-charge
+empty-railcar-ordered-but-not-used-charge
+equipment-hose-at-destination-charge
+equipment-hose-at-origin-charge
+early-buy-allowance
+early-payment-allowance
+escalation
+expediting-fee
+one-time-engineering-charge
+engineering-charge
+expediting-premium
+export-shipping-charge
+export-import-charge
+extra-lights
+emergency-response-service
+emergency-surcharge
+empty-movement
+energy-charge
+energy-surcharge-fuel-adjustment-factor
+emergency-port-charge
+environmental-protection-service
+empty-return
+satisfactory-service-standards-charge
+early-ship-allowance
+emergency-service
+estimated-customs-duty-dutypaid-charge
+external-service-expense
+empty-trailer-returned-charge
+european-port-charges
+excessive-value-charge
+exclusive-use-charge
+extra-driver
+extra-length
+excess-mileage-charge
+expedited-service-charge
+excess-periods
+excess-weight
+expando-remove-and-install
+f-e-t-federal-excise-tax
+f-e-t-percent
+f-e-t-dollar-value
+fabrication-charge
+f-e-t-tires
+freight-equalization
+freight-surcharge
+barge-freight-all-kinds-service
+freight-based-on-dollar-minimum
+freight-charges-to-border
+freight-charges-to-destination
+freight-charges-inbound-and-outbound
+furnishing-chassis
+food-and-lodging
+financial-document-surcharge
+fuel-filters-furnished-by-carrier-charge
+finance-charge
+freshness-leaker-allowance
+special-finish-charge
+freight-passthrough
+flat-rate
+fuel-filters-furnished-by-shipper-charge
+fire-report
+flatrack-surcharge
+ferry-service
+foreign-military-sales-fms-rental
+foreign-military-sales-fms-special-charge
+franchise-fee
+federal-transfer-surcharge
+filtration-service-charge
+fuel-charge
+forwarding-agent-commission
+forwarding-charge
+texas-rail-commission-fixed-charge
+garment-district
+gate-inspection-charge-intermodal
+grain-doors
+glaze-allowance
+gold-factor
+gasket
+garment-surcharge
+government-owned-containers
+gulf-port-delivery-charge
+groupage-discount
+gross-receipts-surcharge
+government-guard-car-charge
+greater-security-service
+goods-and-services-tax-charge
+handling-charges-on-distribution-freight-forwarded-beyond
+hazardous-cargo-charge
+harbor-dues
+heavy-duty-flat-car-charge
+holding-charge
+shipment-holdover-charge-for-holidays
+shipment-holdover-charge-for-weekends
+heat-in-transit-charges
+handling-freight-at-positions-not-immediately-adjacent-to-vehicle-charge
+hauling-and-hoisting-to-be-direct-billed
+handling
+household-goods-pick-up-or-delivery
+highway-interchange
+home-line-freight-charge
+accessible-hazardous-material
+inaccessible-hazardous-material
+hook-up-charge
+sunday-or-holiday-pick-up-or-delivery
+hose-charge
+hose-charge-special
+heater-or-refrigeration
+high-security-red-in-bond-seal-charge
+heavy-lift
+hazardous-materials-surcharge-charge
+hazardous-cargo-on-deck
+hazardous-storage
+industry-price-allowance
+income-freight-manufacturing-to-shipping-point
+inspection-fee
+cooling-service
+idler-car-charge
+improper-documentation
+inside-delivery
+interdivision-profit
+inbound-freight-charges
+interstate-highway-toll
+invoice-adjustment
+icing-inhibitor-charge
+item-percentage
+item-unit
+island-delivery-charge
+initial-license-fee
+island-pick-up-charge
+impactographs
+intermodal-shipment-service-charge
+insurance-surcharge
+interplant-charge
+interest-on-refund
+insurance
+interpreter-expense
+intra-plant-charge
+inside-pick-up
+irish-arbitraries
+interest-on-security-deposit
+intermodal-storage-origin
+intermodal-storage-destination
+insulated-tank-charge
+interline-transfer-charge
+junction-settlement-charge
+glass-kit
+labor-charges
+extra-labor-helper-service
+lading-adjustment-charge
+labor-repair-and-return-orders
+one-time-license-fee
+labor-adjustment-allowance
+license-and-title
+layover-charges
+light-bar-service-charge
+land-currency-adjustment-factor-20-foot-container
+land-currency-adjustment-factor-40-foot-container
+late-order-charge
+percent-differential-less-than-container
+labor-cost-of-removal
+loading-allowance
+loading
+unloading-allowance
+locomotive-delayed-in-switching-service
+less-than-container
+lift-charge-intermodal
+linehaul-from-port-of-debarkation
+lift-gate-truck-or-forklift-service-at-pick-up-delivery
+lodging
+linehaul-service
+recurring-license-fee
+liability-of-carrier-charge
+limited-liability
+lot-charge
+lead-factor
+loan-fee
+local-sales-tax-all-applicable-sales-taxes-by-taxing-authorities-below-the-state-level
+labor-modify
+liner-terms-at-port-of-debarkation
+liner-terms-at-port-of-embarkation
+labor-no-trouble-found
+loading-labor-charges
+local-delivery-drayage
+late-payment-charge
+linehaul-percent-differential
+laboratory-pack-fee
+liquidated-damages
+labor-service
+lashing
+lifeline-surcharge
+labor-test-and-calibrate
+linehaul-to-port-of-embarkation
+lubricant-charge
+locomotive-under-own-power
+leaking-underground-storage-tax-lust
+layover-service-charge
+metals-surcharge
+mileage-or-travel
+mileage-fee-for-repair-and-return
+minimum-order-minimum-billing-charge
+monthly-rental
+marriage-rule
+modified-atmosphere
+machining-charge
+molding
+mount-demount
+meals-or-lodging-charge
+escort-service-with-overnight-subsistence
+escort-service
+escort-service-telephone
+manifest-charge
+manufacturing
+message-rate-adjustment
+message-charge
+minimum-charge
+special-mileage-movements
+minimum-guarantee
+markup-charge
+minimum-bill-of-lading-charge
+meals
+minimum-maximum-charge
+mill-freight
+market-development-funds
+metropolitan-transit-tax
+notify-consignee
+motor-surveillance-service
+miscellaneous-parts-charge
+marking-or-tagging-charge
+medical-report-charge
+other-accessorial-service-charge
+miscellaneous-charge
+meter-charge
+municipal-surcharge
+motor-vehicle-report-mvr-charge
+special-motor-surveillance-charge
+venting-instructions
+non-generated-freight
+new-store-allowance
+nozzle-charge
+order-notify-charge
+non-document-surcharge
+carrier-notification-charge
+n-h-d-wharfage
+new-store-discount
+new-warehouse-discount
+new-york-delivery-charge
+new-york-pick-up-charge
+o-t-o-charge
+overrun-charge
+overtime-loading
+ocean-charges----hazardous
+over-height-container
+collect-on-delivery-deletion-charge
+official-report-charge
+fumigation
+on-carriage
+option-charge-color-fabric-office-furniture
+on-deck-break-bulk-differential
+order-flat
+optional-charge
+operator-credit
+out-of-route-miles
+outside-charge
+optional-software-support-for-operational-support-systems
+optional-software-support-for-switching-systems
+out-of-zone-pick-up-or-delivery
+over-dimension
+over-width-container
+percent-of-product
+pump-air-charge
+premium-charge
+premium-transportation
+price-deviation
+professional-fees
+promotional-allowance
+promotional-discount
+pump-charge
+preparation-and-delivery
+parts-adjustment-allowance
+parts-charge
+priced-parts-charge
+pickup-of-shipments-on-saturday-sunday-and-or-holidays-requiring-absolute-next-day-delivery-charge
+prior-billing-amount
+permits-bonds-escort-attendant
+pier-charges-other-than-wharfage
+protective-service-charge
+city-pick-up
+prior-delivery-of-bill-charge
+preloading-charge
+pickup-and-delivery-from-storage-in-transit
+pickup-and-delivery-beyond-service-area-charge
+pallet-exchange-charge
+penalty-charge
+permit-charge
+power-factor-adjustment
+photocopy
+photographs
+pier-pick-up-and-or-delivery
+packing-surcharge
+insurance-placement-cost-charge
+pallets-skids-platforms
+prior-month-credit
+paint-and-materials
+pickup-of-shipments-requiring-same-day-delivery-service-charge
+pickup-of-shipments-requiring-same-day-delivery-service-and-or-delivery-at-a-specified-time-charge
+normal-pump-charge
+special-pump-charge
+prior-period-net-adjustment
+piano-organ-carry
+proof-of-delivery
+police-report-charge
+positioning-at-origin
+per-pound-charge
+pickup-and-delivery-service-for-perishables-charge
+per-item-charge
+pick-up-allowance
+precious-metal-content
+pallet-charge
+per-order-charge
+performance-award
+placement-and-or-removal-charge
+parish-county-sales-tax-only
+prepaid-usage-allowance
+prior-balance
+pre-carriage
+pre-carriage-excess
+parking
+prelodge-charge
+premise-use
+prior-period-rebook
+prior-period-reversal
+protective-service-cold
+preparation-of-special-documents
+protective-service-security-with-armed-guards
+protective-service-heat
+protective-service-security
+postage
+tobacco-products-report-charge
+protective-tarp-for-security-purposes
+pick-up-charge
+pick-up-and-delivery
+pack-and-unpack
+bonded-privately-owned-vehicle-charge
+detention-of-privately-owned-vehicle-charge
+inoperable-privately-owned-vehicle-charge
+loading-unloading-of-privately-owned-vehicle-charge
+privately-owned-vehicle-processing
+stop-offs-for-privately-owned-vehicle-shipment-charge
+privately-owned-vehicle-in-truckaway-service-charge
+pier-charges-wharfage
+pallet-allowance
+priority-service-charge
+quantity-surcharge
+quantity-discount
+rebate
+reclamation-federal
+reclamation-state
+recovery-allowance
+redistribution-allowance
+rental-deduction
+repack-charge
+retainer
+resellers-discount
+restocking-charge
+royalties
+roll-rebate
+ramping
+no-return-credit-allowance
+repair-at-buyers-expense-charge
+reconsignment-charge
+reconsign-consignee-charge
+repair-at-customer-expense-charge
+repair-at-government-expense-charge
+redelivery
+recoopering-at-owners-or-shippers-expense
+reconnect-charge
+reconsign-delivery-charge
+research-and-development-fee
+railhead-handling
+return-cargo-charge
+regulatory-fee
+refrigeration
+regulatory-tax
+requested-labor-charge
+residential-pick-up
+request-via-canada
+residential-delivery
+returned-load
+refund
+reefer-maintenance
+regain-allowance
+regain-charge
+recurring-hardware-maintenance-charge
+riding-attendant-charge
+released-value-charge-in-excess-of-carrier-maximum-liability-charge
+retail-loss-allowance
+rents-and-leases
+relinquishment-charge
+relocation-of-vehicle
+rocky-mountain-bureau-583-item-1100-arbitrary-charge
+return-of-empty-container-charge
+refrigeration-mechanical-detention
+return-movement-of-pallet-charge
+rail-surveillance
+roll-out-adjustment
+reduction-prepalletized-cargo
+reefer-cargo-percent-differential
+reel-cable
+reel-deposit
+refurbishing-charge
+rental-charge
+repair-charge
+regulatory-required-refund
+recurring-software-maintenance-charge
+reshipment
+restricted-speeds
+respotting
+reservations
+rate-code
+subject-to-cooperative-advertising-allowance
+shipping-and-handling
+service-charge-with-cash-discount
+scrap-allowance
+shrink-wrap-charge
+special-credit
+state-motor-fuel
+stenciling-charge
+super-fund-excise-tax
+surcharge-dollar-value
+surcharge-percentage
+stopcharge
+state-sales-charge
+service-assistance-program-surcharge
+shipment-holdover-on-weekends-charge
+saturday-pick-up-or-delivery-charge
+standby-charge
+sublet
+special-seal-charge
+special-containers
+small-order-charge
+scale-charge
+scale-charge-unloading
+special-detention-charge
+split-delivery
+special-dromedary-service
+special-equipment-charge
+stairs-elevator-excess-carry
+segregating-sorting
+self-unloader
+ship-exact-quantity-charge
+service-charge
+security-escort-vehicle-service
+single-factor-origination-destination
+stuffing-charge
+single-factor-orginiation-port-of-debarkation
+single-factor-port-of-embarkation-destination
+special-train-movement
+single-pick-up
+shipment-holdover-on-holidays-charge
+shipper-load
+state-hazardous-substance-tax
+shipment-holdover-on-weekdays-charge
+skirting-and-unskirting
+street-lamps-charge
+slip-sheet-charge
+state-metropolitan-transit-authority-surcharge
+satellite-surveillance-service
+shipment-from-non-temp-storage
+stop-off-charge
+stop-off-at-pier-charge
+special-allowance
+special-buy
+special-permits
+spreader-charge
+spool-charge
+split-pick-up-at-pier-charge
+special-freight-supplements
+spotting-of-trailer
+split-pick-up
+storage
+surveying-routes
+salvage
+super-bag-charge
+stripping-sorting-and-consolidation
+single-shipment-fee
+select-charge
+pole-wood-service-charge
+shipside-pickup
+software-support-service
+sales-tax-state-and-local
+pole-lashing-equipment-ple-surcharge
+sales-and-use-tax
+conductivity-anti-static-additive
+state-surcharge
+stopoff-at-destination
+container-stuffing
+standard-labor-charge
+steaming-charge
+stowage-charge
+stopping-in-transit
+stopoff-at-orgination
+storage-in-transit
+special-tooling-rework-charge
+special-use
+sufferance-warehouse-charge-export-or-import
+supervisor-charge
+surcharge
+single-invoice-allowance
+manual-surveillance-of-shipment
+storage-of-vehicles
+switching-charge
+telephone-charge
+tank-rental
+temporary-allowance
+tax-on-transportation
+temporary-voluntary-allowance
+terminal-differential
+testing-charge
+tool-charge
+testing-allowance
+trade-in
+transportation-and-setup
+truckload-discount
+tarping-charge
+tax-charge
+governmental-tax
+telegram-chargeback
+transportation-charge-minimum-rate
+truck-detention
+terminal-charge
+trimming-charge
+multi-tank-surveillance-service
+tendering-of-multiple-vehicles
+total-assessorial-charges
+tofc-service-charge
+carrier-equipment-pool-charge
+throughput-container-charge
+third-party-service
+travel-charge
+trailer-rental-charge
+travel-expense
+transfer-charge
+termination
+transit
+process-in-transit-privilege
+transferred-charges
+thruway-charge
+testing-services-charge
+tank-surveillance-service
+track-storage
+tank-car-allowance
+transportation-direct-billing
+trade-discount
+local-tax
+tax-on-miscellaneous-charges
+third-party-allowance
+throughput-allowance
+state-tax
+transportation-third-party-billing
+tire-repair-and-replace
+transportation-vendor-provided
+turning-charge
+two-door-pick-up
+under-carriage-furnished-by-carrier-charge
+unloading
+unloading-labor-charges
+usage-plan-detail-charge
+unpacking
+unloading-reloading-charge
+use-special-type-flat-car
+u-s-vehicles
+unabsorbed-switching
+utilities-disconnect-and-connect
+use-charge-tooling-personnel
+up-charge
+unsalable-merchandise-allowance
+use-tax
+vendor-freight
+volume-discount
+van-cleaning
+voluntary-contribution-charge
+excess-mileage-for-stop-off-delivery-of-personal-vehicles-charge
+vehicles-furnished-but-not-used
+vehicles-inoperable
+virgin-island-transfer-charge
+vehicle-ordered-but-not-used
+stop-off-delivery-of-personal-vehicles-charge
+vehicles-in-truckway
+vehicle-load-allowance
+vehicle-prep-charge-courtesy-delivery
+war-risk-surcharge
+wide-area-telephone-service-wats-usage-credit
+wharfage-breakbulk
+wharfage-container
+waterfront-delivery-charge
+weather-protection
+weighing-charge-intermodal
+wharfage
+wharfage-and-handling
+wasted-futile-trip
+warehouse-charge
+war-risk-crew-bonus
+load-weighing-charge
+empty-weighing-charge
+war-risk-insurance
+warehouse-allowance
+waiting-time
+waiting-time-service-charge
+weight-verification-charge
+wharfage-charge
+protective-service-rule-25
+protective-service-rule-27
+protective-service-rule-37
+protective-service-rule-75
+protective-service-rule-95
+protective-service-rule-140
+protective-service-rule-160
+protective-service-rule-165
+protective-service-rule-500
+protective-service-rule-510
+protective-service-rule-518
+protective-service-rule-530
+protective-service-rule-531
+protective-service-rule-545
+protective-service-rule-565
+protective-service-rule-570
+protective-service-rule-580
+protective-service-rule-581
+protective-service-rule-705
+protective-service-rule-710
+protective-service-rule-711
+protective-service-rule-712
+protective-service-rule-716
+protective-service-rule-720
+protective-service-rule-725
+protective-service-rule-727
+protective-service-rule-735
+protective-service-rule-740
+protective-service-rule-760
+protective-service-rule-815
+quality-differential
+protective-service-rule-26
+protective-service-rule-715
+protective-service-rule-745
+protective-service-rule-755
+first-flight-out
+mutually-defined
+unknown
