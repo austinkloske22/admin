@@ -99,6 +99,137 @@
 			"LOCALE": 2,
 			"DESCRIPTION": 3
 		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCEVALUE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourcevaluetextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTSOURCEID",
+				"CONTENTKEYID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"CONTENTSOURCEID": 1,
+			"CONTENTKEYID": 2,
+			"LOCALE": 3,
+			"DESCRIPTION": 4
+		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCESTATUS",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourcestatustextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTSOURCEID",
+				"PRIMARYSTATUSCODE",
+				"SECONDARYSTATUSCODE",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"CONTENTSOURCEID": 1,
+			"PRIMARYSTATUSCODE": 2,
+			"SECONDARYSTATUSCODE": 3,
+			"LOCALE": 4,
+			"DESCRIPTION": 5
+		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_ERRORMESSAGE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "errormessagetextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"ERRORMESSAGEID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"ERRORMESSAGEID": 1,
+			"LOCALE": 2,
+			"DESCRIPTION": 3
+		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_FEEDTYPE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "feedtypetextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"FEEDTYPEID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"FEEDTYPEID": 1,
+			"LOCALE": 2,
+			"DESCRIPTION": 3
+		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_CHARGETYPE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "chargetypetextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CHARGETYPEID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"CHARGETYPEID": 1,
+			"LOCALE": 2,
+			"DESCRIPTION": 3
+		}
 	}
 	]
 }
