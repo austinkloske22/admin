@@ -1,10 +1,11 @@
 { 
 	"format_version": 1,
 	"imports": [{
-		"target_table": "ADMIN_TEXTDETAILMODEL_CARRIERMASTER",
+		"target_table": "ADMIN_TEXTDETAIL_CARRIERMASTER",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "carriermastertextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -26,10 +27,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_CONTENTACTION",
+		"target_table": "ADMIN_TEXTDETAIL_CONTENTACTION",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "contentactiontextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -51,10 +53,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCE",
+		"target_table": "ADMIN_TEXTDETAIL_CONTENTSOURCE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "contentsourcetextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -76,10 +79,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_FREIGHTCOSTCODE",
+		"target_table": "ADMIN_TEXTDETAIL_FREIGHTCOSTCODE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "freightcostcodetextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -101,10 +105,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCEVALUE",
+		"target_table": "ADMIN_TEXTDETAIL_CONTENTSOURCEVALUE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "contentsourcevaluetextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -128,10 +133,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCESTATUS",
+		"target_table": "ADMIN_TEXTDETAIL_CONTENTSOURCESTATUS",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "contentsourcestatustextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -157,10 +163,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_ERRORMESSAGE",
+		"target_table": "ADMIN_TEXTDETAIL_ERRORMESSAGE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "errormessagetextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -182,10 +189,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_FEEDTYPE",
+		"target_table": "ADMIN_TEXTDETAIL_FEEDTYPE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "feedtypetextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -207,10 +215,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_CHARGETYPE",
+		"target_table": "ADMIN_TEXTDETAIL_CHARGETYPE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "chargetypetextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -232,10 +241,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_DAYSINTRANSITTYPE",
+		"target_table": "ADMIN_TEXTDETAIL_DAYSINTRANSITTYPE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "daysintransittypetextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -257,10 +267,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_COMMITMENTTIMETYPE",
+		"target_table": "ADMIN_TEXTDETAIL_COMMITMENTTIMETYPE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "commitmenttimetypetextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -282,10 +293,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_CARRIERSERVICETYPE",
+		"target_table": "ADMIN_TEXTDETAIL_CARRIERSERVICETYPE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "carrierservicetypetextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -307,10 +319,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_CARRIERSERVICECATEGORY",
+		"target_table": "ADMIN_TEXTDETAIL_CARRIERSERVICECATEGORY",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "carrierservicecategorytextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -332,10 +345,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_TEXTDETAILMODEL_CARRIERMASTERSERVICE",
+		"target_table": "ADMIN_TEXTDETAIL_CARRIERMASTERSERVICE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "carriermasterservicetextdetail.csv",
+			"subfolder": "textdetail",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -354,6 +368,62 @@
 		"column_mappings": {
 			"CARRIERMASTERID": 1,
 			"CARRIERSERVICEID": 2,
+			"LOCALE": 3,
+			"DESCRIPTION": 4
+		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAIL_CONTENTSOURCECARRIER",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourcecarriertextdetail.csv",
+			"subfolder": "textdetail",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTSOURCEID",
+				"CARRIERMASTERID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"CONTENTSOURCEID": 1,
+			"CARRIERMASTERID": 2,
+			"LOCALE": 3,
+			"DESCRIPTION": 4
+		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAIL_CONTENTSOURCEACTION",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourceactiontextdetail.csv",
+			"subfolder": "textdetail",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTSOURCEID",
+				"CONTENTACTIONID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"CONTENTSOURCEID": 1,
+			"CONTENTACTIONID": 2,
 			"LOCALE": 3,
 			"DESCRIPTION": 4
 		}

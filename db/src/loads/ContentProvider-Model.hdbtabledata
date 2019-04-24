@@ -1,56 +1,12 @@
 { 
 	"format_version": 1,
-	"imports": [{
-		"target_table": "ADMIN_CARRIERMASTER",
-		"source_data": {
-			"data_type": "CSV",
-			"file_name": "carriermaster.csv",
-			"has_header": false,
-			"dialect": "HANA",
-			"type_config": {
-				"delimiter": ","
-			}
-		},
-		"import_settings": {
-        	"include_filter" : [ ],			
-			"import_columns": [
-				"CARRIERMASTERID",
-				"LOGOURL",
-				"STATUS"
-				]
-		},
-		"column_mappings": {
-			"CARRIERMASTERID": 1,
-			"LOGOURL": 2,
-			"STATUS": 3
-		}
-	},
-	{
-		"target_table": "ADMIN_CONTENTACTION",
-		"source_data": {
-			"data_type": "CSV",
-			"file_name": "contentaction.csv",
-			"has_header": false,
-			"dialect": "HANA",
-			"type_config": {
-				"delimiter": ","
-			}
-		},
-		"import_settings": {
-        	"include_filter" : [ ],			
-			"import_columns": [
-				"CONTENTACTIONID"
-				]
-		},
-		"column_mappings": {
-			"CONTENTACTIONID": 1
-		}
-	},
-	{
-		"target_table": "ADMIN_CONTENTSOURCE",
+	"imports": [
+        {
+		"target_table": "ADMIN_CONTENTPROVIDER_CONTENTSOURCE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "contentsource.csv",
+            "subfolder": "content-provider",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -68,10 +24,11 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_CONTENTSOURCESTATUS",
+		"target_table": "ADMIN_CONTENTPROVIDER_CONTENTSOURCESTATUS",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "contentsourcestatus.csv",
+			"subfolder": "content-provider",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -101,10 +58,11 @@
 	},
 
 	{
-		"target_table": "ADMIN_CONTENTSOURCEVALUE",
+		"target_table": "ADMIN_CONTENTPROVIDER_CONTENTSOURCEVALUE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "contentsourcevalue.csv",
+			"subfolder": "content-provider",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -125,11 +83,13 @@
 			"CONTENTVALUE": 3
 		}
 	},
-	{
-		"target_table": "ADMIN_ERRORMESSAGE",
+	
+    {
+		"target_table": "ADMIN_CONTENTPROVIDER_CONTENTACTION",
 		"source_data": {
 			"data_type": "CSV",
-			"file_name": "errormessage.csv",
+			"file_name": "contentaction.csv",
+			"subfolder": "content-provider",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -139,18 +99,70 @@
 		"import_settings": {
         	"include_filter" : [ ],			
 			"import_columns": [
-				"ERRORMESSAGEID"
+				"CONTENTACTIONID"
 				]
 		},
 		"column_mappings": {
-			"ERRORMESSAGEID": 1
+			"CONTENTACTIONID": 1
+		}
+	},
+    {
+		"target_table": "ADMIN_CONTENTPROVIDER_CONTENTSOURCECARRIER",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourcecarrier.csv",
+            "subfolder": "content-provider",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTSOURCEID",
+				"CARRIERMASTERID",
+				"CONTENTSOURCECARRIERID"
+				]
+		},
+		"column_mappings": {
+			"CONTENTSOURCEID": 1,
+			"CARRIERMASTERID": 2,
+			"CONTENTSOURCECARRIERID": 3
 		}
 	},
 	{
-		"target_table": "ADMIN_FEEDTYPE",
+		"target_table": "ADMIN_CONTENTPROVIDER_CONTENTSOURCEACTION",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "contentsourceaction.csv",
+            "subfolder": "content-provider",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CONTENTSOURCEID",
+				"CONTENTACTIONID"
+				]
+		},
+		"column_mappings": {
+			"CONTENTSOURCEID": 1,
+			"CONTENTACTIONID": 2
+		}
+	},
+    {
+		"target_table": "ADMIN_CONTENTPROVIDER_FEEDTYPE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "feedtype.csv",
+			"subfolder": "content-providers",
+            "subfolder": "content-provider",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -165,33 +177,6 @@
 		},
 		"column_mappings": {
 			"FEEDTYPEID": 1
-		}
-	},
-	{
-		"target_table": "ADMIN_CARRIERMASTERSERVICE",
-		"source_data": {
-			"data_type": "CSV",
-			"file_name": "carriermasterservice.csv",
-			"has_header": false,
-			"dialect": "HANA",
-			"type_config": {
-				"delimiter": ","
-			}
-		},
-		"import_settings": {
-        	"include_filter" : [ ],			
-			"import_columns": [
-				"CARRIERMASTERID",
-				"CARRIERSERVICEID",
-				"CARRIERSERVICETYPE",
-				"STATUS"
-				]
-		},
-		"column_mappings": {
-			"CARRIERMASTERID": 1,
-			"CARRIERSERVICEID": 2,
-			"CARRIERSERVICETYPE": 3,
-			"STATUS": 4
 		}
 	}
 	]

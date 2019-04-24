@@ -1,7 +1,8 @@
-using Admin as Admin from '../db/Data-Model';
-using Admin.CommonModel as CommonModel from '../db/Common-Model';
-using Admin.AssignmentModel as AssignmentModel from '../db/Assignment-Model';
-using Admin.TextDetailModel as TextDetailModel from '../db/TextDetail-Model';
+using Admin.Common as Common from '../db/Common-Model.cds';
+using Admin.TextDetail as TextDetail from '../db/TextDetail-Model';
+using Admin.ContentProvider as ContentProvider from '../db/ContentProvider-Model';
+using Admin.CarrierService as CarrierService from '../db/CarrierService-Model';
+using Admin.DropdownValue as DropDownValue from '../db/DropdownValue-Model';
 
 service CatalogService {
 	
@@ -11,7 +12,7 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on Admin.ContentAction;
+	) as projection on ContentProvider.ContentAction;
 	
 	entity  ContentActionTextDetails @(
 		Capabilities: {
@@ -19,7 +20,7 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on TextDetailModel.ContentAction;
+	) as projection on TextDetail.ContentAction;
 	
 	entity  FeedTypes @(
 		Capabilities: {
@@ -27,24 +28,55 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on Admin.FeedType;
-	
+	) as projection on ContentProvider.FeedType;
+
 	entity  FeedTypeTextDetails @(
 		Capabilities: {
 			InsertRestrictions: {Insertable: true},
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on TextDetailModel.FeedType;
-	
-	
+	) as projection on TextDetail.FeedType;
+
 	entity  ErrorMessages @(
 		Capabilities: {
 			InsertRestrictions: {Insertable: true},
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on Admin.ErrorMessage;
+	) as projection on DropDownValue.ErrorMessage;
+	
+	entity  ChargeTypes @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on DropDownValue.ChargeType;
+
+	entity  FreightCodeCodes @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on DropDownValue.FreightCostCode;
+
+	entity  DaysInTransitTypes @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on DropDownValue.DaysInTransitType;
+
+	entity  CommitmentTimeTypes @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on DropDownValue.CommitmentTimeType;
 	
 	entity  ErrorMessageTextDetails @(
 		Capabilities: {
@@ -52,7 +84,7 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on TextDetailModel.ErrorMessage;
+	) as projection on TextDetail.ErrorMessage;
 	
 	entity  ContentSources @(
 		Capabilities: {
@@ -60,7 +92,7 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on Admin.ContentSource;
+	) as projection on ContentProvider.ContentSource;
 	
 	entity  ContentSourceTextDetails @(
 		Capabilities: {
@@ -68,7 +100,7 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on TextDetailModel.ContentSource;
+	) as projection on TextDetail.ContentSource;
 	
 	entity  ContentSourceStatuss @(
 		Capabilities: {
@@ -76,7 +108,7 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on Admin.ContentSourceStatus;
+	) as projection on ContentProvider.ContentSourceStatus;
 	
 	entity  ContentSourceStatusTextDetails @(
 		Capabilities: {
@@ -84,7 +116,7 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on TextDetailModel.ContentSourceStatus;
+	) as projection on TextDetail.ContentSourceStatus;
 	
 	entity  ContentSourceValues @(
 		Capabilities: {
@@ -92,7 +124,7 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on Admin.ContentSourceValue;
+	) as projection on ContentProvider.ContentSourceValue;
 	
 	entity  ContentSourceValueTextDetails @(
 		Capabilities: {
@@ -100,27 +132,55 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on TextDetailModel.ContentSourceValue;
+	) as projection on TextDetail.ContentSourceValue;
 	
 	entity  CarrierMasters @(
 		Capabilities: {
-			draftEnabled: true,
-			writeDraftPersistence: 'ADMIN_DRAFTMODEL_CARRIERMASTER',
 			InsertRestrictions: {Insertable: true},
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on Admin.CarrierMaster;
+	) as projection on CarrierService.CarrierMaster;
 	
+	entity  CarrierServiceCategorys @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on CarrierService.CarrierServiceCategory;
+
+	entity  CarrierMasterServices @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on CarrierService.CarrierMasterService;
+
+	entity  CarrierServiceTypes @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on CarrierService.CarrierServiceType;
+
+	entity  CarrierMasterContentActions @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on CarrierService.CarrierMasterContentAction;
+
 	entity  CarrierMasterTextDetails @(
 		Capabilities: {
-			draftEnabled: true,
-			writeDraftPersistence: 'ADMIN_DRAFTMODEL_CARRIERMASTERTEXTDETAIL',
 			InsertRestrictions: {Insertable: true},
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on TextDetailModel.CarrierMaster;
+	) as projection on TextDetail.CarrierMaster;
 	
 	entity  ContentSourceCarriers @(
 		Capabilities: {
@@ -128,7 +188,7 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on AssignmentModel.ContentSourceCarrier;
+	) as projection on ContentProvider.ContentSourceCarrier;
 	
 	entity  ContentSourceCarrierTextDetails @(
 		Capabilities: {
@@ -136,7 +196,7 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on TextDetailModel.ContentSourceCarrier;
+	) as projection on TextDetail.ContentSourceCarrier;
 	
 	entity  ContentSourceActions @(
 		Capabilities: {
@@ -144,7 +204,7 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on AssignmentModel.ContentSourceAction;
+	) as projection on ContentProvider.ContentSourceAction;
 	
 	entity  ContentSourceActionTextDetails @(
 		Capabilities: {
@@ -152,5 +212,61 @@ service CatalogService {
 			UpdateRestrictions: {Updatable: true},
 			DeleteRestrictions: {Deletable: true}
 		}
-	) as projection on TextDetailModel.ContentSourceAction;
+	) as projection on TextDetail.ContentSourceAction;
+
+	entity  FreightCostCodeTextDetails @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on TextDetail.FreightCostCode;
+
+	entity  ChargeTypeTextDetails @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on TextDetail.ChargeType;
+
+	entity  DaysInTransitTypeTextDetails @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on TextDetail.DaysInTransitType;
+
+	entity  CommitmentTimeTypeTextDetails @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on TextDetail.CommitmentTimeType;
+
+	entity  CarrierServiceTypeTextDetails @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on TextDetail.CarrierServiceType;
+
+	entity  CarrierServiceCategoryTextDetails @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on TextDetail.CarrierServiceCategory;
+
+	entity  CarrierMasterServiceTextDetails @(
+		Capabilities: {
+			InsertRestrictions: {Insertable: true},
+			UpdateRestrictions: {Updatable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
+	) as projection on TextDetail.CarrierMasterService;
 }

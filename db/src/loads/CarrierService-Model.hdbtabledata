@@ -1,11 +1,11 @@
 { 
 	"format_version": 1,
 	"imports": [{
-		"target_table": "ADMIN_DROPDOWNVALUEMODEL_CHARGETYPE",
+		"target_table": "ADMIN_CARRIERSERVICE_CARRIERMASTER",
 		"source_data": {
 			"data_type": "CSV",
-			"file_name": "chargetype.csv",
-			"subfolder": "dropdown-value",
+			"file_name": "carriermaster.csv",
+			"subfolder": "carrier-service",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -15,19 +15,23 @@
 		"import_settings": {
         	"include_filter" : [ ],			
 			"import_columns": [
-				"CHARGETYPEID"
+				"CARRIERMASTERID",
+				"LOGOURL",
+				"STATUS"
 				]
 		},
 		"column_mappings": {
-			"CHARGETYPEID": 1
+			"CARRIERMASTERID": 1,
+			"LOGOURL": 2,
+			"STATUS": 3
 		}
 	},
-	{
-		"target_table": "ADMIN_DROPDOWNVALUEMODEL_FREIGHTCOSTCODE",
+    {
+		"target_table": "ADMIN_CARRIERSERVICE_CARRIERMASTERSERVICE",
 		"source_data": {
 			"data_type": "CSV",
-			"file_name": "freightcostcode.csv",
-			"subfolder": "dropdown-value",
+			"file_name": "carriermasterservice.csv",
+            "subfolder": "carrier-service",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -37,19 +41,25 @@
 		"import_settings": {
         	"include_filter" : [ ],			
 			"import_columns": [
-				"FREIGHTCOSTCODEID"
+				"CARRIERMASTERID",
+				"CARRIERSERVICEID",
+				"CARRIERSERVICETYPE",
+				"STATUS"
 				]
 		},
 		"column_mappings": {
-			"FREIGHTCOSTCODEID": 1
+			"CARRIERMASTERID": 1,
+			"CARRIERSERVICEID": 2,
+			"CARRIERSERVICETYPE": 3,
+			"STATUS": 4
 		}
 	},
-	{
-		"target_table": "ADMIN_DROPDOWNVALUEMODEL_DAYSINTRANSITTYPE",
+    {
+		"target_table": "ADMIN_CARRIERSERVICE_CARRIERMASTERCONTENTACTION",
 		"source_data": {
 			"data_type": "CSV",
-			"file_name": "daysintransittype.csv",
-			"subfolder": "dropdown-value",
+			"file_name": "carriermastercontenteaction.csv",
+            "subfolder": "carrier-service",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -59,19 +69,23 @@
 		"import_settings": {
         	"include_filter" : [ ],			
 			"import_columns": [
-				"DAYSINTRANSITTYPEID"
+				"CARRIERMASTERID",
+				"CONTENTACTIONID",
+				"CONTENTSOURCEID"
 				]
 		},
 		"column_mappings": {
-			"DAYSINTRANSITTYPEID": 1
+			"CARRIERMASTERID": 1,
+			"CONTENTACTIONID": 2,
+			"CONTENTSOURCEID": 3
 		}
 	},
-	{
-		"target_table": "ADMIN_DROPDOWNVALUEMODEL_COMMITMENTTIMETYPE",
+    {
+		"target_table": "ADMIN_CARRIERSERVICE_CARRIERSERVICETYPE",
 		"source_data": {
 			"data_type": "CSV",
-			"file_name": "commitmenttimetype.csv",
-			"subfolder": "dropdown-value",
+			"file_name": "carrierservicetype.csv",
+            "subfolder": "carrier-service",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -81,19 +95,19 @@
 		"import_settings": {
         	"include_filter" : [ ],			
 			"import_columns": [
-				"COMMITMENTTIMETYPEID"
+				"CARRIERSERVICETYPEID",
 				]
 		},
 		"column_mappings": {
-			"COMMITMENTTIMETYPEID": 1
+			"CARRIERSERVICETYPEID": 1
 		}
 	},
-	{
-		"target_table": "ADMIN_DROPDOWNVALUEMODEL_ERRORMESSAGE",
+    {
+		"target_table": "ADMIN_CARRIERSERVICE_CARRIERSERVICECATEGORY",
 		"source_data": {
 			"data_type": "CSV",
-			"file_name": "errormessage.csv",
-			"subfolder": "dropdown-value",
+			"file_name": "carrierservicecategory.csv",
+            "subfolder": "carrier-service",
 			"has_header": false,
 			"dialect": "HANA",
 			"type_config": {
@@ -103,11 +117,11 @@
 		"import_settings": {
         	"include_filter" : [ ],			
 			"import_columns": [
-				"ERRORMESSAGEID"
+				"CARRIERSERVICECATEGORYID",
 				]
 		},
 		"column_mappings": {
-			"ERRORMESSAGEID": 1
+			"CARRIERSERVICECAEGORYID": 1
 		}
 	},
 	]

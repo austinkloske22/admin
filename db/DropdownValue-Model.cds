@@ -1,25 +1,29 @@
-namespace Admin.DropdownValueModel;
+namespace Admin.DropdownValue;
 
-using Admin as Admin from './Data-Model';
-using Admin.CommonModel as CommonModel from './Common-Model.cds';
-using Admin.TextDetailModel as TextDetailModel from './TextDetail-Model';
+using Admin.Common as Common from './Common-Model.cds';
+using Admin.TextDetail as TextDetail from './TextDetail-Model';
+
+entity ErrorMessage {
+	key errorMessageID	: Common.AdminKey;
+	TextDetails			: Composition of many TextDetail.ErrorMessage on TextDetails.errorMessageID = $self.errorMessageID;
+} 
 
 entity ChargeType {
-	key chargeTypeID		: CommonModel.AdminKey;
-	TextDetails				: Composition of many TextDetailModel.ChargeType on TextDetails.chargeTypeID = $self.chargeTypeID;
+	key chargeTypeID		: Common.AdminKey;
+	TextDetails				: Composition of many TextDetail.ChargeType on TextDetails.chargeTypeID = $self.chargeTypeID;
 } 
 
 entity FreightCostCode {
-	freightCostCodeID		: CommonModel.Description;
-	TextDetails				: Composition of many TextDetailModel.FreightCostCode on TextDetails.freightCostCodeID = $self.freightCostCodeID;
+	freightCostCodeID		: Common.Description;
+	TextDetails				: Composition of many TextDetail.FreightCostCode on TextDetails.freightCostCodeID = $self.freightCostCodeID;
 }
 
 entity DaysInTransitType {
-	daysInTransitTypeID		: CommonModel.AdminKey;
-	TextDetails				: Composition of many TextDetailModel.DaysInTransitType on TextDetails.daysInTransitTypeID = $self.daysInTransitTypeID;
+	daysInTransitTypeID		: Common.AdminKey;
+	TextDetails				: Composition of many TextDetail.DaysInTransitType on TextDetails.daysInTransitTypeID = $self.daysInTransitTypeID;
 }
 
 entity CommitmentTimeType {
-	commitmentTimeTypeID	: CommonModel.AdminKey;
-	TextDetails				: Composition of many TextDetailModel.CommitmentTimeType  on TextDetails.commitmentTimeTypeID = $self.commitmentTimeTypeID;
+	commitmentTimeTypeID	: Common.AdminKey;
+	TextDetails				: Composition of many TextDetail.CommitmentTimeType  on TextDetails.commitmentTimeTypeID = $self.commitmentTimeTypeID;
 }

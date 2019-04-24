@@ -1,7 +1,4 @@
-namespace Admin.CommonModel;
-
-using Admin as Admin from './Data-Model';
-using Admin.AssignmentModel as AssignmentModel from './Assignment-Model.cds';
+namespace Admin.Common;
 
 type AdminKey		: String(60);
 type LanguageCode	: String(2);
