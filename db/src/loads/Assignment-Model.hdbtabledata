@@ -47,6 +47,31 @@
 			"CONTENTSOURCEID": 1,
 			"CONTENTACTIONID": 2
 		}
+	},
+	{
+		"target_table": "ADMIN_ASSIGNMENTMODEL_CARRIERMASTERCONTENTACTION",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "carriermastercontenteaction.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CARRIERMASTERID",
+				"CONTENTACTIONID",
+				"CONTENTSOURCEID"
+				]
+		},
+		"column_mappings": {
+			"CARRIERMASTERID": 1,
+			"CONTENTACTIONID": 2,
+			"CONTENTSOURCEID": 3
+		}
 	}
 	]
 }

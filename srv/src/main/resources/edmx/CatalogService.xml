@@ -164,7 +164,6 @@
         <Property Name="carrierMasterID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <Property Name="carrierServiceID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <Property Name="carrierServiceType" Type="Edm.String" MaxLength="60"/>
-        <Property Name="carrierServiceCategory" Type="Edm.String" MaxLength="60"/>
         <Property Name="commitmentTimeType" Type="Edm.String" MaxLength="60"/>
         <Property Name="commitmentTime" Type="Edm.String" MaxLength="60"/>
         <Property Name="daysInTransitType" Type="Edm.String" MaxLength="60"/>

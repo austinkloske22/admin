@@ -875,42 +875,36 @@
           "length": 60,
           "@cds.persistence.name": "CARRIERSERVICETYPE"
         },
-        "carrierServiceCategory": {
-          "indexNo": 4,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CARRIERSERVICECATEGORY"
-        },
         "commitmentTimeType": {
-          "indexNo": 5,
+          "indexNo": 4,
           "type": "cds.String",
           "length": 60,
           "@cds.persistence.name": "COMMITMENTTIMETYPE"
         },
         "commitmentTime": {
-          "indexNo": 6,
+          "indexNo": 5,
           "type": "cds.String",
           "length": 60,
           "@cds.persistence.name": "COMMITMENTTIME"
         },
         "daysInTransitType": {
-          "indexNo": 7,
+          "indexNo": 6,
           "type": "cds.String",
           "length": 60,
           "@cds.persistence.name": "DAYSINTRANSITTYPE"
         },
         "daysInTransit": {
-          "indexNo": 8,
+          "indexNo": 7,
           "type": "cds.Integer",
           "@cds.persistence.name": "DAYSINTRANSIT"
         },
         "status": {
-          "indexNo": 9,
+          "indexNo": 8,
           "type": "cds.Boolean",
           "@cds.persistence.name": "STATUS"
         },
         "CarrierMaster": {
-          "indexNo": 10,
+          "indexNo": 9,
           "type": "cds.Association",
           "target": "Admin.CarrierMaster",
           "cardinality": {
@@ -4346,18 +4340,8 @@
           "origin": "Admin.CarrierMasterService..carrierServiceType",
           "@cds.persistence.name": "CARRIERSERVICETYPE"
         },
-        "carrierServiceCategory": {
-          "indexNo": 4,
-          "type": "cds.String",
-          "length": 60,
-          "value": {
-            "=": "CarrierMasterService.carrierServiceCategory"
-          },
-          "origin": "Admin.CarrierMasterService..carrierServiceCategory",
-          "@cds.persistence.name": "CARRIERSERVICECATEGORY"
-        },
         "commitmentTimeType": {
-          "indexNo": 5,
+          "indexNo": 4,
           "type": "cds.String",
           "length": 60,
           "value": {
@@ -4367,7 +4351,7 @@
           "@cds.persistence.name": "COMMITMENTTIMETYPE"
         },
         "commitmentTime": {
-          "indexNo": 6,
+          "indexNo": 5,
           "type": "cds.String",
           "length": 60,
           "value": {
@@ -4377,7 +4361,7 @@
           "@cds.persistence.name": "COMMITMENTTIME"
         },
         "daysInTransitType": {
-          "indexNo": 7,
+          "indexNo": 6,
           "type": "cds.String",
           "length": 60,
           "value": {
@@ -4387,7 +4371,7 @@
           "@cds.persistence.name": "DAYSINTRANSITTYPE"
         },
         "daysInTransit": {
-          "indexNo": 8,
+          "indexNo": 7,
           "type": "cds.Integer",
           "value": {
             "=": "CarrierMasterService.daysInTransit"
@@ -4396,7 +4380,7 @@
           "@cds.persistence.name": "DAYSINTRANSIT"
         },
         "status": {
-          "indexNo": 9,
+          "indexNo": 8,
           "type": "cds.Boolean",
           "value": {
             "=": "CarrierMasterService.status"
@@ -4405,7 +4389,7 @@
           "@cds.persistence.name": "STATUS"
         },
         "CarrierMaster": {
-          "indexNo": 10,
+          "indexNo": 9,
           "type": "cds.Association",
           "target": "CatalogService.CarrierMasters",
           "cardinality": {

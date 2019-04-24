@@ -69,7 +69,6 @@ entity CarrierMasterService {
 	key carrierMasterID		: CommonModel.AdminKey;
 	key carrierServiceID	: CommonModel.AdminKey;
 	carrierServiceType		: CommonModel.AdminKey;
-	carrierServiceCategory	: CommonModel.AdminKey;
 	commitmentTimeType		: CommonModel.AdminKey;
 	commitmentTime			: CommonModel.AdminKey;
 	daysInTransitType		: CommonModel.AdminKey;

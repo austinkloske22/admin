@@ -11,7 +11,6 @@ entity ContentSourceCarrier {
 	ContentSource				: Association to one Admin.ContentSource on ContentSource.contentSourceID = $self.contentSourceID;
 	ContentSourceTextDetails	: Association to many TextDetailModel.ContentSource on ContentSourceTextDetails.contentSourceID = $self.contentSourceID;
 	CarrierMasterTextDetails	: Association to many TextDetailModel.CarrierMaster on CarrierMasterTextDetails.carrierMasterID = $self.carrierMasterID;
-	
 }
 
 entity ContentSourceAction {

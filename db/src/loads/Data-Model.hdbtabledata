@@ -166,6 +166,33 @@
 		"column_mappings": {
 			"FEEDTYPEID": 1
 		}
+	},
+	{
+		"target_table": "ADMIN_CARRIERMASTERSERVICE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "carriermasterservice.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CARRIERMASTERID",
+				"CARRIERSERVICEID",
+				"CARRIERSERVICETYPE",
+				"STATUS"
+				]
+		},
+		"column_mappings": {
+			"CARRIERMASTERID": 1,
+			"CARRIERSERVICEID": 2,
+			"CARRIERSERVICETYPE": 3,
+			"STATUS": 4
+		}
 	}
 	]
 }

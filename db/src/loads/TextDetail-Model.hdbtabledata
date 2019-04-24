@@ -230,6 +230,133 @@
 			"LOCALE": 2,
 			"DESCRIPTION": 3
 		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_DAYSINTRANSITTYPE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "daysintransittypetextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"DAYSINTRANSITTYPEID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"DAYSINTRANSITTYPEID": 1,
+			"LOCALE": 2,
+			"DESCRIPTION": 3
+		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_COMMITMENTTIMETYPE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "commitmenttimetypetextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"COMMITMENTTIMETYPEID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"COMMITMENTTIMETYPEID": 1,
+			"LOCALE": 2,
+			"DESCRIPTION": 3
+		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_CARRIERSERVICETYPE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "carrierservicetypetextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CARRIERSERVICETYPEID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"CARRIERSERVICETYPEID": 1,
+			"LOCALE": 2,
+			"DESCRIPTION": 3
+		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_CARRIERSERVICECATEGORY",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "carrierservicecategorytextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CARRIERSERVICECATEGORYID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"CARRIERSERVICECATEGORYID": 1,
+			"LOCALE": 2,
+			"DESCRIPTION": 3
+		}
+	},
+	{
+		"target_table": "ADMIN_TEXTDETAILMODEL_CARRIERMASTERSERVICE",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "carriermasterservicetextdetail.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": [
+				"CARRIERMASTERID",
+				"CARRIERSERVICEID",
+				"LOCALE",
+				"DESCRIPTION"
+				]
+		},
+		"column_mappings": {
+			"CARRIERMASTERID": 1,
+			"CARRIERSERVICEID": 2,
+			"LOCALE": 3,
+			"DESCRIPTION": 4
+		}
 	}
 	]
 }

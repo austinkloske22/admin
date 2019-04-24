@@ -1,0 +1,62 @@
+USPS,USPSFirstClass,en,First Class Mail/Package
+USPS,USPSFirstClassPackageInternational,en,First Class Package International
+USPS,USPSParcelSelect,en,Parcel Select
+USPS,USPSPriorityMail,en,Priority Mail
+USPS,USPSPriorityMailExpress,en,Priority Mail Express
+USPS,USPSPriorityMailExpressInternational,en,Priority Mail Express International
+USPS,USPSPriorityMailInternational,en,Priority Mail International
+UPS,UPSSecondDayAirAm,en,UPS 2nd Day Air A.M.®
+UPS,UPSSecondDayAir,en,UPS 2nd Day Air®
+UPS,UPSThreeDaySelect,en,UPS 3-Day Select®
+UPS,UPSAccessPointEconomy,en,UPS Access Point™ Economy
+UPS,UPSExpeditedMailInnovations,en,UPS Expedited Mail Innovations
+UPS,UPSFirstClassMail,en,UPS First-Class Mail
+UPS,UPSNextDayAirSaver,en,UPS Next Day Air Saver®
+UPS,UPSNextDayAir,en,UPS Next Day Air®
+UPS,UPSNextDayAirEarly,en,UPS Next Day Air® Early
+UPS,UPSPriorityMail,en,UPS Priority Mail
+UPS,UPSPriorityMailInnovations,en,UPS Priority Mail Innovations
+UPS,UPSTodayDedicatedCourier,en,UPS Today Dedicated Courier
+UPS,UPSTodayExpress,en,UPS Today Express
+UPS,UPSTodayExpressSaver,en,UPS Today Express Saver
+UPS,UPSTodayIntercity,en,UPS Today Intercity
+UPS,UPSTodayStandard,en,UPS Today Standard
+UPS,UPSGround,en,UPS® Ground
+UPS,UPSStandard,en,UPS® Standard
+UPS,UPSSurePost,en,UPS SurePost®
+UPS,UPSWorldwideExpressPlus,en,UPS Worldwide Express Plus®
+UPS,UPSWorldwideExpress,en,UPS Worldwide Express®
+UPS,UPSWorldwideSaver,en,UPS Worldwide Saver®
+UPS,UPSWorldwideExpedited,en,UPS Worldwide Expedited®
+UPSFreight,UPSWorldwideExpressFreightMidday,en,UPS Worldwide Express Freight Midday™
+UPSFreight,UPSWorldwideExpressFreight,en,UPS Worldwide Express Freight®
+UPSMailInnovations,UPSEconomyMailInnovations,en,UPS Economy Mail Innovations
+UPSMailInnovations,UPSExpeditedMailInnovations,en,UPS Expedited Mail Innovations
+UPSMailInnovations,UPSFirstClassMail,en,UPS First-Class Mail
+UPSMailInnovations,UPSPriorityMail,en,UPS Priority Mail
+UPSMailInnovations,UPSPriorityMailInnovations,en,UPS Priority Mail Innovations
+FedEx,FedExExpressSaver,en,FedEx Express Saver®
+FedEx,FedExOneDayFreight,en,FedEx 1Day® Freight
+FedEx,FedExTwoDayFreight,en,FedEx 2Day® Freight
+FedEx,FedExThreeDayFreight,en,FedEx 3Day® Freight
+FedEx,FedExGround,en,FedEx Ground®
+FedEx,FedExGroundMultiweight,en,FedEx Ground Multiweight®
+FedEx,FedExHomeDelivery,en,FedEx Home Delivery®
+FedEx,FedExInternationalPriority,en,FedEx International Priority®
+FedEx,FedExInternationalEconomy,en,FedEx International Economy®
+FedEx,FedExInternationalFirst,en,FedEx International First®
+FedEx,FedExInternationalPriorityFreight,en,FedEx International Priority® Freight
+FedEx,FedExInternationalEconomyFreight,en,FedEx International Economy® Freight
+FedEx,FedExInternationalGround,en,FedEx International Ground®
+FedEx,FedExInternationalFirstEnvelope,en,FedEx International First Envelope
+FedEx,FedExInternationalPriorityEnvelope,en,FedEx International Priority Envelope
+FedEx,FedExInternationalEconomyEnvelope,en,FedEx International Economy Envelope
+FedEx,FedExSameDay,en,FedEx Same Day®
+FedEx,FedExFirstOvernight,en,FedEx First Overnight®
+FedEx,FedExPriorityOvernight,en,FedEx Priority Overnight®
+FedEx,FedExStandardOvernight,en,FedEx Standard Overnight®
+FedEx,FedExTwoDay,en,FedEx 2Day®
+FedexSmartPost,FedExSmartpostParcelSelect,en,FedEx SmartPost Parcel Select
+FedexSmartPost,FedExSmartpostMediaMail,en,FedEx SmartPost® Media Mail
+FedexSmartPost,FedExSmartpost_bound,en,FedEx SmartPost® Bound Printed Matter
+FedexSmartPost,FedExSmartpostPresorted,en,FedEx SmartPost® Presorted Standard
