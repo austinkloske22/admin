@@ -1,7 +1,7 @@
 { 
 	"format_version": 1,
 	"imports": [{
-		"target_table": "ADMIN_DROPDOWNVALUEMODEL_CHARGETYPE",
+		"target_table": "ADMIN_DROPDOWNVALUE_CHARGETYPE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "chargetype.csv",
@@ -23,7 +23,7 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_DROPDOWNVALUEMODEL_FREIGHTCOSTCODE",
+		"target_table": "ADMIN_DROPDOWNVALUE_FREIGHTCOSTCODE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "freightcostcode.csv",
@@ -45,7 +45,7 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_DROPDOWNVALUEMODEL_DAYSINTRANSITTYPE",
+		"target_table": "ADMIN_DROPDOWNVALUE_DAYSINTRANSITTYPE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "daysintransittype.csv",
@@ -67,7 +67,7 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_DROPDOWNVALUEMODEL_COMMITMENTTIMETYPE",
+		"target_table": "ADMIN_DROPDOWNVALUE_COMMITMENTTIMETYPE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "commitmenttimetype.csv",
@@ -89,7 +89,7 @@
 		}
 	},
 	{
-		"target_table": "ADMIN_DROPDOWNVALUEMODEL_ERRORMESSAGE",
+		"target_table": "ADMIN_DROPDOWNVALUE_ERRORMESSAGE",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "errormessage.csv",
@@ -109,6 +109,6 @@
 		"column_mappings": {
 			"ERRORMESSAGEID": 1
 		}
-	},
+	}
 	]
 }

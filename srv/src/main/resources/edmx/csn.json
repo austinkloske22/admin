@@ -1,53 +1,31 @@
 {
-  "namespace": "Admin.AssignmentModel",
+  "namespace": "Admin.CarrierService",
   "definitions": {
-    "Admin.AssignmentModel.ContentSourceCarrier": {
+    "Admin.CarrierService.CarrierMaster": {
       "kind": "entity",
       "elements": {
-        "contentSourceID": {
+        "carrierMasterID": {
           "key": true,
           "indexNo": 1,
           "type": "cds.String",
           "length": 60,
-          "@cds.persistence.name": "CONTENTSOURCEID"
-        },
-        "carrierMasterID": {
-          "key": true,
-          "indexNo": 2,
-          "type": "cds.String",
-          "length": 60,
           "@cds.persistence.name": "CARRIERMASTERID"
         },
-        "contentSourceCarrierID": {
-          "indexNo": 3,
+        "logoURL": {
+          "indexNo": 2,
           "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTSOURCECARRIERID"
+          "length": 1000,
+          "@cds.persistence.name": "LOGOURL"
         },
-        "ContentSource": {
+        "status": {
+          "indexNo": 3,
+          "type": "cds.Boolean",
+          "@cds.persistence.name": "STATUS"
+        },
+        "ContentSourceCarriers": {
           "indexNo": 4,
-          "type": "cds.Association",
-          "target": "Admin.ContentSource",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentSource.contentSourceID"
-              },
-              {
-                "=": "contentSourceID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCE"
-        },
-        "ContentSourceTextDetails": {
-          "indexNo": 5,
-          "type": "cds.Association",
-          "target": "Admin.TextDetailModel.ContentSource",
+          "type": "cds.Composition",
+          "target": "Admin.ContentProvider.ContentSourceCarrier",
           "cardinality": {
             "targetMax": "*"
           },
@@ -55,99 +33,19 @@
             "op": "=",
             "args": [
               {
-                "=": "ContentSourceTextDetails.contentSourceID"
-              },
-              {
-                "=": "contentSourceID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
-        },
-        "CarrierMasterTextDetails": {
-          "indexNo": 6,
-          "type": "cds.Association",
-          "target": "Admin.TextDetailModel.CarrierMaster",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "CarrierMasterTextDetails.carrierMasterID"
+                "=": "ContentSourceCarriers.carrierMasterID"
               },
               {
                 "=": "carrierMasterID"
               }
             ]
           },
-          "@cds.persistence.name": "CARRIERMASTERTEXTDETAILS"
-        }
-      },
-      "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CONTENTSOURCECARRIER"
-    },
-    "Admin.AssignmentModel.ContentSourceAction": {
-      "kind": "entity",
-      "elements": {
-        "contentSourceID": {
-          "key": true,
-          "indexNo": 1,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTSOURCEID"
+          "@cds.persistence.name": "CONTENTSOURCECARRIERS"
         },
-        "contentActionID": {
-          "key": true,
-          "indexNo": 2,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTACTIONID"
-        },
-        "ContentSource": {
-          "indexNo": 3,
-          "type": "cds.Association",
-          "target": "Admin.ContentSource",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentSource.contentSourceID"
-              },
-              {
-                "=": "contentSourceID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCE"
-        },
-        "ContentSourceTextDetails": {
-          "indexNo": 4,
-          "type": "cds.Association",
-          "target": "Admin.TextDetailModel.ContentSource",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentSourceTextDetails.contentSourceID"
-              },
-              {
-                "=": "contentSourceID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
-        },
-        "ContentActionTextDetails": {
+        "CarrierMasterServices": {
           "indexNo": 5,
-          "type": "cds.Association",
-          "target": "Admin.TextDetailModel.ContentAction",
+          "type": "cds.Composition",
+          "target": "Admin.CarrierService.CarrierMasterService",
           "cardinality": {
             "targetMax": "*"
           },
@@ -155,19 +53,39 @@
             "op": "=",
             "args": [
               {
-                "=": "ContentActionTextDetails.contentActionID"
+                "=": "CarrierMasterServices.carrierMasterID"
               },
               {
-                "=": "contentActionID"
+                "=": "carrierMasterID"
               }
             ]
           },
-          "@cds.persistence.name": "CONTENTACTIONTEXTDETAILS"
+          "@cds.persistence.name": "CARRIERMASTERSERVICES"
+        },
+        "TextDetails": {
+          "indexNo": 6,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetail.CarrierMaster",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.carrierMasterID"
+              },
+              {
+                "=": "carrierMasterID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CONTENTSOURCEACTION"
+      "@cds.persistence.name": "ADMIN_CARRIERSERVICE_CARRIERMASTER"
     },
-    "Admin.AssignmentModel.CarrierMasterContentAction": {
+    "Admin.CarrierService.CarrierMasterContentAction": {
       "kind": "entity",
       "elements": {
         "carrierMasterID": {
@@ -193,7 +111,7 @@
         "CarrierMaster": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.CarrierMaster",
+          "target": "Admin.CarrierService.CarrierMaster",
           "cardinality": {
             "targetMax": 1
           },
@@ -213,7 +131,7 @@
         "CarrierMasterTextDetails": {
           "indexNo": 5,
           "type": "cds.Association",
-          "target": "Admin.TextDetailModel.CarrierMaster",
+          "target": "Admin.TextDetail.CarrierMaster",
           "cardinality": {
             "targetMax": "*"
           },
@@ -233,7 +151,7 @@
         "ContentActionTextDetails": {
           "indexNo": 6,
           "type": "cds.Association",
-          "target": "Admin.TextDetailModel.ContentAction",
+          "target": "Admin.TextDetail.ContentAction",
           "cardinality": {
             "targetMax": "*"
           },
@@ -253,7 +171,7 @@
         "ContentSourceTextDetails": {
           "indexNo": 7,
           "type": "cds.Association",
-          "target": "Admin.TextDetailModel.ContentSource",
+          "target": "Admin.TextDetail.ContentSource",
           "cardinality": {
             "targetMax": "*"
           },
@@ -271,522 +189,9 @@
           "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "ADMIN_ASSIGNMENTMODEL_CARRIERMASTERCONTENTACTION"
+      "@cds.persistence.name": "ADMIN_CARRIERSERVICE_CARRIERMASTERCONTENTACTION"
     },
-    "Admin.CommonModel.AdminKey": {
-      "kind": "type",
-      "type": "cds.String",
-      "length": 60,
-      "@cds.persistence.name": "ADMIN_COMMONMODEL_ADMINKEY"
-    },
-    "Admin.CommonModel.LanguageCode": {
-      "kind": "type",
-      "type": "cds.String",
-      "length": 2,
-      "@cds.persistence.name": "ADMIN_COMMONMODEL_LANGUAGECODE"
-    },
-    "Admin.CommonModel.Description": {
-      "kind": "type",
-      "type": "cds.String",
-      "length": 255,
-      "@cds.persistence.name": "ADMIN_COMMONMODEL_DESCRIPTION"
-    },
-    "Admin.CommonModel.LongString": {
-      "kind": "type",
-      "type": "cds.String",
-      "length": 1000,
-      "@cds.persistence.name": "ADMIN_COMMONMODEL_LONGSTRING"
-    },
-    "Admin.CarrierMaster": {
-      "kind": "entity",
-      "elements": {
-        "carrierMasterID": {
-          "key": true,
-          "indexNo": 1,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CARRIERMASTERID"
-        },
-        "logoURL": {
-          "indexNo": 2,
-          "type": "cds.String",
-          "length": 1000,
-          "@cds.persistence.name": "LOGOURL"
-        },
-        "status": {
-          "indexNo": 3,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "STATUS"
-        },
-        "ContentSourceCarriers": {
-          "indexNo": 4,
-          "type": "cds.Composition",
-          "target": "Admin.AssignmentModel.ContentSourceCarrier",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentSourceCarriers.carrierMasterID"
-              },
-              {
-                "=": "carrierMasterID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCECARRIERS"
-        },
-        "CarrierMasterServices": {
-          "indexNo": 5,
-          "type": "cds.Composition",
-          "target": "Admin.CarrierMasterService",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "CarrierMasterServices.carrierMasterID"
-              },
-              {
-                "=": "carrierMasterID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CARRIERMASTERSERVICES"
-        },
-        "TextDetails": {
-          "indexNo": 6,
-          "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.CarrierMaster",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "TextDetails.carrierMasterID"
-              },
-              {
-                "=": "carrierMasterID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "TEXTDETAILS"
-        }
-      },
-      "@cds.persistence.name": "ADMIN_CARRIERMASTER"
-    },
-    "Admin.ContentSource": {
-      "kind": "entity",
-      "elements": {
-        "contentSourceID": {
-          "key": true,
-          "indexNo": 1,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTSOURCEID"
-        },
-        "ContentSourceValues": {
-          "indexNo": 2,
-          "type": "cds.Composition",
-          "target": "Admin.ContentSourceValue",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentSourceValues.contentSourceID"
-              },
-              {
-                "=": "contentSourceID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCEVALUES"
-        },
-        "ContentSourceStatuss": {
-          "indexNo": 3,
-          "type": "cds.Composition",
-          "target": "Admin.ContentSourceStatus",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentSourceStatuss.contentSourceID"
-              },
-              {
-                "=": "contentSourceID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCESTATUSS"
-        },
-        "ContentSourceCarriers": {
-          "indexNo": 4,
-          "type": "cds.Composition",
-          "target": "Admin.AssignmentModel.ContentSourceCarrier",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentSourceCarriers.contentSourceID"
-              },
-              {
-                "=": "contentSourceID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCECARRIERS"
-        },
-        "ContentSourceActions": {
-          "indexNo": 5,
-          "type": "cds.Composition",
-          "target": "Admin.AssignmentModel.ContentSourceAction",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentSourceActions.contentSourceID"
-              },
-              {
-                "=": "contentSourceID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCEACTIONS"
-        },
-        "TextDetails": {
-          "indexNo": 6,
-          "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.ContentSource",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "TextDetails.contentSourceID"
-              },
-              {
-                "=": "contentSourceID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "TEXTDETAILS"
-        }
-      },
-      "@cds.persistence.name": "ADMIN_CONTENTSOURCE"
-    },
-    "Admin.ContentSourceValue": {
-      "kind": "entity",
-      "elements": {
-        "contentSourceID": {
-          "key": true,
-          "indexNo": 1,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTSOURCEID"
-        },
-        "contentKeyID": {
-          "key": true,
-          "indexNo": 2,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTKEYID"
-        },
-        "contentValue": {
-          "indexNo": 3,
-          "type": "cds.String",
-          "length": 1000,
-          "@cds.persistence.name": "CONTENTVALUE"
-        },
-        "TextDetails": {
-          "indexNo": 4,
-          "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.ContentSourceValue",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "and",
-            "args": [
-              {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "TextDetails.contentSourceID"
-                  },
-                  {
-                    "=": "contentSourceID"
-                  }
-                ]
-              },
-              {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "TextDetails.contentKeyID"
-                  },
-                  {
-                    "=": "contentKeyID"
-                  }
-                ]
-              }
-            ]
-          },
-          "@cds.persistence.name": "TEXTDETAILS"
-        }
-      },
-      "@cds.persistence.name": "ADMIN_CONTENTSOURCEVALUE"
-    },
-    "Admin.ContentSourceStatus": {
-      "kind": "entity",
-      "elements": {
-        "contentSourceID": {
-          "key": true,
-          "indexNo": 1,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTSOURCEID"
-        },
-        "primaryStatusCode": {
-          "key": true,
-          "indexNo": 2,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "PRIMARYSTATUSCODE"
-        },
-        "secondaryStatusCode": {
-          "key": true,
-          "indexNo": 3,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "SECONDARYSTATUSCODE"
-        },
-        "normalizedStatusCode": {
-          "indexNo": 4,
-          "type": "cds.String",
-          "length": 255,
-          "@cds.persistence.name": "NORMALIZEDSTATUSCODE"
-        },
-        "exceptionType": {
-          "indexNo": 5,
-          "type": "cds.String",
-          "length": 255,
-          "@cds.persistence.name": "EXCEPTIONTYPE"
-        },
-        "initialDeliveryAttempt": {
-          "indexNo": 6,
-          "type": "cds.Boolean",
-          "@cds.persistence.name": "INITIALDELIVERYATTEMPT"
-        },
-        "ContentSource": {
-          "indexNo": 7,
-          "type": "cds.Association",
-          "target": "Admin.ContentSource",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentSource.contentSourceID"
-              },
-              {
-                "=": "contentSourceID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCE"
-        },
-        "TextDetails": {
-          "indexNo": 8,
-          "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.ContentSourceStatus",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "and",
-            "args": [
-              {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "TextDetails.contentSourceID"
-                  },
-                  {
-                    "=": "contentSourceID"
-                  }
-                ]
-              },
-              {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "TextDetails.primaryStatusCode"
-                  },
-                  {
-                    "=": "primaryStatusCode"
-                  }
-                ]
-              },
-              {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "TextDetails.secondaryStatusCode"
-                  },
-                  {
-                    "=": "secondaryStatusCode"
-                  }
-                ]
-              }
-            ]
-          },
-          "@cds.persistence.name": "TEXTDETAILS"
-        }
-      },
-      "@cds.persistence.name": "ADMIN_CONTENTSOURCESTATUS"
-    },
-    "Admin.ErrorMessage": {
-      "kind": "entity",
-      "elements": {
-        "errorMessageID": {
-          "key": true,
-          "indexNo": 1,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "ERRORMESSAGEID"
-        },
-        "TextDetails": {
-          "indexNo": 2,
-          "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.ErrorMessage",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "TextDetails.errorMessageID"
-              },
-              {
-                "=": "errorMessageID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "TEXTDETAILS"
-        }
-      },
-      "@cds.persistence.name": "ADMIN_ERRORMESSAGE"
-    },
-    "Admin.ContentAction": {
-      "kind": "entity",
-      "elements": {
-        "contentActionID": {
-          "key": true,
-          "indexNo": 1,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTACTIONID"
-        },
-        "ContentSourceActions": {
-          "indexNo": 2,
-          "type": "cds.Composition",
-          "target": "Admin.AssignmentModel.ContentSourceAction",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "ContentSourceActions.contentActionID"
-              },
-              {
-                "=": "contentActionID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCEACTIONS"
-        },
-        "TextDetails": {
-          "indexNo": 3,
-          "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.ContentAction",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "TextDetails.contentActionID"
-              },
-              {
-                "=": "contentActionID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "TEXTDETAILS"
-        }
-      },
-      "@cds.persistence.name": "ADMIN_CONTENTACTION"
-    },
-    "Admin.FeedType": {
-      "kind": "entity",
-      "elements": {
-        "feedTypeID": {
-          "key": true,
-          "indexNo": 1,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "FEEDTYPEID"
-        },
-        "TextDetails": {
-          "indexNo": 2,
-          "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.FeedType",
-          "cardinality": {
-            "targetMax": "*"
-          },
-          "onCond": {
-            "op": "=",
-            "args": [
-              {
-                "=": "TextDetails.feedTypeID"
-              },
-              {
-                "=": "feedTypeID"
-              }
-            ]
-          },
-          "@cds.persistence.name": "TEXTDETAILS"
-        }
-      },
-      "@cds.persistence.name": "ADMIN_FEEDTYPE"
-    },
-    "Admin.CarrierServiceType": {
+    "Admin.CarrierService.CarrierServiceType": {
       "kind": "entity",
       "elements": {
         "carrierServiceTypeID": {
@@ -799,7 +204,7 @@
         "TextDetails": {
           "indexNo": 2,
           "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.CarrierServiceType",
+          "target": "Admin.TextDetail.CarrierServiceType",
           "cardinality": {
             "targetMax": "*"
           },
@@ -817,9 +222,9 @@
           "@cds.persistence.name": "TEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "ADMIN_CARRIERSERVICETYPE"
+      "@cds.persistence.name": "ADMIN_CARRIERSERVICE_CARRIERSERVICETYPE"
     },
-    "Admin.CarrierServiceCategory": {
+    "Admin.CarrierService.CarrierServiceCategory": {
       "kind": "entity",
       "elements": {
         "carrierServiceCategoryID": {
@@ -832,7 +237,7 @@
         "TextDetails": {
           "indexNo": 2,
           "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.CarrierServiceCategory",
+          "target": "Admin.TextDetail.CarrierServiceCategory",
           "cardinality": {
             "targetMax": "*"
           },
@@ -850,9 +255,9 @@
           "@cds.persistence.name": "TEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "ADMIN_CARRIERSERVICECATEGORY"
+      "@cds.persistence.name": "ADMIN_CARRIERSERVICE_CARRIERSERVICECATEGORY"
     },
-    "Admin.CarrierMasterService": {
+    "Admin.CarrierService.CarrierMasterService": {
       "kind": "entity",
       "elements": {
         "carrierMasterID": {
@@ -906,7 +311,7 @@
         "CarrierMaster": {
           "indexNo": 9,
           "type": "cds.Association",
-          "target": "Admin.CarrierMaster",
+          "target": "Admin.CarrierService.CarrierMaster",
           "cardinality": {
             "targetMax": 1
           },
@@ -924,9 +329,604 @@
           "@cds.persistence.name": "CARRIERMASTER"
         }
       },
-      "@cds.persistence.name": "ADMIN_CARRIERMASTERSERVICE"
+      "@cds.persistence.name": "ADMIN_CARRIERSERVICE_CARRIERMASTERSERVICE"
     },
-    "Admin.DropdownValueModel.ChargeType": {
+    "Admin.Common.AdminKey": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 60,
+      "@cds.persistence.name": "ADMIN_COMMON_ADMINKEY"
+    },
+    "Admin.Common.LanguageCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 2,
+      "@cds.persistence.name": "ADMIN_COMMON_LANGUAGECODE"
+    },
+    "Admin.Common.Description": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 255,
+      "@cds.persistence.name": "ADMIN_COMMON_DESCRIPTION"
+    },
+    "Admin.Common.LongString": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 1000,
+      "@cds.persistence.name": "ADMIN_COMMON_LONGSTRING"
+    },
+    "Admin.ContentProvider.ContentSource": {
+      "kind": "entity",
+      "elements": {
+        "contentSourceID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "ContentSourceValues": {
+          "indexNo": 2,
+          "type": "cds.Composition",
+          "target": "Admin.ContentProvider.ContentSourceValue",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceValues.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCEVALUES"
+        },
+        "ContentSourceStatuss": {
+          "indexNo": 3,
+          "type": "cds.Composition",
+          "target": "Admin.ContentProvider.ContentSourceStatus",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceStatuss.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCESTATUSS"
+        },
+        "ContentSourceCarriers": {
+          "indexNo": 4,
+          "type": "cds.Composition",
+          "target": "Admin.ContentProvider.ContentSourceCarrier",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceCarriers.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCECARRIERS"
+        },
+        "ContentSourceActions": {
+          "indexNo": 5,
+          "type": "cds.Composition",
+          "target": "Admin.ContentProvider.ContentSourceAction",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceActions.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCEACTIONS"
+        },
+        "TextDetails": {
+          "indexNo": 6,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetail.ContentSource",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_CONTENTPROVIDER_CONTENTSOURCE"
+    },
+    "Admin.ContentProvider.ContentSourceCarrier": {
+      "kind": "entity",
+      "elements": {
+        "contentSourceID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "carrierMasterID": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERMASTERID"
+        },
+        "contentSourceCarrierID": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCECARRIERID"
+        },
+        "ContentSource": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "Admin.ContentProvider.ContentSource",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSource.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCE"
+        },
+        "ContentSourceTextDetails": {
+          "indexNo": 5,
+          "type": "cds.Association",
+          "target": "Admin.TextDetail.ContentSource",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceTextDetails.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
+        },
+        "CarrierMasterTextDetails": {
+          "indexNo": 6,
+          "type": "cds.Association",
+          "target": "Admin.TextDetail.CarrierMaster",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierMasterTextDetails.carrierMasterID"
+              },
+              {
+                "=": "carrierMasterID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CARRIERMASTERTEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_CONTENTPROVIDER_CONTENTSOURCECARRIER"
+    },
+    "Admin.ContentProvider.ContentSourceAction": {
+      "kind": "entity",
+      "elements": {
+        "contentSourceID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "contentActionID": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTACTIONID"
+        },
+        "ContentSource": {
+          "indexNo": 3,
+          "type": "cds.Association",
+          "target": "Admin.ContentProvider.ContentSource",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSource.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCE"
+        },
+        "ContentSourceTextDetails": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "Admin.TextDetail.ContentSource",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceTextDetails.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
+        },
+        "ContentActionTextDetails": {
+          "indexNo": 5,
+          "type": "cds.Association",
+          "target": "Admin.TextDetail.ContentAction",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentActionTextDetails.contentActionID"
+              },
+              {
+                "=": "contentActionID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTACTIONTEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_CONTENTPROVIDER_CONTENTSOURCEACTION"
+    },
+    "Admin.ContentProvider.ContentSourceValue": {
+      "kind": "entity",
+      "elements": {
+        "contentSourceID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "contentKeyID": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTKEYID"
+        },
+        "contentValue": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 1000,
+          "@cds.persistence.name": "CONTENTVALUE"
+        },
+        "TextDetails": {
+          "indexNo": 4,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetail.ContentSourceValue",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "TextDetails.contentSourceID"
+                  },
+                  {
+                    "=": "contentSourceID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "TextDetails.contentKeyID"
+                  },
+                  {
+                    "=": "contentKeyID"
+                  }
+                ]
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_CONTENTPROVIDER_CONTENTSOURCEVALUE"
+    },
+    "Admin.ContentProvider.ContentSourceStatus": {
+      "kind": "entity",
+      "elements": {
+        "contentSourceID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "primaryStatusCode": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "PRIMARYSTATUSCODE"
+        },
+        "secondaryStatusCode": {
+          "key": true,
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "SECONDARYSTATUSCODE"
+        },
+        "normalizedStatusCode": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "NORMALIZEDSTATUSCODE"
+        },
+        "exceptionType": {
+          "indexNo": 5,
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "EXCEPTIONTYPE"
+        },
+        "initialDeliveryAttempt": {
+          "indexNo": 6,
+          "type": "cds.Boolean",
+          "@cds.persistence.name": "INITIALDELIVERYATTEMPT"
+        },
+        "ContentSource": {
+          "indexNo": 7,
+          "type": "cds.Association",
+          "target": "Admin.ContentProvider.ContentSource",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSource.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCE"
+        },
+        "TextDetails": {
+          "indexNo": 8,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetail.ContentSourceStatus",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "TextDetails.contentSourceID"
+                  },
+                  {
+                    "=": "contentSourceID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "TextDetails.primaryStatusCode"
+                  },
+                  {
+                    "=": "primaryStatusCode"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "TextDetails.secondaryStatusCode"
+                  },
+                  {
+                    "=": "secondaryStatusCode"
+                  }
+                ]
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_CONTENTPROVIDER_CONTENTSOURCESTATUS"
+    },
+    "Admin.ContentProvider.ContentAction": {
+      "kind": "entity",
+      "elements": {
+        "contentActionID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTACTIONID"
+        },
+        "ContentSourceActions": {
+          "indexNo": 2,
+          "type": "cds.Composition",
+          "target": "Admin.ContentProvider.ContentSourceAction",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceActions.contentActionID"
+              },
+              {
+                "=": "contentActionID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "CONTENTSOURCEACTIONS"
+        },
+        "TextDetails": {
+          "indexNo": 3,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetail.ContentAction",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.contentActionID"
+              },
+              {
+                "=": "contentActionID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_CONTENTPROVIDER_CONTENTACTION"
+    },
+    "Admin.ContentProvider.FeedType": {
+      "kind": "entity",
+      "elements": {
+        "feedTypeID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "FEEDTYPEID"
+        },
+        "TextDetails": {
+          "indexNo": 2,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetail.FeedType",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.feedTypeID"
+              },
+              {
+                "=": "feedTypeID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_CONTENTPROVIDER_FEEDTYPE"
+    },
+    "Admin.DropdownValue.ErrorMessage": {
+      "kind": "entity",
+      "elements": {
+        "errorMessageID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "ERRORMESSAGEID"
+        },
+        "TextDetails": {
+          "indexNo": 2,
+          "type": "cds.Composition",
+          "target": "Admin.TextDetail.ErrorMessage",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.errorMessageID"
+              },
+              {
+                "=": "errorMessageID"
+              }
+            ]
+          },
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "ADMIN_DROPDOWNVALUE_ERRORMESSAGE"
+    },
+    "Admin.DropdownValue.ChargeType": {
       "kind": "entity",
       "elements": {
         "chargeTypeID": {
@@ -939,7 +939,7 @@
         "TextDetails": {
           "indexNo": 2,
           "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.ChargeType",
+          "target": "Admin.TextDetail.ChargeType",
           "cardinality": {
             "targetMax": "*"
           },
@@ -957,12 +957,13 @@
           "@cds.persistence.name": "TEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "ADMIN_DROPDOWNVALUEMODEL_CHARGETYPE"
+      "@cds.persistence.name": "ADMIN_DROPDOWNVALUE_CHARGETYPE"
     },
-    "Admin.DropdownValueModel.FreightCostCode": {
+    "Admin.DropdownValue.FreightCostCode": {
       "kind": "entity",
       "elements": {
         "freightCostCodeID": {
+          "key": true,
           "indexNo": 1,
           "type": "cds.String",
           "length": 255,
@@ -971,7 +972,7 @@
         "TextDetails": {
           "indexNo": 2,
           "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.FreightCostCode",
+          "target": "Admin.TextDetail.FreightCostCode",
           "cardinality": {
             "targetMax": "*"
           },
@@ -989,12 +990,13 @@
           "@cds.persistence.name": "TEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "ADMIN_DROPDOWNVALUEMODEL_FREIGHTCOSTCODE"
+      "@cds.persistence.name": "ADMIN_DROPDOWNVALUE_FREIGHTCOSTCODE"
     },
-    "Admin.DropdownValueModel.DaysInTransitType": {
+    "Admin.DropdownValue.DaysInTransitType": {
       "kind": "entity",
       "elements": {
         "daysInTransitTypeID": {
+          "key": true,
           "indexNo": 1,
           "type": "cds.String",
           "length": 60,
@@ -1003,7 +1005,7 @@
         "TextDetails": {
           "indexNo": 2,
           "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.DaysInTransitType",
+          "target": "Admin.TextDetail.DaysInTransitType",
           "cardinality": {
             "targetMax": "*"
           },
@@ -1021,12 +1023,13 @@
           "@cds.persistence.name": "TEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "ADMIN_DROPDOWNVALUEMODEL_DAYSINTRANSITTYPE"
+      "@cds.persistence.name": "ADMIN_DROPDOWNVALUE_DAYSINTRANSITTYPE"
     },
-    "Admin.DropdownValueModel.CommitmentTimeType": {
+    "Admin.DropdownValue.CommitmentTimeType": {
       "kind": "entity",
       "elements": {
         "commitmentTimeTypeID": {
+          "key": true,
           "indexNo": 1,
           "type": "cds.String",
           "length": 60,
@@ -1035,7 +1038,7 @@
         "TextDetails": {
           "indexNo": 2,
           "type": "cds.Composition",
-          "target": "Admin.TextDetailModel.CommitmentTimeType",
+          "target": "Admin.TextDetail.CommitmentTimeType",
           "cardinality": {
             "targetMax": "*"
           },
@@ -1053,9 +1056,9 @@
           "@cds.persistence.name": "TEXTDETAILS"
         }
       },
-      "@cds.persistence.name": "ADMIN_DROPDOWNVALUEMODEL_COMMITMENTTIMETYPE"
+      "@cds.persistence.name": "ADMIN_DROPDOWNVALUE_COMMITMENTTIMETYPE"
     },
-    "Admin.TextDetailModel.CarrierMaster": {
+    "Admin.TextDetail.CarrierMaster": {
       "kind": "entity",
       "elements": {
         "carrierMasterID": {
@@ -1069,21 +1072,23 @@
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "CarrierMaster": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.CarrierMaster",
+          "target": "Admin.CarrierService.CarrierMaster",
           "cardinality": {
             "targetMax": 1
           },
@@ -1101,9 +1106,9 @@
           "@cds.persistence.name": "CARRIERMASTER"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CARRIERMASTER"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_CARRIERMASTER"
     },
-    "Admin.TextDetailModel.ContentSource": {
+    "Admin.TextDetail.ContentSource": {
       "kind": "entity",
       "elements": {
         "contentSourceID": {
@@ -1117,21 +1122,23 @@
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ContentSource": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.ContentSource",
+          "target": "Admin.ContentProvider.ContentSource",
           "cardinality": {
             "targetMax": 1
           },
@@ -1149,9 +1156,9 @@
           "@cds.persistence.name": "CONTENTSOURCE"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCE"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_CONTENTSOURCE"
     },
-    "Admin.TextDetailModel.ContentSourceValue": {
+    "Admin.TextDetail.ContentSourceValue": {
       "kind": "entity",
       "elements": {
         "contentSourceID": {
@@ -1172,21 +1179,23 @@
           "key": true,
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 4,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ContentSourceValue": {
           "indexNo": 5,
           "type": "cds.Association",
-          "target": "Admin.ContentSourceValue",
+          "target": "Admin.ContentProvider.ContentSourceValue",
           "cardinality": {
             "targetMax": 1
           },
@@ -1220,80 +1229,9 @@
           "@cds.persistence.name": "CONTENTSOURCEVALUE"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCEVALUE"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_CONTENTSOURCEVALUE"
     },
-    "Admin.TextDetailModel.ContentSourceCarrier": {
-      "kind": "entity",
-      "elements": {
-        "contentSourceID": {
-          "key": true,
-          "indexNo": 1,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTSOURCEID"
-        },
-        "carrierMasterID": {
-          "key": true,
-          "indexNo": 2,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CARRIERMASTERID"
-        },
-        "locale": {
-          "key": true,
-          "indexNo": 3,
-          "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
-          "length": 2,
-          "@cds.persistence.name": "LOCALE"
-        },
-        "description": {
-          "indexNo": 4,
-          "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
-          "length": 255,
-          "@cds.persistence.name": "DESCRIPTION"
-        },
-        "ContentSourceCarrier": {
-          "indexNo": 5,
-          "type": "cds.Association",
-          "target": "Admin.AssignmentModel.ContentSourceCarrier",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "and",
-            "args": [
-              {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "ContentSourceCarrier.contentSourceID"
-                  },
-                  {
-                    "=": "contentSourceID"
-                  }
-                ]
-              },
-              {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "ContentSourceCarrier.carrierMasterID"
-                  },
-                  {
-                    "=": "carrierMasterID"
-                  }
-                ]
-              }
-            ]
-          },
-          "@cds.persistence.name": "CONTENTSOURCECARRIER"
-        }
-      },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCECARRIER"
-    },
-    "Admin.TextDetailModel.ContentSourceAction": {
+    "Admin.TextDetail.ContentSourceAction": {
       "kind": "entity",
       "elements": {
         "contentSourceID": {
@@ -1314,21 +1252,23 @@
           "key": true,
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 4,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ContentSourceAction": {
           "indexNo": 5,
           "type": "cds.Association",
-          "target": "Admin.AssignmentModel.ContentSourceAction",
+          "target": "Admin.ContentProvider.ContentSourceAction",
           "cardinality": {
             "targetMax": 1
           },
@@ -1362,9 +1302,9 @@
           "@cds.persistence.name": "CONTENTSOURCEACTION"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCEACTION"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_CONTENTSOURCEACTION"
     },
-    "Admin.TextDetailModel.ContentSourceStatus": {
+    "Admin.TextDetail.ContentSourceStatus": {
       "kind": "entity",
       "elements": {
         "contentSourceID": {
@@ -1392,21 +1332,23 @@
           "key": true,
           "indexNo": 4,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 5,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ContentSourceStatus": {
           "indexNo": 6,
           "type": "cds.Association",
-          "target": "Admin.ContentSourceStatus",
+          "target": "Admin.ContentProvider.ContentSourceStatus",
           "cardinality": {
             "targetMax": 1
           },
@@ -1424,9 +1366,9 @@
           "@cds.persistence.name": "CONTENTSOURCESTATUS"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTSOURCESTATUS"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_CONTENTSOURCESTATUS"
     },
-    "Admin.TextDetailModel.ErrorMessage": {
+    "Admin.TextDetail.ErrorMessage": {
       "kind": "entity",
       "elements": {
         "errorMessageID": {
@@ -1440,21 +1382,23 @@
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ErrorMessage": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.ErrorMessage",
+          "target": "Admin.DropdownValue.ErrorMessage",
           "cardinality": {
             "targetMax": 1
           },
@@ -1472,9 +1416,9 @@
           "@cds.persistence.name": "ERRORMESSAGE"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_ERRORMESSAGE"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_ERRORMESSAGE"
     },
-    "Admin.TextDetailModel.ContentAction": {
+    "Admin.TextDetail.ContentAction": {
       "kind": "entity",
       "elements": {
         "contentActionID": {
@@ -1488,21 +1432,23 @@
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ContentAction": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.ContentAction",
+          "target": "Admin.ContentProvider.ContentAction",
           "cardinality": {
             "targetMax": 1
           },
@@ -1520,9 +1466,9 @@
           "@cds.persistence.name": "CONTENTACTION"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CONTENTACTION"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_CONTENTACTION"
     },
-    "Admin.TextDetailModel.FeedType": {
+    "Admin.TextDetail.FeedType": {
       "kind": "entity",
       "elements": {
         "feedTypeID": {
@@ -1536,21 +1482,23 @@
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "FeedType": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.FeedType",
+          "target": "Admin.ContentProvider.FeedType",
           "cardinality": {
             "targetMax": 1
           },
@@ -1568,9 +1516,9 @@
           "@cds.persistence.name": "FEEDTYPE"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_FEEDTYPE"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_FEEDTYPE"
     },
-    "Admin.TextDetailModel.ChargeType": {
+    "Admin.TextDetail.ChargeType": {
       "kind": "entity",
       "elements": {
         "chargeTypeID": {
@@ -1584,21 +1532,23 @@
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ChargeType": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.DropdownValueModel.ChargeType",
+          "target": "Admin.DropdownValue.ChargeType",
           "cardinality": {
             "targetMax": 1
           },
@@ -1616,9 +1566,9 @@
           "@cds.persistence.name": "CHARGETYPE"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CHARGETYPE"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_CHARGETYPE"
     },
-    "Admin.TextDetailModel.FreightCostCode": {
+    "Admin.TextDetail.FreightCostCode": {
       "kind": "entity",
       "elements": {
         "freightCostCodeID": {
@@ -1632,21 +1582,23 @@
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "FreightCostCode": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.DropdownValueModel.FreightCostCode",
+          "target": "Admin.DropdownValue.FreightCostCode",
           "cardinality": {
             "targetMax": 1
           },
@@ -1664,9 +1616,9 @@
           "@cds.persistence.name": "FREIGHTCOSTCODE"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_FREIGHTCOSTCODE"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_FREIGHTCOSTCODE"
     },
-    "Admin.TextDetailModel.DaysInTransitType": {
+    "Admin.TextDetail.DaysInTransitType": {
       "kind": "entity",
       "elements": {
         "daysInTransitTypeID": {
@@ -1680,21 +1632,23 @@
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "DaysInTransitType": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.DropdownValueModel.DaysInTransitType",
+          "target": "Admin.DropdownValue.DaysInTransitType",
           "cardinality": {
             "targetMax": 1
           },
@@ -1712,9 +1666,9 @@
           "@cds.persistence.name": "DAYSINTRANSITTYPE"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_DAYSINTRANSITTYPE"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_DAYSINTRANSITTYPE"
     },
-    "Admin.TextDetailModel.CommitmentTimeType": {
+    "Admin.TextDetail.CommitmentTimeType": {
       "kind": "entity",
       "elements": {
         "commitmentTimeTypeID": {
@@ -1728,21 +1682,23 @@
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "CommitmentTimeType": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.DropdownValueModel.CommitmentTimeType",
+          "target": "Admin.DropdownValue.CommitmentTimeType",
           "cardinality": {
             "targetMax": 1
           },
@@ -1760,9 +1716,9 @@
           "@cds.persistence.name": "COMMITMENTTIMETYPE"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_COMMITMENTTIMETYPE"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_COMMITMENTTIMETYPE"
     },
-    "Admin.TextDetailModel.CarrierServiceType": {
+    "Admin.TextDetail.CarrierServiceType": {
       "kind": "entity",
       "elements": {
         "carrierServiceTypeID": {
@@ -1776,21 +1732,23 @@
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "CarrierServiceType": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.CarrierServiceType",
+          "target": "Admin.CarrierService.CarrierServiceType",
           "cardinality": {
             "targetMax": 1
           },
@@ -1808,9 +1766,9 @@
           "@cds.persistence.name": "CARRIERSERVICETYPE"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CARRIERSERVICETYPE"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_CARRIERSERVICETYPE"
     },
-    "Admin.TextDetailModel.CarrierServiceCategory": {
+    "Admin.TextDetail.CarrierServiceCategory": {
       "kind": "entity",
       "elements": {
         "carrierServiceCategoryID": {
@@ -1824,21 +1782,23 @@
           "key": true,
           "indexNo": 2,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "CarrierServiceCategory": {
           "indexNo": 4,
           "type": "cds.Association",
-          "target": "Admin.CarrierServiceCategory",
+          "target": "Admin.CarrierService.CarrierServiceCategory",
           "cardinality": {
             "targetMax": 1
           },
@@ -1856,9 +1816,9 @@
           "@cds.persistence.name": "CARRIERSERVICECATEGORY"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CARRIERSERVICECATEGORY"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_CARRIERSERVICECATEGORY"
     },
-    "Admin.TextDetailModel.CarrierMasterService": {
+    "Admin.TextDetail.CarrierMasterService": {
       "kind": "entity",
       "elements": {
         "carrierMasterID": {
@@ -1879,21 +1839,23 @@
           "key": true,
           "indexNo": 3,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
           "indexNo": 4,
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "CarrierMasterService": {
           "indexNo": 5,
           "type": "cds.Association",
-          "target": "Admin.CarrierMasterService",
+          "target": "Admin.CarrierService.CarrierMasterService",
           "cardinality": {
             "targetMax": 1
           },
@@ -1927,7 +1889,7 @@
           "@cds.persistence.name": "CARRIERMASTERSERVICE"
         }
       },
-      "@cds.persistence.name": "ADMIN_TEXTDETAILMODEL_CARRIERMASTERSERVICE"
+      "@cds.persistence.name": "ADMIN_TEXTDETAIL_CARRIERMASTERSERVICE"
     },
     "CatalogService": {
       "kind": "service",
@@ -1935,7 +1897,7 @@
     },
     "CatalogService.ContentActions": {
       "kind": "entity",
-      "source": "Admin.ContentAction",
+      "source": "Admin.ContentProvider.ContentAction",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
@@ -1997,7 +1959,7 @@
       ],
       "elements": {
         "contentActionID": {
-          "origin": "Admin.ContentAction..contentActionID",
+          "origin": "Admin.ContentProvider.ContentAction..contentActionID",
           "indexNo": 1,
           "value": {
             "=": "ContentAction.contentActionID"
@@ -2008,7 +1970,7 @@
           "@cds.persistence.name": "CONTENTACTIONID"
         },
         "ContentSourceActions": {
-          "origin": "Admin.ContentAction..ContentSourceActions",
+          "origin": "Admin.ContentProvider.ContentAction..ContentSourceActions",
           "indexNo": 2,
           "value": {
             "=": "ContentAction.ContentSourceActions"
@@ -2033,7 +1995,7 @@
           "@cds.persistence.name": "CONTENTSOURCEACTIONS"
         },
         "TextDetails": {
-          "origin": "Admin.ContentAction..TextDetails",
+          "origin": "Admin.ContentProvider.ContentAction..TextDetails",
           "indexNo": 3,
           "value": {
             "=": "ContentAction.TextDetails"
@@ -2062,7 +2024,7 @@
     },
     "CatalogService.ContentActionTextDetails": {
       "kind": "entity",
-      "source": "Admin.TextDetailModel.ContentAction",
+      "source": "Admin.TextDetail.ContentAction",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
@@ -2136,7 +2098,7 @@
       ],
       "elements": {
         "contentActionID": {
-          "origin": "Admin.TextDetailModel.ContentAction..contentActionID",
+          "origin": "Admin.TextDetail.ContentAction..contentActionID",
           "indexNo": 1,
           "value": {
             "=": "ContentAction.contentActionID"
@@ -2147,30 +2109,32 @@
           "@cds.persistence.name": "CONTENTACTIONID"
         },
         "locale": {
-          "origin": "Admin.TextDetailModel.ContentAction..locale",
+          "origin": "Admin.TextDetail.ContentAction..locale",
           "indexNo": 2,
           "value": {
             "=": "ContentAction.locale"
           },
           "key": true,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
-          "origin": "Admin.TextDetailModel.ContentAction..description",
+          "origin": "Admin.TextDetail.ContentAction..description",
           "indexNo": 3,
           "value": {
             "=": "ContentAction.description"
           },
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ContentAction": {
-          "origin": "Admin.TextDetailModel.ContentAction..ContentAction",
+          "origin": "Admin.TextDetail.ContentAction..ContentAction",
           "indexNo": 4,
           "value": {
             "=": "ContentAction.ContentAction"
@@ -2199,7 +2163,7 @@
     },
     "CatalogService.FeedTypes": {
       "kind": "entity",
-      "source": "Admin.FeedType",
+      "source": "Admin.ContentProvider.FeedType",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
@@ -2261,7 +2225,7 @@
       ],
       "elements": {
         "feedTypeID": {
-          "origin": "Admin.FeedType..feedTypeID",
+          "origin": "Admin.ContentProvider.FeedType..feedTypeID",
           "indexNo": 1,
           "value": {
             "=": "FeedType.feedTypeID"
@@ -2272,7 +2236,7 @@
           "@cds.persistence.name": "FEEDTYPEID"
         },
         "TextDetails": {
-          "origin": "Admin.FeedType..TextDetails",
+          "origin": "Admin.ContentProvider.FeedType..TextDetails",
           "indexNo": 2,
           "value": {
             "=": "FeedType.TextDetails"
@@ -2301,7 +2265,7 @@
     },
     "CatalogService.FeedTypeTextDetails": {
       "kind": "entity",
-      "source": "Admin.TextDetailModel.FeedType",
+      "source": "Admin.TextDetail.FeedType",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
@@ -2375,7 +2339,7 @@
       ],
       "elements": {
         "feedTypeID": {
-          "origin": "Admin.TextDetailModel.FeedType..feedTypeID",
+          "origin": "Admin.TextDetail.FeedType..feedTypeID",
           "indexNo": 1,
           "value": {
             "=": "FeedType.feedTypeID"
@@ -2386,30 +2350,32 @@
           "@cds.persistence.name": "FEEDTYPEID"
         },
         "locale": {
-          "origin": "Admin.TextDetailModel.FeedType..locale",
+          "origin": "Admin.TextDetail.FeedType..locale",
           "indexNo": 2,
           "value": {
             "=": "FeedType.locale"
           },
           "key": true,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
-          "origin": "Admin.TextDetailModel.FeedType..description",
+          "origin": "Admin.TextDetail.FeedType..description",
           "indexNo": 3,
           "value": {
             "=": "FeedType.description"
           },
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "FeedType": {
-          "origin": "Admin.TextDetailModel.FeedType..FeedType",
+          "origin": "Admin.TextDetail.FeedType..FeedType",
           "indexNo": 4,
           "value": {
             "=": "FeedType.FeedType"
@@ -2438,7 +2404,7 @@
     },
     "CatalogService.ErrorMessages": {
       "kind": "entity",
-      "source": "Admin.ErrorMessage",
+      "source": "Admin.DropdownValue.ErrorMessage",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
@@ -2500,7 +2466,7 @@
       ],
       "elements": {
         "errorMessageID": {
-          "origin": "Admin.ErrorMessage..errorMessageID",
+          "origin": "Admin.DropdownValue.ErrorMessage..errorMessageID",
           "indexNo": 1,
           "value": {
             "=": "ErrorMessage.errorMessageID"
@@ -2511,7 +2477,7 @@
           "@cds.persistence.name": "ERRORMESSAGEID"
         },
         "TextDetails": {
-          "origin": "Admin.ErrorMessage..TextDetails",
+          "origin": "Admin.DropdownValue.ErrorMessage..TextDetails",
           "indexNo": 2,
           "value": {
             "=": "ErrorMessage.TextDetails"
@@ -2538,9 +2504,193 @@
       },
       "@cds.persistence.name": "CATALOGSERVICE_ERRORMESSAGES"
     },
+    "CatalogService.ChargeTypes": {
+      "kind": "entity",
+      "source": "Admin.DropdownValue.ChargeType",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "chargeTypeID": {
+          "origin": "Admin.DropdownValue.ChargeType..chargeTypeID",
+          "indexNo": 1,
+          "value": {
+            "=": "ChargeType.chargeTypeID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CHARGETYPEID"
+        },
+        "TextDetails": {
+          "origin": "Admin.DropdownValue.ChargeType..TextDetails",
+          "indexNo": 2,
+          "value": {
+            "=": "ChargeType.TextDetails"
+          },
+          "type": "cds.Composition",
+          "target": "CatalogService.ChargeTypeTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.chargeTypeID"
+              },
+              {
+                "=": "chargeTypeID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CHARGETYPES"
+    },
+    "CatalogService.FreightCostCodes": {
+      "kind": "entity",
+      "source": "Admin.DropdownValue.FreightCostCode",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "freightCostCodeID": {
+          "origin": "Admin.DropdownValue.FreightCostCode..freightCostCodeID",
+          "indexNo": 1,
+          "value": {
+            "=": "FreightCostCode.freightCostCodeID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "FREIGHTCOSTCODEID"
+        },
+        "TextDetails": {
+          "origin": "Admin.DropdownValue.FreightCostCode..TextDetails",
+          "indexNo": 2,
+          "value": {
+            "=": "FreightCostCode.TextDetails"
+          },
+          "type": "cds.Composition",
+          "target": "CatalogService.FreightCostCodeTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.freightCostCodeID"
+              },
+              {
+                "=": "freightCostCodeID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_FREIGHTCOSTCODES"
+    },
+    "CatalogService.DaysInTransitTypes": {
+      "kind": "entity",
+      "source": "Admin.DropdownValue.DaysInTransitType",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "daysInTransitTypeID": {
+          "origin": "Admin.DropdownValue.DaysInTransitType..daysInTransitTypeID",
+          "indexNo": 1,
+          "value": {
+            "=": "DaysInTransitType.daysInTransitTypeID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "DAYSINTRANSITTYPEID"
+        },
+        "TextDetails": {
+          "origin": "Admin.DropdownValue.DaysInTransitType..TextDetails",
+          "indexNo": 2,
+          "value": {
+            "=": "DaysInTransitType.TextDetails"
+          },
+          "type": "cds.Composition",
+          "target": "CatalogService.DaysInTransitTypeTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.daysInTransitTypeID"
+              },
+              {
+                "=": "daysInTransitTypeID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_DAYSINTRANSITTYPES"
+    },
+    "CatalogService.CommitmentTimeTypes": {
+      "kind": "entity",
+      "source": "Admin.DropdownValue.CommitmentTimeType",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "commitmentTimeTypeID": {
+          "origin": "Admin.DropdownValue.CommitmentTimeType..commitmentTimeTypeID",
+          "indexNo": 1,
+          "value": {
+            "=": "CommitmentTimeType.commitmentTimeTypeID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "COMMITMENTTIMETYPEID"
+        },
+        "TextDetails": {
+          "origin": "Admin.DropdownValue.CommitmentTimeType..TextDetails",
+          "indexNo": 2,
+          "value": {
+            "=": "CommitmentTimeType.TextDetails"
+          },
+          "type": "cds.Composition",
+          "target": "CatalogService.CommitmentTimeTypeTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.commitmentTimeTypeID"
+              },
+              {
+                "=": "commitmentTimeTypeID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_COMMITMENTTIMETYPES"
+    },
     "CatalogService.ErrorMessageTextDetails": {
       "kind": "entity",
-      "source": "Admin.TextDetailModel.ErrorMessage",
+      "source": "Admin.TextDetail.ErrorMessage",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
@@ -2614,7 +2764,7 @@
       ],
       "elements": {
         "errorMessageID": {
-          "origin": "Admin.TextDetailModel.ErrorMessage..errorMessageID",
+          "origin": "Admin.TextDetail.ErrorMessage..errorMessageID",
           "indexNo": 1,
           "value": {
             "=": "ErrorMessage.errorMessageID"
@@ -2625,30 +2775,32 @@
           "@cds.persistence.name": "ERRORMESSAGEID"
         },
         "locale": {
-          "origin": "Admin.TextDetailModel.ErrorMessage..locale",
+          "origin": "Admin.TextDetail.ErrorMessage..locale",
           "indexNo": 2,
           "value": {
             "=": "ErrorMessage.locale"
           },
           "key": true,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
-          "origin": "Admin.TextDetailModel.ErrorMessage..description",
+          "origin": "Admin.TextDetail.ErrorMessage..description",
           "indexNo": 3,
           "value": {
             "=": "ErrorMessage.description"
           },
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ErrorMessage": {
-          "origin": "Admin.TextDetailModel.ErrorMessage..ErrorMessage",
+          "origin": "Admin.TextDetail.ErrorMessage..ErrorMessage",
           "indexNo": 4,
           "value": {
             "=": "ErrorMessage.ErrorMessage"
@@ -2677,7 +2829,7 @@
     },
     "CatalogService.ContentSources": {
       "kind": "entity",
-      "source": "Admin.ContentSource",
+      "source": "Admin.ContentProvider.ContentSource",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
@@ -2767,7 +2919,7 @@
       ],
       "elements": {
         "contentSourceID": {
-          "origin": "Admin.ContentSource..contentSourceID",
+          "origin": "Admin.ContentProvider.ContentSource..contentSourceID",
           "indexNo": 1,
           "value": {
             "=": "ContentSource.contentSourceID"
@@ -2778,7 +2930,7 @@
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
         "ContentSourceValues": {
-          "origin": "Admin.ContentSource..ContentSourceValues",
+          "origin": "Admin.ContentProvider.ContentSource..ContentSourceValues",
           "indexNo": 2,
           "value": {
             "=": "ContentSource.ContentSourceValues"
@@ -2803,7 +2955,7 @@
           "@cds.persistence.name": "CONTENTSOURCEVALUES"
         },
         "ContentSourceStatuss": {
-          "origin": "Admin.ContentSource..ContentSourceStatuss",
+          "origin": "Admin.ContentProvider.ContentSource..ContentSourceStatuss",
           "indexNo": 3,
           "value": {
             "=": "ContentSource.ContentSourceStatuss"
@@ -2828,7 +2980,7 @@
           "@cds.persistence.name": "CONTENTSOURCESTATUSS"
         },
         "ContentSourceCarriers": {
-          "origin": "Admin.ContentSource..ContentSourceCarriers",
+          "origin": "Admin.ContentProvider.ContentSource..ContentSourceCarriers",
           "indexNo": 4,
           "value": {
             "=": "ContentSource.ContentSourceCarriers"
@@ -2853,7 +3005,7 @@
           "@cds.persistence.name": "CONTENTSOURCECARRIERS"
         },
         "ContentSourceActions": {
-          "origin": "Admin.ContentSource..ContentSourceActions",
+          "origin": "Admin.ContentProvider.ContentSource..ContentSourceActions",
           "indexNo": 5,
           "value": {
             "=": "ContentSource.ContentSourceActions"
@@ -2878,7 +3030,7 @@
           "@cds.persistence.name": "CONTENTSOURCEACTIONS"
         },
         "TextDetails": {
-          "origin": "Admin.ContentSource..TextDetails",
+          "origin": "Admin.ContentProvider.ContentSource..TextDetails",
           "indexNo": 6,
           "value": {
             "=": "ContentSource.TextDetails"
@@ -2907,13 +3059,13 @@
     },
     "CatalogService.ContentSourceTextDetails": {
       "kind": "entity",
-      "source": "Admin.TextDetailModel.ContentSource",
+      "source": "Admin.TextDetail.ContentSource",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
       "elements": {
         "contentSourceID": {
-          "origin": "Admin.TextDetailModel.ContentSource..contentSourceID",
+          "origin": "Admin.TextDetail.ContentSource..contentSourceID",
           "indexNo": 1,
           "value": {
             "=": "ContentSource.contentSourceID"
@@ -2924,30 +3076,32 @@
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
         "locale": {
-          "origin": "Admin.TextDetailModel.ContentSource..locale",
+          "origin": "Admin.TextDetail.ContentSource..locale",
           "indexNo": 2,
           "value": {
             "=": "ContentSource.locale"
           },
           "key": true,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
-          "origin": "Admin.TextDetailModel.ContentSource..description",
+          "origin": "Admin.TextDetail.ContentSource..description",
           "indexNo": 3,
           "value": {
             "=": "ContentSource.description"
           },
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ContentSource": {
-          "origin": "Admin.TextDetailModel.ContentSource..ContentSource",
+          "origin": "Admin.TextDetail.ContentSource..ContentSource",
           "indexNo": 4,
           "value": {
             "=": "ContentSource.ContentSource"
@@ -2976,7 +3130,7 @@
     },
     "CatalogService.ContentSourceStatuss": {
       "kind": "entity",
-      "source": "Admin.ContentSourceStatus",
+      "source": "Admin.ContentProvider.ContentSourceStatus",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
@@ -3084,7 +3238,7 @@
       ],
       "elements": {
         "contentSourceID": {
-          "origin": "Admin.ContentSourceStatus..contentSourceID",
+          "origin": "Admin.ContentProvider.ContentSourceStatus..contentSourceID",
           "indexNo": 1,
           "value": {
             "=": "ContentSourceStatus.contentSourceID"
@@ -3095,7 +3249,7 @@
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
         "primaryStatusCode": {
-          "origin": "Admin.ContentSourceStatus..primaryStatusCode",
+          "origin": "Admin.ContentProvider.ContentSourceStatus..primaryStatusCode",
           "indexNo": 2,
           "value": {
             "=": "ContentSourceStatus.primaryStatusCode"
@@ -3106,7 +3260,7 @@
           "@cds.persistence.name": "PRIMARYSTATUSCODE"
         },
         "secondaryStatusCode": {
-          "origin": "Admin.ContentSourceStatus..secondaryStatusCode",
+          "origin": "Admin.ContentProvider.ContentSourceStatus..secondaryStatusCode",
           "indexNo": 3,
           "value": {
             "=": "ContentSourceStatus.secondaryStatusCode"
@@ -3117,7 +3271,7 @@
           "@cds.persistence.name": "SECONDARYSTATUSCODE"
         },
         "normalizedStatusCode": {
-          "origin": "Admin.ContentSourceStatus..normalizedStatusCode",
+          "origin": "Admin.ContentProvider.ContentSourceStatus..normalizedStatusCode",
           "indexNo": 4,
           "value": {
             "=": "ContentSourceStatus.normalizedStatusCode"
@@ -3127,7 +3281,7 @@
           "@cds.persistence.name": "NORMALIZEDSTATUSCODE"
         },
         "exceptionType": {
-          "origin": "Admin.ContentSourceStatus..exceptionType",
+          "origin": "Admin.ContentProvider.ContentSourceStatus..exceptionType",
           "indexNo": 5,
           "value": {
             "=": "ContentSourceStatus.exceptionType"
@@ -3137,7 +3291,7 @@
           "@cds.persistence.name": "EXCEPTIONTYPE"
         },
         "initialDeliveryAttempt": {
-          "origin": "Admin.ContentSourceStatus..initialDeliveryAttempt",
+          "origin": "Admin.ContentProvider.ContentSourceStatus..initialDeliveryAttempt",
           "indexNo": 6,
           "value": {
             "=": "ContentSourceStatus.initialDeliveryAttempt"
@@ -3146,7 +3300,7 @@
           "@cds.persistence.name": "INITIALDELIVERYATTEMPT"
         },
         "ContentSource": {
-          "origin": "Admin.ContentSourceStatus..ContentSource",
+          "origin": "Admin.ContentProvider.ContentSourceStatus..ContentSource",
           "indexNo": 7,
           "value": {
             "=": "ContentSourceStatus.ContentSource"
@@ -3171,7 +3325,7 @@
           "@cds.persistence.name": "CONTENTSOURCE"
         },
         "TextDetails": {
-          "origin": "Admin.ContentSourceStatus..TextDetails",
+          "origin": "Admin.ContentProvider.ContentSourceStatus..TextDetails",
           "indexNo": 8,
           "value": {
             "=": "ContentSourceStatus.TextDetails"
@@ -3227,13 +3381,13 @@
     },
     "CatalogService.ContentSourceStatusTextDetails": {
       "kind": "entity",
-      "source": "Admin.TextDetailModel.ContentSourceStatus",
+      "source": "Admin.TextDetail.ContentSourceStatus",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
       "elements": {
         "contentSourceID": {
-          "origin": "Admin.TextDetailModel.ContentSourceStatus..contentSourceID",
+          "origin": "Admin.TextDetail.ContentSourceStatus..contentSourceID",
           "indexNo": 1,
           "value": {
             "=": "ContentSourceStatus.contentSourceID"
@@ -3244,7 +3398,7 @@
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
         "primaryStatusCode": {
-          "origin": "Admin.TextDetailModel.ContentSourceStatus..primaryStatusCode",
+          "origin": "Admin.TextDetail.ContentSourceStatus..primaryStatusCode",
           "indexNo": 2,
           "value": {
             "=": "ContentSourceStatus.primaryStatusCode"
@@ -3255,7 +3409,7 @@
           "@cds.persistence.name": "PRIMARYSTATUSCODE"
         },
         "secondaryStatusCode": {
-          "origin": "Admin.TextDetailModel.ContentSourceStatus..secondaryStatusCode",
+          "origin": "Admin.TextDetail.ContentSourceStatus..secondaryStatusCode",
           "indexNo": 3,
           "value": {
             "=": "ContentSourceStatus.secondaryStatusCode"
@@ -3266,30 +3420,32 @@
           "@cds.persistence.name": "SECONDARYSTATUSCODE"
         },
         "locale": {
-          "origin": "Admin.TextDetailModel.ContentSourceStatus..locale",
+          "origin": "Admin.TextDetail.ContentSourceStatus..locale",
           "indexNo": 4,
           "value": {
             "=": "ContentSourceStatus.locale"
           },
           "key": true,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
-          "origin": "Admin.TextDetailModel.ContentSourceStatus..description",
+          "origin": "Admin.TextDetail.ContentSourceStatus..description",
           "indexNo": 5,
           "value": {
             "=": "ContentSourceStatus.description"
           },
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ContentSourceStatus": {
-          "origin": "Admin.TextDetailModel.ContentSourceStatus..ContentSourceStatus",
+          "origin": "Admin.TextDetail.ContentSourceStatus..ContentSourceStatus",
           "indexNo": 6,
           "value": {
             "=": "ContentSourceStatus.ContentSourceStatus"
@@ -3318,13 +3474,13 @@
     },
     "CatalogService.ContentSourceValues": {
       "kind": "entity",
-      "source": "Admin.ContentSourceValue",
+      "source": "Admin.ContentProvider.ContentSourceValue",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
       "elements": {
         "contentSourceID": {
-          "origin": "Admin.ContentSourceValue..contentSourceID",
+          "origin": "Admin.ContentProvider.ContentSourceValue..contentSourceID",
           "indexNo": 1,
           "value": {
             "=": "ContentSourceValue.contentSourceID"
@@ -3335,7 +3491,7 @@
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
         "contentKeyID": {
-          "origin": "Admin.ContentSourceValue..contentKeyID",
+          "origin": "Admin.ContentProvider.ContentSourceValue..contentKeyID",
           "indexNo": 2,
           "value": {
             "=": "ContentSourceValue.contentKeyID"
@@ -3346,7 +3502,7 @@
           "@cds.persistence.name": "CONTENTKEYID"
         },
         "contentValue": {
-          "origin": "Admin.ContentSourceValue..contentValue",
+          "origin": "Admin.ContentProvider.ContentSourceValue..contentValue",
           "indexNo": 3,
           "value": {
             "=": "ContentSourceValue.contentValue"
@@ -3356,7 +3512,7 @@
           "@cds.persistence.name": "CONTENTVALUE"
         },
         "TextDetails": {
-          "origin": "Admin.ContentSourceValue..TextDetails",
+          "origin": "Admin.ContentProvider.ContentSourceValue..TextDetails",
           "indexNo": 4,
           "value": {
             "=": "ContentSourceValue.TextDetails"
@@ -3401,13 +3557,13 @@
     },
     "CatalogService.ContentSourceValueTextDetails": {
       "kind": "entity",
-      "source": "Admin.TextDetailModel.ContentSourceValue",
+      "source": "Admin.TextDetail.ContentSourceValue",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
       "elements": {
         "contentSourceID": {
-          "origin": "Admin.TextDetailModel.ContentSourceValue..contentSourceID",
+          "origin": "Admin.TextDetail.ContentSourceValue..contentSourceID",
           "indexNo": 1,
           "value": {
             "=": "ContentSourceValue.contentSourceID"
@@ -3418,7 +3574,7 @@
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
         "contentKeyID": {
-          "origin": "Admin.TextDetailModel.ContentSourceValue..contentKeyID",
+          "origin": "Admin.TextDetail.ContentSourceValue..contentKeyID",
           "indexNo": 2,
           "value": {
             "=": "ContentSourceValue.contentKeyID"
@@ -3429,30 +3585,32 @@
           "@cds.persistence.name": "CONTENTKEYID"
         },
         "locale": {
-          "origin": "Admin.TextDetailModel.ContentSourceValue..locale",
+          "origin": "Admin.TextDetail.ContentSourceValue..locale",
           "indexNo": 3,
           "value": {
             "=": "ContentSourceValue.locale"
           },
           "key": true,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
-          "origin": "Admin.TextDetailModel.ContentSourceValue..description",
+          "origin": "Admin.TextDetail.ContentSourceValue..description",
           "indexNo": 4,
           "value": {
             "=": "ContentSourceValue.description"
           },
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ContentSourceValue": {
-          "origin": "Admin.TextDetailModel.ContentSourceValue..ContentSourceValue",
+          "origin": "Admin.TextDetail.ContentSourceValue..ContentSourceValue",
           "indexNo": 5,
           "value": {
             "=": "ContentSourceValue.ContentSourceValue"
@@ -3497,9 +3655,7 @@
     },
     "CatalogService.CarrierMasters": {
       "kind": "entity",
-      "source": "Admin.CarrierMaster",
-      "@Capabilities.draftEnabled": true,
-      "@Capabilities.writeDraftPersistence": "ADMIN_DRAFTMODEL_CARRIERMASTER",
+      "source": "Admin.CarrierService.CarrierMaster",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
@@ -3588,7 +3744,7 @@
       ],
       "elements": {
         "carrierMasterID": {
-          "origin": "Admin.CarrierMaster..carrierMasterID",
+          "origin": "Admin.CarrierService.CarrierMaster..carrierMasterID",
           "indexNo": 1,
           "value": {
             "=": "CarrierMaster.carrierMasterID"
@@ -3599,7 +3755,7 @@
           "@cds.persistence.name": "CARRIERMASTERID"
         },
         "logoURL": {
-          "origin": "Admin.CarrierMaster..logoURL",
+          "origin": "Admin.CarrierService.CarrierMaster..logoURL",
           "indexNo": 2,
           "value": {
             "=": "CarrierMaster.logoURL"
@@ -3609,7 +3765,7 @@
           "@cds.persistence.name": "LOGOURL"
         },
         "status": {
-          "origin": "Admin.CarrierMaster..status",
+          "origin": "Admin.CarrierService.CarrierMaster..status",
           "indexNo": 3,
           "value": {
             "=": "CarrierMaster.status"
@@ -3618,7 +3774,7 @@
           "@cds.persistence.name": "STATUS"
         },
         "ContentSourceCarriers": {
-          "origin": "Admin.CarrierMaster..ContentSourceCarriers",
+          "origin": "Admin.CarrierService.CarrierMaster..ContentSourceCarriers",
           "indexNo": 4,
           "value": {
             "=": "CarrierMaster.ContentSourceCarriers"
@@ -3643,13 +3799,13 @@
           "@cds.persistence.name": "CONTENTSOURCECARRIERS"
         },
         "CarrierMasterServices": {
-          "origin": "Admin.CarrierMaster..CarrierMasterServices",
+          "origin": "Admin.CarrierService.CarrierMaster..CarrierMasterServices",
           "indexNo": 5,
           "value": {
             "=": "CarrierMaster.CarrierMasterServices"
           },
           "type": "cds.Composition",
-          "target": "CatalogService.Admin_CarrierMasterService",
+          "target": "CatalogService.CarrierMasterServices",
           "cardinality": {
             "targetMax": "*"
           },
@@ -3668,7 +3824,7 @@
           "@cds.persistence.name": "CARRIERMASTERSERVICES"
         },
         "TextDetails": {
-          "origin": "Admin.CarrierMaster..TextDetails",
+          "origin": "Admin.CarrierService.CarrierMaster..TextDetails",
           "indexNo": 6,
           "value": {
             "=": "CarrierMaster.TextDetails"
@@ -3695,11 +3851,358 @@
       },
       "@cds.persistence.name": "CATALOGSERVICE_CARRIERMASTERS"
     },
+    "CatalogService.CarrierServiceCategorys": {
+      "kind": "entity",
+      "source": "Admin.CarrierService.CarrierServiceCategory",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "carrierServiceCategoryID": {
+          "origin": "Admin.CarrierService.CarrierServiceCategory..carrierServiceCategoryID",
+          "indexNo": 1,
+          "value": {
+            "=": "CarrierServiceCategory.carrierServiceCategoryID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICECATEGORYID"
+        },
+        "TextDetails": {
+          "origin": "Admin.CarrierService.CarrierServiceCategory..TextDetails",
+          "indexNo": 2,
+          "value": {
+            "=": "CarrierServiceCategory.TextDetails"
+          },
+          "type": "cds.Composition",
+          "target": "CatalogService.CarrierServiceCategoryTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.carrierServiceCategoryID"
+              },
+              {
+                "=": "carrierServiceCategoryID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CARRIERSERVICECATEGORYS"
+    },
+    "CatalogService.CarrierMasterServices": {
+      "kind": "entity",
+      "source": "Admin.CarrierService.CarrierMasterService",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "carrierMasterID": {
+          "origin": "Admin.CarrierService.CarrierMasterService..carrierMasterID",
+          "indexNo": 1,
+          "value": {
+            "=": "CarrierMasterService.carrierMasterID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERMASTERID"
+        },
+        "carrierServiceID": {
+          "origin": "Admin.CarrierService.CarrierMasterService..carrierServiceID",
+          "indexNo": 2,
+          "value": {
+            "=": "CarrierMasterService.carrierServiceID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICEID"
+        },
+        "carrierServiceType": {
+          "origin": "Admin.CarrierService.CarrierMasterService..carrierServiceType",
+          "indexNo": 3,
+          "value": {
+            "=": "CarrierMasterService.carrierServiceType"
+          },
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICETYPE"
+        },
+        "commitmentTimeType": {
+          "origin": "Admin.CarrierService.CarrierMasterService..commitmentTimeType",
+          "indexNo": 4,
+          "value": {
+            "=": "CarrierMasterService.commitmentTimeType"
+          },
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "COMMITMENTTIMETYPE"
+        },
+        "commitmentTime": {
+          "origin": "Admin.CarrierService.CarrierMasterService..commitmentTime",
+          "indexNo": 5,
+          "value": {
+            "=": "CarrierMasterService.commitmentTime"
+          },
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "COMMITMENTTIME"
+        },
+        "daysInTransitType": {
+          "origin": "Admin.CarrierService.CarrierMasterService..daysInTransitType",
+          "indexNo": 6,
+          "value": {
+            "=": "CarrierMasterService.daysInTransitType"
+          },
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "DAYSINTRANSITTYPE"
+        },
+        "daysInTransit": {
+          "origin": "Admin.CarrierService.CarrierMasterService..daysInTransit",
+          "indexNo": 7,
+          "value": {
+            "=": "CarrierMasterService.daysInTransit"
+          },
+          "type": "cds.Integer",
+          "@cds.persistence.name": "DAYSINTRANSIT"
+        },
+        "status": {
+          "origin": "Admin.CarrierService.CarrierMasterService..status",
+          "indexNo": 8,
+          "value": {
+            "=": "CarrierMasterService.status"
+          },
+          "type": "cds.Boolean",
+          "@cds.persistence.name": "STATUS"
+        },
+        "CarrierMaster": {
+          "origin": "Admin.CarrierService.CarrierMasterService..CarrierMaster",
+          "indexNo": 9,
+          "value": {
+            "=": "CarrierMasterService.CarrierMaster"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.CarrierMasters",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierMaster.carrierMasterID"
+              },
+              {
+                "=": "carrierMasterID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CARRIERMASTER"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CARRIERMASTERSERVICES"
+    },
+    "CatalogService.CarrierServiceTypes": {
+      "kind": "entity",
+      "source": "Admin.CarrierService.CarrierServiceType",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "carrierServiceTypeID": {
+          "origin": "Admin.CarrierService.CarrierServiceType..carrierServiceTypeID",
+          "indexNo": 1,
+          "value": {
+            "=": "CarrierServiceType.carrierServiceTypeID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICETYPEID"
+        },
+        "TextDetails": {
+          "origin": "Admin.CarrierService.CarrierServiceType..TextDetails",
+          "indexNo": 2,
+          "value": {
+            "=": "CarrierServiceType.TextDetails"
+          },
+          "type": "cds.Composition",
+          "target": "CatalogService.CarrierServiceTypeTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "TextDetails.carrierServiceTypeID"
+              },
+              {
+                "=": "carrierServiceTypeID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "TEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CARRIERSERVICETYPES"
+    },
+    "CatalogService.CarrierMasterContentActions": {
+      "kind": "entity",
+      "source": "Admin.CarrierService.CarrierMasterContentAction",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "carrierMasterID": {
+          "origin": "Admin.CarrierService.CarrierMasterContentAction..carrierMasterID",
+          "indexNo": 1,
+          "value": {
+            "=": "CarrierMasterContentAction.carrierMasterID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERMASTERID"
+        },
+        "contentActionID": {
+          "origin": "Admin.CarrierService.CarrierMasterContentAction..contentActionID",
+          "indexNo": 2,
+          "value": {
+            "=": "CarrierMasterContentAction.contentActionID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTACTIONID"
+        },
+        "contentSourceID": {
+          "origin": "Admin.CarrierService.CarrierMasterContentAction..contentSourceID",
+          "indexNo": 3,
+          "value": {
+            "=": "CarrierMasterContentAction.contentSourceID"
+          },
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CONTENTSOURCEID"
+        },
+        "CarrierMaster": {
+          "origin": "Admin.CarrierService.CarrierMasterContentAction..CarrierMaster",
+          "indexNo": 4,
+          "value": {
+            "=": "CarrierMasterContentAction.CarrierMaster"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.CarrierMasters",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierMaster.carrierMasterID"
+              },
+              {
+                "=": "carrierMasterID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CARRIERMASTER"
+        },
+        "CarrierMasterTextDetails": {
+          "origin": "Admin.CarrierService.CarrierMasterContentAction..CarrierMasterTextDetails",
+          "indexNo": 5,
+          "value": {
+            "=": "CarrierMasterContentAction.CarrierMasterTextDetails"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.CarrierMasterTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierMasterTextDetails.carrierMasterID"
+              },
+              {
+                "=": "carrierMasterID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CARRIERMASTERTEXTDETAILS"
+        },
+        "ContentActionTextDetails": {
+          "origin": "Admin.CarrierService.CarrierMasterContentAction..ContentActionTextDetails",
+          "indexNo": 6,
+          "value": {
+            "=": "CarrierMasterContentAction.ContentActionTextDetails"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.ContentActionTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentActionTextDetails.contentActionID"
+              },
+              {
+                "=": "contentActionID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTACTIONTEXTDETAILS"
+        },
+        "ContentSourceTextDetails": {
+          "origin": "Admin.CarrierService.CarrierMasterContentAction..ContentSourceTextDetails",
+          "indexNo": 7,
+          "value": {
+            "=": "CarrierMasterContentAction.ContentSourceTextDetails"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.ContentSourceTextDetails",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ContentSourceTextDetails.contentSourceID"
+              },
+              {
+                "=": "contentSourceID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CARRIERMASTERCONTENTACTIONS"
+    },
     "CatalogService.CarrierMasterTextDetails": {
       "kind": "entity",
-      "source": "Admin.TextDetailModel.CarrierMaster",
-      "@Capabilities.draftEnabled": true,
-      "@Capabilities.writeDraftPersistence": "ADMIN_DRAFTMODEL_CARRIERMASTERTEXTDETAIL",
+      "source": "Admin.TextDetail.CarrierMaster",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
@@ -3776,7 +4279,7 @@
       ],
       "elements": {
         "carrierMasterID": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..carrierMasterID",
+          "origin": "Admin.TextDetail.CarrierMaster..carrierMasterID",
           "indexNo": 1,
           "value": {
             "=": "CarrierMaster.carrierMasterID"
@@ -3787,30 +4290,32 @@
           "@cds.persistence.name": "CARRIERMASTERID"
         },
         "locale": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..locale",
+          "origin": "Admin.TextDetail.CarrierMaster..locale",
           "indexNo": 2,
           "value": {
             "=": "CarrierMaster.locale"
           },
           "key": true,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..description",
+          "origin": "Admin.TextDetail.CarrierMaster..description",
           "indexNo": 3,
           "value": {
             "=": "CarrierMaster.description"
           },
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "CarrierMaster": {
-          "origin": "Admin.TextDetailModel.CarrierMaster..CarrierMaster",
+          "origin": "Admin.TextDetail.CarrierMaster..CarrierMaster",
           "indexNo": 4,
           "value": {
             "=": "CarrierMaster.CarrierMaster"
@@ -3839,7 +4344,7 @@
     },
     "CatalogService.ContentSourceCarriers": {
       "kind": "entity",
-      "source": "Admin.AssignmentModel.ContentSourceCarrier",
+      "source": "Admin.ContentProvider.ContentSourceCarrier",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
@@ -3896,7 +4401,7 @@
       ],
       "elements": {
         "contentSourceID": {
-          "origin": "Admin.AssignmentModel.ContentSourceCarrier..contentSourceID",
+          "origin": "Admin.ContentProvider.ContentSourceCarrier..contentSourceID",
           "indexNo": 1,
           "value": {
             "=": "ContentSourceCarrier.contentSourceID"
@@ -3907,7 +4412,7 @@
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
         "carrierMasterID": {
-          "origin": "Admin.AssignmentModel.ContentSourceCarrier..carrierMasterID",
+          "origin": "Admin.ContentProvider.ContentSourceCarrier..carrierMasterID",
           "indexNo": 2,
           "value": {
             "=": "ContentSourceCarrier.carrierMasterID"
@@ -3918,7 +4423,7 @@
           "@cds.persistence.name": "CARRIERMASTERID"
         },
         "contentSourceCarrierID": {
-          "origin": "Admin.AssignmentModel.ContentSourceCarrier..contentSourceCarrierID",
+          "origin": "Admin.ContentProvider.ContentSourceCarrier..contentSourceCarrierID",
           "indexNo": 3,
           "value": {
             "=": "ContentSourceCarrier.contentSourceCarrierID"
@@ -3928,7 +4433,7 @@
           "@cds.persistence.name": "CONTENTSOURCECARRIERID"
         },
         "ContentSource": {
-          "origin": "Admin.AssignmentModel.ContentSourceCarrier..ContentSource",
+          "origin": "Admin.ContentProvider.ContentSourceCarrier..ContentSource",
           "indexNo": 4,
           "value": {
             "=": "ContentSourceCarrier.ContentSource"
@@ -3953,7 +4458,7 @@
           "@cds.persistence.name": "CONTENTSOURCE"
         },
         "ContentSourceTextDetails": {
-          "origin": "Admin.AssignmentModel.ContentSourceCarrier..ContentSourceTextDetails",
+          "origin": "Admin.ContentProvider.ContentSourceCarrier..ContentSourceTextDetails",
           "indexNo": 5,
           "value": {
             "=": "ContentSourceCarrier.ContentSourceTextDetails"
@@ -3978,7 +4483,7 @@
           "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
         },
         "CarrierMasterTextDetails": {
-          "origin": "Admin.AssignmentModel.ContentSourceCarrier..CarrierMasterTextDetails",
+          "origin": "Admin.ContentProvider.ContentSourceCarrier..CarrierMasterTextDetails",
           "indexNo": 6,
           "value": {
             "=": "ContentSourceCarrier.CarrierMasterTextDetails"
@@ -4005,111 +4510,15 @@
       },
       "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCECARRIERS"
     },
-    "CatalogService.ContentSourceCarrierTextDetails": {
-      "kind": "entity",
-      "source": "Admin.TextDetailModel.ContentSourceCarrier",
-      "@Capabilities.InsertRestrictions.Insertable": true,
-      "@Capabilities.UpdateRestrictions.Updatable": true,
-      "@Capabilities.DeleteRestrictions.Deletable": true,
-      "elements": {
-        "contentSourceID": {
-          "origin": "Admin.TextDetailModel.ContentSourceCarrier..contentSourceID",
-          "indexNo": 1,
-          "value": {
-            "=": "ContentSourceCarrier.contentSourceID"
-          },
-          "key": true,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CONTENTSOURCEID"
-        },
-        "carrierMasterID": {
-          "origin": "Admin.TextDetailModel.ContentSourceCarrier..carrierMasterID",
-          "indexNo": 2,
-          "value": {
-            "=": "ContentSourceCarrier.carrierMasterID"
-          },
-          "key": true,
-          "type": "cds.String",
-          "length": 60,
-          "@cds.persistence.name": "CARRIERMASTERID"
-        },
-        "locale": {
-          "origin": "Admin.TextDetailModel.ContentSourceCarrier..locale",
-          "indexNo": 3,
-          "value": {
-            "=": "ContentSourceCarrier.locale"
-          },
-          "key": true,
-          "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
-          "length": 2,
-          "@cds.persistence.name": "LOCALE"
-        },
-        "description": {
-          "origin": "Admin.TextDetailModel.ContentSourceCarrier..description",
-          "indexNo": 4,
-          "value": {
-            "=": "ContentSourceCarrier.description"
-          },
-          "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
-          "length": 255,
-          "@cds.persistence.name": "DESCRIPTION"
-        },
-        "ContentSourceCarrier": {
-          "origin": "Admin.TextDetailModel.ContentSourceCarrier..ContentSourceCarrier",
-          "indexNo": 5,
-          "value": {
-            "=": "ContentSourceCarrier.ContentSourceCarrier"
-          },
-          "type": "cds.Association",
-          "target": "CatalogService.ContentSourceCarriers",
-          "cardinality": {
-            "targetMax": 1
-          },
-          "onCond": {
-            "op": "and",
-            "args": [
-              {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "ContentSourceCarrier.contentSourceID"
-                  },
-                  {
-                    "=": "contentSourceID"
-                  }
-                ]
-              },
-              {
-                "op": "=",
-                "args": [
-                  {
-                    "=": "ContentSourceCarrier.carrierMasterID"
-                  },
-                  {
-                    "=": "carrierMasterID"
-                  }
-                ]
-              }
-            ]
-          },
-          "redirected": true,
-          "@cds.persistence.name": "CONTENTSOURCECARRIER"
-        }
-      },
-      "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCECARRIERTEXTDETAILS"
-    },
     "CatalogService.ContentSourceActions": {
       "kind": "entity",
-      "source": "Admin.AssignmentModel.ContentSourceAction",
+      "source": "Admin.ContentProvider.ContentSourceAction",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
       "elements": {
         "contentSourceID": {
-          "origin": "Admin.AssignmentModel.ContentSourceAction..contentSourceID",
+          "origin": "Admin.ContentProvider.ContentSourceAction..contentSourceID",
           "indexNo": 1,
           "value": {
             "=": "ContentSourceAction.contentSourceID"
@@ -4120,7 +4529,7 @@
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
         "contentActionID": {
-          "origin": "Admin.AssignmentModel.ContentSourceAction..contentActionID",
+          "origin": "Admin.ContentProvider.ContentSourceAction..contentActionID",
           "indexNo": 2,
           "value": {
             "=": "ContentSourceAction.contentActionID"
@@ -4131,7 +4540,7 @@
           "@cds.persistence.name": "CONTENTACTIONID"
         },
         "ContentSource": {
-          "origin": "Admin.AssignmentModel.ContentSourceAction..ContentSource",
+          "origin": "Admin.ContentProvider.ContentSourceAction..ContentSource",
           "indexNo": 3,
           "value": {
             "=": "ContentSourceAction.ContentSource"
@@ -4156,7 +4565,7 @@
           "@cds.persistence.name": "CONTENTSOURCE"
         },
         "ContentSourceTextDetails": {
-          "origin": "Admin.AssignmentModel.ContentSourceAction..ContentSourceTextDetails",
+          "origin": "Admin.ContentProvider.ContentSourceAction..ContentSourceTextDetails",
           "indexNo": 4,
           "value": {
             "=": "ContentSourceAction.ContentSourceTextDetails"
@@ -4181,7 +4590,7 @@
           "@cds.persistence.name": "CONTENTSOURCETEXTDETAILS"
         },
         "ContentActionTextDetails": {
-          "origin": "Admin.AssignmentModel.ContentSourceAction..ContentActionTextDetails",
+          "origin": "Admin.ContentProvider.ContentSourceAction..ContentActionTextDetails",
           "indexNo": 5,
           "value": {
             "=": "ContentSourceAction.ContentActionTextDetails"
@@ -4210,13 +4619,13 @@
     },
     "CatalogService.ContentSourceActionTextDetails": {
       "kind": "entity",
-      "source": "Admin.TextDetailModel.ContentSourceAction",
+      "source": "Admin.TextDetail.ContentSourceAction",
       "@Capabilities.InsertRestrictions.Insertable": true,
       "@Capabilities.UpdateRestrictions.Updatable": true,
       "@Capabilities.DeleteRestrictions.Deletable": true,
       "elements": {
         "contentSourceID": {
-          "origin": "Admin.TextDetailModel.ContentSourceAction..contentSourceID",
+          "origin": "Admin.TextDetail.ContentSourceAction..contentSourceID",
           "indexNo": 1,
           "value": {
             "=": "ContentSourceAction.contentSourceID"
@@ -4227,7 +4636,7 @@
           "@cds.persistence.name": "CONTENTSOURCEID"
         },
         "contentActionID": {
-          "origin": "Admin.TextDetailModel.ContentSourceAction..contentActionID",
+          "origin": "Admin.TextDetail.ContentSourceAction..contentActionID",
           "indexNo": 2,
           "value": {
             "=": "ContentSourceAction.contentActionID"
@@ -4238,30 +4647,32 @@
           "@cds.persistence.name": "CONTENTACTIONID"
         },
         "locale": {
-          "origin": "Admin.TextDetailModel.ContentSourceAction..locale",
+          "origin": "Admin.TextDetail.ContentSourceAction..locale",
           "indexNo": 3,
           "value": {
             "=": "ContentSourceAction.locale"
           },
           "key": true,
           "type": "cds.String",
-          "@Common.Label": "{i18n>locale}",
+          "@Admin.Common.Label": "{i18n>locale}",
           "length": 2,
+          "@Common.Label": "{i18n>locale}",
           "@cds.persistence.name": "LOCALE"
         },
         "description": {
-          "origin": "Admin.TextDetailModel.ContentSourceAction..description",
+          "origin": "Admin.TextDetail.ContentSourceAction..description",
           "indexNo": 4,
           "value": {
             "=": "ContentSourceAction.description"
           },
           "type": "cds.String",
-          "@Common.Label": "{i18n>description}",
+          "@Admin.Common.Label": "{i18n>description}",
           "length": 255,
+          "@Common.Label": "{i18n>description}",
           "@cds.persistence.name": "DESCRIPTION"
         },
         "ContentSourceAction": {
-          "origin": "Admin.TextDetailModel.ContentSourceAction..ContentSourceAction",
+          "origin": "Admin.TextDetail.ContentSourceAction..ContentSourceAction",
           "indexNo": 5,
           "value": {
             "=": "ContentSourceAction.ContentSourceAction"
@@ -4304,94 +4715,57 @@
       },
       "@cds.persistence.name": "CATALOGSERVICE_CONTENTSOURCEACTIONTEXTDETAILS"
     },
-    "CatalogService.Admin_CarrierMasterService": {
+    "CatalogService.FreightCostCodeTextDetails": {
       "kind": "entity",
-      "source": "Admin.CarrierMasterService",
+      "source": "Admin.TextDetail.FreightCostCode",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
       "elements": {
-        "carrierMasterID": {
-          "key": true,
+        "freightCostCodeID": {
+          "origin": "Admin.TextDetail.FreightCostCode..freightCostCodeID",
           "indexNo": 1,
-          "type": "cds.String",
-          "length": 60,
           "value": {
-            "=": "CarrierMasterService.carrierMasterID"
+            "=": "FreightCostCode.freightCostCodeID"
           },
-          "origin": "Admin.CarrierMasterService..carrierMasterID",
-          "@cds.persistence.name": "CARRIERMASTERID"
-        },
-        "carrierServiceID": {
           "key": true,
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "FREIGHTCOSTCODEID"
+        },
+        "locale": {
+          "origin": "Admin.TextDetail.FreightCostCode..locale",
           "indexNo": 2,
-          "type": "cds.String",
-          "length": 60,
           "value": {
-            "=": "CarrierMasterService.carrierServiceID"
+            "=": "FreightCostCode.locale"
           },
-          "origin": "Admin.CarrierMasterService..carrierServiceID",
-          "@cds.persistence.name": "CARRIERSERVICEID"
+          "key": true,
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@Common.Label": "{i18n>locale}",
+          "@cds.persistence.name": "LOCALE"
         },
-        "carrierServiceType": {
+        "description": {
+          "origin": "Admin.TextDetail.FreightCostCode..description",
           "indexNo": 3,
-          "type": "cds.String",
-          "length": 60,
           "value": {
-            "=": "CarrierMasterService.carrierServiceType"
+            "=": "FreightCostCode.description"
           },
-          "origin": "Admin.CarrierMasterService..carrierServiceType",
-          "@cds.persistence.name": "CARRIERSERVICETYPE"
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>description}",
+          "length": 255,
+          "@Common.Label": "{i18n>description}",
+          "@cds.persistence.name": "DESCRIPTION"
         },
-        "commitmentTimeType": {
+        "FreightCostCode": {
+          "origin": "Admin.TextDetail.FreightCostCode..FreightCostCode",
           "indexNo": 4,
-          "type": "cds.String",
-          "length": 60,
           "value": {
-            "=": "CarrierMasterService.commitmentTimeType"
+            "=": "FreightCostCode.FreightCostCode"
           },
-          "origin": "Admin.CarrierMasterService..commitmentTimeType",
-          "@cds.persistence.name": "COMMITMENTTIMETYPE"
-        },
-        "commitmentTime": {
-          "indexNo": 5,
-          "type": "cds.String",
-          "length": 60,
-          "value": {
-            "=": "CarrierMasterService.commitmentTime"
-          },
-          "origin": "Admin.CarrierMasterService..commitmentTime",
-          "@cds.persistence.name": "COMMITMENTTIME"
-        },
-        "daysInTransitType": {
-          "indexNo": 6,
-          "type": "cds.String",
-          "length": 60,
-          "value": {
-            "=": "CarrierMasterService.daysInTransitType"
-          },
-          "origin": "Admin.CarrierMasterService..daysInTransitType",
-          "@cds.persistence.name": "DAYSINTRANSITTYPE"
-        },
-        "daysInTransit": {
-          "indexNo": 7,
-          "type": "cds.Integer",
-          "value": {
-            "=": "CarrierMasterService.daysInTransit"
-          },
-          "origin": "Admin.CarrierMasterService..daysInTransit",
-          "@cds.persistence.name": "DAYSINTRANSIT"
-        },
-        "status": {
-          "indexNo": 8,
-          "type": "cds.Boolean",
-          "value": {
-            "=": "CarrierMasterService.status"
-          },
-          "origin": "Admin.CarrierMasterService..status",
-          "@cds.persistence.name": "STATUS"
-        },
-        "CarrierMaster": {
-          "indexNo": 9,
           "type": "cds.Association",
-          "target": "CatalogService.CarrierMasters",
+          "target": "CatalogService.FreightCostCodes",
           "cardinality": {
             "targetMax": 1
           },
@@ -4399,23 +4773,471 @@
             "op": "=",
             "args": [
               {
-                "=": "CarrierMaster.carrierMasterID"
+                "=": "FreightCostCode.freightCostCodeID"
               },
               {
-                "=": "carrierMasterID"
+                "=": "freightCostCodeID"
               }
             ]
           },
-          "value": {
-            "=": "CarrierMasterService.CarrierMaster"
-          },
-          "origin": "Admin.CarrierMasterService..CarrierMaster",
           "redirected": true,
-          "@cds.persistence.name": "CARRIERMASTER"
+          "@cds.persistence.name": "FREIGHTCOSTCODE"
         }
       },
-      "@cds.autoexposed": true,
-      "@cds.persistence.name": "CATALOGSERVICE_ADMIN_CARRIERMASTERSERVICE"
+      "@cds.persistence.name": "CATALOGSERVICE_FREIGHTCOSTCODETEXTDETAILS"
+    },
+    "CatalogService.ChargeTypeTextDetails": {
+      "kind": "entity",
+      "source": "Admin.TextDetail.ChargeType",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "chargeTypeID": {
+          "origin": "Admin.TextDetail.ChargeType..chargeTypeID",
+          "indexNo": 1,
+          "value": {
+            "=": "ChargeType.chargeTypeID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CHARGETYPEID"
+        },
+        "locale": {
+          "origin": "Admin.TextDetail.ChargeType..locale",
+          "indexNo": 2,
+          "value": {
+            "=": "ChargeType.locale"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@Common.Label": "{i18n>locale}",
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "origin": "Admin.TextDetail.ChargeType..description",
+          "indexNo": 3,
+          "value": {
+            "=": "ChargeType.description"
+          },
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>description}",
+          "length": 255,
+          "@Common.Label": "{i18n>description}",
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "ChargeType": {
+          "origin": "Admin.TextDetail.ChargeType..ChargeType",
+          "indexNo": 4,
+          "value": {
+            "=": "ChargeType.ChargeType"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.ChargeTypes",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "ChargeType.chargeTypeID"
+              },
+              {
+                "=": "chargeTypeID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CHARGETYPE"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CHARGETYPETEXTDETAILS"
+    },
+    "CatalogService.DaysInTransitTypeTextDetails": {
+      "kind": "entity",
+      "source": "Admin.TextDetail.DaysInTransitType",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "daysInTransitTypeID": {
+          "origin": "Admin.TextDetail.DaysInTransitType..daysInTransitTypeID",
+          "indexNo": 1,
+          "value": {
+            "=": "DaysInTransitType.daysInTransitTypeID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "DAYSINTRANSITTYPEID"
+        },
+        "locale": {
+          "origin": "Admin.TextDetail.DaysInTransitType..locale",
+          "indexNo": 2,
+          "value": {
+            "=": "DaysInTransitType.locale"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@Common.Label": "{i18n>locale}",
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "origin": "Admin.TextDetail.DaysInTransitType..description",
+          "indexNo": 3,
+          "value": {
+            "=": "DaysInTransitType.description"
+          },
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>description}",
+          "length": 255,
+          "@Common.Label": "{i18n>description}",
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "DaysInTransitType": {
+          "origin": "Admin.TextDetail.DaysInTransitType..DaysInTransitType",
+          "indexNo": 4,
+          "value": {
+            "=": "DaysInTransitType.DaysInTransitType"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.DaysInTransitTypes",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "DaysInTransitType.daysInTransitTypeID"
+              },
+              {
+                "=": "daysInTransitTypeID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "DAYSINTRANSITTYPE"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_DAYSINTRANSITTYPETEXTDETAILS"
+    },
+    "CatalogService.CommitmentTimeTypeTextDetails": {
+      "kind": "entity",
+      "source": "Admin.TextDetail.CommitmentTimeType",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "commitmentTimeTypeID": {
+          "origin": "Admin.TextDetail.CommitmentTimeType..commitmentTimeTypeID",
+          "indexNo": 1,
+          "value": {
+            "=": "CommitmentTimeType.commitmentTimeTypeID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "COMMITMENTTIMETYPEID"
+        },
+        "locale": {
+          "origin": "Admin.TextDetail.CommitmentTimeType..locale",
+          "indexNo": 2,
+          "value": {
+            "=": "CommitmentTimeType.locale"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@Common.Label": "{i18n>locale}",
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "origin": "Admin.TextDetail.CommitmentTimeType..description",
+          "indexNo": 3,
+          "value": {
+            "=": "CommitmentTimeType.description"
+          },
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>description}",
+          "length": 255,
+          "@Common.Label": "{i18n>description}",
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "CommitmentTimeType": {
+          "origin": "Admin.TextDetail.CommitmentTimeType..CommitmentTimeType",
+          "indexNo": 4,
+          "value": {
+            "=": "CommitmentTimeType.CommitmentTimeType"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.CommitmentTimeTypes",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CommitmentTimeType.commitmentTimeTypeID"
+              },
+              {
+                "=": "commitmentTimeTypeID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "COMMITMENTTIMETYPE"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_COMMITMENTTIMETYPETEXTDETAILS"
+    },
+    "CatalogService.CarrierServiceTypeTextDetails": {
+      "kind": "entity",
+      "source": "Admin.TextDetail.CarrierServiceType",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "carrierServiceTypeID": {
+          "origin": "Admin.TextDetail.CarrierServiceType..carrierServiceTypeID",
+          "indexNo": 1,
+          "value": {
+            "=": "CarrierServiceType.carrierServiceTypeID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICETYPEID"
+        },
+        "locale": {
+          "origin": "Admin.TextDetail.CarrierServiceType..locale",
+          "indexNo": 2,
+          "value": {
+            "=": "CarrierServiceType.locale"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@Common.Label": "{i18n>locale}",
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "origin": "Admin.TextDetail.CarrierServiceType..description",
+          "indexNo": 3,
+          "value": {
+            "=": "CarrierServiceType.description"
+          },
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>description}",
+          "length": 255,
+          "@Common.Label": "{i18n>description}",
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "CarrierServiceType": {
+          "origin": "Admin.TextDetail.CarrierServiceType..CarrierServiceType",
+          "indexNo": 4,
+          "value": {
+            "=": "CarrierServiceType.CarrierServiceType"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.CarrierServiceTypes",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierServiceType.carrierServiceTypeID"
+              },
+              {
+                "=": "carrierServiceTypeID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CARRIERSERVICETYPE"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CARRIERSERVICETYPETEXTDETAILS"
+    },
+    "CatalogService.CarrierServiceCategoryTextDetails": {
+      "kind": "entity",
+      "source": "Admin.TextDetail.CarrierServiceCategory",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "carrierServiceCategoryID": {
+          "origin": "Admin.TextDetail.CarrierServiceCategory..carrierServiceCategoryID",
+          "indexNo": 1,
+          "value": {
+            "=": "CarrierServiceCategory.carrierServiceCategoryID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICECATEGORYID"
+        },
+        "locale": {
+          "origin": "Admin.TextDetail.CarrierServiceCategory..locale",
+          "indexNo": 2,
+          "value": {
+            "=": "CarrierServiceCategory.locale"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@Common.Label": "{i18n>locale}",
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "origin": "Admin.TextDetail.CarrierServiceCategory..description",
+          "indexNo": 3,
+          "value": {
+            "=": "CarrierServiceCategory.description"
+          },
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>description}",
+          "length": 255,
+          "@Common.Label": "{i18n>description}",
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "CarrierServiceCategory": {
+          "origin": "Admin.TextDetail.CarrierServiceCategory..CarrierServiceCategory",
+          "indexNo": 4,
+          "value": {
+            "=": "CarrierServiceCategory.CarrierServiceCategory"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.CarrierServiceCategorys",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "CarrierServiceCategory.carrierServiceCategoryID"
+              },
+              {
+                "=": "carrierServiceCategoryID"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CARRIERSERVICECATEGORY"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CARRIERSERVICECATEGORYTEXTDETAILS"
+    },
+    "CatalogService.CarrierMasterServiceTextDetails": {
+      "kind": "entity",
+      "source": "Admin.TextDetail.CarrierMasterService",
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "elements": {
+        "carrierMasterID": {
+          "origin": "Admin.TextDetail.CarrierMasterService..carrierMasterID",
+          "indexNo": 1,
+          "value": {
+            "=": "CarrierMasterService.carrierMasterID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERMASTERID"
+        },
+        "carrierServiceID": {
+          "origin": "Admin.TextDetail.CarrierMasterService..carrierServiceID",
+          "indexNo": 2,
+          "value": {
+            "=": "CarrierMasterService.carrierServiceID"
+          },
+          "key": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "CARRIERSERVICEID"
+        },
+        "locale": {
+          "origin": "Admin.TextDetail.CarrierMasterService..locale",
+          "indexNo": 3,
+          "value": {
+            "=": "CarrierMasterService.locale"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>locale}",
+          "length": 2,
+          "@Common.Label": "{i18n>locale}",
+          "@cds.persistence.name": "LOCALE"
+        },
+        "description": {
+          "origin": "Admin.TextDetail.CarrierMasterService..description",
+          "indexNo": 4,
+          "value": {
+            "=": "CarrierMasterService.description"
+          },
+          "type": "cds.String",
+          "@Admin.Common.Label": "{i18n>description}",
+          "length": 255,
+          "@Common.Label": "{i18n>description}",
+          "@cds.persistence.name": "DESCRIPTION"
+        },
+        "CarrierMasterService": {
+          "origin": "Admin.TextDetail.CarrierMasterService..CarrierMasterService",
+          "indexNo": 5,
+          "value": {
+            "=": "CarrierMasterService.CarrierMasterService"
+          },
+          "type": "cds.Association",
+          "target": "CatalogService.CarrierMasterServices",
+          "cardinality": {
+            "targetMax": 1
+          },
+          "onCond": {
+            "op": "and",
+            "args": [
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "CarrierMasterService.carrierMasterID"
+                  },
+                  {
+                    "=": "carrierMasterID"
+                  }
+                ]
+              },
+              {
+                "op": "=",
+                "args": [
+                  {
+                    "=": "CarrierMasterService.carrierServiceID"
+                  },
+                  {
+                    "=": "carrierServiceID"
+                  }
+                ]
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CARRIERMASTERSERVICE"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_CARRIERMASTERSERVICETEXTDETAILS"
     }
   },
   "version": {

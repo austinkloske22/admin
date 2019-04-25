@@ -371,62 +371,6 @@
 			"LOCALE": 3,
 			"DESCRIPTION": 4
 		}
-	},
-	{
-		"target_table": "ADMIN_TEXTDETAIL_CONTENTSOURCECARRIER",
-		"source_data": {
-			"data_type": "CSV",
-			"file_name": "contentsourcecarriertextdetail.csv",
-			"subfolder": "textdetail",
-			"has_header": false,
-			"dialect": "HANA",
-			"type_config": {
-				"delimiter": ","
-			}
-		},
-		"import_settings": {
-        	"include_filter" : [ ],			
-			"import_columns": [
-				"CONTENTSOURCEID",
-				"CARRIERMASTERID",
-				"LOCALE",
-				"DESCRIPTION"
-				]
-		},
-		"column_mappings": {
-			"CONTENTSOURCEID": 1,
-			"CARRIERMASTERID": 2,
-			"LOCALE": 3,
-			"DESCRIPTION": 4
-		}
-	},
-	{
-		"target_table": "ADMIN_TEXTDETAIL_CONTENTSOURCEACTION",
-		"source_data": {
-			"data_type": "CSV",
-			"file_name": "contentsourceactiontextdetail.csv",
-			"subfolder": "textdetail",
-			"has_header": false,
-			"dialect": "HANA",
-			"type_config": {
-				"delimiter": ","
-			}
-		},
-		"import_settings": {
-        	"include_filter" : [ ],			
-			"import_columns": [
-				"CONTENTSOURCEID",
-				"CONTENTACTIONID",
-				"LOCALE",
-				"DESCRIPTION"
-				]
-		},
-		"column_mappings": {
-			"CONTENTSOURCEID": 1,
-			"CONTENTACTIONID": 2,
-			"LOCALE": 3,
-			"DESCRIPTION": 4
-		}
 	}
 	]
 }

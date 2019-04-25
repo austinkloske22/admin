@@ -12,14 +12,23 @@
   <edmx:DataServices m:DataServiceVersion="2.0">
     <Schema Namespace="CatalogService" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
       <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
-        <EntitySet Name="Admin_CarrierMasterService" EntityType="CatalogService.Admin_CarrierMasterService"/>
+        <EntitySet Name="CarrierMasterContentActions" EntityType="CatalogService.CarrierMasterContentActions"/>
+        <EntitySet Name="CarrierMasterServiceTextDetails" EntityType="CatalogService.CarrierMasterServiceTextDetails"/>
+        <EntitySet Name="CarrierMasterServices" EntityType="CatalogService.CarrierMasterServices"/>
         <EntitySet Name="CarrierMasterTextDetails" EntityType="CatalogService.CarrierMasterTextDetails"/>
         <EntitySet Name="CarrierMasters" EntityType="CatalogService.CarrierMasters"/>
+        <EntitySet Name="CarrierServiceCategoryTextDetails" EntityType="CatalogService.CarrierServiceCategoryTextDetails"/>
+        <EntitySet Name="CarrierServiceCategorys" EntityType="CatalogService.CarrierServiceCategorys"/>
+        <EntitySet Name="CarrierServiceTypeTextDetails" EntityType="CatalogService.CarrierServiceTypeTextDetails"/>
+        <EntitySet Name="CarrierServiceTypes" EntityType="CatalogService.CarrierServiceTypes"/>
+        <EntitySet Name="ChargeTypeTextDetails" EntityType="CatalogService.ChargeTypeTextDetails"/>
+        <EntitySet Name="ChargeTypes" EntityType="CatalogService.ChargeTypes"/>
+        <EntitySet Name="CommitmentTimeTypeTextDetails" EntityType="CatalogService.CommitmentTimeTypeTextDetails"/>
+        <EntitySet Name="CommitmentTimeTypes" EntityType="CatalogService.CommitmentTimeTypes"/>
         <EntitySet Name="ContentActionTextDetails" EntityType="CatalogService.ContentActionTextDetails"/>
         <EntitySet Name="ContentActions" EntityType="CatalogService.ContentActions"/>
         <EntitySet Name="ContentSourceActionTextDetails" EntityType="CatalogService.ContentSourceActionTextDetails"/>
         <EntitySet Name="ContentSourceActions" EntityType="CatalogService.ContentSourceActions"/>
-        <EntitySet Name="ContentSourceCarrierTextDetails" EntityType="CatalogService.ContentSourceCarrierTextDetails"/>
         <EntitySet Name="ContentSourceCarriers" EntityType="CatalogService.ContentSourceCarriers"/>
         <EntitySet Name="ContentSourceStatusTextDetails" EntityType="CatalogService.ContentSourceStatusTextDetails"/>
         <EntitySet Name="ContentSourceStatuss" EntityType="CatalogService.ContentSourceStatuss"/>
@@ -27,12 +36,36 @@
         <EntitySet Name="ContentSourceValueTextDetails" EntityType="CatalogService.ContentSourceValueTextDetails"/>
         <EntitySet Name="ContentSourceValues" EntityType="CatalogService.ContentSourceValues"/>
         <EntitySet Name="ContentSources" EntityType="CatalogService.ContentSources"/>
+        <EntitySet Name="DaysInTransitTypeTextDetails" EntityType="CatalogService.DaysInTransitTypeTextDetails"/>
+        <EntitySet Name="DaysInTransitTypes" EntityType="CatalogService.DaysInTransitTypes"/>
         <EntitySet Name="ErrorMessageTextDetails" EntityType="CatalogService.ErrorMessageTextDetails"/>
         <EntitySet Name="ErrorMessages" EntityType="CatalogService.ErrorMessages"/>
         <EntitySet Name="FeedTypeTextDetails" EntityType="CatalogService.FeedTypeTextDetails"/>
         <EntitySet Name="FeedTypes" EntityType="CatalogService.FeedTypes"/>
-        <AssociationSet Name="Admin_CarrierMasterService_CarrierMaster" Association="CatalogService.Admin_CarrierMasterService_CarrierMaster">
-          <End Role="Admin_CarrierMasterService" EntitySet="Admin_CarrierMasterService"/>
+        <EntitySet Name="FreightCostCodeTextDetails" EntityType="CatalogService.FreightCostCodeTextDetails"/>
+        <EntitySet Name="FreightCostCodes" EntityType="CatalogService.FreightCostCodes"/>
+        <AssociationSet Name="CarrierMasterContentActions_CarrierMaster" Association="CatalogService.CarrierMasterContentActions_CarrierMaster">
+          <End Role="CarrierMasterContentActions" EntitySet="CarrierMasterContentActions"/>
+          <End Role="CarrierMasters" EntitySet="CarrierMasters"/>
+        </AssociationSet>
+        <AssociationSet Name="CarrierMasterContentActions_CarrierMasterTextDetails" Association="CatalogService.CarrierMasterContentActions_CarrierMasterTextDetails">
+          <End Role="CarrierMasterContentActions" EntitySet="CarrierMasterContentActions"/>
+          <End Role="CarrierMasterTextDetails" EntitySet="CarrierMasterTextDetails"/>
+        </AssociationSet>
+        <AssociationSet Name="CarrierMasterContentActions_ContentActionTextDetails" Association="CatalogService.CarrierMasterContentActions_ContentActionTextDetails">
+          <End Role="CarrierMasterContentActions" EntitySet="CarrierMasterContentActions"/>
+          <End Role="ContentActionTextDetails" EntitySet="ContentActionTextDetails"/>
+        </AssociationSet>
+        <AssociationSet Name="CarrierMasterContentActions_ContentSourceTextDetails" Association="CatalogService.CarrierMasterContentActions_ContentSourceTextDetails">
+          <End Role="CarrierMasterContentActions" EntitySet="CarrierMasterContentActions"/>
+          <End Role="ContentSourceTextDetails" EntitySet="ContentSourceTextDetails"/>
+        </AssociationSet>
+        <AssociationSet Name="CarrierMasterServiceTextDetails_CarrierMasterService" Association="CatalogService.CarrierMasterServiceTextDetails_CarrierMasterService">
+          <End Role="CarrierMasterServiceTextDetails" EntitySet="CarrierMasterServiceTextDetails"/>
+          <End Role="CarrierMasterServices" EntitySet="CarrierMasterServices"/>
+        </AssociationSet>
+        <AssociationSet Name="CarrierMasterServices_CarrierMaster" Association="CatalogService.CarrierMasterServices_CarrierMaster">
+          <End Role="CarrierMasterServices" EntitySet="CarrierMasterServices"/>
           <End Role="CarrierMasters" EntitySet="CarrierMasters"/>
         </AssociationSet>
         <AssociationSet Name="CarrierMasterTextDetails_CarrierMaster" Association="CatalogService.CarrierMasterTextDetails_CarrierMaster">
@@ -45,11 +78,43 @@
         </AssociationSet>
         <AssociationSet Name="CarrierMasters_CarrierMasterServices" Association="CatalogService.CarrierMasters_CarrierMasterServices">
           <End Role="CarrierMasters" EntitySet="CarrierMasters"/>
-          <End Role="Admin_CarrierMasterService" EntitySet="Admin_CarrierMasterService"/>
+          <End Role="CarrierMasterServices" EntitySet="CarrierMasterServices"/>
         </AssociationSet>
         <AssociationSet Name="CarrierMasters_TextDetails" Association="CatalogService.CarrierMasters_TextDetails">
           <End Role="CarrierMasters" EntitySet="CarrierMasters"/>
           <End Role="CarrierMasterTextDetails" EntitySet="CarrierMasterTextDetails"/>
+        </AssociationSet>
+        <AssociationSet Name="CarrierServiceCategoryTextDetails_CarrierServiceCategory" Association="CatalogService.CarrierServiceCategoryTextDetails_CarrierServiceCategory">
+          <End Role="CarrierServiceCategoryTextDetails" EntitySet="CarrierServiceCategoryTextDetails"/>
+          <End Role="CarrierServiceCategorys" EntitySet="CarrierServiceCategorys"/>
+        </AssociationSet>
+        <AssociationSet Name="CarrierServiceCategorys_TextDetails" Association="CatalogService.CarrierServiceCategorys_TextDetails">
+          <End Role="CarrierServiceCategorys" EntitySet="CarrierServiceCategorys"/>
+          <End Role="CarrierServiceCategoryTextDetails" EntitySet="CarrierServiceCategoryTextDetails"/>
+        </AssociationSet>
+        <AssociationSet Name="CarrierServiceTypeTextDetails_CarrierServiceType" Association="CatalogService.CarrierServiceTypeTextDetails_CarrierServiceType">
+          <End Role="CarrierServiceTypeTextDetails" EntitySet="CarrierServiceTypeTextDetails"/>
+          <End Role="CarrierServiceTypes" EntitySet="CarrierServiceTypes"/>
+        </AssociationSet>
+        <AssociationSet Name="CarrierServiceTypes_TextDetails" Association="CatalogService.CarrierServiceTypes_TextDetails">
+          <End Role="CarrierServiceTypes" EntitySet="CarrierServiceTypes"/>
+          <End Role="CarrierServiceTypeTextDetails" EntitySet="CarrierServiceTypeTextDetails"/>
+        </AssociationSet>
+        <AssociationSet Name="ChargeTypeTextDetails_ChargeType" Association="CatalogService.ChargeTypeTextDetails_ChargeType">
+          <End Role="ChargeTypeTextDetails" EntitySet="ChargeTypeTextDetails"/>
+          <End Role="ChargeTypes" EntitySet="ChargeTypes"/>
+        </AssociationSet>
+        <AssociationSet Name="ChargeTypes_TextDetails" Association="CatalogService.ChargeTypes_TextDetails">
+          <End Role="ChargeTypes" EntitySet="ChargeTypes"/>
+          <End Role="ChargeTypeTextDetails" EntitySet="ChargeTypeTextDetails"/>
+        </AssociationSet>
+        <AssociationSet Name="CommitmentTimeTypeTextDetails_CommitmentTimeType" Association="CatalogService.CommitmentTimeTypeTextDetails_CommitmentTimeType">
+          <End Role="CommitmentTimeTypeTextDetails" EntitySet="CommitmentTimeTypeTextDetails"/>
+          <End Role="CommitmentTimeTypes" EntitySet="CommitmentTimeTypes"/>
+        </AssociationSet>
+        <AssociationSet Name="CommitmentTimeTypes_TextDetails" Association="CatalogService.CommitmentTimeTypes_TextDetails">
+          <End Role="CommitmentTimeTypes" EntitySet="CommitmentTimeTypes"/>
+          <End Role="CommitmentTimeTypeTextDetails" EntitySet="CommitmentTimeTypeTextDetails"/>
         </AssociationSet>
         <AssociationSet Name="ContentActionTextDetails_ContentAction" Association="CatalogService.ContentActionTextDetails_ContentAction">
           <End Role="ContentActionTextDetails" EntitySet="ContentActionTextDetails"/>
@@ -78,10 +143,6 @@
         <AssociationSet Name="ContentSourceActions_ContentActionTextDetails" Association="CatalogService.ContentSourceActions_ContentActionTextDetails">
           <End Role="ContentSourceActions" EntitySet="ContentSourceActions"/>
           <End Role="ContentActionTextDetails" EntitySet="ContentActionTextDetails"/>
-        </AssociationSet>
-        <AssociationSet Name="ContentSourceCarrierTextDetails_ContentSourceCarrier" Association="CatalogService.ContentSourceCarrierTextDetails_ContentSourceCarrier">
-          <End Role="ContentSourceCarrierTextDetails" EntitySet="ContentSourceCarrierTextDetails"/>
-          <End Role="ContentSourceCarriers" EntitySet="ContentSourceCarriers"/>
         </AssociationSet>
         <AssociationSet Name="ContentSourceCarriers_ContentSource" Association="CatalogService.ContentSourceCarriers_ContentSource">
           <End Role="ContentSourceCarriers" EntitySet="ContentSourceCarriers"/>
@@ -139,6 +200,14 @@
           <End Role="ContentSources" EntitySet="ContentSources"/>
           <End Role="ContentSourceTextDetails" EntitySet="ContentSourceTextDetails"/>
         </AssociationSet>
+        <AssociationSet Name="DaysInTransitTypeTextDetails_DaysInTransitType" Association="CatalogService.DaysInTransitTypeTextDetails_DaysInTransitType">
+          <End Role="DaysInTransitTypeTextDetails" EntitySet="DaysInTransitTypeTextDetails"/>
+          <End Role="DaysInTransitTypes" EntitySet="DaysInTransitTypes"/>
+        </AssociationSet>
+        <AssociationSet Name="DaysInTransitTypes_TextDetails" Association="CatalogService.DaysInTransitTypes_TextDetails">
+          <End Role="DaysInTransitTypes" EntitySet="DaysInTransitTypes"/>
+          <End Role="DaysInTransitTypeTextDetails" EntitySet="DaysInTransitTypeTextDetails"/>
+        </AssociationSet>
         <AssociationSet Name="ErrorMessageTextDetails_ErrorMessage" Association="CatalogService.ErrorMessageTextDetails_ErrorMessage">
           <End Role="ErrorMessageTextDetails" EntitySet="ErrorMessageTextDetails"/>
           <End Role="ErrorMessages" EntitySet="ErrorMessages"/>
@@ -155,8 +224,41 @@
           <End Role="FeedTypes" EntitySet="FeedTypes"/>
           <End Role="FeedTypeTextDetails" EntitySet="FeedTypeTextDetails"/>
         </AssociationSet>
+        <AssociationSet Name="FreightCostCodeTextDetails_FreightCostCode" Association="CatalogService.FreightCostCodeTextDetails_FreightCostCode">
+          <End Role="FreightCostCodeTextDetails" EntitySet="FreightCostCodeTextDetails"/>
+          <End Role="FreightCostCodes" EntitySet="FreightCostCodes"/>
+        </AssociationSet>
+        <AssociationSet Name="FreightCostCodes_TextDetails" Association="CatalogService.FreightCostCodes_TextDetails">
+          <End Role="FreightCostCodes" EntitySet="FreightCostCodes"/>
+          <End Role="FreightCostCodeTextDetails" EntitySet="FreightCostCodeTextDetails"/>
+        </AssociationSet>
       </EntityContainer>
-      <EntityType Name="Admin_CarrierMasterService">
+      <EntityType Name="CarrierMasterContentActions">
+        <Key>
+          <PropertyRef Name="carrierMasterID"/>
+          <PropertyRef Name="contentActionID"/>
+        </Key>
+        <Property Name="carrierMasterID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <Property Name="contentActionID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <Property Name="contentSourceID" Type="Edm.String" MaxLength="60"/>
+        <NavigationProperty Name="CarrierMaster" Relationship="CatalogService.CarrierMasterContentActions_CarrierMaster" FromRole="CarrierMasterContentActions" ToRole="CarrierMasters"/>
+        <NavigationProperty Name="CarrierMasterTextDetails" Relationship="CatalogService.CarrierMasterContentActions_CarrierMasterTextDetails" FromRole="CarrierMasterContentActions" ToRole="CarrierMasterTextDetails"/>
+        <NavigationProperty Name="ContentActionTextDetails" Relationship="CatalogService.CarrierMasterContentActions_ContentActionTextDetails" FromRole="CarrierMasterContentActions" ToRole="ContentActionTextDetails"/>
+        <NavigationProperty Name="ContentSourceTextDetails" Relationship="CatalogService.CarrierMasterContentActions_ContentSourceTextDetails" FromRole="CarrierMasterContentActions" ToRole="ContentSourceTextDetails"/>
+      </EntityType>
+      <EntityType Name="CarrierMasterServiceTextDetails">
+        <Key>
+          <PropertyRef Name="carrierMasterID"/>
+          <PropertyRef Name="carrierServiceID"/>
+          <PropertyRef Name="locale"/>
+        </Key>
+        <Property Name="carrierMasterID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <Property Name="carrierServiceID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
+        <Property Name="description" Type="Edm.String" MaxLength="255"/>
+        <NavigationProperty Name="CarrierMasterService" Relationship="CatalogService.CarrierMasterServiceTextDetails_CarrierMasterService" FromRole="CarrierMasterServiceTextDetails" ToRole="CarrierMasterServices"/>
+      </EntityType>
+      <EntityType Name="CarrierMasterServices">
         <Key>
           <PropertyRef Name="carrierMasterID"/>
           <PropertyRef Name="carrierServiceID"/>
@@ -169,7 +271,7 @@
         <Property Name="daysInTransitType" Type="Edm.String" MaxLength="60"/>
         <Property Name="daysInTransit" Type="Edm.Int32"/>
         <Property Name="status" Type="Edm.Boolean"/>
-        <NavigationProperty Name="CarrierMaster" Relationship="CatalogService.Admin_CarrierMasterService_CarrierMaster" FromRole="Admin_CarrierMasterService" ToRole="CarrierMasters"/>
+        <NavigationProperty Name="CarrierMaster" Relationship="CatalogService.CarrierMasterServices_CarrierMaster" FromRole="CarrierMasterServices" ToRole="CarrierMasters"/>
       </EntityType>
       <EntityType Name="CarrierMasterTextDetails">
         <Key>
@@ -189,8 +291,76 @@
         <Property Name="logoURL" Type="Edm.String" MaxLength="1000"/>
         <Property Name="status" Type="Edm.Boolean"/>
         <NavigationProperty Name="ContentSourceCarriers" Relationship="CatalogService.CarrierMasters_ContentSourceCarriers" FromRole="CarrierMasters" ToRole="ContentSourceCarriers"/>
-        <NavigationProperty Name="CarrierMasterServices" Relationship="CatalogService.CarrierMasters_CarrierMasterServices" FromRole="CarrierMasters" ToRole="Admin_CarrierMasterService"/>
+        <NavigationProperty Name="CarrierMasterServices" Relationship="CatalogService.CarrierMasters_CarrierMasterServices" FromRole="CarrierMasters" ToRole="CarrierMasterServices"/>
         <NavigationProperty Name="TextDetails" Relationship="CatalogService.CarrierMasters_TextDetails" FromRole="CarrierMasters" ToRole="CarrierMasterTextDetails"/>
+      </EntityType>
+      <EntityType Name="CarrierServiceCategoryTextDetails">
+        <Key>
+          <PropertyRef Name="carrierServiceCategoryID"/>
+          <PropertyRef Name="locale"/>
+        </Key>
+        <Property Name="carrierServiceCategoryID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
+        <Property Name="description" Type="Edm.String" MaxLength="255"/>
+        <NavigationProperty Name="CarrierServiceCategory" Relationship="CatalogService.CarrierServiceCategoryTextDetails_CarrierServiceCategory" FromRole="CarrierServiceCategoryTextDetails" ToRole="CarrierServiceCategorys"/>
+      </EntityType>
+      <EntityType Name="CarrierServiceCategorys">
+        <Key>
+          <PropertyRef Name="carrierServiceCategoryID"/>
+        </Key>
+        <Property Name="carrierServiceCategoryID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <NavigationProperty Name="TextDetails" Relationship="CatalogService.CarrierServiceCategorys_TextDetails" FromRole="CarrierServiceCategorys" ToRole="CarrierServiceCategoryTextDetails"/>
+      </EntityType>
+      <EntityType Name="CarrierServiceTypeTextDetails">
+        <Key>
+          <PropertyRef Name="carrierServiceTypeID"/>
+          <PropertyRef Name="locale"/>
+        </Key>
+        <Property Name="carrierServiceTypeID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
+        <Property Name="description" Type="Edm.String" MaxLength="255"/>
+        <NavigationProperty Name="CarrierServiceType" Relationship="CatalogService.CarrierServiceTypeTextDetails_CarrierServiceType" FromRole="CarrierServiceTypeTextDetails" ToRole="CarrierServiceTypes"/>
+      </EntityType>
+      <EntityType Name="CarrierServiceTypes">
+        <Key>
+          <PropertyRef Name="carrierServiceTypeID"/>
+        </Key>
+        <Property Name="carrierServiceTypeID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <NavigationProperty Name="TextDetails" Relationship="CatalogService.CarrierServiceTypes_TextDetails" FromRole="CarrierServiceTypes" ToRole="CarrierServiceTypeTextDetails"/>
+      </EntityType>
+      <EntityType Name="ChargeTypeTextDetails">
+        <Key>
+          <PropertyRef Name="chargeTypeID"/>
+          <PropertyRef Name="locale"/>
+        </Key>
+        <Property Name="chargeTypeID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
+        <Property Name="description" Type="Edm.String" MaxLength="255"/>
+        <NavigationProperty Name="ChargeType" Relationship="CatalogService.ChargeTypeTextDetails_ChargeType" FromRole="ChargeTypeTextDetails" ToRole="ChargeTypes"/>
+      </EntityType>
+      <EntityType Name="ChargeTypes">
+        <Key>
+          <PropertyRef Name="chargeTypeID"/>
+        </Key>
+        <Property Name="chargeTypeID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <NavigationProperty Name="TextDetails" Relationship="CatalogService.ChargeTypes_TextDetails" FromRole="ChargeTypes" ToRole="ChargeTypeTextDetails"/>
+      </EntityType>
+      <EntityType Name="CommitmentTimeTypeTextDetails">
+        <Key>
+          <PropertyRef Name="commitmentTimeTypeID"/>
+          <PropertyRef Name="locale"/>
+        </Key>
+        <Property Name="commitmentTimeTypeID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
+        <Property Name="description" Type="Edm.String" MaxLength="255"/>
+        <NavigationProperty Name="CommitmentTimeType" Relationship="CatalogService.CommitmentTimeTypeTextDetails_CommitmentTimeType" FromRole="CommitmentTimeTypeTextDetails" ToRole="CommitmentTimeTypes"/>
+      </EntityType>
+      <EntityType Name="CommitmentTimeTypes">
+        <Key>
+          <PropertyRef Name="commitmentTimeTypeID"/>
+        </Key>
+        <Property Name="commitmentTimeTypeID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <NavigationProperty Name="TextDetails" Relationship="CatalogService.CommitmentTimeTypes_TextDetails" FromRole="CommitmentTimeTypes" ToRole="CommitmentTimeTypeTextDetails"/>
       </EntityType>
       <EntityType Name="ContentActionTextDetails">
         <Key>
@@ -232,18 +402,6 @@
         <NavigationProperty Name="ContentSource" Relationship="CatalogService.ContentSourceActions_ContentSource" FromRole="ContentSourceActions" ToRole="ContentSources"/>
         <NavigationProperty Name="ContentSourceTextDetails" Relationship="CatalogService.ContentSourceActions_ContentSourceTextDetails" FromRole="ContentSourceActions" ToRole="ContentSourceTextDetails"/>
         <NavigationProperty Name="ContentActionTextDetails" Relationship="CatalogService.ContentSourceActions_ContentActionTextDetails" FromRole="ContentSourceActions" ToRole="ContentActionTextDetails"/>
-      </EntityType>
-      <EntityType Name="ContentSourceCarrierTextDetails">
-        <Key>
-          <PropertyRef Name="contentSourceID"/>
-          <PropertyRef Name="carrierMasterID"/>
-          <PropertyRef Name="locale"/>
-        </Key>
-        <Property Name="contentSourceID" Type="Edm.String" MaxLength="60" Nullable="false"/>
-        <Property Name="carrierMasterID" Type="Edm.String" MaxLength="60" Nullable="false"/>
-        <Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
-        <Property Name="description" Type="Edm.String" MaxLength="255"/>
-        <NavigationProperty Name="ContentSourceCarrier" Relationship="CatalogService.ContentSourceCarrierTextDetails_ContentSourceCarrier" FromRole="ContentSourceCarrierTextDetails" ToRole="ContentSourceCarriers"/>
       </EntityType>
       <EntityType Name="ContentSourceCarriers">
         <Key>
@@ -329,6 +487,23 @@
         <NavigationProperty Name="ContentSourceActions" Relationship="CatalogService.ContentSources_ContentSourceActions" FromRole="ContentSources" ToRole="ContentSourceActions"/>
         <NavigationProperty Name="TextDetails" Relationship="CatalogService.ContentSources_TextDetails" FromRole="ContentSources" ToRole="ContentSourceTextDetails"/>
       </EntityType>
+      <EntityType Name="DaysInTransitTypeTextDetails">
+        <Key>
+          <PropertyRef Name="daysInTransitTypeID"/>
+          <PropertyRef Name="locale"/>
+        </Key>
+        <Property Name="daysInTransitTypeID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
+        <Property Name="description" Type="Edm.String" MaxLength="255"/>
+        <NavigationProperty Name="DaysInTransitType" Relationship="CatalogService.DaysInTransitTypeTextDetails_DaysInTransitType" FromRole="DaysInTransitTypeTextDetails" ToRole="DaysInTransitTypes"/>
+      </EntityType>
+      <EntityType Name="DaysInTransitTypes">
+        <Key>
+          <PropertyRef Name="daysInTransitTypeID"/>
+        </Key>
+        <Property Name="daysInTransitTypeID" Type="Edm.String" MaxLength="60" Nullable="false"/>
+        <NavigationProperty Name="TextDetails" Relationship="CatalogService.DaysInTransitTypes_TextDetails" FromRole="DaysInTransitTypes" ToRole="DaysInTransitTypeTextDetails"/>
+      </EntityType>
       <EntityType Name="ErrorMessageTextDetails">
         <Key>
           <PropertyRef Name="errorMessageID"/>
@@ -363,14 +538,93 @@
         <Property Name="feedTypeID" Type="Edm.String" MaxLength="60" Nullable="false"/>
         <NavigationProperty Name="TextDetails" Relationship="CatalogService.FeedTypes_TextDetails" FromRole="FeedTypes" ToRole="FeedTypeTextDetails"/>
       </EntityType>
-      <Association Name="Admin_CarrierMasterService_CarrierMaster">
-        <End Role="Admin_CarrierMasterService" Type="CatalogService.Admin_CarrierMasterService" Multiplicity="*"/>
+      <EntityType Name="FreightCostCodeTextDetails">
+        <Key>
+          <PropertyRef Name="freightCostCodeID"/>
+          <PropertyRef Name="locale"/>
+        </Key>
+        <Property Name="freightCostCodeID" Type="Edm.String" MaxLength="255" Nullable="false"/>
+        <Property Name="locale" Type="Edm.String" MaxLength="2" Nullable="false"/>
+        <Property Name="description" Type="Edm.String" MaxLength="255"/>
+        <NavigationProperty Name="FreightCostCode" Relationship="CatalogService.FreightCostCodeTextDetails_FreightCostCode" FromRole="FreightCostCodeTextDetails" ToRole="FreightCostCodes"/>
+      </EntityType>
+      <EntityType Name="FreightCostCodes">
+        <Key>
+          <PropertyRef Name="freightCostCodeID"/>
+        </Key>
+        <Property Name="freightCostCodeID" Type="Edm.String" MaxLength="255" Nullable="false"/>
+        <NavigationProperty Name="TextDetails" Relationship="CatalogService.FreightCostCodes_TextDetails" FromRole="FreightCostCodes" ToRole="FreightCostCodeTextDetails"/>
+      </EntityType>
+      <Association Name="CarrierMasterContentActions_CarrierMaster">
+        <End Role="CarrierMasterContentActions" Type="CatalogService.CarrierMasterContentActions" Multiplicity="*"/>
         <End Role="CarrierMasters" Type="CatalogService.CarrierMasters" Multiplicity="0..1"/>
         <ReferentialConstraint>
           <Principal Role="CarrierMasters">
             <PropertyRef Name="carrierMasterID"/>
           </Principal>
-          <Dependent Role="Admin_CarrierMasterService">
+          <Dependent Role="CarrierMasterContentActions">
+            <PropertyRef Name="carrierMasterID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CarrierMasterContentActions_CarrierMasterTextDetails">
+        <End Role="CarrierMasterContentActions" Type="CatalogService.CarrierMasterContentActions" Multiplicity="*"/>
+        <End Role="CarrierMasterTextDetails" Type="CatalogService.CarrierMasterTextDetails" Multiplicity="*"/>
+        <ReferentialConstraint>
+          <Principal Role="CarrierMasterTextDetails">
+            <PropertyRef Name="carrierMasterID"/>
+          </Principal>
+          <Dependent Role="CarrierMasterContentActions">
+            <PropertyRef Name="carrierMasterID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CarrierMasterContentActions_ContentActionTextDetails">
+        <End Role="CarrierMasterContentActions" Type="CatalogService.CarrierMasterContentActions" Multiplicity="*"/>
+        <End Role="ContentActionTextDetails" Type="CatalogService.ContentActionTextDetails" Multiplicity="*"/>
+        <ReferentialConstraint>
+          <Principal Role="ContentActionTextDetails">
+            <PropertyRef Name="contentActionID"/>
+          </Principal>
+          <Dependent Role="CarrierMasterContentActions">
+            <PropertyRef Name="contentActionID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CarrierMasterContentActions_ContentSourceTextDetails">
+        <End Role="CarrierMasterContentActions" Type="CatalogService.CarrierMasterContentActions" Multiplicity="*"/>
+        <End Role="ContentSourceTextDetails" Type="CatalogService.ContentSourceTextDetails" Multiplicity="*"/>
+        <ReferentialConstraint>
+          <Principal Role="ContentSourceTextDetails">
+            <PropertyRef Name="contentSourceID"/>
+          </Principal>
+          <Dependent Role="CarrierMasterContentActions">
+            <PropertyRef Name="contentSourceID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CarrierMasterServiceTextDetails_CarrierMasterService">
+        <End Role="CarrierMasterServiceTextDetails" Type="CatalogService.CarrierMasterServiceTextDetails" Multiplicity="*"/>
+        <End Role="CarrierMasterServices" Type="CatalogService.CarrierMasterServices" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="CarrierMasterServices">
+            <PropertyRef Name="carrierMasterID"/>
+            <PropertyRef Name="carrierServiceID"/>
+          </Principal>
+          <Dependent Role="CarrierMasterServiceTextDetails">
+            <PropertyRef Name="carrierMasterID"/>
+            <PropertyRef Name="carrierServiceID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CarrierMasterServices_CarrierMaster">
+        <End Role="CarrierMasterServices" Type="CatalogService.CarrierMasterServices" Multiplicity="*"/>
+        <End Role="CarrierMasters" Type="CatalogService.CarrierMasters" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="CarrierMasters">
+            <PropertyRef Name="carrierMasterID"/>
+          </Principal>
+          <Dependent Role="CarrierMasterServices">
             <PropertyRef Name="carrierMasterID"/>
           </Dependent>
         </ReferentialConstraint>
@@ -403,14 +657,14 @@
       </Association>
       <Association Name="CarrierMasters_CarrierMasterServices">
         <End Role="CarrierMasters" Type="CatalogService.CarrierMasters" Multiplicity="*"/>
-        <End Role="Admin_CarrierMasterService" Type="CatalogService.Admin_CarrierMasterService" Multiplicity="*">
+        <End Role="CarrierMasterServices" Type="CatalogService.CarrierMasterServices" Multiplicity="*">
           <OnDelete Action="Cascade"/>
         </End>
         <ReferentialConstraint>
           <Principal Role="CarrierMasters">
             <PropertyRef Name="carrierMasterID"/>
           </Principal>
-          <Dependent Role="Admin_CarrierMasterService">
+          <Dependent Role="CarrierMasterServices">
             <PropertyRef Name="carrierMasterID"/>
           </Dependent>
         </ReferentialConstraint>
@@ -426,6 +680,110 @@
           </Principal>
           <Dependent Role="CarrierMasterTextDetails">
             <PropertyRef Name="carrierMasterID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CarrierServiceCategoryTextDetails_CarrierServiceCategory">
+        <End Role="CarrierServiceCategoryTextDetails" Type="CatalogService.CarrierServiceCategoryTextDetails" Multiplicity="*"/>
+        <End Role="CarrierServiceCategorys" Type="CatalogService.CarrierServiceCategorys" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="CarrierServiceCategorys">
+            <PropertyRef Name="carrierServiceCategoryID"/>
+          </Principal>
+          <Dependent Role="CarrierServiceCategoryTextDetails">
+            <PropertyRef Name="carrierServiceCategoryID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CarrierServiceCategorys_TextDetails">
+        <End Role="CarrierServiceCategorys" Type="CatalogService.CarrierServiceCategorys" Multiplicity="*"/>
+        <End Role="CarrierServiceCategoryTextDetails" Type="CatalogService.CarrierServiceCategoryTextDetails" Multiplicity="*">
+          <OnDelete Action="Cascade"/>
+        </End>
+        <ReferentialConstraint>
+          <Principal Role="CarrierServiceCategorys">
+            <PropertyRef Name="carrierServiceCategoryID"/>
+          </Principal>
+          <Dependent Role="CarrierServiceCategoryTextDetails">
+            <PropertyRef Name="carrierServiceCategoryID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CarrierServiceTypeTextDetails_CarrierServiceType">
+        <End Role="CarrierServiceTypeTextDetails" Type="CatalogService.CarrierServiceTypeTextDetails" Multiplicity="*"/>
+        <End Role="CarrierServiceTypes" Type="CatalogService.CarrierServiceTypes" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="CarrierServiceTypes">
+            <PropertyRef Name="carrierServiceTypeID"/>
+          </Principal>
+          <Dependent Role="CarrierServiceTypeTextDetails">
+            <PropertyRef Name="carrierServiceTypeID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CarrierServiceTypes_TextDetails">
+        <End Role="CarrierServiceTypes" Type="CatalogService.CarrierServiceTypes" Multiplicity="*"/>
+        <End Role="CarrierServiceTypeTextDetails" Type="CatalogService.CarrierServiceTypeTextDetails" Multiplicity="*">
+          <OnDelete Action="Cascade"/>
+        </End>
+        <ReferentialConstraint>
+          <Principal Role="CarrierServiceTypes">
+            <PropertyRef Name="carrierServiceTypeID"/>
+          </Principal>
+          <Dependent Role="CarrierServiceTypeTextDetails">
+            <PropertyRef Name="carrierServiceTypeID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="ChargeTypeTextDetails_ChargeType">
+        <End Role="ChargeTypeTextDetails" Type="CatalogService.ChargeTypeTextDetails" Multiplicity="*"/>
+        <End Role="ChargeTypes" Type="CatalogService.ChargeTypes" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="ChargeTypes">
+            <PropertyRef Name="chargeTypeID"/>
+          </Principal>
+          <Dependent Role="ChargeTypeTextDetails">
+            <PropertyRef Name="chargeTypeID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="ChargeTypes_TextDetails">
+        <End Role="ChargeTypes" Type="CatalogService.ChargeTypes" Multiplicity="*"/>
+        <End Role="ChargeTypeTextDetails" Type="CatalogService.ChargeTypeTextDetails" Multiplicity="*">
+          <OnDelete Action="Cascade"/>
+        </End>
+        <ReferentialConstraint>
+          <Principal Role="ChargeTypes">
+            <PropertyRef Name="chargeTypeID"/>
+          </Principal>
+          <Dependent Role="ChargeTypeTextDetails">
+            <PropertyRef Name="chargeTypeID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CommitmentTimeTypeTextDetails_CommitmentTimeType">
+        <End Role="CommitmentTimeTypeTextDetails" Type="CatalogService.CommitmentTimeTypeTextDetails" Multiplicity="*"/>
+        <End Role="CommitmentTimeTypes" Type="CatalogService.CommitmentTimeTypes" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="CommitmentTimeTypes">
+            <PropertyRef Name="commitmentTimeTypeID"/>
+          </Principal>
+          <Dependent Role="CommitmentTimeTypeTextDetails">
+            <PropertyRef Name="commitmentTimeTypeID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CommitmentTimeTypes_TextDetails">
+        <End Role="CommitmentTimeTypes" Type="CatalogService.CommitmentTimeTypes" Multiplicity="*"/>
+        <End Role="CommitmentTimeTypeTextDetails" Type="CatalogService.CommitmentTimeTypeTextDetails" Multiplicity="*">
+          <OnDelete Action="Cascade"/>
+        </End>
+        <ReferentialConstraint>
+          <Principal Role="CommitmentTimeTypes">
+            <PropertyRef Name="commitmentTimeTypeID"/>
+          </Principal>
+          <Dependent Role="CommitmentTimeTypeTextDetails">
+            <PropertyRef Name="commitmentTimeTypeID"/>
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -516,20 +874,6 @@
           </Principal>
           <Dependent Role="ContentSourceActions">
             <PropertyRef Name="contentActionID"/>
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="ContentSourceCarrierTextDetails_ContentSourceCarrier">
-        <End Role="ContentSourceCarrierTextDetails" Type="CatalogService.ContentSourceCarrierTextDetails" Multiplicity="*"/>
-        <End Role="ContentSourceCarriers" Type="CatalogService.ContentSourceCarriers" Multiplicity="0..1"/>
-        <ReferentialConstraint>
-          <Principal Role="ContentSourceCarriers">
-            <PropertyRef Name="contentSourceID"/>
-            <PropertyRef Name="carrierMasterID"/>
-          </Principal>
-          <Dependent Role="ContentSourceCarrierTextDetails">
-            <PropertyRef Name="contentSourceID"/>
-            <PropertyRef Name="carrierMasterID"/>
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -723,6 +1067,32 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
+      <Association Name="DaysInTransitTypeTextDetails_DaysInTransitType">
+        <End Role="DaysInTransitTypeTextDetails" Type="CatalogService.DaysInTransitTypeTextDetails" Multiplicity="*"/>
+        <End Role="DaysInTransitTypes" Type="CatalogService.DaysInTransitTypes" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="DaysInTransitTypes">
+            <PropertyRef Name="daysInTransitTypeID"/>
+          </Principal>
+          <Dependent Role="DaysInTransitTypeTextDetails">
+            <PropertyRef Name="daysInTransitTypeID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="DaysInTransitTypes_TextDetails">
+        <End Role="DaysInTransitTypes" Type="CatalogService.DaysInTransitTypes" Multiplicity="*"/>
+        <End Role="DaysInTransitTypeTextDetails" Type="CatalogService.DaysInTransitTypeTextDetails" Multiplicity="*">
+          <OnDelete Action="Cascade"/>
+        </End>
+        <ReferentialConstraint>
+          <Principal Role="DaysInTransitTypes">
+            <PropertyRef Name="daysInTransitTypeID"/>
+          </Principal>
+          <Dependent Role="DaysInTransitTypeTextDetails">
+            <PropertyRef Name="daysInTransitTypeID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
       <Association Name="ErrorMessageTextDetails_ErrorMessage">
         <End Role="ErrorMessageTextDetails" Type="CatalogService.ErrorMessageTextDetails" Multiplicity="*"/>
         <End Role="ErrorMessages" Type="CatalogService.ErrorMessages" Multiplicity="0..1"/>
@@ -775,9 +1145,90 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
+      <Association Name="FreightCostCodeTextDetails_FreightCostCode">
+        <End Role="FreightCostCodeTextDetails" Type="CatalogService.FreightCostCodeTextDetails" Multiplicity="*"/>
+        <End Role="FreightCostCodes" Type="CatalogService.FreightCostCodes" Multiplicity="0..1"/>
+        <ReferentialConstraint>
+          <Principal Role="FreightCostCodes">
+            <PropertyRef Name="freightCostCodeID"/>
+          </Principal>
+          <Dependent Role="FreightCostCodeTextDetails">
+            <PropertyRef Name="freightCostCodeID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FreightCostCodes_TextDetails">
+        <End Role="FreightCostCodes" Type="CatalogService.FreightCostCodes" Multiplicity="*"/>
+        <End Role="FreightCostCodeTextDetails" Type="CatalogService.FreightCostCodeTextDetails" Multiplicity="*">
+          <OnDelete Action="Cascade"/>
+        </End>
+        <ReferentialConstraint>
+          <Principal Role="FreightCostCodes">
+            <PropertyRef Name="freightCostCodeID"/>
+          </Principal>
+          <Dependent Role="FreightCostCodeTextDetails">
+            <PropertyRef Name="freightCostCodeID"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Annotations Target="CatalogService.EntityContainer/CarrierMasterContentActions" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/CarrierMasterServiceTextDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.CarrierMasterServiceTextDetails/locale" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Language"/>
+      </Annotations>
+      <Annotations Target="CatalogService.CarrierMasterServiceTextDetails/description" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Description"/>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/CarrierMasterServices" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
       <Annotations Target="CatalogService.CarrierMasterTextDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Capabilities.draftEnabled" Bool="true"/>
-        <Annotation Term="Capabilities.writeDraftPersistence" String="ADMIN_DRAFTMODEL_CARRIERMASTERTEXTDETAIL"/>
         <Annotation Term="UI.Facets">
           <Collection>
             <Record Type="UI.ReferenceFacet">
@@ -869,8 +1320,6 @@
         <Annotation Term="Common.Label" String="Description"/>
       </Annotations>
       <Annotations Target="CatalogService.CarrierMasters" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Capabilities.draftEnabled" Bool="true"/>
-        <Annotation Term="Capabilities.writeDraftPersistence" String="ADMIN_DRAFTMODEL_CARRIERMASTER"/>
         <Annotation Term="UI.Facets">
           <Collection>
             <Record Type="UI.ReferenceFacet">
@@ -948,6 +1397,166 @@
         </Annotation>
       </Annotations>
       <Annotations Target="CatalogService.EntityContainer/CarrierMasters" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/CarrierServiceCategoryTextDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.CarrierServiceCategoryTextDetails/locale" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Language"/>
+      </Annotations>
+      <Annotations Target="CatalogService.CarrierServiceCategoryTextDetails/description" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Description"/>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/CarrierServiceCategorys" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/CarrierServiceTypeTextDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.CarrierServiceTypeTextDetails/locale" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Language"/>
+      </Annotations>
+      <Annotations Target="CatalogService.CarrierServiceTypeTextDetails/description" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Description"/>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/CarrierServiceTypes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/ChargeTypeTextDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.ChargeTypeTextDetails/locale" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Language"/>
+      </Annotations>
+      <Annotations Target="CatalogService.ChargeTypeTextDetails/description" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Description"/>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/ChargeTypes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/CommitmentTimeTypeTextDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.CommitmentTimeTypeTextDetails/locale" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Language"/>
+      </Annotations>
+      <Annotations Target="CatalogService.CommitmentTimeTypeTextDetails/description" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Description"/>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/CommitmentTimeTypes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Capabilities.DeleteRestrictions">
           <Record Type="Capabilities.DeleteRestrictionsType">
             <PropertyValue Property="Deletable" Bool="true"/>
@@ -1173,29 +1782,6 @@
             <PropertyValue Property="Updatable" Bool="true"/>
           </Record>
         </Annotation>
-      </Annotations>
-      <Annotations Target="CatalogService.EntityContainer/ContentSourceCarrierTextDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Capabilities.DeleteRestrictions">
-          <Record Type="Capabilities.DeleteRestrictionsType">
-            <PropertyValue Property="Deletable" Bool="true"/>
-          </Record>
-        </Annotation>
-        <Annotation Term="Capabilities.InsertRestrictions">
-          <Record Type="Capabilities.InsertRestrictionsType">
-            <PropertyValue Property="Insertable" Bool="true"/>
-          </Record>
-        </Annotation>
-        <Annotation Term="Capabilities.UpdateRestrictions">
-          <Record Type="Capabilities.UpdateRestrictionsType">
-            <PropertyValue Property="Updatable" Bool="true"/>
-          </Record>
-        </Annotation>
-      </Annotations>
-      <Annotations Target="CatalogService.ContentSourceCarrierTextDetails/locale" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Language"/>
-      </Annotations>
-      <Annotations Target="CatalogService.ContentSourceCarrierTextDetails/description" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Description"/>
       </Annotations>
       <Annotations Target="CatalogService.ContentSourceCarriers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="UI.Facets">
@@ -1556,6 +2142,46 @@
           </Record>
         </Annotation>
       </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/DaysInTransitTypeTextDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.DaysInTransitTypeTextDetails/locale" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Language"/>
+      </Annotations>
+      <Annotations Target="CatalogService.DaysInTransitTypeTextDetails/description" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Description"/>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/DaysInTransitTypes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
       <Annotations Target="CatalogService.ErrorMessageTextDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="UI.Facets">
           <Collection>
@@ -1880,6 +2506,46 @@
         </Annotation>
       </Annotations>
       <Annotations Target="CatalogService.EntityContainer/FeedTypes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/FreightCostCodeTextDetails" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="true"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="true"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="CatalogService.FreightCostCodeTextDetails/locale" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Language"/>
+      </Annotations>
+      <Annotations Target="CatalogService.FreightCostCodeTextDetails/description" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Description"/>
+      </Annotations>
+      <Annotations Target="CatalogService.EntityContainer/FreightCostCodes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Capabilities.DeleteRestrictions">
           <Record Type="Capabilities.DeleteRestrictionsType">
             <PropertyValue Property="Deletable" Bool="true"/>

@@ -14,16 +14,16 @@ entity ChargeType {
 } 
 
 entity FreightCostCode {
-	freightCostCodeID		: Common.Description;
+	key freightCostCodeID		: Common.Description;
 	TextDetails				: Composition of many TextDetail.FreightCostCode on TextDetails.freightCostCodeID = $self.freightCostCodeID;
 }
 
 entity DaysInTransitType {
-	daysInTransitTypeID		: Common.AdminKey;
+	key daysInTransitTypeID		: Common.AdminKey;
 	TextDetails				: Composition of many TextDetail.DaysInTransitType on TextDetails.daysInTransitTypeID = $self.daysInTransitTypeID;
 }
 
 entity CommitmentTimeType {
-	commitmentTimeTypeID	: Common.AdminKey;
+	key commitmentTimeTypeID	: Common.AdminKey;
 	TextDetails				: Composition of many TextDetail.CommitmentTimeType  on TextDetails.commitmentTimeTypeID = $self.commitmentTimeTypeID;
 }

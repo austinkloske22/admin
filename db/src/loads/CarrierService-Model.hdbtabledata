@@ -95,7 +95,7 @@
 		"import_settings": {
         	"include_filter" : [ ],			
 			"import_columns": [
-				"CARRIERSERVICETYPEID",
+				"CARRIERSERVICETYPEID"
 				]
 		},
 		"column_mappings": {
@@ -117,12 +117,12 @@
 		"import_settings": {
         	"include_filter" : [ ],			
 			"import_columns": [
-				"CARRIERSERVICECATEGORYID",
+				"CARRIERSERVICECATEGORYID"
 				]
 		},
 		"column_mappings": {
-			"CARRIERSERVICECAEGORYID": 1
+			"CARRIERSERVICECATEGORYID": 1
 		}
-	},
+	}
 	]
 }

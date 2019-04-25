@@ -54,7 +54,7 @@ service CatalogService {
 		}
 	) as projection on DropDownValue.ChargeType;
 
-	entity  FreightCodeCodes @(
+	entity  FreightCostCodes @(
 		Capabilities: {
 			InsertRestrictions: {Insertable: true},
 			UpdateRestrictions: {Updatable: true},
@@ -189,14 +189,6 @@ service CatalogService {
 			DeleteRestrictions: {Deletable: true}
 		}
 	) as projection on ContentProvider.ContentSourceCarrier;
-	
-	entity  ContentSourceCarrierTextDetails @(
-		Capabilities: {
-			InsertRestrictions: {Insertable: true},
-			UpdateRestrictions: {Updatable: true},
-			DeleteRestrictions: {Deletable: true}
-		}
-	) as projection on TextDetail.ContentSourceCarrier;
 	
 	entity  ContentSourceActions @(
 		Capabilities: {

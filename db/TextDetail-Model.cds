@@ -27,14 +27,6 @@ entity ContentSourceValue {
 	ContentSourceValue	: Association to one ContentProvider.ContentSourceValue on ContentSourceValue.contentSourceID = $self.contentSourceID and ContentSourceValue.contentKeyID = $self.contentKeyID;
 }
 
-entity ContentSourceCarrier {
-	key contentSourceID		: Common.AdminKey;
-	key carrierMasterID		: Common.AdminKey;
-	key locale				: Common.LanguageCode @(title: '{i18n>locale}', Common.Label: '{i18n>locale}');
-	description				: Common.Description @(title: '{i18n>description}', Common.Label: '{i18n>description}');
-	ContentSourceCarrier	: Association to one ContentProvider.ContentSourceCarrier on ContentSourceCarrier.contentSourceID = $self.contentSourceID and ContentSourceCarrier.carrierMasterID = $self.carrierMasterID;
-}
-
 entity ContentSourceAction {
 	key contentSourceID	: Common.AdminKey;
 	key contentActionID	: Common.AdminKey;

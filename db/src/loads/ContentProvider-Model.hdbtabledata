@@ -161,7 +161,6 @@
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "feedtype.csv",
-			"subfolder": "content-providers",
             "subfolder": "content-provider",
 			"has_header": false,
 			"dialect": "HANA",
